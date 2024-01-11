@@ -132,9 +132,9 @@ MonoBehaviour:
   displaySortOrder: 0
   childIdentifiers:
   - 2c5177b11d81d824dbb064f9ac8527da
-  - fd7c55dab0fce234b8c25f6ffca523c1
   - 46fbfdf3fc43db0458918377fd40293e
   - c88d16e5272a4e241b0ef0ac2e53b73d
+  - fd7c55dab0fce234b8c25f6ffca523c1
   codecChannels:
     Value: []
     HasValue: 0
@@ -259,12 +259,12 @@ MonoBehaviour:
   HideSetupWizard: 0
   LastEventReferenceScanVersion: 131609
   Platforms:
-  - {fileID: 6056313180952860975}
-  - {fileID: -4599223478770494886}
   - {fileID: -5194241301979692964}
-  - {fileID: 7501116750014197068}
+  - {fileID: -4599223478770494886}
   - {fileID: -3534637869037261532}
   - {fileID: 4992798449672466778}
+  - {fileID: 6056313180952860975}
+  - {fileID: 7501116750014197068}
   MigratedPlatforms: 060000001500000005000000080000000200000001000000
 --- !u!114 &4992798449672466778
 MonoBehaviour:
