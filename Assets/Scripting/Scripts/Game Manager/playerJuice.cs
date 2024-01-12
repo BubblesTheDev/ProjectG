@@ -4,37 +4,56 @@ using UnityEngine;
 
 public class playerJuice : MonoBehaviour
 {
-
     public static playerJuice playerJuiceReference;
 
-    [Space, SerializeField] private bool enableHeadbob = true;
+    [Space, Header("Headbob VFX")]
+    [SerializeField] private bool enableHeadbob = true;
     [SerializeField] private Vector2 amplitude = new Vector2(0.03f, 0.015f), frequency = new Vector2(12f, 12f);
     [SerializeField] private float headbobActivateLimit = 3, headbobIntensity = 1;
 
-    [Space, SerializeField] private bool enableGunLag = true;
+
+    [Space, Header("Gun Lag VFX")]
+    [SerializeField] private bool enableGunLag = true;
     [SerializeField] private float sideLagDistance, heightLagDifference, frontLagDifference;
     [SerializeField] private float smoothness;
     [SerializeField] private GameObject objThatFollows;
-
-    [Space, SerializeField] private AnimationCurve intensityCurve;
+    [ SerializeField] private AnimationCurve intensityCurve;
     [SerializeField] private GameObject objToShake;
 
+    [Space, Header("Speed Lines VFX")]
+    [ SerializeField] private ParticleSystem speedLines;
+    [SerializeField] private GameObject speedLineObject;
+    [SerializeField] private float speedlineVelThreshold;
 
-    private Vector3 headbobOriginalPosition;
+    [Space, Header("Speed Lines VFX")]
+    [SerializeField] private ParticleSystem fallLines;
+    [SerializeField] private GameObject fallLineObject;
+    [SerializeField] private float fallLineVelThreshold;
+
+    [Space, Header("Dash VFX")]
+    [SerializeField] private GameObject dashVFXObject;
+    [SerializeField] private ParticleSystem dashVFX;
+    
     private Rigidbody rb;
     private cameraControl camControl;
     private playerMovement playerMoveScript;
+
+
     private void Awake()
     {
         rb = GameObject.Find("Player").GetComponent<Rigidbody>();
         camControl = GameObject.Find("Player").GetComponent<cameraControl>();
         playerMoveScript = GameObject.Find("Player").GetComponent<playerMovement>();
-        headbobOriginalPosition = objThatFollows.transform.localPosition;
         playerJuiceReference = this;
 
 #if !UNITY_EDITOR
         getSettings();
 #endif
+    }
+
+    private void Update()
+    {
+        speedLineVFX();
     }
     private void FixedUpdate()
     {
@@ -61,14 +80,11 @@ public class playerJuice : MonoBehaviour
         pos.x += Mathf.Sin(Time.time * frequency.x * headbobIntensity) * amplitude.x * headbobIntensity;
 
         if (rb.velocity.magnitude > headbobActivateLimit) objThatFollows.transform.localPosition += pos;
-        //objThatFollows.transform.LookAt(camControl.lookingDir.point);
     }
 
     void smoothFollow()
     {
         if (!enableGunLag) return;
-
-
         Vector3 localRBVelocity = objThatFollows.transform.parent.transform.InverseTransformDirection(rb.velocity);
         Vector3 targetPos = new Vector3(sideLagDistance * (-Mathf.Clamp(localRBVelocity.x, -15, 15) / 100),
             heightLagDifference * (-Mathf.Clamp(localRBVelocity.y, -15, 15) / 100),
@@ -77,17 +93,37 @@ public class playerJuice : MonoBehaviour
         objThatFollows.transform.localPosition = Vector3.Lerp(objThatFollows.transform.localPosition, targetPos, smoothness);
     }
 
-    public IEnumerator screenshake(float duration, float intensity)
+    public void speedLineVFX()
     {
-        Vector3 startPos = objToShake.transform.localPosition;
-        float currentTime = 0f;
-
-        while (currentTime < duration)
+        if(speedLineObject == null || speedLines == null)
         {
-            currentTime += Time.deltaTime;
-            objToShake.transform.localPosition = startPos + (Random.insideUnitSphere * (intensityCurve.Evaluate(currentTime/duration) * intensity));
-            yield return null;
+            Debug.Log("There is no speedlines particle effect/object");
+            return;
         }
-        objToShake.transform.localPosition = startPos;
+        if (Vector3.Scale(rb.velocity, new Vector3(1,0,1)).magnitude < speedlineVelThreshold)
+        {
+            speedLines.Stop();
+        }
+        else
+        {
+            speedLines.Play();
+        }
+    }
+
+    public void fallLineVFX()
+    {
+        if (fallLineObject == null || fallLines == null)
+        {
+            Debug.Log("There is no fall lines particle effect/object");
+            return;
+        }
+        if (Vector3.Scale(rb.velocity, new Vector3(0, 1, 0)).magnitude < fallLineVelThreshold)
+        {
+            fallLines.Stop();
+        }
+        else
+        {
+            fallLines.Play();
+        }
     }
 }

@@ -47,7 +47,6 @@ public class playerHealth : MonoBehaviour
                 if (currentStaticEnergy >= maxStaticEnergy) currentStaticEnergy = maxStaticEnergy;
             }
         }
-        if (Input.GetKeyDown(KeyCode.F1)) StartCoroutine(takeDamage(1));
     }
 
     public IEnumerator takeDamage(int damage)
