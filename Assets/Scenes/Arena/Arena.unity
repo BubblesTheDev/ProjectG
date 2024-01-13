@@ -82768,6 +82768,14 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   objToShake: {fileID: 1137848594}
+  speedLines: {fileID: 0}
+  speedLineObject: {fileID: 0}
+  speedlineVelThreshold: 0
+  fallLines: {fileID: 0}
+  fallLineObject: {fileID: 0}
+  fallLineVelThreshold: 0
+  dashVFXObject: {fileID: 0}
+  dashVFX: {fileID: 0}
 --- !u!43 &1679491635
 Mesh:
   m_ObjectHideFlags: 0
@@ -87966,39 +87974,39 @@ MonoBehaviour:
     Path: event:/SFX/Gravity Switch/Game Ready/Gravity Switch 2
   <enemySpawn>k__BackingField:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: 1202879218
+      Data2: 1103647499
+      Data3: 627866271
+      Data4: -1358632427
+    Path: event:/SFX/Enemy Respawn/Enemy Spawn
   <jumpSFX>k__BackingField:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: -171374389
+      Data2: 1256537327
+      Data3: -583741272
+      Data4: 99735812
+    Path: event:/SFX/Player Movement/Jump Sound
   <dashSFX>k__BackingField:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: 438259432
+      Data2: 1184730574
+      Data3: -431571327
+      Data4: 863848330
+    Path: event:/SFX/Player Movement/Dash
   <regenSFX>k__BackingField:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: -1903588572
+      Data2: 1272489897
+      Data3: -541396804
+      Data4: -1150250774
+    Path: event:/SFX/Regen
   <slideSFX>k__BackingField:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: 183932647
+      Data2: 1314470019
+      Data3: 1168790170
+      Data4: -835152268
+    Path: event:/SFX/Sliding SFX
 --- !u!1 &1713467130
 GameObject:
   m_ObjectHideFlags: 0
@@ -88342,6 +88350,7 @@ GameObject:
   - component: {fileID: 1781633710}
   - component: {fileID: 1781633709}
   - component: {fileID: 1781633708}
+  - component: {fileID: 1781633711}
   m_Layer: 6
   m_Name: Directional Light
   m_TagString: Untagged
@@ -88548,6 +88557,29 @@ Transform:
   m_Children: []
   m_Father: {fileID: 716149411}
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!114 &1781633711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1781633707}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 3
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_RenderingLayers: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_ShadowRenderingLayers: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
+  m_SoftShadowQuality: 0
 --- !u!1 &1829917607
 GameObject:
   m_ObjectHideFlags: 0
