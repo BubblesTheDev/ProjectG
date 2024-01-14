@@ -13,7 +13,7 @@ public class NewBehaviourScript : MonoBehaviour
     public float timerRemaining = 5.0f;
     public bool timerIsRunning = false;
     public string timerText;
-
+    public int SceneBuildIndex;
 
     private void OnGUI()
     {
@@ -25,7 +25,7 @@ public class NewBehaviourScript : MonoBehaviour
     void Start()
     {
         CurrentImage = 0;
-        bool timerIsRunning = true;
+         timerIsRunning = true;
         timerRemaining = timer;
     }
 
@@ -37,7 +37,7 @@ public class NewBehaviourScript : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space)) {
             CurrentImage++;
             if (CurrentImage >= imageArray.Length) {
-                SceneManager.LoadScene(1);
+                SceneManager.LoadScene(SceneBuildIndex, LoadSceneMode.Single);
             }
         }
     }

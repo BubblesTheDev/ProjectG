@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 262.38358, g: 325.10843, b: 430.30963, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -401,6 +401,7 @@ GameObject:
   - component: {fileID: 1635266474}
   - component: {fileID: 1635266473}
   - component: {fileID: 1635266475}
+  - component: {fileID: 1635266476}
   m_Layer: 0
   m_Name: Directional Light
   m_TagString: Untagged
@@ -607,6 +608,29 @@ MonoBehaviour:
   m_PointlightHDType: 0
   m_SpotLightShape: 0
   m_AreaLightShape: 0
+--- !u!114 &1635266476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1635266472}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 3
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_RenderingLayers: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_ShadowRenderingLayers: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
+  m_SoftShadowQuality: 0
 --- !u!1 &1737844762
 GameObject:
   m_ObjectHideFlags: 0
@@ -633,19 +657,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 1737844762}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 69d84c001512f634c8bf1dd046cb4c1a, type: 3}
+  m_Script: {fileID: 11500000, guid: c0459d92955a6c74f8685d5d323722bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   imageArray:
-  - {fileID: 2800000, guid: 5acf010a19720fe498616f9996d472fb, type: 3}
-  - {fileID: 2800000, guid: f2acc1538399bb14eb7e9641cc52e7cf, type: 3}
-  - {fileID: 2800000, guid: 83904033fafc89e47868762e1d098787, type: 3}
-  - {fileID: 2800000, guid: 313253009dae1324eaa91dfe3b22eac9, type: 3}
-  - {fileID: 2800000, guid: 0d0aeb2c00031024588d3d5603265d29, type: 3}
+  - {fileID: 2800000, guid: ea49670bc66d10349967d7407ce2ebe4, type: 3}
+  - {fileID: 2800000, guid: cbdc808a2fc6e824ea6ceee6c93d2f45, type: 3}
+  - {fileID: 2800000, guid: 59ef0919e715d3741af96e59e7ee6ad8, type: 3}
+  - {fileID: 2800000, guid: 60c3e92b09263a5499b286faa3202375, type: 3}
   timer: 5
   timerRemaining: 5
   timerIsRunning: 0
   timerText: 
+  SceneBuildIndex: 1
 --- !u!4 &1737844764
 Transform:
   m_ObjectHideFlags: 0
