@@ -58,6 +58,7 @@ public class playerJuice : MonoBehaviour
     private void Update()
     {
         speedLineVFX();
+        fallLineVFX();
         slideVFX();
         playerMoveScript.onAction_Dash_Start.AddListener(startDashVFX);
         playerMoveScript.onAction_DashFW_Start.AddListener(startDashVFXFW);
@@ -125,7 +126,7 @@ public class playerJuice : MonoBehaviour
             Debug.Log("There is no fall lines particle effect");
             return;
         }
-        if (Vector3.Scale(rb.velocity, new Vector3(0, 1, 0)).magnitude < fallLineVelThreshold)
+        if (Vector3.Scale(rb.velocity, new Vector3(0, 1, 0)).magnitude > fallLineVelThreshold)
         {
             fallLines.loop = false;
         }
