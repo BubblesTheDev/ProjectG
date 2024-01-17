@@ -36,7 +36,6 @@ public class playerMovement : MonoBehaviour
 
     #region Ground Check Calculations
     [Space, Header("Ground Calculations")]
-    public Vector3 groundCheck_PositionalOffset;
     public float timeInSeconds_GroundedCoyoteTime;
     public float current_CoyoteTime;
     private RaycastHit groundCheck_HitInformation;
@@ -84,6 +83,7 @@ public class playerMovement : MonoBehaviour
     public float terminalVelocity_Slide;
     [HideInInspector] public float colliderHeight_normal;
     public float colliderHeight_Slide;
+    [HideInInspector] public Vector3 slideTempDir { private set; get; } = Vector3.zero;
     #endregion
 
     #region Action Slam
@@ -123,6 +123,7 @@ public class playerMovement : MonoBehaviour
     [HideInInspector] public UnityEvent onAction_Jump_Start;
     [HideInInspector] public UnityEvent onAction_SlideJumpStart;
     [HideInInspector] public UnityEvent onAction_Dash_Start;
+    [HideInInspector] public UnityEvent onAction_DashFW_Start;
     [HideInInspector] public UnityEvent onAction_Slide_Start;
     [HideInInspector] public UnityEvent onAction_Slam_Start;
     [HideInInspector] public UnityEvent onAction_Flip_Start;
@@ -207,7 +208,7 @@ public class playerMovement : MonoBehaviour
             if (grounded) Gizmos.color = Color.green;
             else Gizmos.color = Color.red;
 
-            Vector3 tempPositionaloffSet = groundCheck_PositionalOffset;
+            Vector3 tempPositionaloffSet = Vector3.zero;
             if (current_PlayerRotationState == playerRotationState.nonFlipped) tempPositionaloffSet *= directionalVector_Flipped.y;
             else tempPositionaloffSet *= directionalVector_NonFlipped.y;
             Gizmos.DrawRay(transform.position + tempPositionaloffSet, -transform.up * groundCheck_Distance);
@@ -262,7 +263,7 @@ public class playerMovement : MonoBehaviour
     {
         if (current_playerMovementAction == playerMovementAction.jumping || current_playerMovementAction == playerMovementAction.flipping) return;
 
-        Vector3 tempPositionaloffSet = groundCheck_PositionalOffset;
+        Vector3 tempPositionaloffSet = Vector3.zero;
         if (current_PlayerRotationState == playerRotationState.nonFlipped) tempPositionaloffSet *= directionalVector_Flipped.y;
         else tempPositionaloffSet *= directionalVector_NonFlipped.y;
         #region new version
@@ -410,7 +411,7 @@ public class playerMovement : MonoBehaviour
                     break;
             }
         }
-        else if (grounded && current_playerMovementAction != playerMovementAction.jumping) vertical_playerVelocity = new Vector3(0,-2f,0);
+        else if (grounded && current_playerMovementAction != playerMovementAction.jumping) vertical_playerVelocity = -transform.up * 2f;
     }
 
     private void applyHorizontalAcceleration()
@@ -544,7 +545,7 @@ public class playerMovement : MonoBehaviour
         current_playerMovementAction = playerMovementAction.sliding;
         action_CanSlide = false;
         playerCollider.height = colliderHeight_Slide;
-        Vector3 slideTempDir = Vector3.zero;
+        slideTempDir = Vector3.zero;
         if (current_PlayerInputActions.playerMovment.HorizontalMovement.ReadValue<Vector2>().magnitude == 0) slideTempDir = directionalOrientation.transform.forward.normalized;
         else slideTempDir = current_playerDirectionalVector.normalized;
         transform.position -= Vector3.up * colliderHeight_Slide;
@@ -556,7 +557,6 @@ public class playerMovement : MonoBehaviour
             horizontal_playerVelocity += slideTempDir * acceleration_Slide * Time.deltaTime;
             yield return null;
         }
-        // transform.position += Vector3.up * colliderHeight_Slide;
         playerCollider.height = colliderHeight_normal;
         canAffectMovement = true;
         current_playerMovementAction = playerMovementAction.moving;

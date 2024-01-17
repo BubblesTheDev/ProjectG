@@ -29,18 +29,18 @@ public class PlayerHUD : MonoBehaviour
 
     private playerHealth healthStats;
     private playerMovement movementStats;
-
+    private weaponInventory inventory;
 
     [Space, Header("Weapon HUD")]
-    [SerializeField] private Image pistolIcon;
-    [SerializeField] private Image shotgunIcon;
-    [SerializeField] private GameObject pistol;
-    [SerializeField] private GameObject shotgun;
+    [SerializeField] private Image weaponIconHolder;
+    [SerializeField] private Sprite[] weaponIcons;
 
     private void Awake()
     {
         healthStats = GameObject.Find("Player").GetComponent<playerHealth>();
         movementStats = GameObject.Find("Player").GetComponent<playerMovement>();
+        inventory = GameObject.Find("Orientation").GetComponent<weaponInventory>();
+
 
         setupStats();
 
@@ -63,10 +63,7 @@ public class PlayerHUD : MonoBehaviour
     private void Update()
     {
         constantStats();
-        if (pistol.GetComponent<weaponBase>().weaponIsEquipped) pistolIcon.enabled = true;
-        else pistolIcon.enabled = false;
-        if (shotgun.GetComponent<weaponBase>().weaponIsEquipped) shotgunIcon.enabled = true;
-        else shotgunIcon.enabled = false;
+        handleInventtory();
     }
 
 
@@ -148,5 +145,11 @@ public class PlayerHUD : MonoBehaviour
         }
         HUD.transform.position = startPos;
         im_HUD.color = Color.black;
-    }   
+    }
+
+    private void handleInventtory()
+    {
+        if (inventory == null || weaponIconHolder == null || weaponIcons.Length == 0) return;
+        if (weaponIcons[inventory.currentWeaponIndex] != null || weaponIcons.Length >= inventory.weapons.Count) weaponIconHolder.sprite = weaponIcons[inventory.currentWeaponIndex];
+    }
 }

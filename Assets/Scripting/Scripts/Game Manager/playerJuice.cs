@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class playerJuice : MonoBehaviour
@@ -22,18 +23,20 @@ public class playerJuice : MonoBehaviour
 
     [Space, Header("Speed Lines VFX")]
     [ SerializeField] private ParticleSystem speedLines;
-    [SerializeField] private GameObject speedLineObject;
     [SerializeField] private float speedlineVelThreshold;
 
     [Space, Header("Speed Lines VFX")]
     [SerializeField] private ParticleSystem fallLines;
-    [SerializeField] private GameObject fallLineObject;
     [SerializeField] private float fallLineVelThreshold;
 
     [Space, Header("Dash VFX")]
-    [SerializeField] private GameObject dashVFXObject;
-    [SerializeField] private ParticleSystem dashVFX;
+    [SerializeField] private ParticleSystem[] dashParticles;
+    [SerializeField] private float percentForFovChange = .25f;
+    [SerializeField] private float fovChange = 10f;
     
+    [Space, Header("Slide VFX")]
+    [SerializeField] private ParticleSystem[] slideParticles;
+    [SerializeField] private GameObject slideParticleObject;
     private Rigidbody rb;
     private cameraControl camControl;
     private playerMovement playerMoveScript;
@@ -51,9 +54,13 @@ public class playerJuice : MonoBehaviour
 #endif
     }
 
+
     private void Update()
     {
         speedLineVFX();
+        slideVFX();
+        playerMoveScript.onAction_Dash_Start.AddListener(startDashVFX);
+        playerMoveScript.onAction_DashFW_Start.AddListener(startDashVFXFW);
     }
     private void FixedUpdate()
     {
@@ -73,7 +80,7 @@ public class playerJuice : MonoBehaviour
 
     void headbob()
     {
-        if (!enableHeadbob) return;
+        if (!enableHeadbob || objThatFollows == null) return;
 
         Vector3 pos = Vector3.zero;
         pos.y -= Mathf.Abs(Mathf.Sin(Time.time * frequency.y * headbobIntensity) * amplitude.y * headbobIntensity);
@@ -84,7 +91,7 @@ public class playerJuice : MonoBehaviour
 
     void smoothFollow()
     {
-        if (!enableGunLag) return;
+        if (!enableGunLag || objThatFollows == null || objToShake == null) return;
         Vector3 localRBVelocity = objThatFollows.transform.parent.transform.InverseTransformDirection(rb.velocity);
         Vector3 targetPos = new Vector3(sideLagDistance * (-Mathf.Clamp(localRBVelocity.x, -15, 15) / 100),
             heightLagDifference * (-Mathf.Clamp(localRBVelocity.y, -15, 15) / 100),
@@ -95,35 +102,99 @@ public class playerJuice : MonoBehaviour
 
     public void speedLineVFX()
     {
-        if(speedLineObject == null || speedLines == null)
+        if(speedLines == null)
         {
-            Debug.Log("There is no speedlines particle effect/object");
+            Debug.Log("There is no speedlines particle effect");
             return;
         }
         if (Vector3.Scale(rb.velocity, new Vector3(1,0,1)).magnitude < speedlineVelThreshold)
         {
-            speedLines.Stop();
+            speedLines.loop = false;
         }
         else
         {
+            speedLines.loop = true;
             speedLines.Play();
         }
     }
 
     public void fallLineVFX()
     {
-        if (fallLineObject == null || fallLines == null)
+        if (fallLines == null)
         {
-            Debug.Log("There is no fall lines particle effect/object");
+            Debug.Log("There is no fall lines particle effect");
             return;
         }
         if (Vector3.Scale(rb.velocity, new Vector3(0, 1, 0)).magnitude < fallLineVelThreshold)
         {
-            fallLines.Stop();
+            fallLines.loop = false;
         }
         else
         {
             fallLines.Play();
+            fallLines.loop = true;
+        }
+    }
+
+    private void startDashVFXFW()
+    {
+        StartCoroutine(dashVFX(true));
+    }
+
+    private void startDashVFX()
+    {
+        StartCoroutine(dashVFX(false));
+    }
+    public IEnumerator dashVFX(bool dashForward)
+    {
+        if (dashParticles == null) print("There is no dash particle effects assigned");
+
+        foreach (var particle in dashParticles) 
+        {
+            particle.Play();
+        }
+
+        float startingFOV = Camera.main.GetComponent<Camera>().fieldOfView;
+        if (dashForward) 
+        {
+            float timeElapsed = 0;
+            while (timeElapsed < playerMoveScript.dashDuration * percentForFovChange)
+            {
+                Camera.main.GetComponent<Camera>().fieldOfView = Mathf.Lerp(startingFOV, startingFOV + fovChange, timeElapsed / playerMoveScript.dashDuration * percentForFovChange);
+                timeElapsed += Time.deltaTime;
+                yield return null;
+            }
+
+            timeElapsed = 0;
+            while (Camera.main.GetComponent<Camera>().fieldOfView != startingFOV)
+            {
+                Camera.main.GetComponent<Camera>().fieldOfView = Mathf.Lerp(startingFOV + fovChange, startingFOV, timeElapsed);
+                timeElapsed += Time.deltaTime;
+            }
+
+        }
+
+        yield return null;
+    }
+
+    private void slideVFX()
+    {
+        slideParticleObject.transform.rotation = Quaternion.LookRotation(playerMoveScript.slideTempDir);
+        if(playerMoveScript.current_playerMovementAction == playerMovementAction.sliding) 
+        {
+            foreach (ParticleSystem x in slideParticles)
+            {
+                if(!x.isPlaying)
+                {
+                    x.Play();
+                }
+            }
+        } else
+        {
+            foreach (ParticleSystem x in slideParticles)
+            {
+                x.Stop();
+            }
         }
     }
 }

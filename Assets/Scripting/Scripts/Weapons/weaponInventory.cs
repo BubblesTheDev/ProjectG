@@ -5,7 +5,7 @@ using UnityEngine;
 public class weaponInventory : MonoBehaviour
 {
     public List<GameObject> weapons = new List<GameObject>();
-    [SerializeField] private int currentWeaponIndex;
+    public int currentWeaponIndex { private set; get; }
     [SerializeField] private GameObject currentWeapon;
 
 
