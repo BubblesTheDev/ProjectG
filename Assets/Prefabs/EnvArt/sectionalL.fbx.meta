@@ -8,7 +8,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: sectional
-    second: {fileID: 2100000, guid: 574b3055a84a1ae45bbf45dd2e88254f, type: 2}
+    second: {fileID: 2100000, guid: b502b6444eef67d49b6039d4783dce00, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
