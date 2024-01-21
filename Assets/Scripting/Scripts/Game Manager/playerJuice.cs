@@ -139,14 +139,16 @@ public class playerJuice : MonoBehaviour
 
     private void startDashVFXFW()
     {
-        StartCoroutine(dashVFX(true));
+        //StartCoroutine(dashVFX(true));
     }
 
     private void startDashVFX()
     {
-        StartCoroutine(dashVFX(false));
+        //StartCoroutine(dashVFX(false));
     }
-    public IEnumerator dashVFX(bool dashForward)
+
+
+    /*public IEnumerator dashVFX(bool dashForward)
     {
         if (dashParticles == null) print("There is no dash particle effects assigned");
 
@@ -176,7 +178,7 @@ public class playerJuice : MonoBehaviour
         }
 
         yield return null;
-    }
+    }*/
 
     private void slideVFX()
     {
