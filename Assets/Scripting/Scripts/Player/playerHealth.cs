@@ -47,6 +47,7 @@ public class playerHealth : MonoBehaviour
                 if (currentStaticEnergy >= maxStaticEnergy) currentStaticEnergy = maxStaticEnergy;
             }
         }
+
     }
 
     public IEnumerator takeDamage(int damage)
