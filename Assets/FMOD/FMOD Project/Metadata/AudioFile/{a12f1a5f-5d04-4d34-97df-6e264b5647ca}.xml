@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.02.00">
 	<object class="AudioFile" id="{a12f1a5f-5d04-4d34-97df-6e264b5647ca}">
 		<property name="assetPath">
-			<value>Regen Sound Final.wav</value>
+			<value>Final SFX/Movement/Regen Sound Final.wav</value>
 		</property>
 		<property name="frequencyInKHz">
 			<value>22.0499992</value>

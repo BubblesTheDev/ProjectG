@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.02.00">
 	<object class="AudioFile" id="{aae54e07-cb86-41c2-9c7e-77a7aba10a5b}">
 		<property name="assetPath">
-			<value>Ground_Slam_Final.wav</value>
+			<value>Final SFX/Movement/Ground_Slam_Final.wav</value>
 		</property>
 		<property name="frequencyInKHz">
 			<value>44.0999985</value>
