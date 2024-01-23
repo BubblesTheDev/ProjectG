@@ -7,13 +7,15 @@ public class HealParticles : MonoBehaviour
 {
     [SerializeField] private ParticleSystem particles;
     [SerializeField] private playerHealth stats;
+    [SerializeField] private Volume healPPR;
+    [SerializeField] private float vignetteShowTime;
 
 
     // Start is called before the first frame update
     void Start()
     {
         stats = GameObject.Find("Player").GetComponent<playerHealth>();
-        // stats.healedDamage.AddListener(VignetteSequence);
+        stats.healedDamage.AddListener(VignetteSequence);
     }
 
     // Update is called once per frame
@@ -38,24 +40,37 @@ public class HealParticles : MonoBehaviour
             main.maxParticles = 10;
         }
 
-
     }
 
-/*    void VignetteSequence()
+
+
+    void VignetteSequence()
     {
-        StartCoroutine(SpawnVignette());
+        StartCoroutine(HealVignette());
     }
 
-    private IEnumerator SpawnVignette()
+    private IEnumerator HealVignette()
     {
-        v = ScriptableObject.CreateInstance<Vignette>();
-        v.enabled.Override(true);
-        v.intensity.Override(1f);
-        ppv = PostProcessManager.instance.QuickVolume(10, 100, v);
-        v.intensity.value = Mathf.Sin(Time.realtimeSinceStartup);
-        yield return new WaitForSeconds(0.5f);
-        RuntimeUtilities.DestroyVolume(ppv, true, false);
-    }*/
+        float timer = 0;
+        while (timer < vignetteShowTime)
+        {
+            timer += Time.deltaTime;
+            healPPR.weight = timer / vignetteShowTime;
+            yield return null;
+        }
+
+        yield return new WaitForSeconds(vignetteShowTime);
+        timer = 0;
+        while (timer < vignetteShowTime)
+        {
+            timer += Time.deltaTime;
+            healPPR.weight = 1 - (timer / vignetteShowTime);
+            yield return null;
+        }
+
+        healPPR.weight = 0;
+
+    }
 
 
 }
