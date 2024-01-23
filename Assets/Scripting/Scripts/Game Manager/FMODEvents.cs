@@ -10,6 +10,7 @@ public class FMODEvents : MonoBehaviour
 
     [field: Header("GUN SFX")]
     [field: SerializeField] public EventReference pistolShot { get; private set; }
+    [field: SerializeField] public EventReference chargePistolShot { get; private set; }
     [field: SerializeField] public EventReference shotgunShotNoCock { get; private set; }
     [field: SerializeField] public EventReference shotgunShotCock { get; private set; }
     [field: SerializeField] public EventReference enemyShot { get; private set; }
