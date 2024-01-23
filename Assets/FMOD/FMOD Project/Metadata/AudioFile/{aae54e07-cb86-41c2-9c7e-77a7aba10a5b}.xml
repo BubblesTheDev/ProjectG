@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{aae54e07-cb86-41c2-9c7e-77a7aba10a5b}">
+		<property name="assetPath">
+			<value>Ground_Slam_Final.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>0.50961451247165535</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{7b97db15-e2df-4e58-a513-ffe8389781e2}</destination>
+		</relationship>
+	</object>
+</objects>
