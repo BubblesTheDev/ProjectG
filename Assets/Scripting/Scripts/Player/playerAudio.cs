@@ -54,6 +54,7 @@ public class playerAudio : MonoBehaviour
     }
     private void startSlamSound()
     {
+        AudioManager.instance.PlaySFX(FMODEvents.instance.groundSlamSFX, this.transform.position);
 
     }
     private void playNormalFlipSound()
