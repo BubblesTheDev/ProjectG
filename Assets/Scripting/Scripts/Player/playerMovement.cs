@@ -5,6 +5,7 @@ using TMPro;
 using Unity.Properties;
 using Unity.VisualScripting;
 using UnityEditor;
+using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -124,7 +125,7 @@ public class playerMovement : MonoBehaviour
     [HideInInspector] public UnityEvent onAction_SlideJumpStart;
     [HideInInspector] public UnityEvent onAction_Dash_Start;
     [HideInInspector] public UnityEvent onAction_DashFW_Start;
-    [HideInInspector] public UnityEvent onAction_Slide_Start;
+     public UnityEvent onAction_Slide_Start;
     [HideInInspector] public UnityEvent onAction_Slam_Start;
     [HideInInspector] public UnityEvent onAction_Flip_Start;
     [HideInInspector] public UnityEvent onAction_Slide_End;
@@ -349,7 +350,9 @@ public class playerMovement : MonoBehaviour
 
         if (current_PlayerInputActions.playerMovment.Dash.WasPressedThisFrame()) StartCoroutine(action_Dash());
         if (current_PlayerInputActions.playerMovment.Slam.WasPressedThisFrame()) StartCoroutine(action_Slam());
-        if (current_PlayerInputActions.playerMovment.Slide.IsPressed() && !current_PlayerInputActions.playerMovment.Jump.IsPressed()) StartCoroutine(action_Slide());
+        if (current_PlayerInputActions.playerMovment.Slide.IsPressed() 
+            && !current_PlayerInputActions.playerMovment.Jump.IsPressed() 
+            && !current_PlayerInputActions.playerMovment.FlipGravity.IsPressed()) StartCoroutine(action_Slide());
         if (current_PlayerInputActions.playerMovment.Jump.WasPressedThisFrame() && !grounded) StartCoroutine(action_Jump());
         else if(current_PlayerInputActions.playerMovment.Jump.IsPressed() && grounded) StartCoroutine(action_Jump());
         if (current_PlayerInputActions.playerMovment.FlipGravity.WasPressedThisFrame()) StartCoroutine(action_Flip());
@@ -552,16 +555,18 @@ public class playerMovement : MonoBehaviour
         canAffectMovement = false;
         canSlideJump = true;
 
-        while (current_PlayerInputActions.playerMovment.Slide.IsPressed() && current_playerMovementAction != playerMovementAction.jumping)
+        while (current_PlayerInputActions.playerMovment.Slide.IsPressed() 
+            && current_playerMovementAction != playerMovementAction.jumping 
+            && current_playerMovementAction != playerMovementAction.flipping)
         {
             horizontal_playerVelocity += slideTempDir * acceleration_Slide * Time.deltaTime;
             yield return null;
         }
+        onAction_Slide_End.Invoke();
         playerCollider.height = colliderHeight_normal;
         canAffectMovement = true;
         current_playerMovementAction = playerMovementAction.moving;
 
-        onAction_Slide_End.Invoke();
 
         float timeToWaitForCooldown = 0;
         while (canSlideJump || !action_CanSlide)
@@ -575,7 +580,6 @@ public class playerMovement : MonoBehaviour
     private IEnumerator action_Slam()
     {
         if (!action_CanSlam || grounded || current_playerMovementAction != playerMovementAction.moving) yield break;
-
         onAction_Slam_Start.Invoke();
 
         current_playerMovementAction = playerMovementAction.slamming;
@@ -611,7 +615,10 @@ public class playerMovement : MonoBehaviour
     }
     private IEnumerator action_Flip()
     {
-        if (!action_CanFlip || current_playerMovementAction != playerMovementAction.moving)
+        if (!action_CanFlip 
+            || current_playerMovementAction == playerMovementAction.jumping
+            || current_playerMovementAction == playerMovementAction.slamming
+            || current_playerMovementAction == playerMovementAction.dashing)
         {
             onAction_CannotFlip.Invoke();
             yield break;
@@ -637,6 +644,8 @@ public class playerMovement : MonoBehaviour
         gravityAffected = false;
         canAffectMovement = false;
         canAffectRotation = false;
+        current_CoyoteTime = 0;
+        grounded = false;
         vertical_playerVelocity = Vector3.zero;
 
 
@@ -644,7 +653,8 @@ public class playerMovement : MonoBehaviour
         float tempTimer = 0;
         while (tempTimer < timeInSeconds_ToFlip)
         {
-
+            action_CanSlide = false;
+            current_playerMovementAction = playerMovementAction.flipping;
             directionalOrientation.transform.Find("CameraHolder").transform.eulerAngles += new Vector3(0, 0, (180 / timeInSeconds_ToFlip) * Time.deltaTime);
             tempTimer += Time.deltaTime;
             yield return null;
@@ -655,7 +665,7 @@ public class playerMovement : MonoBehaviour
 
         if (current_PlayerRotationState == playerRotationState.nonFlipped) current_PlayerRotationState = playerRotationState.flipped;
         else current_PlayerRotationState = playerRotationState.nonFlipped;
-
+        action_CanSlide = true;
         gravityAffected = true;
         canAffectRotation = true;
         canAffectMovement = true;

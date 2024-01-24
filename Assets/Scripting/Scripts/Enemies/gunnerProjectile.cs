@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class gunnerProjectile : MonoBehaviour
 {
-    [SerializeField] private int damage;
-    [SerializeField] private float speed, distanceToKill;
+    public int damage;
+    public float speed; 
+    private float distanceToKill;
     private Vector3 startPos;
     private Rigidbody rb;
 
