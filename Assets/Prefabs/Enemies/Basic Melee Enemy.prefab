@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7954663573278458718}
   - component: {fileID: 8412280548184099628}
-  - component: {fileID: 7121471657364119923}
   - component: {fileID: 7423844078839269297}
   - component: {fileID: 4343454892006027904}
   - component: {fileID: 6400306043264206916}
@@ -58,28 +57,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!64 &7121471657364119923
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2644451572962075471}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -8839368762345780380, guid: 6671013b46f80be44990709499fa19d5, type: 3}
 --- !u!114 &7423844078839269297
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -97,9 +74,6 @@ MonoBehaviour:
   moveSpeed: 40
   ragDollTime: 0
   spawner: {fileID: 0}
-  onDamageTaken:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!195 &4343454892006027904
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -134,18 +108,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56b873675f313e54d8b89ec01cf3026c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentAIState: 0
   canPunch: 1
-  punchAttackCooldown: 2.5
-  hitStunDuration: 0.5
-  hitboxActive_Punch: 0
-  timeBeforePunchAttack: 0.05
-  distanceToPunchPlayer: 4
-  punchAttackHitboxCenter: {x: 0, y: 1.25, z: 0.65}
-  punchAttackHitboxSize: {x: 0.5, y: 0.5, z: 0.5}
-  ref_playerLayer:
-    serializedVersion: 2
-    m_Bits: 0
+  punchAttackCooldown: 1
+  hitStunDuration: 0.115
+  hitboxActiveTime: 0.1
+  punchAnimName: BasicMeleePunch
+  damage: 1
+  distanceToPunchPlayer: 2.5
+  punchHitbox: {fileID: 1018948544573501103}
+  walkingAnimThreshold: 1
 --- !u!1001 &6693575781158859661
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -212,8 +183,39 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7308131983182659819, guid: 176e1ee001bad154a88e6d65ca0ad89d,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1018948544573501103}
   m_SourcePrefab: {fileID: 100100000, guid: 176e1ee001bad154a88e6d65ca0ad89d, type: 3}
+--- !u!1 &4147789851882140518 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7308131983182659819, guid: 176e1ee001bad154a88e6d65ca0ad89d,
+    type: 3}
+  m_PrefabInstance: {fileID: 6693575781158859661}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1018948544573501103
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4147789851882140518}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.1930016, y: 0.5686908, z: 0.55398846}
+  m_Center: {x: 0.09650111, y: 0.031298414, z: 0.0018110275}
 --- !u!4 &6588452653638669414 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 176e1ee001bad154a88e6d65ca0ad89d,

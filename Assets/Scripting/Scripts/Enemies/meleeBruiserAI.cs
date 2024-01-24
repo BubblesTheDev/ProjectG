@@ -8,16 +8,16 @@ using UnityEngine.InputSystem.iOS;
 public class meleeBruiserAI : MonoBehaviour
 {
     [Header("Debug Things")]
-    [SerializeField] private bruiserAIStates currentAIState;
     [SerializeField] private bool canPunch;
     [SerializeField] private float punchAttackCooldown, hitStunDuration;
 
     [Header("Punch Attack Stats")]
-    [SerializeField] private bool hitboxActive_Punch;
-    [SerializeField] private float timeBeforePunchAttack;
+    [SerializeField] private float hitboxActiveTime;
+    [SerializeField] private string punchAnimName;
+    [SerializeField] private int damage;
     [SerializeField] private float distanceToPunchPlayer;
-    [SerializeField] private Vector3 punchAttackHitboxCenter, punchAttackHitboxSize;
-    [SerializeField] private LayerMask ref_playerLayer;
+    [SerializeField] private Collider punchHitbox;
+    [SerializeField] private float walkingAnimThreshold;
     private bool hasHitPlayerThisAttack = false;
 
     #region Assignables
@@ -26,6 +26,7 @@ public class meleeBruiserAI : MonoBehaviour
     private playerHealth ref_PlayerStats;
     private Animator ref_meleeAnimator;
     private enemyStats ref_EnemyStats;
+    private Collider ref_playerCollider;
     #endregion
 
     private void Awake()
@@ -35,95 +36,61 @@ public class meleeBruiserAI : MonoBehaviour
         ref_PlayerStats = ref_PlayerObj.GetComponent<playerHealth>();
         ref_meleeAnimator = GetComponent<Animator>();
         ref_EnemyStats = GetComponent<enemyStats>();
-
-        ref_EnemyStats.onDamageTaken.AddListener(startTakeDamage);
+        ref_playerCollider = ref_PlayerObj.GetComponent<Collider>();   
     }
 
     private void Update()
     {
-        if (currentAIState == bruiserAIStates.following)
-        {
-            if(Mathf.Abs(ref_NavMeshAgent.velocity.magnitude) > 0) ref_meleeAnimator.Play("BasicMeleeWalk");
-            else ref_meleeAnimator.Play("BasicMeleeAngy");
-            ref_NavMeshAgent.SetDestination(ref_PlayerObj.transform.position);
-        }
-        if (canPunch && Vector3.Distance(transform.position + Vector3.up * 1.5f, ref_PlayerObj.transform.position) <= distanceToPunchPlayer) StartCoroutine(action_PunchPlayer());
+        ref_NavMeshAgent.SetDestination(new Vector3(ref_PlayerObj.transform.position.x, transform.position.y, ref_PlayerObj.transform.position.z));
 
-        if (hitboxActive_Punch)
+        //if (ref_NavMeshAgent.velocity.magnitude > walkingAnimThreshold) ref_meleeAnimator.Play("BasicMeleeWalk", 0);
+        if(Vector3.Distance(ref_PlayerObj.transform.position, transform.position) < distanceToPunchPlayer && canPunch)
         {
-            if(Physics.CheckBox(transform.position + transform.TransformDirection(punchAttackHitboxCenter), punchAttackHitboxSize, transform.rotation, ref_playerLayer) && !hasHitPlayerThisAttack)
-            {
-                StartCoroutine(ref_PlayerStats.takeDamage(1));
-                hasHitPlayerThisAttack = true;
-            }
+            StartCoroutine(attackPlayer());
         }
     }
 
-    private void OnDrawGizmosSelected()
+    public void enablePunchHitbox()
     {
-        if(ref_PlayerObj != null) 
-        {
-            if (canPunch && Vector3.Distance(transform.position, ref_PlayerObj.transform.position) < 15f)
-            {
-                Gizmos.color = Color.white;
-                Gizmos.DrawLine(transform.position + Vector3.up * 1.5f, ref_PlayerObj.transform.position);
-            }
-        }
-
-        #region punchDebug
-        if (hitboxActive_Punch) Gizmos.color = Color.red;
-        else if (canPunch) Gizmos.color = Color.green;
-        else Gizmos.color = Color.yellow;
-
-        Gizmos.DrawSphere(transform.localPosition + transform.TransformDirection(punchAttackHitboxCenter), 0.05f);
-        Gizmos.matrix = transform.localToWorldMatrix;
-        Gizmos.DrawWireCube(punchAttackHitboxCenter, punchAttackHitboxSize * 2f);
-        #endregion
+        punchHitbox.enabled = true;
+        //print("enabled hitbox for " + name);
     }
 
-    void startTakeDamage()
+    public void disablePunchHitbox()
     {
-        StartCoroutine(action_TakeDamage());
+        punchHitbox.enabled = false;
+        //print("disabled hitbox for " + name);
     }
 
-    public void toggle_PunchHitbox()
+    IEnumerator attackPlayer()
     {
-        hitboxActive_Punch = !hitboxActive_Punch;
-    }
-
-    IEnumerator action_PunchPlayer()
-    {
-        currentAIState = bruiserAIStates.punching;
-        ref_NavMeshAgent.isStopped = true;
-        ref_NavMeshAgent.velocity = Vector3.zero;
         canPunch = false;
+        ref_meleeAnimator.Play(punchAnimName,0);
+        
+        //print(transform.name + " is punching");
 
-        ref_meleeAnimator.Play("BasicMeleePunch");
-        yield return new WaitForSeconds(ref_meleeAnimator.GetCurrentAnimatorClipInfo(0).Length + 0.1f);
+        float temp = 0;
+        while(temp < hitboxActiveTime)
+        {
+            if(punchHitbox.bounds.Intersects(ref_playerCollider.bounds) && !hasHitPlayerThisAttack) 
+            {
+                print("hit player");
+                hasHitPlayerThisAttack = true;
+                StartCoroutine(ref_PlayerStats.takeDamage(damage));
+            }
 
-        ref_NavMeshAgent.isStopped = false;
-        currentAIState = bruiserAIStates.following;
+            temp += Time.deltaTime;
+            yield return null;
+
+        }
+
+        //print("finished punch");
+
+        disablePunchHitbox();
         yield return new WaitForSeconds(punchAttackCooldown);
         canPunch = true;
         hasHitPlayerThisAttack = false;
     }
 
-    IEnumerator action_TakeDamage()
-    {
-        currentAIState = bruiserAIStates.hitstun;
-        StopCoroutine(action_PunchPlayer());
-        canPunch = true;
-        ref_NavMeshAgent.isStopped = true;
-        ref_meleeAnimator.Play("BasicMeleeHit");
-        yield return new WaitForSeconds(ref_meleeAnimator.GetCurrentAnimatorStateInfo(0).length);
-        ref_NavMeshAgent.isStopped = false;
-        currentAIState = bruiserAIStates.following;
-    }
-}
-
-enum bruiserAIStates
-{
-    following,
-    punching,
-    hitstun
+    
 }

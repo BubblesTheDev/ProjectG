@@ -21,30 +21,10 @@ public class enemyStats : MonoBehaviour
 
     void die()
     {
-        if (GetComponent<basicRangedAI>()) Destroy(GetComponent<basicRangedAI>());
-        else if (GetComponent<meleeBruiserAI>()) Destroy(GetComponent<meleeBruiserAI>());
-        spawner.enemiesRemaining.Remove(gameObject);
-
-        StartCoroutine(ragDollEnemy(15f));
-        Destroy(gameObject, 0f);
     }
 
     public void takeDamage(float damageToTake)
     {
         currentHP -= damageToTake;
-        onDamageTaken?.Invoke();
     }
-
-    public IEnumerator ragDollEnemy(float timeToRagdoll)
-    {
-        GetComponent<Animator>().enabled = false;
-        GetComponent<NavMeshAgent>().enabled = false;
-
-        yield return new WaitForSeconds(timeToRagdoll);
-
-        GetComponent<Animator>().enabled = true;
-        GetComponent<NavMeshAgent>().enabled = true;
-    }
-
-    public UnityEvent onDamageTaken;
 }

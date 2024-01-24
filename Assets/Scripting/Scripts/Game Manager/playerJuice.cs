@@ -33,7 +33,8 @@ public class playerJuice : MonoBehaviour
     [SerializeField] private ParticleSystem[] dashParticles;
     [SerializeField] private float percentForFovChange = .25f;
     [SerializeField] private float fovChange = 10f;
-    
+    private Camera playerCam;
+
     [Space, Header("Slide VFX")]
     [SerializeField] private ParticleSystem[] slideParticles;
     [SerializeField] private GameObject slideParticleObject;
@@ -47,7 +48,9 @@ public class playerJuice : MonoBehaviour
         rb = GameObject.Find("Player").GetComponent<Rigidbody>();
         camControl = GameObject.Find("Player").GetComponent<cameraControl>();
         playerMoveScript = GameObject.Find("Player").GetComponent<playerMovement>();
+        playerCam = camControl.CameraObj.GetComponentInChildren<Camera>();
         playerJuiceReference = this;
+        
 
 #if !UNITY_EDITOR
         getSettings();
@@ -139,16 +142,16 @@ public class playerJuice : MonoBehaviour
 
     private void startDashVFXFW()
     {
-        //StartCoroutine(dashVFX(true));
+        StartCoroutine(dashVFX(true));
     }
 
     private void startDashVFX()
     {
-        //StartCoroutine(dashVFX(false));
+        StartCoroutine(dashVFX(false));
     }
 
 
-    /*public IEnumerator dashVFX(bool dashForward)
+    public IEnumerator dashVFX(bool dashForward)
     {
         if (dashParticles == null) print("There is no dash particle effects assigned");
 
@@ -157,7 +160,7 @@ public class playerJuice : MonoBehaviour
             particle.Play();
         }
 
-        float startingFOV = Camera.main.GetComponent<Camera>().fieldOfView;
+        float startingFOV = playerCam.fieldOfView;
         if (dashForward) 
         {
             float timeElapsed = 0;
@@ -178,13 +181,13 @@ public class playerJuice : MonoBehaviour
         }
 
         yield return null;
-    }*/
+    }
 
     private void slideVFX()
     {
-        slideParticleObject.transform.rotation = Quaternion.LookRotation(playerMoveScript.slideTempDir);
         if(playerMoveScript.current_playerMovementAction == playerMovementAction.sliding) 
         {
+            slideParticleObject.transform.rotation = Quaternion.LookRotation(playerMoveScript.slideTempDir);
             foreach (ParticleSystem x in slideParticles)
             {
                 if(!x.isPlaying)
