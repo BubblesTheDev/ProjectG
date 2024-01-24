@@ -15,7 +15,7 @@ public class Act1EndTranAct2 : MonoBehaviour
 
         playerCheck = GameObject.Find("Player").GetComponent<playerHealth>();
 
-        if (other.tag == "Player" && playerCheck.currentHP == 0) {
+        if (other.tag == "Player" && playerCheck.currentHP <= 0) {
             SceneManager.LoadScene(SceneBuildIndex, LoadSceneMode.Single);
         
         }
