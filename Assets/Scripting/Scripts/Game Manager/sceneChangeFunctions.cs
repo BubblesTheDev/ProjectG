@@ -7,18 +7,18 @@ public class sceneChangeFunctions : MonoBehaviour
 {
     [SerializeField] private int sceneIndexToLoadOnTrigger;
 
-    public void loadScene(int sceneIndexToLoad)
+    public void loadSceneFromIndex(int sceneIndexToLoad)
     {
-        if (SceneManager.GetSceneAt(sceneIndexToLoad) != null) loadScene(sceneIndexToLoad); 
-        else Debug.LogWarning("There is no scene in the build settings set to index " + sceneIndexToLoad);
+        SceneManager.LoadScene(sceneIndexToLoad); 
+        //else Debug.LogWarning("There is no scene in the build settings set to index " + sceneIndexToLoad);
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.transform.CompareTag("Player"))
         {
-            if (SceneManager.GetSceneAt(sceneIndexToLoadOnTrigger) != null) loadScene(sceneIndexToLoadOnTrigger);
-            else Debug.LogWarning("There is no scene in the build settings set to index " + sceneIndexToLoadOnTrigger);
+            SceneManager.LoadScene(sceneIndexToLoadOnTrigger);
+            //else Debug.LogWarning("There is no scene in the build settings set to index " + sceneIndexToLoadOnTrigger);
         }
     }
 }
