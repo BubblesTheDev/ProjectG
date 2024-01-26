@@ -68,7 +68,7 @@ public class playerHealth : MonoBehaviour
     public IEnumerator playerDeath()
     {
         yield return null;
-        if(SceneManager.GetSceneAt(deathSceneIndex) != null ) SceneManager.LoadScene(deathSceneIndex);
+        SceneManager.LoadScene(deathSceneIndex);
     }
 
     public IEnumerator takeDamage(int damage)
