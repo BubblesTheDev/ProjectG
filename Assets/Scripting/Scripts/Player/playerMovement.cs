@@ -287,49 +287,7 @@ public class playerMovement : MonoBehaviour
         }
         #endregion
 
-        /*
-        #region old version
-        if (Physics.Raycast(transform.position + tempPositionaloffSet, -transform.up, out groundCheck_HitInformation, groundCheck_Distance, groundCheck_LayersToHit))
-        {
-            float tempAngle = Vector3.Angle(transform.up, groundCheck_HitInformation.normal);
-            if (tempAngle < maxSlopeAngle)
-            {
-                grounded = true;
-                //onAcceptableSlope = true;
-                if (current_CoyoteTime <= 0)
-                {
-                    current_CoyoteTime = timeInSeconds_GroundedCoyoteTime;
-                    current_NumberOfMidairJumps = numberOf_MidairJumps;
-                }
-                return;
-            }
-            else
-            {
-                grounded = true;
-                //onAcceptableSlope = false;
-                if (current_CoyoteTime <= 0)
-                {
-                    current_CoyoteTime = timeInSeconds_GroundedCoyoteTime;
-                    current_NumberOfMidairJumps = numberOf_MidairJumps;
-                }
-                return;
-            }
-        }
-        else if (current_CoyoteTime > 0)
-        {
-            current_CoyoteTime -= Time.deltaTime;
-            grounded = true;
-            //onAcceptableSlope = false;
-            return;
-        }
-        else
-        {
-            grounded = false;
-           //onAcceptableSlope = false;
-            return;
-        }
-        #endregion
-        */
+        
     }
 
     private void getPlayerInput()
@@ -374,7 +332,18 @@ public class playerMovement : MonoBehaviour
                     break;
             }
         }
-        else idealHDragForce = acceleration_Air / terminalVelocity_Air;
+        else if(!grounded)
+        {
+            switch(current_playerMovementAction)
+            {
+                case playerMovementAction.moving:
+                    idealHDragForce = acceleration_Air / terminalVelocity_Air;
+                    break;
+                case playerMovementAction.sliding:
+                    idealHDragForce = acceleration_Slide / terminalVelocity_Slide;
+                    break;
+            }
+        }
 
         current_DragForce = idealHDragForce;
         horizontal_playerVelocity *= 1 - Time.deltaTime * current_DragForce;
