@@ -18,7 +18,7 @@ public class playerHealth : MonoBehaviour
     [SerializeField] private float staticEnergyRate;
     
     [Space, Header("Death Stats")]
-    [SerializeField] private int deathSceneIndex;
+    public int deathSceneIndex;
 
     private Rigidbody rb;
     private bool isDead;
@@ -30,6 +30,7 @@ public class playerHealth : MonoBehaviour
     {
         currentHP = maxHp;
         rb = GetComponent<Rigidbody>();
+        deathSceneIndex = SceneManager.GetActiveScene().buildIndex;
     }
 
 

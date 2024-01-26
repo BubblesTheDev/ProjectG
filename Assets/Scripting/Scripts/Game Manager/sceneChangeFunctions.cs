@@ -17,7 +17,7 @@ public class sceneChangeFunctions : MonoBehaviour
     {
         if (other.transform.CompareTag("Player"))
         {
-            SceneManager.LoadScene(sceneIndexToLoadOnTrigger);
+            GameObject.Find("Player").GetComponent<playerHealth>().deathSceneIndex = sceneIndexToLoadOnTrigger;
             //else Debug.LogWarning("There is no scene in the build settings set to index " + sceneIndexToLoadOnTrigger);
         }
     }
