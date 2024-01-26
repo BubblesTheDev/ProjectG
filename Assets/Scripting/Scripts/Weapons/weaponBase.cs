@@ -69,21 +69,25 @@ public class weaponBase : MonoBehaviour
                 if (firePoint == null)
                 {
                     Debug.LogWarning("You are missing a <b>Firepoint</b> object decleration");
-                    Debug.Break();
+                    return;
                 }
                 StartCoroutine(fireGun());
             }
-            if (currentWeaponPower == null)
+            if (currentWeaponPower != null && interactionInput.Combat.Fire2.WasPressedThisFrame() && !interactionInput.Combat.Fire1.IsPressed())
             {
-                //Debug.LogWarning("You are missing a <b>current weapon power</b> decleration");
-                return;
+                if (currentWeaponPower.canUsePower)
+                {
 
+                    powerActivated.Invoke();
+                    StartCoroutine(currentWeaponPower.usePower());
+                }
             }
-            if (currentWeaponPower.canUsePower && interactionInput.Combat.Fire2.WasPressedThisFrame() && !interactionInput.Combat.Fire1.IsPressed())
+            else
             {
-                powerActivated.Invoke();
-                StartCoroutine(currentWeaponPower.usePower());
+                Debug.LogWarning("You are missing a <b>current weapon power</b> decleration");
+                return;
             }
+            
         }
         else if (!weaponIsEquipped)
         {
@@ -108,12 +112,14 @@ public class weaponBase : MonoBehaviour
 
                 List<RaycastHit> hits = new List<RaycastHit>();
 
+                //Causes the first pellet to always be straight, or if the angle is 0
                 if (multiPelletAngle == 0 || y == 0)
                 {
                     RaycastHit hit;
                     Physics.Raycast(camControl.CameraObj.transform.position, camControl.CameraObj.transform.forward, out hit, math.INFINITY, layersToIgnore);
                     if (hit.transform != null) hits.Add(hit);
                 }
+                //shoots with a random angle
                 else
                 {
                     RaycastHit hit;

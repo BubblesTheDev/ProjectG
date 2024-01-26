@@ -9,11 +9,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7904610713444660456}
-  - component: {fileID: 4069275449014225493}
   - component: {fileID: 356763358279148768}
   - component: {fileID: 2944867237593679562}
   - component: {fileID: 8667810994761094753}
   - component: {fileID: 2366724535427029739}
+  - component: {fileID: 6262200650413045515}
   m_Layer: 8
   m_Name: BasicRangedEnemy
   m_TagString: Enemy
@@ -37,28 +37,6 @@ Transform:
   - {fileID: 2922603864968668866}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!64 &4069275449014225493
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 477408387339613251}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 6775709275200811127, guid: 9c49f79cbff52074a8dfcc5afe967d77, type: 3}
 --- !u!195 &356763358279148768
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -154,8 +132,40 @@ MonoBehaviour:
   currentHP: 2
   maxHp: 2
   moveSpeed: 15
-  ragDollTime: 3
+  timeToDie: 1
+  VFX_onHit: []
+  VFX_onDeath: []
+  enemyGFX: {fileID: 2577462065095801976}
   spawner: {fileID: 0}
+  enemyDamageTaken:
+    m_PersistentCalls:
+      m_Calls: []
+  enemyDeath:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!136 &6262200650413045515
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 477408387339613251}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 2.25
+  m_Direction: 1
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!1001 &3388278974317150505
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -224,6 +234,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9c49f79cbff52074a8dfcc5afe967d77, type: 3}
+--- !u!1 &2577462065095801976 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 9c49f79cbff52074a8dfcc5afe967d77,
+    type: 3}
+  m_PrefabInstance: {fileID: 3388278974317150505}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2922603864968668866 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 9c49f79cbff52074a8dfcc5afe967d77,
