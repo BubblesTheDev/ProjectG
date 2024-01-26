@@ -2,19 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class playerHealth : MonoBehaviour
 {
-
+    [Header("Health Stats")]
     public int currentHP;
     public int maxHp;
+    public float immunityTime;
+    
+    [Space,Header("Regen Stats")]
     public float maxStaticEnergy;
     public float currentStaticEnergy;
     [SerializeField] private float movementMulti;
-
     [SerializeField] private float staticEnergyRate;
-    public float immunityTime;
+    
+    [Space, Header("Death Stats")]
+    [SerializeField] private int deathSceneIndex;
+
     private Rigidbody rb;
+    private bool isDead;
 
     [HideInInspector] public UnityEvent tookDamage;
     [HideInInspector] public UnityEvent healedDamage;
@@ -29,8 +36,17 @@ public class playerHealth : MonoBehaviour
 
     private void Update()
     {
-        
-        
+
+
+        regenHP();
+        if(currentHP <= 0) 
+        {
+            StartCoroutine(playerDeath());
+        }
+    }
+
+    private void regenHP()
+    {
         if (currentStaticEnergy >= maxStaticEnergy && currentHP != maxHp)
         {
             currentHP++;
@@ -40,14 +56,19 @@ public class playerHealth : MonoBehaviour
 
         if (rb.velocity.magnitude > 0 || rb.velocity.magnitude < 0)
         {
-            if(currentHP < 5)
+            if (currentHP < 5)
             {
                 float movementStaticIncrease = Mathf.Sqrt(Mathf.Pow(rb.velocity.magnitude, 2));
                 currentStaticEnergy += staticEnergyRate * (1 + (movementStaticIncrease / movementMulti)) * Time.deltaTime;
                 if (currentStaticEnergy >= maxStaticEnergy) currentStaticEnergy = maxStaticEnergy;
             }
         }
+    }
 
+    public IEnumerator playerDeath()
+    {
+        yield return null;
+        if(SceneManager.GetSceneAt(deathSceneIndex) != null ) SceneManager.LoadScene(deathSceneIndex);
     }
 
     public IEnumerator takeDamage(int damage)
@@ -59,4 +80,6 @@ public class playerHealth : MonoBehaviour
 
         yield return new WaitForSeconds(immunityTime);
     }
+
+
 }
