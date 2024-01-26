@@ -1,6 +1,6 @@
-using System.Collections;
+/*using System.Collections;
 using System.Collections.Generic;
-using Unity.PlasticSCM.Editor.WebApi;
+//using Unity.PlasticSCM.Editor.WebApi;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -12,7 +12,6 @@ public class Act1EndTranAct2 : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
 
-
         playerCheck = GameObject.Find("Player").GetComponent<playerHealth>();
 
         if (other.tag == "Player" && playerCheck.currentHP <= 0) {
@@ -21,3 +20,4 @@ public class Act1EndTranAct2 : MonoBehaviour
         }
     }
 }
+*/

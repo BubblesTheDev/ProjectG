@@ -1,6 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor;
+//using UnityEditor;
 using UnityEngine;
 
 public class playerJuice : MonoBehaviour
@@ -50,11 +50,12 @@ public class playerJuice : MonoBehaviour
         playerMoveScript = GameObject.Find("Player").GetComponent<playerMovement>();
         playerCam = camControl.CameraObj.GetComponentInChildren<Camera>();
         playerJuiceReference = this;
-        
 
-#if !UNITY_EDITOR
-        getSettings();
-#endif
+        /*
+        #if !UNITY_EDITOR
+                getSettings();
+        #endif
+        */
     }
 
 

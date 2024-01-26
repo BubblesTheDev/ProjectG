@@ -1,10 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor;
+//using UnityEditor;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UIElements;
-using static UnityEditor.PlayerSettings;
+//using static UnityEditor.PlayerSettings;
 
 public class basicRangedAI : MonoBehaviour
 {
@@ -124,7 +124,7 @@ public class basicRangedAI : MonoBehaviour
         yield return null;
     }
 
-#if UNITY_EDITOR
+/*#if UNITY_EDITOR
     private void OnDrawGizmosSelected()
     {
 
@@ -141,5 +141,5 @@ public class basicRangedAI : MonoBehaviour
         if(ref_PlayerObj != null && ref_PlayerRB != null) Gizmos.DrawWireSphere(ref_PlayerObj.transform.position + ref_PlayerRB.velocity * Time.deltaTime, .1f);
     }
 #endif
-
+*/
 }
