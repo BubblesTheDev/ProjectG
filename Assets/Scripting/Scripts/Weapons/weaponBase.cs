@@ -73,8 +73,13 @@ public class weaponBase : MonoBehaviour
                 }
                 StartCoroutine(fireGun());
             }
-            if (currentWeaponPower != null && interactionInput.Combat.Fire2.WasPressedThisFrame() && !interactionInput.Combat.Fire1.IsPressed())
+            if (interactionInput.Combat.Fire2.WasPressedThisFrame() && !interactionInput.Combat.Fire1.IsPressed())
             {
+                if (currentWeaponPower == null)
+                {
+                    Debug.LogWarning("You are missing a <b>current weapon power</b> decleration");
+                    return;
+                }
                 if (currentWeaponPower.canUsePower)
                 {
 
@@ -82,12 +87,7 @@ public class weaponBase : MonoBehaviour
                     StartCoroutine(currentWeaponPower.usePower());
                 }
             }
-            else
-            {
-                Debug.LogWarning("You are missing a <b>current weapon power</b> decleration");
-                return;
-            }
-            
+
         }
         else if (!weaponIsEquipped)
         {
