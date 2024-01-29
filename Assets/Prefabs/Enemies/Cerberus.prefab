@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 768120037399428153}
   serializedVersion: 2
   m_LocalRotation: {x: 0.000044018958, y: -0.6860227, z: 0.000046685516, w: 0.72758025}
-  m_LocalPosition: {x: -0.40338165, y: 0.10600088, z: 0.08024058}
+  m_LocalPosition: {x: -0.405, y: 0.126, z: 0.052}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -294,22 +294,22 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: d3a71c7b305df894982412a1ad277df7,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: d3a71c7b305df894982412a1ad277df7,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: d3a71c7b305df894982412a1ad277df7,
-        type: 3}
-      propertyPath: m_LocalRotation.y
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d3a71c7b305df894982412a1ad277df7,
         type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: d3a71c7b305df894982412a1ad277df7,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: d3a71c7b305df894982412a1ad277df7,
+        type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d3a71c7b305df894982412a1ad277df7,
         type: 3}
@@ -319,7 +319,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: d3a71c7b305df894982412a1ad277df7,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 180
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d3a71c7b305df894982412a1ad277df7,
         type: 3}
