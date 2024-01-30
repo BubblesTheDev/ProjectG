@@ -208,12 +208,7 @@ public class gameSettings : MonoBehaviour
     
 }
 
-enum screenState
-{
-    fullScreen,
-    windowed,
-    borderlessWindowed
-}
+
 
 
 

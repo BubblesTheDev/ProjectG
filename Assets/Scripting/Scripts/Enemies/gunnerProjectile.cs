@@ -4,16 +4,14 @@ using UnityEngine;
 
 public class gunnerProjectile : MonoBehaviour
 {
-    public int damage;
-    public float speed; 
-    private float distanceToKill;
+    [SerializeField] private int damage;
+    [SerializeField] private float distanceToKill;
     private Vector3 startPos;
     private Rigidbody rb;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
-        rb.velocity = transform.forward * speed * Time.deltaTime;
         startPos = transform.position;
     }
 
@@ -25,7 +23,7 @@ public class gunnerProjectile : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player")) StartCoroutine(other.gameObject.GetComponent<playerHealth>().takeDamage(damage));
-        if(!other.gameObject.CompareTag("Enemy")) Destroy(gameObject);
+        if(other.gameObject.layer == LayerMask.NameToLayer("Enviroment")) Destroy(gameObject);
     }
 
 }

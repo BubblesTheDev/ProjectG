@@ -24,7 +24,7 @@ public class mouseControlSettings : MonoBehaviour
     {
         addListeners();
         setupSettings();
-        if(GameObject.Find("Player").GetComponent<cameraControl>()) cameraControlScript = GameObject.Find("Player").GetComponent<cameraControl>();
+        if(GameObject.Find("Player").GetComponent<cameraControl>() != null) cameraControlScript = GameObject.Find("Player").GetComponent<cameraControl>();
     }
 
     void addListeners()

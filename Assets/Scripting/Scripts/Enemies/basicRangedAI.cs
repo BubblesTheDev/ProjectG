@@ -60,7 +60,11 @@ public class basicRangedAI : MonoBehaviour
 
     private void Update()
     {
-
+        if (canShoot)
+        {
+            if (Vector3.Distance(transform.position, ref_PlayerRB.transform.position) < midRangeDistance) StartCoroutine(closeRangeShot());
+            else if (Vector3.Distance(transform.position, ref_PlayerRB.transform.position) > ((longRangeDistance - midRangeDistance) * percentToMoveCloserToMid) + midRangeDistance) StartCoroutine(longRangeShot());
+        }
     }
 
     private void FixedUpdate()
@@ -108,38 +112,56 @@ public class basicRangedAI : MonoBehaviour
 
     private IEnumerator closeRangeShot()
     {
+        canShoot = false;
         for (int i = 0; i < numShotsShortRange; i++)
         {
             //Calculates the position to aim at
             int firePointIndex = Random.Range(0, firePoints.Count);
-            Vector3 leadingDir = (ref_PlayerObj.transform.position + ref_PlayerRB.velocity * Time.deltaTime) - (firePoints[firePointIndex].transform.position).normalized;
+            Vector3 leadingDir = (ref_PlayerObj.transform.position + ref_PlayerRB.velocity * Time.deltaTime) - firePoints[firePointIndex].transform.position;
 
-
+            GameObject temp = Instantiate(enemyBullet, firePoints[firePointIndex].transform.position, Quaternion.LookRotation(leadingDir.normalized), GameObject.Find("Bullet Storage").transform);
+            temp.GetComponent<Rigidbody>().velocity = temp.transform.forward * bulletSpeedShortRange;
 
             yield return new WaitForSeconds(fireRateShortRange);
         }
+
+        yield return new WaitForSeconds(fireCooldownShortRange);
+        canShoot = true;
     }
     private IEnumerator longRangeShot()
     {
-        yield return null;
+        canShoot = false;
+        for (int i = 0; i < numShotsLongRange; i++)
+        {
+            for (int j = 0; j < firePoints.Count; j++)
+            {
+                GameObject temp = Instantiate(enemyBullet, firePoints[j].transform.position, Quaternion.LookRotation((ref_PlayerObj.transform.position - firePoints[j].transform.position).normalized), GameObject.Find("Bullet Storage").transform);
+                temp.GetComponent<Rigidbody>().velocity = temp.transform.forward * bulletSpeedShortRange;
+            }
+            yield return new WaitForSeconds(fireRateLongRange);
+        }
+
+
+        yield return new WaitForSeconds(fireCooldownShortRange);
+        canShoot = true;
     }
 
-/*#if UNITY_EDITOR
-    private void OnDrawGizmosSelected()
-    {
+    #if UNITY_EDITOR
+        private void OnDrawGizmosSelected()
+        {
 
-        Handles.color = Color.blue;
-        Handles.DrawWireDisc(transform.position, transform.up, longRangeDistance);
-        Handles.color = Color.yellow;
-        Handles.DrawWireDisc(transform.position, transform.up, ((longRangeDistance-midRangeDistance)*percentToMoveCloserToMid) + midRangeDistance);
-        Handles.color = Color.green;
-        Handles.DrawWireDisc(transform.position, transform.up, midRangeDistance);
-        Handles.color = Color.red;
-        Handles.DrawWireDisc(transform.position, transform.up, closeRangeDistance);
+            Handles.color = Color.blue;
+            Handles.DrawWireDisc(transform.position, transform.up, longRangeDistance);
+            Handles.color = Color.yellow;
+            Handles.DrawWireDisc(transform.position, transform.up, ((longRangeDistance-midRangeDistance)*percentToMoveCloserToMid) + midRangeDistance);
+            Handles.color = Color.green;
+            Handles.DrawWireDisc(transform.position, transform.up, midRangeDistance);
+            Handles.color = Color.red;
+            Handles.DrawWireDisc(transform.position, transform.up, closeRangeDistance);
 
-        Gizmos.color = Color.white;
-        if(ref_PlayerObj != null && ref_PlayerRB != null) Gizmos.DrawWireSphere(ref_PlayerObj.transform.position + ref_PlayerRB.velocity * Time.deltaTime, .1f);
+            Gizmos.color = Color.white;
+            if(ref_PlayerObj != null && ref_PlayerRB != null) Gizmos.DrawWireSphere((ref_PlayerObj.transform.position + ref_PlayerRB.velocity * Time.deltaTime), 1);
     }
 #endif
-*/
+
 }
