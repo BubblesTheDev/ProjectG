@@ -14,4 +14,16 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/L1/Act1EndTranAct2.unity
     guid: 11806e0b05c40df46a35c9adbb18b20d
+  - enabled: 1
+    path: Assets/Scenes/L2/L2 Intro.unity
+    guid: 729e6d3f9daaef048b6404d3ec51ad9c
+  - enabled: 1
+    path: Assets/Scenes/L2/L2 Level.unity
+    guid: f94da7f272f07724d82a08c1d7ef2f0f
+  - enabled: 1
+    path: Assets/Scenes/L3/L3 Intro.unity
+    guid: b88f71e9ff60b564fa2bc59f155c3476
+  - enabled: 1
+    path: Assets/Scenes/L3/L3.unity
+    guid: 095ac1c667348ff45b51845ffd341676
   m_configObjects: {}
