@@ -1,10 +1,5 @@
 using System;
 using System.Collections;
-<<<<<<< Updated upstream
-using System.Collections.Generic;
-//using UnityEditor.Rendering.Universal;
-=======
->>>>>>> Stashed changes
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Events;
