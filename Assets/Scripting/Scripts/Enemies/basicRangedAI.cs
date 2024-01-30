@@ -1,10 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
+<<<<<<< Updated upstream
 //using UnityEditor;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UIElements;
 //using static UnityEditor.PlayerSettings;
+=======
+using UnityEngine;
+using UnityEngine.AI;
+using UnityEngine.UIElements;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
+>>>>>>> Stashed changes
 
 public class basicRangedAI : MonoBehaviour
 {

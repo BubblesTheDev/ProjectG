@@ -13,6 +13,16 @@ public class sceneChangeFunctions : MonoBehaviour
         //else Debug.LogWarning("There is no scene in the build settings set to index " + sceneIndexToLoad);
     }
 
+    public void loadSceneFromName(string sceneNameToLoad)
+    {
+        SceneManager.LoadScene(sceneNameToLoad);
+    }
+
+    public void quitGame()
+    {
+        Application.Quit();
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.transform.CompareTag("Player"))
