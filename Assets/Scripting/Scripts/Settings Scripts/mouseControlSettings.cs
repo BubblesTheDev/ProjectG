@@ -9,6 +9,7 @@ public class mouseControlSettings : MonoBehaviour
     [Header("Mouse Setting Assignables")]
     [SerializeField] private Slider horizontalMouseSensSlider;
     [SerializeField] private Slider verticalMouseSensSlider;
+    [SerializeField] private Slider FOVSlider;
     [SerializeField] private Toggle invertMouseXToggle;
     [SerializeField] private Toggle invertMouseYToggle;
     [SerializeField] private TMPro.TMP_InputField horizontalMouseSensInput;
@@ -37,12 +38,15 @@ public class mouseControlSettings : MonoBehaviour
 
         if (horizontalMouseSensInput != null) horizontalMouseSensInput.onValueChanged.AddListener(delegate { changeSensitivityField("horizontal"); });
         if (verticalMouseSensInput != null) verticalMouseSensInput.onValueChanged.AddListener(delegate { changeSensitivityField("vertical"); });
+
+        if (FOVSlider != null) FOVSlider.onValueChanged.AddListener(delegate { changeFOVSlider(); });
     }
 
     void setupSettings()
     {
         if (PlayerPrefs.HasKey("invertMouseX") && invertMouseXToggle != null) invertMouseXToggle.isOn = Convert.ToBoolean(PlayerPrefs.GetInt("invertMouseX"));
         if (PlayerPrefs.HasKey("invertMouseY") && invertMouseYToggle != null) invertMouseYToggle.isOn = Convert.ToBoolean(PlayerPrefs.GetInt("invertMouseY"));
+        if (PlayerPrefs.HasKey("fovSetting") && FOVSlider != null) FOVSlider.value = PlayerPrefs.GetFloat("fovSetting");
 
         if (PlayerPrefs.HasKey("mouseXSensValue"))
         {
@@ -96,6 +100,13 @@ public class mouseControlSettings : MonoBehaviour
                 if (verticalMouseSensInput != null) verticalMouseSensInput.text = PlayerPrefs.GetFloat("mouseYSensValue").ToString();
                 break;
         }
+    }
+
+    public void changeFOVSlider()
+    {
+        if (toggleConsoleFeedback) print("FOV Value is " + MathF.Round(FOVSlider.value, 3));
+        PlayerPrefs.SetFloat("fovSetting", MathF.Round(FOVSlider.value, 3));
+        PlayerPrefs.Save();
     }
 
     public void changeSensitivityField(string WhichAxis)
