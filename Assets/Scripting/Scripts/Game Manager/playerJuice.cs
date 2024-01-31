@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 //using UnityEditor;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class playerJuice : MonoBehaviour
 {
@@ -42,6 +43,10 @@ public class playerJuice : MonoBehaviour
     private cameraControl camControl;
     private playerMovement playerMoveScript;
 
+    [Space, Header("Gravswitch VFX")]
+    [SerializeField] private ParticleSystem[] gravswitchParticles;
+    private playerMovement moveScript;
+
 
     private void Awake()
     {
@@ -50,6 +55,8 @@ public class playerJuice : MonoBehaviour
         playerMoveScript = GameObject.Find("Player").GetComponent<playerMovement>();
         playerCam = camControl.CameraObj.GetComponentInChildren<Camera>();
         playerJuiceReference = this;
+        moveScript = GameObject.Find("Player").GetComponent<playerMovement>();
+        moveScript.onAction_Flip_Start.AddListener(gravSwitchVFX);
 
         /*
         #if !UNITY_EDITOR
@@ -202,6 +209,15 @@ public class playerJuice : MonoBehaviour
             {
                 x.Stop();
             }
+        }
+    }
+
+    void gravSwitchVFX()
+    {
+        gravswitchParticles[0].transform.parent.position = rb.position;
+        for (int i = 0; i < gravswitchParticles.Length; i++)
+        {
+            gravswitchParticles[i].Play();
         }
     }
 }
