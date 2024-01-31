@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.VFX;
 
@@ -10,6 +11,7 @@ public class roomEnemySpawner : MonoBehaviour
     [SerializeField] bool spawnerActive = false, playerInRoom = false;
     public bool doorClosed = false;
     [SerializeField] private float timeBetweenEnemySpawns;
+    [SerializeField] private AnimatorController doorController;
     public List<GameObject> enemiesRemaining = new List<GameObject>();
 
 
@@ -21,6 +23,9 @@ public class roomEnemySpawner : MonoBehaviour
             {
                 StartCoroutine(spawnWave());
             }
+        } else if(currentWaveIndex == waves.Count && enemiesRemaining.Count <= 0 && doorClosed)
+        {
+            openDoor();
         }
 
 
@@ -56,7 +61,14 @@ public class roomEnemySpawner : MonoBehaviour
 
     private void closeDoor()
     {
+        //Play door close animation here
+        doorClosed = true;
+    }
 
+    private void openDoor()
+    {
+        //play open door animation here
+        doorClosed = false;
     }
 
     private void OnTriggerEnter(Collider other)
