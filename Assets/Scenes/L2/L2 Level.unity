@@ -177,7 +177,7 @@ MonoBehaviour:
   timerRemaining: 5
   timerIsRunning: 0
   timerText: 
-  SceneBuildIndex: 5
+  SceneBuildIndex: 6
 --- !u!1 &1563612987
 GameObject:
   m_ObjectHideFlags: 0
