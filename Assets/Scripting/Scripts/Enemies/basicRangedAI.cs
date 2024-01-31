@@ -22,6 +22,7 @@ public class basicRangedAI : MonoBehaviour
     [SerializeField] private float maxMoveDistance;
     [SerializeField, Range(0.01f,1f)] private float percentToMoveCloserToMid = 0.3f;
     [SerializeField] private float minOrbitTime = 0.5f, MaxOrbitTime = 1.5f;
+    private float currentMaxOrbitTime;
 
     [Header("Short Range Shooting")]
     [SerializeField] private float fireCooldownShortRange;
@@ -91,12 +92,12 @@ public class basicRangedAI : MonoBehaviour
         else if(Vector3.Distance(verticalScaledPos, transform.position) > closeRangeDistance 
             && Vector3.Distance(verticalScaledPos, transform.position) < midRangeDistance)
         {
-            if(orbitTime >= maxOrbitTime)
+            if(orbitTime >= currentMaxOrbitTime)
             {
                 if (Random.Range(1, 101) >= 50) orbitDir = 1;
                 else orbitDir = -1;
                 //This determines how long until it choses its next destination around the player
-                maxOrbitTime = Random.Range(minOrbitTime, maxOrbitTime);
+                currentMaxOrbitTime = Random.Range(minOrbitTime, maxOrbitTime);
                 orbitTime = 0;
             }
             ref_NavMeshAgent.SetDestination(transform.position + (transform.right * orbitDir).normalized * maxMoveDistance/4);

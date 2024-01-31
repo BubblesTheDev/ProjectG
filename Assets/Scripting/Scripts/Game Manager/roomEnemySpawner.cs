@@ -8,6 +8,7 @@ public class roomEnemySpawner : MonoBehaviour
     [SerializeField] private int currentWaveIndex;
     [SerializeField] private List<wave> waves = new List<wave>();
     [SerializeField] bool spawnerActive = false, playerInRoom = false;
+    public bool doorClosed = false;
     [SerializeField] private float timeBetweenEnemySpawns;
     public List<GameObject> enemiesRemaining = new List<GameObject>();
 
@@ -20,6 +21,16 @@ public class roomEnemySpawner : MonoBehaviour
             {
                 StartCoroutine(spawnWave());
             }
+        }
+
+
+    }
+
+    private void FixedUpdate()
+    {
+        foreach (GameObject enemy in enemiesRemaining)
+        {
+            if (enemy == null) enemiesRemaining.Remove(enemy);
         }
     }
 
@@ -43,9 +54,18 @@ public class roomEnemySpawner : MonoBehaviour
         currentWaveIndex++;
     }
 
+    private void closeDoor()
+    {
+
+    }
+
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.CompareTag("Player")) if(!playerInRoom) playerInRoom = true;
+        if(other.gameObject.CompareTag("Player")) if(!playerInRoom)
+            {
+                playerInRoom = true;
+                closeDoor();
+            }
 
     }
 }
