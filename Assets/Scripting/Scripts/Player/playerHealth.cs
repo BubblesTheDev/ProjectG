@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
@@ -22,6 +23,7 @@ public class playerHealth : MonoBehaviour
 
     private Rigidbody rb;
     private bool isDead;
+    private bool canTakeDamage;
 
     [HideInInspector] public UnityEvent tookDamage;
     [HideInInspector] public UnityEvent healedDamage;
@@ -31,6 +33,7 @@ public class playerHealth : MonoBehaviour
         currentHP = maxHp;
         rb = GetComponent<Rigidbody>();
         deathSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        canTakeDamage = true;
     }
 
 
@@ -74,12 +77,16 @@ public class playerHealth : MonoBehaviour
 
     public IEnumerator takeDamage(int damage)
     {
-        currentHP--;
-        //Play health dmg sound
-        //frame stutter
-        tookDamage.Invoke();
-
-        yield return new WaitForSeconds(immunityTime);
+        if (canTakeDamage)
+        {
+            canTakeDamage = false;
+            currentHP--;
+            //Play health dmg sound
+            //frame stutter
+            tookDamage.Invoke();
+            yield return new WaitForSeconds(immunityTime);
+            canTakeDamage = true;
+        }
     }
 
 
