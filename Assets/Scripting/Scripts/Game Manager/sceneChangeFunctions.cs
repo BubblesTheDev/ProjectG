@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class sceneChangeFunctions : MonoBehaviour
 {
-    [SerializeField] private string sceneNameToLoadOnTrigger;
+    [SerializeField] private string scenePathToLoadOnTrigger;
 
     public void loadSceneFromIndex(int sceneIndexToLoad)
     {
@@ -27,7 +27,7 @@ public class sceneChangeFunctions : MonoBehaviour
     {
         if (other.transform.CompareTag("Player"))
         {
-            GameObject.Find("Player").GetComponent<playerHealth>().deathSceneIndex = SceneManager.GetSceneByName(sceneNameToLoadOnTrigger).buildIndex;
+            GameObject.Find("Player").GetComponent<playerHealth>().deathSceneIndex = SceneUtility.GetBuildIndexByScenePath(scenePathToLoadOnTrigger);
             //else Debug.LogWarning("There is no scene in the build settings set to index " + sceneIndexToLoadOnTrigger);
         }
     }
