@@ -54,8 +54,6 @@ public class playerJuice : MonoBehaviour
     [SerializeField] private float dmgVignetteShowTime;
     private playerHealth stats;
 
-
-
     private void Awake()
     {
         rb = GameObject.Find("Player").GetComponent<Rigidbody>();
@@ -71,6 +69,8 @@ public class playerJuice : MonoBehaviour
         stats.tookDamage.AddListener(DmgVFX);
         playerMoveScript.onAction_Dash_Start.AddListener(startDashVFX);
         playerMoveScript.onAction_DashFW_Start.AddListener(startDashVFXFW);
+
+        InvokeRepeating("RunningSFX", 0, 1);
         /*
         #if !UNITY_EDITOR
                 getSettings();
@@ -288,7 +288,7 @@ public class playerJuice : MonoBehaviour
 
     void RunningSFX()
     {
-        if (playerMoveScript.horizontal_playerVelocity.magnitude > 0)
+        if (playerMoveScript.horizontal_playerVelocity.magnitude > 5)
         {
             AudioManager.instance.PlaySFX(FMODEvents.instance.runSFX, transform.position);
         }
