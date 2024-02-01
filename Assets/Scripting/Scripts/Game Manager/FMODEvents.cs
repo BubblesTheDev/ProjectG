@@ -18,8 +18,9 @@ public class FMODEvents : MonoBehaviour
     [field: Header("Gravity Switch")]
     [field: SerializeField] public EventReference gravitySwitch { get; private set; }
 
-    [field: Header("Enemy Spawn")]
+    [field: Header("Enemy SFX")]
     [field: SerializeField] public EventReference enemySpawn { get; private set; }
+    [field: SerializeField] public EventReference bruiserHit { get; private set; }
 
     [field: Header("Player SFX")]
     [field: SerializeField] public EventReference jumpSFX { get; private set; }

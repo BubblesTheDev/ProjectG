@@ -94,6 +94,7 @@
 		</property>
 		<relationship name="modulators">
 			<destination>{f2cd5f59-0e9d-4bd5-a66e-6e322c92b5f3}</destination>
+			<destination>{379e6043-4391-4875-a753-72be114f6ffc}</destination>
 		</relationship>
 		<relationship name="audioFile">
 			<destination>{76bbe011-3941-4ee5-9969-4feb73bb535c}</destination>
@@ -119,6 +120,9 @@
 	<object class="MixerBusEffectChain" id="{e8fd8454-2e67-4a13-bfe4-d65c2c718eed}">
 		<relationship name="effects">
 			<destination>{1c3a858a-ae89-4dfa-b420-4f4bc6e5beda}</destination>
+			<destination>{63cb5f38-dfda-4999-9e1f-35c359ee46f9}</destination>
+			<destination>{60b99c9e-e7a2-485a-be69-2a65399a0e27}</destination>
+			<destination>{bc8f8df2-90bf-4da7-8d6f-312236c5afd1}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{d6e05a88-bf5b-4241-b0d6-3314fa966d1d}" />
@@ -128,7 +132,15 @@
 			<value>pitch</value>
 		</property>
 		<property name="amount">
-			<value>36</value>
+			<value>39</value>
+		</property>
+	</object>
+	<object class="RandomizerModulator" id="{379e6043-4391-4875-a753-72be114f6ffc}">
+		<property name="nameOfPropertyBeingModulated">
+			<value>volume</value>
+		</property>
+		<property name="amount">
+			<value>5</value>
 		</property>
 	</object>
 	<object class="MixerBusEffectChain" id="{0f8a3fc7-ddd5-4bb9-912a-f6718cef7e59}">
@@ -138,5 +150,41 @@
 	</object>
 	<object class="MixerBusPanner" id="{646ed408-8a24-476e-b7cc-dab1088e49ac}" />
 	<object class="MixerBusFader" id="{1c3a858a-ae89-4dfa-b420-4f4bc6e5beda}" />
+	<object class="ThreeEQEffect" id="{63cb5f38-dfda-4999-9e1f-35c359ee46f9}">
+		<property name="lowGain">
+			<value>10</value>
+		</property>
+		<property name="midGain">
+			<value>-1</value>
+		</property>
+		<property name="highGain">
+			<value>-31</value>
+		</property>
+	</object>
+	<object class="MixerSend" id="{60b99c9e-e7a2-485a-be69-2a65399a0e27}">
+		<property name="level">
+			<value>-38</value>
+		</property>
+		<property name="inputFormat">
+			<value>1</value>
+		</property>
+		<relationship name="mixerReturn">
+			<destination>{28f57e32-b1d7-427f-84bc-1941e6b567c9}</destination>
+		</relationship>
+	</object>
+	<object class="SFXReverbEffect" id="{bc8f8df2-90bf-4da7-8d6f-312236c5afd1}">
+		<property name="decayTime">
+			<value>400</value>
+		</property>
+		<property name="lowShelfGain">
+			<value>-17</value>
+		</property>
+		<property name="wetLevel">
+			<value>-40</value>
+		</property>
+		<property name="dryLevel">
+			<value>10</value>
+		</property>
+	</object>
 	<object class="MixerBusFader" id="{215f4b20-74cb-498f-aa28-38305f8933b9}" />
 </objects>

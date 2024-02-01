@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{e408958b-b590-498d-82bc-395537e952db}">
+		<property name="assetPath">
+			<value>Final SFX/Enemy/Bruiser_Hit_SFX.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>22.0499992</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>1.0000453514739229</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{7b97db15-e2df-4e58-a513-ffe8389781e2}</destination>
+		</relationship>
+	</object>
+</objects>
