@@ -69,6 +69,8 @@ public class playerJuice : MonoBehaviour
 
         playerMoveScript.onAction_Flip_Start.AddListener(gravSwitchVFX);
         stats.tookDamage.AddListener(DmgVFX);
+        playerMoveScript.onAction_Dash_Start.AddListener(startDashVFX);
+        playerMoveScript.onAction_DashFW_Start.AddListener(startDashVFXFW);
         /*
         #if !UNITY_EDITOR
                 getSettings();
@@ -82,8 +84,8 @@ public class playerJuice : MonoBehaviour
         speedLineVFX();
         fallLineVFX();
         slideVFX();
-        playerMoveScript.onAction_Dash_Start.AddListener(startDashVFX);
-        playerMoveScript.onAction_DashFW_Start.AddListener(startDashVFXFW);
+        RunningSFX();
+        
     }
     private void FixedUpdate()
     {
@@ -286,9 +288,9 @@ public class playerJuice : MonoBehaviour
 
     void RunningSFX()
     {
-        if (playerMoveScript.horizontalVelocity.magnitude > 0)
+        if (playerMoveScript.horizontal_playerVelocity.magnitude > 0)
         {
-            AudioManager.instance.PlaySFX(FMODEvents.instance.runSFX, this.transform.position);
+            AudioManager.instance.PlaySFX(FMODEvents.instance.runSFX, transform.position);
         }
     }
 
