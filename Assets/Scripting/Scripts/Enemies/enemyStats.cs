@@ -42,6 +42,7 @@ public class enemyStats : MonoBehaviour
         ref_NavMeshAgent.isStopped = true;
         enemyGFX.SetActive(false);
         enemyDamageTaken?.Invoke();
+        
 
         foreach (ParticleSystem deathVFX in VFX_onDeath)
         {
@@ -57,5 +58,6 @@ public class enemyStats : MonoBehaviour
     {
         enemyDeath?.Invoke();
         currentHP -= damageToTake;
+        AudioManager.instance.PlaySFX(FMODEvents.instance.bruiserHit, this.transform.position);
     }
 }
