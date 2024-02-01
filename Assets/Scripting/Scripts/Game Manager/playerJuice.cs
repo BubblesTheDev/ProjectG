@@ -283,4 +283,13 @@ public class playerJuice : MonoBehaviour
         dmgPPR.weight = 0;
 
     }
+
+    void RunningSFX()
+    {
+        if (playerMoveScript.horizontalVelocity.magnitude > 0)
+        {
+            AudioManager.instance.PlaySFX(FMODEvents.instance.runSFX, this.transform.position);
+        }
+    }
+
 }
