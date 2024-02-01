@@ -3,6 +3,7 @@ using System.Collections.Generic;
 //using UnityEditor;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Rendering;
 
 public class playerJuice : MonoBehaviour
 {
@@ -45,7 +46,14 @@ public class playerJuice : MonoBehaviour
 
     [Space, Header("Gravswitch VFX")]
     [SerializeField] private ParticleSystem[] gravswitchParticles;
-    private playerMovement moveScript;
+    [SerializeField] private Volume gravswitchPPR;
+    [SerializeField] private float gravswitchVignetteShowTime;
+
+    [Space, Header("Dmg VFX")]
+    [SerializeField] private Volume dmgPPR;
+    [SerializeField] private float dmgVignetteShowTime;
+    private playerHealth stats;
+
 
 
     private void Awake()
@@ -54,10 +62,13 @@ public class playerJuice : MonoBehaviour
         camControl = GameObject.Find("Player").GetComponent<cameraControl>();
         playerMoveScript = GameObject.Find("Player").GetComponent<playerMovement>();
         playerCam = camControl.CameraObj.GetComponentInChildren<Camera>();
+        stats = GameObject.Find("Player").GetComponent<playerHealth>();
         playerJuiceReference = this;
-        moveScript = GameObject.Find("Player").GetComponent<playerMovement>();
-        moveScript.onAction_Flip_Start.AddListener(gravSwitchVFX);
+        gravswitchVignetteShowTime = playerMoveScript.timeInSeconds_ToFlip;
+        dmgVignetteShowTime = stats.immunityTime;
 
+        playerMoveScript.onAction_Flip_Start.AddListener(gravSwitchVFX);
+        stats.tookDamage.AddListener(DmgVFX);
         /*
         #if !UNITY_EDITOR
                 getSettings();
@@ -214,11 +225,62 @@ public class playerJuice : MonoBehaviour
 
     void gravSwitchVFX()
     {
+        StartCoroutine(GravVignette());
         gravswitchParticles[0].transform.parent.position = rb.position;
         for (int i = 0; i < gravswitchParticles.Length; i++)
         {
             gravswitchParticles[i].Play();
         }
+
+    }
+
+    private IEnumerator GravVignette()
+    {
+        float timer = 0;
+        while (timer < gravswitchVignetteShowTime)
+        {
+            timer += Time.deltaTime;
+            gravswitchPPR.weight = timer / gravswitchVignetteShowTime;
+            yield return null;
+        }
+
+        yield return new WaitForSeconds(gravswitchVignetteShowTime);
+        timer = 0;
+        while (timer < gravswitchVignetteShowTime)
+        {
+            timer += Time.deltaTime;
+            gravswitchPPR.weight = 1 - (timer / gravswitchVignetteShowTime);
+            yield return null;
+        }
+
+        gravswitchPPR.weight = 0;
+
+    }
+
+    void DmgVFX()
+    {
+        StartCoroutine(DmgVignette());
+    }
+    private IEnumerator DmgVignette()
+    {
+        float timer = 0;
+        while (timer < dmgVignetteShowTime / 3)
+        {
+            timer += Time.deltaTime;
+            dmgPPR.weight = timer / (dmgVignetteShowTime / 3);
+            yield return null;
+        }
+
+        yield return new WaitForSeconds(dmgVignetteShowTime / 3);
+        timer = 0;
+        while (timer < dmgVignetteShowTime / 3)
+        {
+            timer += Time.deltaTime;
+            dmgPPR.weight = 1 - (timer / (dmgVignetteShowTime / 3));
+            yield return null;
+        }
+
+        dmgPPR.weight = 0;
 
     }
 }
