@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class NewBehaviourScript : MonoBehaviour
 {
     public Texture[] imageArray;
-    private int CurrentImage;
+    [SerializeField]private int CurrentImage;
 
     float deltaTime = 0.0f;
     public float timer = 5.0f;
@@ -19,7 +19,7 @@ public class NewBehaviourScript : MonoBehaviour
     {
         int w = Screen.width, h = Screen.height;
         Rect imageRect = new Rect(0, 0, Screen.width, Screen.height);
-        GUI.DrawTexture(imageRect, imageArray[CurrentImage]);
+        if (CurrentImage < imageArray.Length) GUI.DrawTexture(imageRect, imageArray[CurrentImage]);
     }
     // Start is called before the first frame update
     void Start()

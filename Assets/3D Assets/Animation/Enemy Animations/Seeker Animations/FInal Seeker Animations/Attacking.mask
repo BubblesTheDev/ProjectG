@@ -1,0 +1,51 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!319 &31900000
+AvatarMask:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Attacking
+  m_Mask: 00000000010000000100000000000000000000000100000001000000010000000100000000000000000000000100000001000000
+  m_Elements:
+  - m_Path: 
+    m_Weight: 1
+  - m_Path: Hips
+    m_Weight: 1
+  - m_Path: Hips/Spine
+    m_Weight: 1
+  - m_Path: Hips/Spine/Upper_Torso
+    m_Weight: 1
+  - m_Path: Hips/Spine/Upper_Torso/Neck
+    m_Weight: 1
+  - m_Path: Hips/Spine/Upper_Torso/Neck/Head
+    m_Weight: 1
+  - m_Path: Hips/Spine/Upper_Torso/RightArm
+    m_Weight: 1
+  - m_Path: Hips/Spine/Upper_Torso/RightArm/joint2
+    m_Weight: 1
+  - m_Path: Hips/Spine/Upper_Torso/RightArm/joint2/joint3
+    m_Weight: 1
+  - m_Path: Hips/Spine/Upper_Torso/LeftArm
+    m_Weight: 1
+  - m_Path: Hips/Spine/Upper_Torso/LeftArm/joint2
+    m_Weight: 1
+  - m_Path: Hips/Spine/Upper_Torso/LeftArm/joint2/joint3
+    m_Weight: 1
+  - m_Path: Hips/LeftLeg
+    m_Weight: 1
+  - m_Path: Hips/LeftLeg/joint7
+    m_Weight: 1
+  - m_Path: Hips/LeftLeg/joint7/joint8
+    m_Weight: 1
+  - m_Path: Hips/LeftLeg/joint7/joint8/joint12
+    m_Weight: 1
+  - m_Path: Hips/RightLeg
+    m_Weight: 1
+  - m_Path: Hips/RightLeg/joint7
+    m_Weight: 1
+  - m_Path: Hips/RightLeg/joint7/joint8
+    m_Weight: 1
+  - m_Path: Hips/RightLeg/joint7/joint8/joint12
+    m_Weight: 1

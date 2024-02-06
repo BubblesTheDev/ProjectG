@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.VFX;
 
@@ -11,7 +10,7 @@ public class roomEnemySpawner : MonoBehaviour
     [SerializeField] bool spawnerActive = false, playerInRoom = false;
     public bool doorClosed = false;
     [SerializeField] private float timeBetweenEnemySpawns;
-    [SerializeField] private AnimatorController doorController;
+    [SerializeField] private Animator doorController;
     public List<GameObject> enemiesRemaining = new List<GameObject>();
 
 
