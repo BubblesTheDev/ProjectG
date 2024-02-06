@@ -22,8 +22,7 @@ public class playerHealth : MonoBehaviour
     public int deathSceneIndex;
 
     private Rigidbody rb;
-    private bool isDead;
-    private bool canTakeDamage;
+    [SerializeField] private bool canTakeDamage;
 
     [HideInInspector] public UnityEvent tookDamage;
     [HideInInspector] public UnityEvent healedDamage;
@@ -84,7 +83,9 @@ public class playerHealth : MonoBehaviour
             //Play health dmg sound
             //frame stutter
             tookDamage.Invoke();
+            print("cant take dmg");
             yield return new WaitForSeconds(immunityTime);
+            print("can take dmg");
             canTakeDamage = true;
         }
     }

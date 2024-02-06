@@ -125,7 +125,7 @@ public class playerMovement : MonoBehaviour
     [HideInInspector] public UnityEvent onAction_SlideJumpStart;
     [HideInInspector] public UnityEvent onAction_Dash_Start;
     [HideInInspector] public UnityEvent onAction_DashFW_Start;
-     public UnityEvent onAction_Slide_Start;
+    [HideInInspector] public UnityEvent onAction_Slide_Start;
     [HideInInspector] public UnityEvent onAction_Slam_Start;
     [HideInInspector] public UnityEvent onAction_Flip_Start;
     [HideInInspector] public UnityEvent onAction_Slide_End;
