@@ -158,11 +158,12 @@ MonoBehaviour:
   - {fileID: 2800000, guid: 23aafa8cf8aafd4438d41dfa0bf646ba, type: 3}
   - {fileID: 2800000, guid: 33bcbf345c15da6478c64e3233ac931d, type: 3}
   - {fileID: 2800000, guid: 8993f1c813151a7449dc0788d15ca48e, type: 3}
+  CurrentImage: 0
   timer: 5
   timerRemaining: 5
   timerIsRunning: 0
   timerText: 
-  SceneBuildIndex: 3
+  SceneBuildIndex: 5
 --- !u!4 &255547352
 Transform:
   m_ObjectHideFlags: 0

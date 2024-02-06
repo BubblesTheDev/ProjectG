@@ -173,11 +173,12 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  CurrentImage: 0
   timer: 5
   timerRemaining: 5
   timerIsRunning: 0
   timerText: 
-  SceneBuildIndex: 5
+  SceneBuildIndex: 6
 --- !u!1 &1563612987
 GameObject:
   m_ObjectHideFlags: 0
