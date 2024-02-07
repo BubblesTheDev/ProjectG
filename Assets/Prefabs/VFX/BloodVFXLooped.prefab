@@ -73,7 +73,7 @@ VisualEffect:
       m_Array:
       - m_Value: 1
         m_Name: Loop
-        m_Overridden: 0
+        m_Overridden: 1
 --- !u!73398921 &5706322935214706091
 VFXRenderer:
   serializedVersion: 1
