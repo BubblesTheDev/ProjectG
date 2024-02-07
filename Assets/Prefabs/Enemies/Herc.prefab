@@ -79,12 +79,6 @@ MonoBehaviour:
   - {fileID: 150786714540562983}
   VFX_onDeath: []
   enemyGFX: {fileID: 2718255023649744705}
-  crosshairMarker:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  hitMarkerFadeTime: 0.5
   spawner: {fileID: 0}
   enemyDamageTaken:
     m_PersistentCalls:
@@ -142,7 +136,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4003377931814068100}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 1ceee25685555d345a9fbbe7fe802bac, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0

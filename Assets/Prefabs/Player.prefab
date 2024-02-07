@@ -70,7 +70,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6478092132555893140}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 1ceee25685555d345a9fbbe7fe802bac, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -134,7 +134,6 @@ MonoBehaviour:
   action_slideCooldownTime: 0.1
   action_slamCooldownTime: 0.1
   action_flipCooldownTime: 5
-  groundCheck_PositionalOffset: {x: 0, y: -0.45, z: 0}
   timeInSeconds_GroundedCoyoteTime: 0.5
   current_CoyoteTime: 0
   groundCheck_Distance: 1.25
@@ -190,6 +189,9 @@ MonoBehaviour:
   onAction_Dash_Start:
     m_PersistentCalls:
       m_Calls: []
+  onAction_DashFW_Start:
+    m_PersistentCalls:
+      m_Calls: []
   onAction_Slide_Start:
     m_PersistentCalls:
       m_Calls: []
@@ -238,11 +240,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHP: 0
   maxHp: 5
+  immunityTime: 1
   maxStaticEnergy: 100
   currentStaticEnergy: 0
   movementMulti: 2
   staticEnergyRate: 1
-  immunityTime: 1
+  deathSceneIndex: 0
+  canTakeDamage: 0
   tookDamage:
     m_PersistentCalls:
       m_Calls: []
