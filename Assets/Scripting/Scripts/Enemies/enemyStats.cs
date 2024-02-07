@@ -3,6 +3,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Events;
+using UnityEngine.VFX;
 
 public class enemyStats : MonoBehaviour
 {
@@ -13,7 +14,7 @@ public class enemyStats : MonoBehaviour
 
     [Space, Header("Feedback Variables")]
     [SerializeField] private float timeToDie = 1f;
-    [SerializeField] private ParticleSystem[] VFX_onHit;
+    [SerializeField] private VisualEffect[] VFX_onHit;
     [SerializeField] private ParticleSystem[] VFX_onDeath;
     [SerializeField] private GameObject enemyGFX;
 
@@ -58,6 +59,21 @@ public class enemyStats : MonoBehaviour
     {
         enemyDeath?.Invoke();
         currentHP -= damageToTake;
+        StartCoroutine(bloodVFX());
         AudioManager.instance.PlaySFX(FMODEvents.instance.bruiserHit, this.transform.position);
     }
+
+    IEnumerator bloodVFX()
+    {
+        foreach (VisualEffect dmgVFX in VFX_onHit)
+        {
+            if (dmgVFX != null)
+            {
+                Debug.Log("ow");
+                dmgVFX.Play();
+            }
+        }
+        yield return null;
+    }
+
 }

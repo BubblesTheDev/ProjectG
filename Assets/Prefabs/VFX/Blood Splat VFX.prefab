@@ -43,14 +43,17 @@ VisualEffect:
   m_Enabled: 1
   m_Asset: {fileID: 8926484042661614526, guid: d3702ae2b43ffe149a11e4d310d92e94, type: 3}
   m_InitialEventName: OnPlay
-  m_InitialEventNameOverriden: 0
+  m_InitialEventNameOverriden: 1
   m_StartSeed: 0
   m_ResetSeedOnPlay: 1
   m_AllowInstancing: 1
   m_ResourceVersion: 1
   m_PropertySheet:
     m_Float:
-      m_Array: []
+      m_Array:
+      - m_Value: 32
+        m_Name: Rate
+        m_Overridden: 0
     m_Vector2f:
       m_Array: []
     m_Vector3f:
@@ -73,7 +76,7 @@ VisualEffect:
       m_Array:
       - m_Value: 0
         m_Name: Loop
-        m_Overridden: 1
+        m_Overridden: 0
 --- !u!73398921 &385613536915815280
 VFXRenderer:
   serializedVersion: 1
