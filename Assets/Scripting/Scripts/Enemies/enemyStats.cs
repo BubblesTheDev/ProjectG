@@ -17,7 +17,7 @@ public class enemyStats : MonoBehaviour
     [Space, Header("Feedback Variables")]
     [SerializeField] private float timeToDie = 1f;
     [SerializeField] private VisualEffect[] VFX_onHit;
-    [SerializeField] private ParticleSystem[] VFX_onDeath;
+    [SerializeField] private VisualEffect[] VFX_onDeath;
     [SerializeField] private GameObject enemyGFX;
 
     [HideInInspector] public roomEnemySpawner spawner;
@@ -41,18 +41,18 @@ public class enemyStats : MonoBehaviour
 
     IEnumerator die()
     {
+        foreach (VisualEffect deathVFX in VFX_onDeath)
+        {
+            if (deathVFX != null)
+            {
+                deathVFX.transform.parent = null;
+                deathVFX.Play();
+            }
+        }
         temp_enemyCollider.enabled = false;
         ref_NavMeshAgent.isStopped = true;
         enemyGFX.SetActive(false);
         enemyDamageTaken?.Invoke();
-        
-
-        foreach (ParticleSystem deathVFX in VFX_onDeath)
-        {
-            if(deathVFX != null) deathVFX.Play();
-            yield return null;
-        }
-
         yield return new WaitForSeconds(timeToDie);
         Destroy(gameObject);
     }
@@ -71,7 +71,6 @@ public class enemyStats : MonoBehaviour
         {
             if (dmgVFX != null)
             {
-                Debug.Log("ow");
                 dmgVFX.Play();
             }
         }
