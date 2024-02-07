@@ -74,6 +74,11 @@ public class playerHealth : MonoBehaviour
         SceneManager.LoadScene(deathSceneIndex);
     }
 
+    public void startTakingDMG(int damage)
+    {
+        StartCoroutine(takeDamage(damage));
+    }
+
     public IEnumerator takeDamage(int damage)
     {
         if (canTakeDamage)

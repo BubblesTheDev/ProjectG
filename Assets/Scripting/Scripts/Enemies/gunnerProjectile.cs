@@ -22,7 +22,7 @@ public class gunnerProjectile : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Player")) StartCoroutine(other.gameObject.GetComponent<playerHealth>().takeDamage(damage));
+        if (other.gameObject.CompareTag("Player")) other.gameObject.GetComponent<playerHealth>().startTakingDMG(damage);
         if(other.gameObject.layer == LayerMask.NameToLayer("Enviroment")) Destroy(gameObject);
     }
 

@@ -92,7 +92,7 @@ public class PlayerHUD : MonoBehaviour
         StartCoroutine(ShakeHUD());
         while(healthDrain.value > healthBar.value)
         {
-            healthDrain.value -= healthStats.immunityTime * Time.deltaTime;
+            healthDrain.value -= Time.deltaTime / healthStats.immunityTime;
             yield return null;
         }
     }
