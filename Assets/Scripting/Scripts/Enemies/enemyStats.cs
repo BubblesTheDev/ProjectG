@@ -3,6 +3,8 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Events;
+using UnityEngine.InputSystem.HID;
+using UnityEngine.UI;
 using UnityEngine.VFX;
 
 public class enemyStats : MonoBehaviour

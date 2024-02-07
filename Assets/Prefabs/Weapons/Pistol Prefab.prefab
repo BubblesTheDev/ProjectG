@@ -116,6 +116,12 @@ MonoBehaviour:
   firePoint: {fileID: 0}
   bulletPrefab: {fileID: 0}
   gunGFX: {fileID: 0}
+  crosshairMarker:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  hitMarkerFadeTime: 0.15
   gunFiredEvent:
     m_PersistentCalls:
       m_Calls: []

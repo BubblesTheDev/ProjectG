@@ -8,6 +8,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
 using Random = UnityEngine.Random;
+using UnityEngine.UI;
 
 public class weaponBase : MonoBehaviour
 {
@@ -33,6 +34,12 @@ public class weaponBase : MonoBehaviour
     InteractionInputActions interactionInput;
     cameraControl camControl;
     weaponVFXHandler weaponVFX;
+
+    [Header("Crosshair Hit Marker")]
+    [SerializeField] private Image[] crosshairMarker = new Image[4];
+    private Coroutine hitMarkerCoroutine;
+    [SerializeField] private float hitMarkerFadeTime;
+
 
     [HideInInspector] public UnityEvent gunFiredEvent;
     [HideInInspector] public UnityEvent powerActivated;
@@ -131,7 +138,13 @@ public class weaponBase : MonoBehaviour
                 foreach (RaycastHit hit in hits)
                 {
                     StartCoroutine(weaponVFX.spawnTrail(hit));
-                    if (hit.transform.CompareTag("Enemy")) hit.transform.GetComponent<enemyStats>().takeDamage(weaponDamage);
+                    if (hit.transform.CompareTag("Enemy"))
+                    {
+                        hit.transform.GetComponent<enemyStats>().takeDamage(weaponDamage);
+                        if (hitMarkerCoroutine != null) StopCoroutine(hitMarkerCoroutine);
+                        hitMarkerCoroutine = StartCoroutine(FadeHitMarker());
+
+                    }
                 }
             }
             else if (bulletPrefab != null)
@@ -144,6 +157,27 @@ public class weaponBase : MonoBehaviour
 
         yield return new WaitForSeconds(fireRateInSeconds);
         canFire = true;
+    }
+    IEnumerator FadeHitMarker()
+    {
+        float timer = 0;
+
+        while (timer < hitMarkerFadeTime)
+        {
+            timer += Time.deltaTime;
+            for (int i = 0; i < 4; i++)
+            {
+
+                crosshairMarker[i].color = Color.Lerp(Color.white, new Color(0, 0, 0, 0), timer / hitMarkerFadeTime);
+                yield return null;
+            }
+        }
+        crosshairMarker[0].color = new Color(0, 0, 0, 0);
+        crosshairMarker[1].color = new Color(0, 0, 0, 0);
+        crosshairMarker[2].color = new Color(0, 0, 0, 0);
+        crosshairMarker[3].color = new Color(0, 0, 0, 0);
+
+
     }
 
 

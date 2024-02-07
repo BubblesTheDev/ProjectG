@@ -256,6 +256,12 @@ MonoBehaviour:
   - {fileID: 9027482002357373123}
   VFX_onDeath: []
   enemyGFX: {fileID: 8117849378134326929}
+  crosshairMarker:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  hitMarkerFadeTime: 0.5
   spawner: {fileID: 0}
   enemyDamageTaken:
     m_PersistentCalls:
