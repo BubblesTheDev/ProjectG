@@ -235,7 +235,7 @@ MonoBehaviour:
   fireCooldownLongRange: 2
   fireRateLongRange: 1
   numShotsLongRange: 1
-  bulletSpeedLongRange: 50
+  bulletSpeedLongRange: 60
 --- !u!114 &4123826904883642579
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -250,7 +250,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHP: 2
   maxHp: 2
-  moveSpeed: 15
+  moveSpeed: 7
   timeToDie: 1
   VFX_onHit:
   - {fileID: 2099767794769917749}
