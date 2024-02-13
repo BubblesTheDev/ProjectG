@@ -96,10 +96,10 @@ MonoBehaviour:
   Path: Assets/FMOD/FMOD Project/Build/Desktop/Music.bank
   Name: Music
   StudioPath: bank:/Music
-  lastModified: 638434266661007473
+  lastModified: 638434267706002304
   FileSizes:
   - Name: Desktop
-    Value: 3645920
+    Value: 3646048
   Exists: 1
 --- !u!114 &-6959361346100118255
 MonoBehaviour:
@@ -408,7 +408,7 @@ MonoBehaviour:
   - {fileID: 1362597027168795984}
   StringsBanks:
   - {fileID: -4324373439779850378}
-  cacheTime: 638434266661007473
+  cacheTime: 638434267706002304
   cacheVersion: 131609
 --- !u!114 &378993306651156320
 MonoBehaviour:
@@ -627,7 +627,7 @@ MonoBehaviour:
   - {fileID: -7567063732943934850}
   IsStream: 1
   Is3D: 0
-  IsOneShot: 1
+  IsOneShot: 0
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
