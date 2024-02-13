@@ -64,10 +64,10 @@ public class AudioManager : MonoBehaviour
         ambienceBus.setVolume(ambienceVolume);
         sfxBus.setVolume(SFXVolume);
 
-      /* if (SceneManager.GetActiveScene().name == "L1")
+       if (SceneManager.GetActiveScene().name == "L1")
         {
-            FMODEvents.instance.battleMusic.setParameterByName("Music", 1);
-        } */
+            musicEventInstance.setParameterByName("Music", 1);
+        } 
     }
 
     public void PlaySFX(EventReference SFX, Vector3 worldPos)
