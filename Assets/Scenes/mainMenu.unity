@@ -734,14 +734,14 @@ MonoBehaviour:
       Data2: 1083087641
       Data3: -1943385688
       Data4: -152275262
-    Path: event:/Music/Battle Music
+    Path: event:/Music/All Music
   <titleMusic>k__BackingField:
     Guid:
-      Data1: -815035988
-      Data2: 1122617818
-      Data3: 1054855566
-      Data4: -1249582560
-    Path: event:/Music/Main Menu
+      Data1: -78251982
+      Data2: 1083087641
+      Data3: -1943385688
+      Data4: -152275262
+    Path: event:/Music/All Music
   <ambience>k__BackingField:
     Guid:
       Data1: -811502381
