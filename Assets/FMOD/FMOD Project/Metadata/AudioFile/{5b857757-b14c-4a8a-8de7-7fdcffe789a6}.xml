@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{5b857757-b14c-4a8a-8de7-7fdcffe789a6}">
+		<property name="assetPath">
+			<value>Ambience/PROJECT G Ambience LOOP 4_4 140bpm.wav</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>218.72552083333332</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{7b97db15-e2df-4e58-a513-ffe8389781e2}</destination>
+		</relationship>
+	</object>
+</objects>
