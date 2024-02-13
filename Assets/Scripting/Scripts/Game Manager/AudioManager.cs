@@ -5,6 +5,7 @@ using FMODUnity;
 using FMOD.Studio;
 using UnityEngine.UIElements;
 using System;
+using UnityEngine.SceneManagement;
 
 public class AudioManager : MonoBehaviour
 {
@@ -62,6 +63,11 @@ public class AudioManager : MonoBehaviour
         musicBus.setVolume(musicVolume);
         ambienceBus.setVolume(ambienceVolume);
         sfxBus.setVolume(SFXVolume);
+
+       if (SceneManager.GetActiveScene().name == "L1")
+        {
+            musicEventInstance.setParameterByName("Music", 1);
+        } 
     }
 
     public void PlaySFX(EventReference SFX, Vector3 worldPos)

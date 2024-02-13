@@ -6456,18 +6456,6 @@ Mesh:
     offset: 0
     size: 0
     path: 
---- !u!114 &159125787 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1377477991259890032, guid: a2456f4d27793bc4791e5d5b2e890b5c,
-    type: 3}
-  m_PrefabInstance: {fileID: 906889932}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!43 &160066438
 Mesh:
   m_ObjectHideFlags: 0
@@ -14736,6 +14724,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a09445adfbbb6f46ac2bacf2160be34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  masterVolume: 1
+  musicVolume: 1
+  ambienceVolume: 1
+  SFXVolume: 1
 --- !u!43 &272765694
 Mesh:
   m_ObjectHideFlags: 0
@@ -18706,12 +18698,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1309346661}
   m_LocalEulerAnglesHint: {x: 0, y: -229.555, z: 0}
---- !u!1 &336094203 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6063463106969531704, guid: a38b280081c49a1469c8b09f78bba2d6,
-    type: 3}
-  m_PrefabInstance: {fileID: 7816941899564177793}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &337267533
 GameObject:
   m_ObjectHideFlags: 0
@@ -48265,18 +48251,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 581888622}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &963406124 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6773753283505683129, guid: a2456f4d27793bc4791e5d5b2e890b5c,
-    type: 3}
-  m_PrefabInstance: {fileID: 906889932}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!43 &972366404
 Mesh:
   m_ObjectHideFlags: 0
@@ -52404,12 +52378,6 @@ LightingSettings:
   m_PVRTiledBaking: 0
   m_NumRaysToShootPerTexel: -1
   m_RespectSceneVisibilityWhenBakingGI: 0
---- !u!1 &1172259936 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5543499490560363590, guid: a38b280081c49a1469c8b09f78bba2d6,
-    type: 3}
-  m_PrefabInstance: {fileID: 7816941899564177793}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1174192841
 GameObject:
   m_ObjectHideFlags: 0
@@ -82707,10 +82675,8 @@ MonoBehaviour:
   arrowGlowTime: 0
   arrowColor: {r: 0, g: 228, b: 255, a: 1}
   gravSlider: {fileID: 0}
-  pistolIcon: {fileID: 963406124}
-  shotgunIcon: {fileID: 159125787}
-  pistol: {fileID: 1172259936}
-  shotgun: {fileID: 336094203}
+  weaponIconHolder: {fileID: 0}
+  weaponIcons: []
 --- !u!114 &1671923312
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -82769,13 +82735,19 @@ MonoBehaviour:
     m_RotationOrder: 4
   objToShake: {fileID: 1137848594}
   speedLines: {fileID: 0}
-  speedLineObject: {fileID: 0}
   speedlineVelThreshold: 0
   fallLines: {fileID: 0}
-  fallLineObject: {fileID: 0}
   fallLineVelThreshold: 0
-  dashVFXObject: {fileID: 0}
-  dashVFX: {fileID: 0}
+  dashParticles: []
+  percentForFovChange: 0.25
+  fovChange: 10
+  slideParticles: []
+  slideParticleObject: {fileID: 0}
+  gravswitchParticles: []
+  gravswitchPPR: {fileID: 0}
+  gravswitchVignetteShowTime: 0
+  dmgPPR: {fileID: 0}
+  dmgVignetteShowTime: 0
 --- !u!43 &1679491635
 Mesh:
   m_ObjectHideFlags: 0
@@ -87936,7 +87908,21 @@ MonoBehaviour:
       Data2: 1083087641
       Data3: -1943385688
       Data4: -152275262
-    Path: event:/Music/Battle Music
+    Path: event:/Music/All Music
+  <titleMusic>k__BackingField:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  <ambience>k__BackingField:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
   <pistolShot>k__BackingField:
     Guid:
       Data1: -574071897
@@ -87944,6 +87930,13 @@ MonoBehaviour:
       Data3: -1150068829
       Data4: 579732067
     Path: event:/SFX/Gun Sounds/Pistol Shot
+  <chargePistolShot>k__BackingField:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
   <shotgunShotNoCock>k__BackingField:
     Guid:
       Data1: -503321063
@@ -87979,6 +87972,13 @@ MonoBehaviour:
       Data3: 627866271
       Data4: -1358632427
     Path: event:/SFX/Enemy Respawn/Enemy Spawn
+  <bruiserHit>k__BackingField:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
   <jumpSFX>k__BackingField:
     Guid:
       Data1: -171374389
@@ -88007,6 +88007,20 @@ MonoBehaviour:
       Data3: 1168790170
       Data4: -835152268
     Path: event:/SFX/Sliding SFX
+  <runSFX>k__BackingField:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  <groundSlamSFX>k__BackingField:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
 --- !u!1 &1713467130
 GameObject:
   m_ObjectHideFlags: 0
