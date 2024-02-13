@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.02.00">
 	<object class="AudioFile" id="{f084a011-1603-42fe-9862-77fd1f7bb850}">
 		<property name="assetPath">
-			<value>Music/PROJECT G Menu Music LOOP 3_4 90bpm.wav</value>
+			<value>Music/Main Menu.wav</value>
 		</property>
 		<property name="isStreaming">
 			<value>true</value>
