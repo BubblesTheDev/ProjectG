@@ -96,10 +96,10 @@ MonoBehaviour:
   Path: Assets/FMOD/FMOD Project/Build/Desktop/Music.bank
   Name: Music
   StudioPath: bank:/Music
-  lastModified: 638434267706002304
+  lastModified: 638434275765050900
   FileSizes:
   - Name: Desktop
-    Value: 3646048
+    Value: 3647072
   Exists: 1
 --- !u!114 &-6959361346100118255
 MonoBehaviour:
@@ -278,10 +278,10 @@ MonoBehaviour:
   Path: Assets/FMOD/FMOD Project/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638434266644278820
+  lastModified: 638434275764671768
   FileSizes:
   - Name: Desktop
-    Value: 2046
+    Value: 2100
   Exists: 1
 --- !u!114 &-3499223933945179742
 MonoBehaviour:
@@ -408,7 +408,7 @@ MonoBehaviour:
   - {fileID: 1362597027168795984}
   StringsBanks:
   - {fileID: -4324373439779850378}
-  cacheTime: 638434267706002304
+  cacheTime: 638434275765050900
   cacheVersion: 131609
 --- !u!114 &378993306651156320
 MonoBehaviour:
@@ -506,7 +506,7 @@ MonoBehaviour:
   Path: Assets/FMOD/FMOD Project/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638434266644268854
+  lastModified: 638434275764661783
   FileSizes:
   - Name: Desktop
     Value: 1486
@@ -530,6 +530,30 @@ MonoBehaviour:
   FileSizes:
   - Name: Desktop
     Value: 2505248
+  Exists: 1
+--- !u!114 &3102932162459109579
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Battle Music/Enemy Count
+  m_EditorClassIdentifier: 
+  Name: Enemy Count
+  StudioPath: 
+  Min: 0
+  Max: 3
+  Default: 0
+  ID:
+    data1: 1769650456
+    data2: 3329413764
+  Type: 0
+  IsGlobal: 0
+  Labels: []
   Exists: 1
 --- !u!114 &5203455674802389160
 MonoBehaviour:
@@ -628,7 +652,8 @@ MonoBehaviour:
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
-  Parameters: []
+  Parameters:
+  - {fileID: 3102932162459109579}
   MinDistance: 1
   MaxDistance: 20
   Length: 29436

@@ -735,6 +735,20 @@ MonoBehaviour:
       Data3: -1943385688
       Data4: -152275262
     Path: event:/Music/Battle Music
+  <titleMusic>k__BackingField:
+    Guid:
+      Data1: -815035988
+      Data2: 1122617818
+      Data3: 1054855566
+      Data4: -1249582560
+    Path: event:/Music/Main Menu
+  <ambience>k__BackingField:
+    Guid:
+      Data1: -811502381
+      Data2: 1270080454
+      Data3: 1150117001
+      Data4: -355763186
+    Path: event:/Ambience/ambience
   <pistolShot>k__BackingField:
     Guid:
       Data1: -574071897
