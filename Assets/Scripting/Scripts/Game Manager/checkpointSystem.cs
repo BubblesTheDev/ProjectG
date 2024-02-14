@@ -25,16 +25,15 @@ public class checkpointSystem : MonoBehaviour
 
     public void updateCheckpoint(int checkPointIndexToGive)
     {
-        if (PlayerPrefs.HasKey("checkpointIndex"))
-        {
-            PlayerPrefs.SetInt("checkpointIndex", checkPointIndexToGive);
-        }
+        //print("setting checkpoint index to " +  checkPointIndexToGive);
+        PlayerPrefs.SetInt("checkpointIndex", checkPointIndexToGive);
         checkPointIndex = checkPointIndexToGive;
     }
 
     public void resetCheckpoint()
     {
         checkPointIndex = 0;
+        //print("setting checkpoint index to " + checkPointIndex);
         PlayerPrefs.SetInt("checkpointIndex", checkPointIndex);
     }
 }
