@@ -66,6 +66,7 @@ public class basicRangedAI : MonoBehaviour
             if (Vector3.Distance(transform.position, ref_PlayerRB.transform.position) < midRangeDistance) StartCoroutine(closeRangeShot());
             else if (Vector3.Distance(transform.position, ref_PlayerRB.transform.position) > ((longRangeDistance - midRangeDistance) * percentToMoveCloserToMid) + midRangeDistance) StartCoroutine(longRangeShot());
         }
+
     }
 
     private void FixedUpdate()
@@ -114,6 +115,8 @@ public class basicRangedAI : MonoBehaviour
     private IEnumerator closeRangeShot()
     {
         canShoot = false;
+        ref_rangedAnimator.SetLayerWeight(2, 1);
+        ref_rangedAnimator.Play("CerbAttack", 2);
         for (int i = 0; i < numShotsShortRange; i++)
         {
             //Calculates the position to aim at
@@ -125,6 +128,7 @@ public class basicRangedAI : MonoBehaviour
 
             yield return new WaitForSeconds(fireRateShortRange);
         }
+        ref_rangedAnimator.SetLayerWeight(2, 0);
 
         yield return new WaitForSeconds(fireCooldownShortRange);
         canShoot = true;
@@ -132,6 +136,9 @@ public class basicRangedAI : MonoBehaviour
     private IEnumerator longRangeShot()
     {
         canShoot = false;
+        ref_rangedAnimator.SetLayerWeight(3, 1);
+        ref_rangedAnimator.Play("CerbStandingAttack", 3);
+
         for (int i = 0; i < numShotsLongRange; i++)
         {
             for (int j = 0; j < firePoints.Count; j++)
@@ -141,6 +148,7 @@ public class basicRangedAI : MonoBehaviour
             }
             yield return new WaitForSeconds(fireRateLongRange);
         }
+        ref_rangedAnimator.SetLayerWeight(3, 0);
 
 
         yield return new WaitForSeconds(fireCooldownShortRange);
