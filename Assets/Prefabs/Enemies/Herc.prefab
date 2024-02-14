@@ -125,8 +125,8 @@ MonoBehaviour:
   canPunch: 1
   punchAttackCooldown: 1
   hitStunDuration: 0.115
+  hitstunTime: 0.25
   hitboxActiveTime: 1.1
-  punchAnimName: HercPunch
   damage: 1
   distanceToPunchPlayer: 2.5
   punchHitbox: {fileID: 1339316845408257685}

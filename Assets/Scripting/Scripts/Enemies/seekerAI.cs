@@ -9,34 +9,34 @@ public class seekerAI : MonoBehaviour
 
     [Header("Debug Things")]
     [SerializeField] private seekerAIStates currentAIState;
+    [SerializeField] private bool attackMode;
     [SerializeField] private bool canUseSlash = true, canUseLeap = true, canUseDash = true;
     [SerializeField] private float slashAttackCooldown, leapAttackCooldown, dashMovmentCooldown, hitStunDuration;
 
     [Header("Dash Movement Stats")]
     [SerializeField] private float distanceToStartDash;
-    [SerializeField] private float randomnessPathRadius;
-    [SerializeField] private float pathwaySizeRadius;
     [SerializeField] private float dashSpeed;
     [SerializeField] private float numOfDashes;
     [SerializeField] private float timeBetweenDash;
     [SerializeField] private LayerMask enviromentLayer;
     [SerializeField] private TrailRenderer[] movementTrails;
-    [SerializeField] private List<Vector3> dashPath = new List<Vector3>();
 
     [Header("Slash Attack Stats")]
     [SerializeField] private int slashDamage;
     [SerializeField] private bool hitboxActive_Slash;
     [SerializeField] private float timeBeforeSlashAttack;
-    [SerializeField] private Vector3 slashAttackHitboxCenter, slashAttackHitboxSize;
+    [SerializeField] private float distanceToSlash;
+    [SerializeField] private float slashTime;
+    [SerializeField] private Collider slashAttackHitbox;
+    private bool hasHitWithSlash;
 
     [Header("Leap Attack Stats")]
     [SerializeField] private int leapDamage;
     [SerializeField] private AnimationCurve leapCurve;
     [SerializeField] private bool hitboxActive_Leap;
-    [SerializeField] private float leapAttackHitboxHeight, leapAttackHitboxRadius;
+    [SerializeField] private Collider leapAttackHitbox;
     [SerializeField] private float time_lineUpLeap, time_leapReaction, time_calmDown;
     [SerializeField] private bool playerIsVisable;
-    [SerializeField] private LayerMask ref_playerLayer;
 
     #region Assignables
     private NavMeshAgent ref_NavMeshAgent;
@@ -44,6 +44,7 @@ public class seekerAI : MonoBehaviour
     private playerMovement ref_PlayerMovement;
     private playerHealth ref_PlayerStats;
     private Animator ref_seekerAnimator;
+    private Collider ref_playerCollider;
     #endregion
 
     private void Awake()
@@ -52,39 +53,15 @@ public class seekerAI : MonoBehaviour
         ref_PlayerObj = GameObject.Find("Player");
         ref_PlayerMovement = ref_PlayerObj.GetComponent<playerMovement>();
         ref_PlayerStats = ref_PlayerObj.GetComponent<playerHealth>();
+        ref_playerCollider = ref_PlayerObj.GetComponent<Collider>();
     }
 
     private void OnDrawGizmosSelected()
     {
-        #region slashDebugs
-        if (hitboxActive_Slash) Gizmos.color = Color.red;
-        else if (canUseSlash) Gizmos.color = Color.green;
-        else Gizmos.color = Color.yellow;
-
-        Gizmos.DrawSphere(transform.position + slashAttackHitboxCenter, 0.05f);
-        Gizmos.DrawWireCube(slashAttackHitboxCenter, slashAttackHitboxSize * 2f);
+        #region Dash Debug
         #endregion
 
-        #region Dash Debugs
-        if (ref_PlayerObj != null)
-        {
-            if (currentAIState == seekerAIStates.following)
-            {
-                Gizmos.color = Color.yellow;
-                Gizmos.DrawLine(transform.position + Vector3.up * 1.25f, ref_PlayerObj.transform.position);
-            }
-            else if (currentAIState == seekerAIStates.dashing && dashPath.Count > 0)
-            {
-                foreach (Vector3 dashPoint in dashPath)
-                {
-                    Gizmos.DrawSphere(dashPoint, 0.05f);
-                }
-            }
-        }
 
-
-
-        #endregion
     }
 
     private void Update()
@@ -95,26 +72,29 @@ public class seekerAI : MonoBehaviour
             //if (Mathf.Abs(ref_NavMeshAgent.velocity.magnitude) > 0) ref_seekerAnimator.Play("SeekerWalk");
             //else ref_seekerAnimator.Play("SeekerIdle");
         }
-
-        if (Vector3.Distance(transform.position + Vector3.up * 1.25f, ref_PlayerObj.transform.position) < distanceToStartDash && canUseDash && ref_NavMeshAgent.isOnNavMesh)
+        if(Vector3.Distance(transform.position, new Vector3(ref_PlayerObj.transform.position.x, transform.position.y, ref_PlayerObj.transform.position.z)) < distanceToSlash)
         {
-            StartCoroutine(action_Dash());
+            StartCoroutine(action_Slash());
         }
 
 
-        if (hitboxActive_Slash && Physics.CheckBox(transform.position + transform.TransformDirection(slashAttackHitboxCenter), slashAttackHitboxCenter, transform.rotation, ref_playerLayer)) StartCoroutine(ref_PlayerStats.takeDamage(slashDamage));
+        /*if (Vector3.Distance(transform.position, new Vector3(ref_PlayerObj.transform.position.x, transform.position.y, ref_PlayerObj.transform.position.z)) < distanceToStartDash && canUseDash)
+        {
+            StartCoroutine(action_Dash());
+        }*/
+
+
     }
 
     IEnumerator action_Dash()
     {
         Vector3 playerPosition = ref_PlayerObj.transform.position;
         currentAIState = seekerAIStates.dashing;
-        dashPath.Clear();
         ref_NavMeshAgent.isStopped = true;
         ref_NavMeshAgent.velocity *= 0;
         canUseDash = false;
 
-
+        
      
 
        
@@ -132,7 +112,21 @@ public class seekerAI : MonoBehaviour
         canUseSlash = false;
 
         ref_seekerAnimator.Play("seekerSlash");
-        yield return new WaitForSeconds(ref_seekerAnimator.GetCurrentAnimatorClipInfo(0).Length + 0.1f);
+
+
+        float temp = 0;
+        while (temp < slashTime)
+        {
+            if (slashAttackHitbox.bounds.Intersects(ref_playerCollider.bounds) && !hasHitWithSlash)
+            {
+                hasHitWithSlash = true;
+                StartCoroutine(ref_PlayerStats.takeDamage(slashDamage));
+            }
+
+            temp += Time.deltaTime;
+            yield return null;
+
+        }
 
         ref_NavMeshAgent.isStopped = false;
         currentAIState = seekerAIStates.following;
@@ -155,8 +149,7 @@ public class seekerAI : MonoBehaviour
         float time = 0;
         while(time < time_lineUpLeap)
         {
-            transform.LookAt(ref_PlayerObj.transform.position, Vector3.up);
-            transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
+            transform.LookAt(new Vector3(ref_PlayerObj.transform.position.x, transform.position.y, ref_PlayerObj.transform.position.z), Vector3.up);
 
 
 

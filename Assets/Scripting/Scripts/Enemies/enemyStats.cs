@@ -1,10 +1,7 @@
-using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Events;
-using UnityEngine.InputSystem.HID;
-using UnityEngine.UI;
 using UnityEngine.VFX;
 
 public class enemyStats : MonoBehaviour
@@ -52,14 +49,14 @@ public class enemyStats : MonoBehaviour
         temp_enemyCollider.enabled = false;
         ref_NavMeshAgent.isStopped = true;
         enemyGFX.SetActive(false);
-        enemyDamageTaken?.Invoke();
+        enemyDeath?.Invoke();
         yield return new WaitForSeconds(timeToDie);
         Destroy(gameObject);
     }
 
     public void takeDamage(float damageToTake)
     {
-        enemyDeath?.Invoke();
+        enemyDamageTaken?.Invoke();
         currentHP -= damageToTake;
         StartCoroutine(bloodVFX());
         AudioManager.instance.PlaySFX(FMODEvents.instance.bruiserHit, this.transform.position);

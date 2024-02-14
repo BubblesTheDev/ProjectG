@@ -10,15 +10,16 @@ public class meleeBruiserAI : MonoBehaviour
     [Header("Debug Things")]
     [SerializeField] private bool canPunch;
     [SerializeField] private float punchAttackCooldown, hitStunDuration;
+    [SerializeField] private float hitstunTime;
 
     [Header("Punch Attack Stats")]
     [SerializeField] private float hitboxActiveTime;
-    [SerializeField] private string punchAnimName;
     [SerializeField] private int damage;
     [SerializeField] private float distanceToPunchPlayer;
     [SerializeField] private Collider punchHitbox;
     [SerializeField] private float walkingAnimThreshold;
     private bool hasHitPlayerThisAttack = false;
+
 
     #region Assignables
     private NavMeshAgent ref_NavMeshAgent;
@@ -36,15 +37,17 @@ public class meleeBruiserAI : MonoBehaviour
         ref_PlayerStats = ref_PlayerObj.GetComponent<playerHealth>();
         ref_meleeAnimator = GetComponent<Animator>();
         ref_EnemyStats = GetComponent<enemyStats>();
-        ref_playerCollider = ref_PlayerObj.GetComponent<Collider>();   
+        ref_playerCollider = ref_PlayerObj.GetComponent<Collider>();
+        ref_EnemyStats.enemyDamageTaken.AddListener(delegate { hitstunStart(); });
     }
 
     private void Update()
     {
         ref_NavMeshAgent.SetDestination(new Vector3(ref_PlayerObj.transform.position.x, transform.position.y, ref_PlayerObj.transform.position.z));
 
-        //if (ref_NavMeshAgent.velocity.magnitude > walkingAnimThreshold) ref_meleeAnimator.Play("BasicMeleeWalk", 0);
-        if(Vector3.Distance(ref_PlayerObj.transform.position, transform.position) < distanceToPunchPlayer && canPunch)
+        if (ref_NavMeshAgent.velocity.magnitude > walkingAnimThreshold) ref_meleeAnimator.Play("HercRunning", 0);
+        else ref_meleeAnimator.Play("HercIdle", 0);
+        if (Vector3.Distance(ref_PlayerObj.transform.position, transform.position) < distanceToPunchPlayer && canPunch)
         {
             StartCoroutine(attackPlayer());
         }
@@ -53,28 +56,25 @@ public class meleeBruiserAI : MonoBehaviour
     public void enablePunchHitbox()
     {
         punchHitbox.enabled = true;
-        //print("enabled hitbox for " + name);
     }
 
     public void disablePunchHitbox()
     {
         punchHitbox.enabled = false;
-        //print("disabled hitbox for " + name);
     }
 
     IEnumerator attackPlayer()
     {
         canPunch = false;
-        ref_meleeAnimator.Play(punchAnimName,0);
+        ref_meleeAnimator.SetLayerWeight(1, 1);
+        ref_meleeAnimator.Play("HercPunch",1);
         
-        //print(transform.name + " is punching");
 
         float temp = 0;
         while(temp < hitboxActiveTime)
         {
             if(punchHitbox.bounds.Intersects(ref_playerCollider.bounds) && !hasHitPlayerThisAttack) 
             {
-                print("hit player");
                 hasHitPlayerThisAttack = true;
                 StartCoroutine(ref_PlayerStats.takeDamage(damage));
             }
@@ -84,7 +84,7 @@ public class meleeBruiserAI : MonoBehaviour
 
         }
 
-        //print("finished punch");
+        ref_meleeAnimator.SetLayerWeight(1, 0);
 
         disablePunchHitbox();
         yield return new WaitForSeconds(punchAttackCooldown);
@@ -92,5 +92,28 @@ public class meleeBruiserAI : MonoBehaviour
         hasHitPlayerThisAttack = false;
     }
 
-    
+    void hitstunStart()
+    {
+        StartCoroutine(hitstun());
+    }
+
+    IEnumerator hitstun()
+    {
+        ref_NavMeshAgent.isStopped = true;
+        ref_NavMeshAgent.velocity = Vector3.zero;
+        ref_meleeAnimator.SetLayerWeight(2,1);
+        ref_meleeAnimator.Play("HercHitStunned", 2);
+        float time = 0;
+        while (time < hitstunTime)
+        {
+            canPunch = false;
+            time += Time.deltaTime;
+            yield return null;
+        }
+        ref_NavMeshAgent.isStopped = false;
+        ref_meleeAnimator.SetLayerWeight(2, 0);
+
+    }
+
+
 }

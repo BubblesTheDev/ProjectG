@@ -1,14 +1,10 @@
 using System.Collections;
-using System.Collections.Generic;
-using System.Runtime.CompilerServices;
-using TMPro;
-using Unity.Properties;
-using Unity.VisualScripting;
-//using UnityEditor;
-//using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.Events;
 
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 
 [RequireComponent(typeof(Rigidbody)), RequireComponent(typeof(CapsuleCollider))]
 public class playerMovement : MonoBehaviour
@@ -199,7 +195,7 @@ public class playerMovement : MonoBehaviour
         if (dragAffected) applyDrag();
         positionLastFrame = transform.position;
     }
-/*
+
 #if UNITY_EDITOR
     private void OnDrawGizmosSelected()
     {
@@ -259,7 +255,7 @@ public class playerMovement : MonoBehaviour
         }
     }
 #endif
-*/
+
     private void groundDetection()
     {
         if (current_playerMovementAction == playerMovementAction.jumping || current_playerMovementAction == playerMovementAction.flipping) return;
@@ -267,7 +263,7 @@ public class playerMovement : MonoBehaviour
         Vector3 tempPositionaloffSet = Vector3.zero;
         if (current_PlayerRotationState == playerRotationState.nonFlipped) tempPositionaloffSet *= directionalVector_Flipped.y;
         else tempPositionaloffSet *= directionalVector_NonFlipped.y;
-        #region new version
+       
 
         if (Physics.SphereCast(transform.position + tempPositionaloffSet, groundCheck_Radius, -transform.up, out groundCheck_HitInformation, groundCheck_Distance, groundCheck_LayersToHit) 
             && Vector3.Angle(transform.up, groundCheck_HitInformation.normal) <= maxSlopeAngle)
@@ -285,7 +281,6 @@ public class playerMovement : MonoBehaviour
         {
             grounded = false;
         }
-        #endregion
 
         
     }
