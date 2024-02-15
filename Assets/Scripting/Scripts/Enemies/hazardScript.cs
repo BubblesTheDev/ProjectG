@@ -49,7 +49,8 @@ public class hazardScript : MonoBehaviour
                 currentCycleTime = 0;
                 foreach (GameObject t in objsToToggle)
                 {
-                    t.SetActive(!t.activeSelf);
+                    if(t.activeSelf) t.SetActive(false);
+                    else t.SetActive(true);
                 }
             }
             currentCycleTime += Time.deltaTime;
