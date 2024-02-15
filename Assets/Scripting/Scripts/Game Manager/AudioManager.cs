@@ -48,7 +48,7 @@ public class AudioManager : MonoBehaviour
         sfxBus = RuntimeManager.GetBus("bus:/SFX");
 
         DontDestroyOnLoad(gameObject);
-        DontDestroyOnLoad(GameObject.Find("AudioManager"));
+        DontDestroyOnLoad(GameObject.Find("Audio Manager"));
         DontDestroyOnLoad(GameObject.Find("FMODEvents"));
     }
 
