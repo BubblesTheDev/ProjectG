@@ -116,12 +116,12 @@ public class basicRangedAI : MonoBehaviour
     {
         canShoot = false;
         ref_rangedAnimator.SetLayerWeight(2, 1);
-        ref_rangedAnimator.Play("CerbAttack", 2);
         for (int i = 0; i < numShotsShortRange; i++)
         {
             //Calculates the position to aim at
             int firePointIndex = Random.Range(0, firePoints.Count);
             Vector3 leadingDir = (ref_PlayerObj.transform.position + ref_PlayerRB.velocity * Time.deltaTime) - firePoints[firePointIndex].transform.position;
+            ref_rangedAnimator.Play("CerbAttack", 2);
 
             GameObject temp = Instantiate(enemyBullet, firePoints[firePointIndex].transform.position, Quaternion.LookRotation(leadingDir.normalized), GameObject.Find("Bullet Storage").transform);
             temp.GetComponent<Rigidbody>().velocity = temp.transform.forward * bulletSpeedShortRange;
