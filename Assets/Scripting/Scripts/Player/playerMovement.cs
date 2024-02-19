@@ -145,6 +145,12 @@ public class playerMovement : MonoBehaviour
     public bool debug_ShowJumpHeight;
     public bool debug_ShowDashDistance;
     public bool debug_showPlayerSpeed;
+
+    public GUIStyle textStyle = new GUIStyle();
+
+    public Vector2 playerSpeedTextPos;
+    public Vector2 playerVelMagTextPos;
+    public Vector2 playerSpeedTextSize;
     #endregion
 
     private void OnEnable()
@@ -245,13 +251,10 @@ public class playerMovement : MonoBehaviour
 
     private void OnGUI()
     {
-        GUIStyle tempstyle = new GUIStyle();
-        tempstyle.fontSize = 30;
-        tempstyle.normal.textColor = Color.white;
         if (debug_showPlayerSpeed)
         {
-            GUI.Label(new Rect(10, 10 + 100, 100 * 4, 20 * 4), "Speed: " + Mathf.Round((Vector3.Distance(transform.position, positionLastFrame) / Time.deltaTime)).ToString() + "Ups", tempstyle);
-            GUI.Label(new Rect(10, 40 + 100, 100 * 4, 20 * 4), "Velocity Magnitude: " + directionalOrientation.transform.InverseTransformDirection(rb.velocity).magnitude.ToString(), tempstyle);
+            GUI.Label(new Rect(playerSpeedTextPos.x, playerSpeedTextPos.y, playerSpeedTextSize.x, playerSpeedTextSize.y), "SPD: " + Mathf.Round((Vector3.Distance(transform.position, positionLastFrame) / Time.deltaTime)).ToString("#.000") + "m/s", textStyle);
+            GUI.Label(new Rect(playerVelMagTextPos.x, playerVelMagTextPos.y, playerSpeedTextSize.x, playerSpeedTextSize.y), "VEL.MAG: " + directionalOrientation.transform.InverseTransformDirection(rb.velocity).magnitude.ToString("#.000") + "m/s", textStyle);
         }
     }
 #endif
