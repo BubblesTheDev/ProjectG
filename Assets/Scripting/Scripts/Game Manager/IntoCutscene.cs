@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class NewBehaviourScript : MonoBehaviour
 {
-    public Texture[] imageArray;
+    public GameObject[] imageArray;
     [SerializeField]private int CurrentImage;
 
     float deltaTime = 0.0f;
@@ -19,7 +20,8 @@ public class NewBehaviourScript : MonoBehaviour
     {
         int w = Screen.width, h = Screen.height;
         Rect imageRect = new Rect(0, 0, Screen.width, Screen.height);
-        if (CurrentImage < imageArray.Length) GUI.DrawTexture(imageRect, imageArray[CurrentImage]);
+        if(CurrentImage - 1 >= 0) imageArray[CurrentImage - 1].SetActive(false);
+        if (CurrentImage < imageArray.Length) imageArray[CurrentImage].SetActive(true);
     }
     // Start is called before the first frame update
     void Start()
