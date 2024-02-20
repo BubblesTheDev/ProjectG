@@ -107,7 +107,7 @@ MonoBehaviour:
     m_Bits: 320
   collisionForwardOffset: 1
   collisionDistance: 1.5
-  implosionRange: 10
+  implosionRange: 6
   damage: 1
   implosionForce: 450
   pullForce: 450
