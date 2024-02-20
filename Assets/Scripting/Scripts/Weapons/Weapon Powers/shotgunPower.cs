@@ -9,6 +9,7 @@ public class shotgunPower : weaponPowerBase
     [SerializeField] private Vector3 halfHitboxSize;
     [SerializeField] private int damage;
     [SerializeField] private GameObject parriedBullet;
+    [SerializeField] private ParticleSystem shockwaveParticles;
 
     [Space, Header("Movement Variables")]
     [SerializeField] private float shockwaveForce;
@@ -29,6 +30,9 @@ public class shotgunPower : weaponPowerBase
     {
         if (!canUsePower) yield break;
         canUsePower = false;
+
+        //Place particle stuff here
+
 
 
         //Collects all the enemies and projectiles in the bounds
