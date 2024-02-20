@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.VFX;
 //using UnityEngine.Rendering.HighDefinition;
 
 public class weaponVFXHandler : MonoBehaviour
@@ -40,21 +41,23 @@ public class weaponVFXHandler : MonoBehaviour
         Destroy(tempBulletTracer, 5f);
     }
 
-    /*public IEnumerator spawnBulletHole(RaycastHit bulletHoleInfo)
+    public IEnumerator spawnBulletHole(RaycastHit bulletHoleInfo)
     {
-        GameObject tempBullethole = Instantiate(projectorPrefab, bulletHoleInfo.point, Quaternion.Euler(bulletHoleInfo.normal), GameObject.Find("VFX Storage").transform);
+        GameObject tempBullethole = Instantiate(projectorPrefab, bulletHoleInfo.point, Quaternion.Euler(bulletHoleInfo.normal), GameObject.Find("VFX Holder").transform);
+        tempBullethole.GetComponent<VisualEffect>().SetVector3("BulletHoleAngle", new Vector3(bulletHoleInfo.normal.x * 90, bulletHoleInfo.normal.y * 90, bulletHoleInfo.normal.z * 90));
 
-        float currentTime = 0;
-        while (currentTime < timeToFade)
-        {
-            tempBullethole.GetComponent<DecalProjector>().fadeFactor = currentTime;
-            currentTime += Time.deltaTime / timeToFade;
 
-            yield return null;
-        }
+        /*        float currentTime = 0;
+                while (currentTime < timeToFade)
+                {
+                    tempBullethole.GetComponent<DecalProjector>().fadeFactor = currentTime;
+                    currentTime += Time.deltaTime / timeToFade;
 
-        Destroy(tempBullethole, 1f);
-    }*/
+                    yield return null;
+                }*/
+        yield return null;
+        Destroy(tempBullethole, timeToFade);
+    }
 
     public void playMuzzleFlash()
     {

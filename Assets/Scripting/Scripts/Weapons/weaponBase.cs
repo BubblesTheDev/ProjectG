@@ -138,12 +138,17 @@ public class weaponBase : MonoBehaviour
                 foreach (RaycastHit hit in hits)
                 {
                     StartCoroutine(weaponVFX.spawnTrail(hit));
+
                     if (hit.transform.CompareTag("Enemy"))
                     {
                         hit.transform.GetComponent<enemyStats>().takeDamage(weaponDamage);
                         if (hitMarkerCoroutine != null) StopCoroutine(hitMarkerCoroutine);
                         hitMarkerCoroutine = StartCoroutine(FadeHitMarker());
 
+                    }
+                    else
+                    {
+                        StartCoroutine(weaponVFX.spawnBulletHole(hit));
                     }
                 }
             }

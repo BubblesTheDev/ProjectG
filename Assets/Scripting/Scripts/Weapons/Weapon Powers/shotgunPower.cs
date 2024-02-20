@@ -9,7 +9,12 @@ public class shotgunPower : weaponPowerBase
     [SerializeField] private Vector3 halfHitboxSize;
     [SerializeField] private int damage;
     [SerializeField] private GameObject parriedBullet;
+
+    [Space, Header("VFX Variables")]
+    [SerializeField] private GameObject shockwave;
     [SerializeField] private ParticleSystem shockwaveParticles;
+    [SerializeField] private Material shockwaveMat;
+    [SerializeField] private float shockwaveSize;
 
     [Space, Header("Movement Variables")]
     [SerializeField] private float shockwaveForce;
@@ -24,6 +29,8 @@ public class shotgunPower : weaponPowerBase
     {
         ref_PlayerMovement = GameObject.Find("Player").GetComponent<playerMovement>();
         cameraHolder = GameObject.Find("CameraHolder");
+        shockwaveMat.SetFloat("_Size", 0);
+        shockwave.SetActive(false);
     }
 
     public override IEnumerator usePower()
@@ -32,8 +39,9 @@ public class shotgunPower : weaponPowerBase
         canUsePower = false;
 
         //Place particle stuff here
-
-
+        StartCoroutine(EnableShockwave());
+        shockwaveMat.SetFloat("_Size", shockwaveSize);
+        shockwaveParticles.Play();
 
         //Collects all the enemies and projectiles in the bounds
         Collider[] tempObjs = Physics.OverlapBox(boundsPosition.transform.position, halfHitboxSize, transform.rotation);
@@ -64,8 +72,15 @@ public class shotgunPower : weaponPowerBase
             ref_PlayerMovement.vertical_playerVelocity += new Vector3(0, tempDir.y, 0);
             
         }
-
         yield return new WaitForSeconds(powerCooldown);
         canUsePower = true;
+    }
+
+    IEnumerator EnableShockwave()
+    {
+        shockwave.SetActive(true);
+        yield return new WaitForSeconds(0.3f);
+        shockwaveMat.SetFloat("_Size", 0);
+        shockwave.SetActive(false);
     }
 }

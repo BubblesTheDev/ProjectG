@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Enemy
   - music
+  - EnemyProjectile
   layers:
   - Default
   - TransparentFX
