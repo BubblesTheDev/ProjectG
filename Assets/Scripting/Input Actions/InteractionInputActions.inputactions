@@ -24,6 +24,15 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": "Melee",
+                    "type": "Button",
+                    "id": "c8e564f1-843a-4922-af1f-c5da5f966a6c",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "scrollWheel",
                     "type": "Value",
                     "id": "17c73a68-b433-4733-a4b7-c9acc9862d03",
@@ -164,6 +173,17 @@
                     "processors": "",
                     "groups": "PC",
                     "action": "WeaponSlot5",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1cfcfc86-c976-4c9f-bd55-b799ad43cb45",
+                    "path": "<Keyboard>/v",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "PC",
+                    "action": "Melee",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

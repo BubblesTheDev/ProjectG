@@ -46,6 +46,15 @@ public partial class @InteractionInputActions: IInputActionCollection2, IDisposa
                     ""initialStateCheck"": false
                 },
                 {
+                    ""name"": ""Melee"",
+                    ""type"": ""Button"",
+                    ""id"": ""c8e564f1-843a-4922-af1f-c5da5f966a6c"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
                     ""name"": ""scrollWheel"",
                     ""type"": ""Value"",
                     ""id"": ""17c73a68-b433-4733-a4b7-c9acc9862d03"",
@@ -188,6 +197,17 @@ public partial class @InteractionInputActions: IInputActionCollection2, IDisposa
                     ""action"": ""WeaponSlot5"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1cfcfc86-c976-4c9f-bd55-b799ad43cb45"",
+                    ""path"": ""<Keyboard>/v"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""PC"",
+                    ""action"": ""Melee"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -204,6 +224,7 @@ public partial class @InteractionInputActions: IInputActionCollection2, IDisposa
         m_Combat = asset.FindActionMap("Combat", throwIfNotFound: true);
         m_Combat_Fire1 = m_Combat.FindAction("Fire 1", throwIfNotFound: true);
         m_Combat_Fire2 = m_Combat.FindAction("Fire 2", throwIfNotFound: true);
+        m_Combat_Melee = m_Combat.FindAction("Melee", throwIfNotFound: true);
         m_Combat_scrollWheel = m_Combat.FindAction("scrollWheel", throwIfNotFound: true);
         m_Combat_WeaponSlot1 = m_Combat.FindAction("WeaponSlot1", throwIfNotFound: true);
         m_Combat_WeaponSlot2 = m_Combat.FindAction("WeaponSlot2", throwIfNotFound: true);
@@ -273,6 +294,7 @@ public partial class @InteractionInputActions: IInputActionCollection2, IDisposa
     private List<ICombatActions> m_CombatActionsCallbackInterfaces = new List<ICombatActions>();
     private readonly InputAction m_Combat_Fire1;
     private readonly InputAction m_Combat_Fire2;
+    private readonly InputAction m_Combat_Melee;
     private readonly InputAction m_Combat_scrollWheel;
     private readonly InputAction m_Combat_WeaponSlot1;
     private readonly InputAction m_Combat_WeaponSlot2;
@@ -285,6 +307,7 @@ public partial class @InteractionInputActions: IInputActionCollection2, IDisposa
         public CombatActions(@InteractionInputActions wrapper) { m_Wrapper = wrapper; }
         public InputAction @Fire1 => m_Wrapper.m_Combat_Fire1;
         public InputAction @Fire2 => m_Wrapper.m_Combat_Fire2;
+        public InputAction @Melee => m_Wrapper.m_Combat_Melee;
         public InputAction @scrollWheel => m_Wrapper.m_Combat_scrollWheel;
         public InputAction @WeaponSlot1 => m_Wrapper.m_Combat_WeaponSlot1;
         public InputAction @WeaponSlot2 => m_Wrapper.m_Combat_WeaponSlot2;
@@ -306,6 +329,9 @@ public partial class @InteractionInputActions: IInputActionCollection2, IDisposa
             @Fire2.started += instance.OnFire2;
             @Fire2.performed += instance.OnFire2;
             @Fire2.canceled += instance.OnFire2;
+            @Melee.started += instance.OnMelee;
+            @Melee.performed += instance.OnMelee;
+            @Melee.canceled += instance.OnMelee;
             @scrollWheel.started += instance.OnScrollWheel;
             @scrollWheel.performed += instance.OnScrollWheel;
             @scrollWheel.canceled += instance.OnScrollWheel;
@@ -334,6 +360,9 @@ public partial class @InteractionInputActions: IInputActionCollection2, IDisposa
             @Fire2.started -= instance.OnFire2;
             @Fire2.performed -= instance.OnFire2;
             @Fire2.canceled -= instance.OnFire2;
+            @Melee.started -= instance.OnMelee;
+            @Melee.performed -= instance.OnMelee;
+            @Melee.canceled -= instance.OnMelee;
             @scrollWheel.started -= instance.OnScrollWheel;
             @scrollWheel.performed -= instance.OnScrollWheel;
             @scrollWheel.canceled -= instance.OnScrollWheel;
@@ -382,6 +411,7 @@ public partial class @InteractionInputActions: IInputActionCollection2, IDisposa
     {
         void OnFire1(InputAction.CallbackContext context);
         void OnFire2(InputAction.CallbackContext context);
+        void OnMelee(InputAction.CallbackContext context);
         void OnScrollWheel(InputAction.CallbackContext context);
         void OnWeaponSlot1(InputAction.CallbackContext context);
         void OnWeaponSlot2(InputAction.CallbackContext context);
