@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.028816652, g: 0.01035553, b: 0.027805515, a: 1}
+  m_IndirectSpecularColor: {r: 0.028816499, g: 0.010355378, b: 0.027805362, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -463,6 +463,7 @@ GameObject:
   m_Component:
   - component: {fileID: 206000898}
   - component: {fileID: 206000897}
+  - component: {fileID: 206000899}
   m_Layer: 0
   m_Name: Timline
   m_TagString: Untagged
@@ -487,7 +488,7 @@ PlayableDirector:
   m_SceneBindings:
   - key: {fileID: -965643409177166752, guid: fef0eb01d085c7f47ac71a5930ea8065, type: 2}
     value: {fileID: 255547350}
-  - key: {fileID: -9075969591459332363, guid: fef0eb01d085c7f47ac71a5930ea8065, type: 2}
+  - key: {fileID: -4859464440025873534, guid: fef0eb01d085c7f47ac71a5930ea8065, type: 2}
     value: {fileID: 986812434}
   m_ExposedReferences:
     m_References: []
@@ -506,6 +507,27 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &206000899
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 206000896}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 2
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &245140957
 GameObject:
   m_ObjectHideFlags: 0
@@ -641,7 +663,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &255547351
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -907,9 +929,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_BindingMode: 1
   m_FollowOffset: {x: -0.01, y: 0, z: 0.5}
-  m_XDamping: 1
-  m_YDamping: 1
-  m_ZDamping: 1
+  m_XDamping: 0
+  m_YDamping: 0
+  m_ZDamping: 0
   m_AngularDampingMode: 0
   m_PitchDamping: 0
   m_YawDamping: 0
@@ -6445,6 +6467,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Controller
       value: 
+      objectReference: {fileID: 9100000, guid: 38793eb01dc9b984a848ccd971d38121, type: 2}
+    - target: {fileID: 5866666021909216657, guid: 8fd7d5b82b9cfab47a8060deb07b1f7b,
+        type: 3}
+      propertyPath: m_UpdateMode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5866666021909216657, guid: 8fd7d5b82b9cfab47a8060deb07b1f7b,
+        type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
