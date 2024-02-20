@@ -88,9 +88,7 @@ public class playerHealth : MonoBehaviour
             //Play health dmg sound
             //frame stutter
             tookDamage.Invoke();
-            print("cant take dmg");
             yield return new WaitForSeconds(immunityTime);
-            print("can take dmg");
             canTakeDamage = true;
         }
     }
