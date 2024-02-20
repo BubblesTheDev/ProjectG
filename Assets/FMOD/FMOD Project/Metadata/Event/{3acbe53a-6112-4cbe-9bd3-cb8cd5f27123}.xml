@@ -23,7 +23,7 @@
 			<destination>{9af49ace-ab71-4686-a3ac-ba777e0fa595}</destination>
 		</relationship>
 		<relationship name="markerTracks">
-			<destination>{5169d263-2682-4b11-a739-8fafdf28a9a7}</destination>
+			<destination>{0b0f06ef-564e-41a7-8ff4-f8bf9348215a}</destination>
 		</relationship>
 		<relationship name="groupTracks">
 			<destination>{87c54689-51c0-47e1-901a-0ce57205e864}</destination>
@@ -61,7 +61,7 @@
 		</relationship>
 	</object>
 	<object class="EventAutomatableProperties" id="{9af49ace-ab71-4686-a3ac-ba777e0fa595}" />
-	<object class="MarkerTrack" id="{5169d263-2682-4b11-a739-8fafdf28a9a7}" />
+	<object class="MarkerTrack" id="{0b0f06ef-564e-41a7-8ff4-f8bf9348215a}" />
 	<object class="GroupTrack" id="{87c54689-51c0-47e1-901a-0ce57205e864}">
 		<relationship name="modules">
 			<destination>{0c6e9d05-6aae-49b3-bb59-3b38ee0f9e0e}</destination>
@@ -81,6 +81,9 @@
 		</relationship>
 	</object>
 	<object class="EventMixerMaster" id="{b4a81b03-4e9e-4724-8b39-491d32ea17d7}">
+		<property name="pitch">
+			<value>24</value>
+		</property>
 		<relationship name="effectChain">
 			<destination>{3575f336-ae15-4c51-9f7a-ea2818ee2c58}</destination>
 		</relationship>
@@ -112,7 +115,7 @@
 	<object class="MixerBusPanner" id="{d7aa5ba4-3d36-4bbe-81f5-da27847fc1b2}" />
 	<object class="SingleSound" id="{0c6e9d05-6aae-49b3-bb59-3b38ee0f9e0e}">
 		<property name="length">
-			<value>31.980770975056689</value>
+			<value>16</value>
 		</property>
 		<relationship name="audioFile">
 			<destination>{a7054f9b-6638-455a-ae20-a265e8da0412}</destination>
@@ -150,7 +153,7 @@
 	</object>
 	<object class="LoopRegion" id="{45682b11-35e8-4bf0-ae35-8e3593717015}">
 		<property name="position">
-			<value>4</value>
+			<value>1</value>
 		</property>
 		<property name="length">
 			<value>1</value>
@@ -159,7 +162,7 @@
 			<destination>{7b3575aa-fcfc-40a4-a268-ba3da4bec1a4}</destination>
 		</relationship>
 		<relationship name="markerTrack">
-			<destination>{5169d263-2682-4b11-a739-8fafdf28a9a7}</destination>
+			<destination>{0b0f06ef-564e-41a7-8ff4-f8bf9348215a}</destination>
 		</relationship>
 		<relationship name="transitionTimeline">
 			<destination>{4a7eeba9-1774-4638-9583-3a3bb1b4815a}</destination>
