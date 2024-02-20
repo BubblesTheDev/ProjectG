@@ -30,6 +30,7 @@ public class implosionBullet : MonoBehaviour
     [Space, Header("VFX Variables")]
     public VisualEffect bulletEffect;
     [SerializeField] private LineRenderer gravityChain;
+    [SerializeField] private GameObject explosion;
 
 
     InteractionInputActions inputActions;
@@ -73,6 +74,8 @@ public class implosionBullet : MonoBehaviour
 
     void implosion()
     {
+        Instantiate(explosion, transform.position, Quaternion.identity, GameObject.Find("VFX Holder").transform);
+
         isDead = true;
 
         List<Collider> enemiesHit = Physics.OverlapSphere(transform.position, implosionRange, layersToHit).ToList();
@@ -85,6 +88,7 @@ public class implosionBullet : MonoBehaviour
                 //enemiesHit[i].GetComponent<enemyStats>().ragdollEnemy();
                 if (enemiesHit[i].GetComponent<Rigidbody>()) enemiesHit[i].GetComponent<Rigidbody>().AddExplosionForce(implosionForce, transform.position, implosionRange, 0.25f, ForceMode.Impulse);
             }
+
 
         }
 
@@ -135,7 +139,10 @@ public class implosionBullet : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(!isDead) implosion();
+        if ((layersToHit & (1 << collision.gameObject.layer)) != 0 && !isDead) implosion();
+
+        else Physics.IgnoreCollision(GetComponent<Collider>(), collision.gameObject.GetComponent<Collider>());
+        
     }
 
     private void OnDrawGizmosSelected()

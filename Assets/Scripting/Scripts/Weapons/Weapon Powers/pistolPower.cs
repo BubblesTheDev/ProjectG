@@ -18,6 +18,9 @@ public class pistolPower : weaponPowerBase
     [SerializeField] private VisualEffect chargeEffect;
     [SerializeField] private GameObject shakingObj;
     [SerializeField] private float shakingIntensity;
+    [SerializeField] private GameObject blackhole;
+    [SerializeField] private ParticleSystem blackholeParticles;
+    [SerializeField] private float timer;
 
     private Vector3 startingPos;
     InteractionInputActions inputActions;
@@ -37,7 +40,6 @@ public class pistolPower : weaponPowerBase
         inputActions = new InteractionInputActions();
         firePoint = GetComponent<weaponBase>().firePoint;
         startingPos = shakingObj.transform.localPosition;
-
     }
 
     private void FixedUpdate()
@@ -51,7 +53,7 @@ public class pistolPower : weaponPowerBase
         if(mostRecentBullet != null) mostRecentBullet.GetComponent<implosionBullet>().canPull = false;
         canUsePower = false;
 
-        while(inputActions.Combat.Fire2.IsPressed())
+        while (inputActions.Combat.Fire2.IsPressed())
         {
             if (currentChargeTime >= maxChargeTime)
             {
@@ -67,20 +69,28 @@ public class pistolPower : weaponPowerBase
 
     private IEnumerator fireSpecialBullet(float chargeTime)
     {
+        blackholeParticles.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
         GameObject temp = Instantiate(bulletPrefab, firePoint.transform.position, firePoint.transform.rotation, GameObject.Find("Bullet Storage").transform);
         float chargePercent = currentChargeTime / maxChargeTime;
         mostRecentBullet = temp;
         shakingObj.transform.localPosition = startingPos;
 
         temp.transform.localScale *= 1 + (chargeScaleMulti * chargePercent);
-        temp.GetComponent<implosionBullet>().bulletEffect.SetFloat("Start Size", 1 + (chargeScaleMulti * chargePercent));
+        //temp.GetComponent<implosionBullet>().bulletEffect.SetFloat("Start Size", 1 + (chargeScaleMulti * chargePercent));
         temp.GetComponent<implosionBullet>().velocity *= 1 + (chargeScaleVel * chargePercent);
         //increase the projectile velocity based on charge percent
         currentChargeTime = 0;
 
-
-        yield return new WaitForSeconds(powerCooldown);
+        while(timer < powerCooldown)
+        {
+            timer += Time.deltaTime;
+            blackhole.transform.localScale = new Vector3(timer / powerCooldown, timer / powerCooldown, timer / powerCooldown);
+            yield return null;
+        }
+        timer = 0;
         canUsePower = true;
+        blackhole.transform.localScale = Vector3.one;
+        blackholeParticles.Play();
     }
 
 
