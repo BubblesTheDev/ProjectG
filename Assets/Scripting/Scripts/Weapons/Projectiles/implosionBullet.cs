@@ -85,8 +85,6 @@ public class implosionBullet : MonoBehaviour
             if (enemiesHit[i].CompareTag("Enemy"))
             {
                 enemiesHit[i].GetComponent<enemyStats>().takeDamage(damage);
-                //enemiesHit[i].GetComponent<enemyStats>().ragdollEnemy();
-                if (enemiesHit[i].GetComponent<Rigidbody>()) enemiesHit[i].GetComponent<Rigidbody>().AddExplosionForce(implosionForce, transform.position, implosionRange, 0.25f, ForceMode.Impulse);
             }
 
 
@@ -148,6 +146,7 @@ public class implosionBullet : MonoBehaviour
     private void OnDrawGizmosSelected()
     {
         Gizmos.DrawLine(transform.position + transform.forward * collisionForwardOffset, transform.position + -transform.forward * collisionDistance);
+        Gizmos.DrawWireSphere(transform.position, implosionRange);
 
     }
 }
