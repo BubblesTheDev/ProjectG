@@ -25,7 +25,6 @@ public class checkpointSystem : MonoBehaviour
 
     public void updateCheckpoint(int checkPointIndexToGive)
     {
-        //print("setting checkpoint index to " +  checkPointIndexToGive);
         PlayerPrefs.SetInt("checkpointIndex", checkPointIndexToGive);
         checkPointIndex = checkPointIndexToGive;
     }
@@ -33,7 +32,6 @@ public class checkpointSystem : MonoBehaviour
     public void resetCheckpoint()
     {
         checkPointIndex = 0;
-        //print("setting checkpoint index to " + checkPointIndex);
         PlayerPrefs.SetInt("checkpointIndex", checkPointIndex);
     }
 }
