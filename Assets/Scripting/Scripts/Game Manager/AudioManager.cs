@@ -28,7 +28,10 @@ public class AudioManager : MonoBehaviour
 
     private EventInstance musicEventInstance;
 
+    private EventInstance ambienceEventInstance;
+
     FMOD.Studio.EventInstance slidingSFX;
+    FMOD.Studio.EventInstance chargePistol;
 
     public static AudioManager instance { get; private set; }
 
@@ -55,6 +58,7 @@ public class AudioManager : MonoBehaviour
     private void Start()
     {
         InitializeMusic(FMODEvents.instance.battleMusic);
+        InitializeAmbience(FMODEvents.instance.ambience);
     }
 
     private void Update()
@@ -81,6 +85,12 @@ public class AudioManager : MonoBehaviour
         musicEventInstance.start();
     }
 
+    private void InitializeAmbience(EventReference ambienceEventReference)
+    {
+        ambienceEventInstance = EventInstance(ambienceEventReference);
+        ambienceEventInstance.start();
+    }
+
     public EventInstance EventInstance(EventReference eventReference)
     {
         EventInstance eventInstance = RuntimeManager.CreateInstance(eventReference);
@@ -99,6 +109,19 @@ public class AudioManager : MonoBehaviour
     public void StopSlideSFX()
     {
         slidingSFX.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+    }
+
+    public void PlaychargePistolSFX()
+    {
+        chargePistol = RuntimeManager.CreateInstance(FMODEvents.instance.chargePistolSFX);
+        chargePistol.set3DAttributes(RuntimeUtils.To3DAttributes(transform.position));
+        chargePistol.start();
+        chargePistol.release();
+    }
+
+    public void StopchargePistolSFX()
+    {
+        chargePistol.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
     }
 
     private void CleanUp()

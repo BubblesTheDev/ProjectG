@@ -74,6 +74,7 @@ public class implosionBullet : MonoBehaviour
 
     void implosion()
     {
+        AudioManager.instance.PlaySFX(FMODEvents.instance.chargePistolExplode, this.transform.position);
         Instantiate(explosion, transform.position, Quaternion.identity, GameObject.Find("VFX Holder").transform);
 
         isDead = true;

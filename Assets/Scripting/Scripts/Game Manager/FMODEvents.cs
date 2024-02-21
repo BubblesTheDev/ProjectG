@@ -7,14 +7,13 @@ public class FMODEvents : MonoBehaviour
 {
     [field: Header("Music")]
     [field: SerializeField] public EventReference battleMusic { get; private set; }
-    [field: SerializeField] public EventReference titleMusic { get; private set; }
 
     [field: Header("Ambience")]
     [field: SerializeField] public EventReference ambience { get; private set; }
 
     [field: Header("GUN SFX")]
     [field: SerializeField] public EventReference pistolShot { get; private set; }
-    [field: SerializeField] public EventReference chargePistol { get; private set; }
+    [field: SerializeField] public EventReference chargePistolSFX { get; private set; }
     [field: SerializeField] public EventReference chargePistolShot { get; private set; }
     [field: SerializeField] public EventReference chargePistolExplode { get; private set; }
     [field: SerializeField] public EventReference shotgunShotNoCock { get; private set; }
