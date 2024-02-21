@@ -4,6 +4,7 @@ using System.ComponentModel;
 //using UnityEditor;
 using UnityEngine.InputSystem;
 using UnityEngine;
+using System;
 //using Palmmedia.ReportGenerator.Core.Reporting.Builders;
 
 public class cameraControl : MonoBehaviour
@@ -33,11 +34,7 @@ public class cameraControl : MonoBehaviour
 
     private void Awake()
     {
-        /*
-#if !UNITY_EDITOR
         getSettings();
-#endif*/
-
         Cursor.lockState = CursorLockMode.Locked;
         controls = new CameraInputActions();
         playerMovementScript = GetComponent<playerMovement>();
@@ -77,14 +74,14 @@ public class cameraControl : MonoBehaviour
 
     void getSettings()
     {
-        mouseSensitivityHorizontal = PlayerPrefs.GetFloat("horizontalMouseSensitivitySetting");
-        mouseSensitivityVertical = PlayerPrefs.GetFloat("verticalMouseSensitivitySetting");
-        if (PlayerPrefs.GetString("flipHoizontalMouseSetting") == "true") flipHoirzontal = true;
+        if(PlayerPrefs.HasKey("mouseXSensValue")) mouseSensitivityHorizontal = PlayerPrefs.GetFloat("mouseXSensValue");
+        if (PlayerPrefs.HasKey("mouseYSensValue")) mouseSensitivityVertical = PlayerPrefs.GetFloat("mouseYSensValue");
+        if (Convert.ToBoolean(PlayerPrefs.GetInt("invertMouseX")) == true) flipHoirzontal = true;
         else flipHoirzontal = false;
-        if (PlayerPrefs.GetString("flipVerticalMouseSetting") == "true") flipVertical = true;
+        if (Convert.ToBoolean(PlayerPrefs.GetInt("invertMouseY")) == true) flipVertical = true;
         else flipVertical = false;
 
-        Camera.main.fieldOfView = PlayerPrefs.GetFloat("FOVSettings");
+        //Camera.main.fieldOfView = PlayerPrefs.GetFloat("fovSetting");
     }
 
     private void calculateRotation()
