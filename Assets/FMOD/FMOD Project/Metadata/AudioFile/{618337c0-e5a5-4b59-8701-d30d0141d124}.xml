@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.02.00">
-	<object class="AudioFile" id="{fc2e9d8a-8403-4fde-b5c2-751e36376d9d}">
+	<object class="AudioFile" id="{618337c0-e5a5-4b59-8701-d30d0141d124}">
 		<property name="assetPath">
-			<value>Gun Sounds/Gun 1 Pistol/Black Hole Hit.wav</value>
+			<value>Gun Sounds/Gun 1 Pistol/Black Hole Hit Reverse.wav</value>
 		</property>
 		<property name="frequencyInKHz">
 			<value>44.0999985</value>
@@ -11,7 +11,7 @@
 			<value>2</value>
 		</property>
 		<property name="length">
-			<value>3.7596145124716553</value>
+			<value>2.0817233560090704</value>
 		</property>
 		<relationship name="masterAssetFolder">
 			<destination>{7b97db15-e2df-4e58-a513-ffe8389781e2}</destination>
