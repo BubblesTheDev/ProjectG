@@ -28,6 +28,8 @@ public class AudioManager : MonoBehaviour
 
     private EventInstance musicEventInstance;
 
+    private EventInstance ambienceEventInstance;
+
     FMOD.Studio.EventInstance slidingSFX;
     FMOD.Studio.EventInstance chargePistol;
 
@@ -56,6 +58,7 @@ public class AudioManager : MonoBehaviour
     private void Start()
     {
         InitializeMusic(FMODEvents.instance.battleMusic);
+        InitializeAmbience(FMODEvents.instance.ambience);
     }
 
     private void Update()
@@ -80,6 +83,12 @@ public class AudioManager : MonoBehaviour
     {
         musicEventInstance = EventInstance(musicEventReference);
         musicEventInstance.start();
+    }
+
+    private void InitializeAmbience(EventReference ambienceEventReference)
+    {
+        ambienceEventInstance = EventInstance(ambienceEventReference);
+        ambienceEventInstance.start();
     }
 
     public EventInstance EventInstance(EventReference eventReference)
