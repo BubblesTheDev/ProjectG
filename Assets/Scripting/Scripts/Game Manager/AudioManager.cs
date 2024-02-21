@@ -104,13 +104,13 @@ public class AudioManager : MonoBehaviour
 
     public void PlaychargePistolSFX()
     {
-        chargePistol = RuntimeManager.CreateInstance(FMODEvents.instance.slideSFX);
+        chargePistol = RuntimeManager.CreateInstance(FMODEvents.instance.chargePistolSFX);
         chargePistol.set3DAttributes(RuntimeUtils.To3DAttributes(transform.position));
         chargePistol.start();
         chargePistol.release();
     }
 
-    public void StopSlideSFX()
+    public void StopchargePistolSFX()
     {
         chargePistol.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
     }

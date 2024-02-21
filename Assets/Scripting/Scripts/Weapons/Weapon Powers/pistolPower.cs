@@ -49,6 +49,7 @@ public class pistolPower : weaponPowerBase
 
     public override IEnumerator usePower()
     {
+        AudioManager.instance.PlaychargePistolSFX();
         if (!canUsePower) yield break;
         if(mostRecentBullet != null) mostRecentBullet.GetComponent<implosionBullet>().canPull = false;
         canUsePower = false;
@@ -57,7 +58,6 @@ public class pistolPower : weaponPowerBase
         {
             if (currentChargeTime >= maxChargeTime)
             {
-               
                 currentChargeTime = maxChargeTime;
                 yield return null;
             }
@@ -70,6 +70,7 @@ public class pistolPower : weaponPowerBase
 
     private IEnumerator fireSpecialBullet(float chargeTime)
     {
+        AudioManager.instance.StopchargePistolSFX();
         AudioManager.instance.PlaySFX(FMODEvents.instance.chargePistolShot, this.transform.position);
         blackholeParticles.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
         GameObject temp = Instantiate(bulletPrefab, firePoint.transform.position, firePoint.transform.rotation, GameObject.Find("Bullet Storage").transform);
