@@ -39,7 +39,7 @@ public class weaponSoundHandler : MonoBehaviour
         switch (weaponType)
         {
             case weaponType.revolver:
-                AudioManager.instance.PlaySFX(FMODEvents.instance.chargePistolShot, this.transform.position);
+                //AudioManager.instance.PlaySFX(FMODEvents.instance.chargePistolShot, this.transform.position);
                 break;
             case weaponType.shotgun:
                 AudioManager.instance.PlaySFX(FMODEvents.instance.altShotgunShot, this.transform.position);
