@@ -1,6 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,6 +10,7 @@ public class mouseControlSettings : MonoBehaviour
     [SerializeField] private Slider FOVSlider;
     [SerializeField] private Toggle invertMouseXToggle;
     [SerializeField] private Toggle invertMouseYToggle;
+    [SerializeField] private Toggle unifySensitivity;
     [SerializeField] private TMPro.TMP_InputField horizontalMouseSensInput;
     [SerializeField] private TMPro.TMP_InputField verticalMouseSensInput;
 
@@ -40,6 +39,7 @@ public class mouseControlSettings : MonoBehaviour
         if (verticalMouseSensInput != null) verticalMouseSensInput.onValueChanged.AddListener(delegate { changeSensitivityField("vertical"); });
 
         if (FOVSlider != null) FOVSlider.onValueChanged.AddListener(delegate { changeFOVSlider(); });
+        if (unifySensitivity != null) unifySensitivity.onValueChanged.AddListener(delegate { toggleSeperateSens(); });
     }
 
     void setupSettings()
@@ -47,6 +47,7 @@ public class mouseControlSettings : MonoBehaviour
         if (PlayerPrefs.HasKey("invertMouseX") && invertMouseXToggle != null) invertMouseXToggle.isOn = Convert.ToBoolean(PlayerPrefs.GetInt("invertMouseX"));
         if (PlayerPrefs.HasKey("invertMouseY") && invertMouseYToggle != null) invertMouseYToggle.isOn = Convert.ToBoolean(PlayerPrefs.GetInt("invertMouseY"));
         if (PlayerPrefs.HasKey("fovSetting") && FOVSlider != null) FOVSlider.value = PlayerPrefs.GetFloat("fovSetting");
+        if (PlayerPrefs.HasKey("toggleSeperateSens") && unifySensitivity != null) unifySensitivity.isOn = Convert.ToBoolean(PlayerPrefs.GetInt("toggleSeperateSens"));
 
         if (PlayerPrefs.HasKey("mouseXSensValue"))
         {
@@ -84,21 +85,44 @@ public class mouseControlSettings : MonoBehaviour
 
     public void changeSensitivitySlider(string WhichAxis)
     {
-        switch (WhichAxis)
+        if (Convert.ToBoolean(PlayerPrefs.GetInt("toggleSeperateSens")) == true)
         {
-            case "horizontal":
-                if (toggleConsoleFeedback) print("Mouse X Sensitivity: " + MathF.Round(horizontalMouseSensSlider.value, 3));
-                PlayerPrefs.SetFloat("mouseXSensValue", MathF.Round(horizontalMouseSensSlider.value, 3));
-                PlayerPrefs.Save();
+            switch (WhichAxis)
+            {
+                case "horizontal":
+                    if (toggleConsoleFeedback) print("Mouse X Sensitivity: " + MathF.Round(horizontalMouseSensSlider.value));
+                    PlayerPrefs.SetFloat("mouseXSensValue", MathF.Round(horizontalMouseSensSlider.value));
+                    PlayerPrefs.Save();
 
-                if (horizontalMouseSensInput != null) horizontalMouseSensInput.text = PlayerPrefs.GetFloat("mouseXSensValue").ToString();
-                break;
-            case "vertical":
-                if (toggleConsoleFeedback) print("Mouse Y Sensitivity: " + MathF.Round(verticalMouseSensSlider.value, 3));
-                PlayerPrefs.SetFloat("mouseYSensValue", MathF.Round(verticalMouseSensSlider.value, 3));
-                PlayerPrefs.Save();
-                if (verticalMouseSensInput != null) verticalMouseSensInput.text = PlayerPrefs.GetFloat("mouseYSensValue").ToString();
-                break;
+                    if (horizontalMouseSensInput != null) horizontalMouseSensInput.text = PlayerPrefs.GetFloat("mouseXSensValue").ToString();
+                    break;
+                case "vertical":
+                    if (toggleConsoleFeedback) print("Mouse Y Sensitivity: " + MathF.Round(verticalMouseSensSlider.value));
+                    PlayerPrefs.SetFloat("mouseYSensValue", MathF.Round(verticalMouseSensSlider.value));
+                    PlayerPrefs.Save();
+                    if (verticalMouseSensInput != null) verticalMouseSensInput.text = PlayerPrefs.GetFloat("mouseYSensValue").ToString();
+                    break;
+            }
+        }
+        else
+        {
+            switch (WhichAxis)
+            {
+                case "horizontal":
+                    PlayerPrefs.SetFloat("mouseXSensValue", MathF.Round(horizontalMouseSensSlider.value));
+                    PlayerPrefs.SetFloat("mouseYSensValue", MathF.Round(horizontalMouseSensSlider.value));
+                    if (horizontalMouseSensInput != null) horizontalMouseSensInput.text = PlayerPrefs.GetFloat("mouseXSensValue").ToString();
+                    if (verticalMouseSensInput != null) verticalMouseSensInput.text = PlayerPrefs.GetFloat("mouseXSensValue").ToString();
+                    break;
+                case "vertical":
+                    PlayerPrefs.SetFloat("mouseXSensValue", MathF.Round(verticalMouseSensSlider.value));
+                    PlayerPrefs.SetFloat("mouseYSensValue", MathF.Round(verticalMouseSensSlider.value));
+                    if (horizontalMouseSensInput != null) horizontalMouseSensInput.text = PlayerPrefs.GetFloat("mouseYSensValue").ToString();
+                    if (verticalMouseSensInput != null) verticalMouseSensInput.text = PlayerPrefs.GetFloat("mouseYSensValue").ToString();
+                    break;
+            }
+
+            PlayerPrefs.Save();
         }
     }
 
@@ -111,21 +135,55 @@ public class mouseControlSettings : MonoBehaviour
 
     public void changeSensitivityField(string WhichAxis)
     {
-        switch (WhichAxis)
+        if (Convert.ToBoolean(PlayerPrefs.GetInt("toggleSeperateSens")) == true)
         {
-            case "horizontal":
-                if (toggleConsoleFeedback) print("Mouse X Sensitivity: " + MathF.Round(float.Parse(horizontalMouseSensInput.text), 3));
-                PlayerPrefs.SetFloat("mouseXSensValue", MathF.Round(float.Parse(horizontalMouseSensInput.text), 3));
-                PlayerPrefs.Save();
+            switch (WhichAxis)
+            {
+                case "horizontal":
+                    if (toggleConsoleFeedback) print("Mouse X Sensitivity: " + MathF.Round(float.Parse(horizontalMouseSensInput.text), 3));
+                    PlayerPrefs.SetFloat("mouseXSensValue", MathF.Round(float.Parse(horizontalMouseSensInput.text), 3));
+                    PlayerPrefs.Save();
 
-                if (horizontalMouseSensSlider != null) horizontalMouseSensSlider.value = PlayerPrefs.GetFloat("mouseXSensValue");
-                break;
-            case "vertical":
-                if (toggleConsoleFeedback) print("Mouse Y Sensitivity: " + MathF.Round(float.Parse(verticalMouseSensInput.text), 3));
-                PlayerPrefs.SetFloat("mouseYSensValue", MathF.Round(float.Parse(verticalMouseSensInput.text), 3));
-                PlayerPrefs.Save();
-                if (verticalMouseSensSlider != null) verticalMouseSensSlider.value = PlayerPrefs.GetFloat("mouseYSensValue");
-                break;
+                    if (horizontalMouseSensSlider != null) horizontalMouseSensSlider.value = PlayerPrefs.GetFloat("mouseXSensValue");
+                    break;
+                case "vertical":
+                    if (toggleConsoleFeedback) print("Mouse Y Sensitivity: " + MathF.Round(float.Parse(verticalMouseSensInput.text), 3));
+                    PlayerPrefs.SetFloat("mouseYSensValue", MathF.Round(float.Parse(verticalMouseSensInput.text), 3));
+                    PlayerPrefs.Save();
+                    if (verticalMouseSensSlider != null) verticalMouseSensSlider.value = PlayerPrefs.GetFloat("mouseYSensValue");
+                    break;
+            }
         }
+        else
+        {
+
+            switch (WhichAxis)
+            {
+                case "horizontal":
+                    PlayerPrefs.SetFloat("mouseXSensValue", MathF.Round(float.Parse(horizontalMouseSensInput.text)));
+                    PlayerPrefs.SetFloat("mouseYSensValue", MathF.Round(float.Parse(horizontalMouseSensInput.text)));
+                    if (horizontalMouseSensSlider != null) horizontalMouseSensSlider.value = PlayerPrefs.GetFloat("mouseXSensValue");
+                    if (verticalMouseSensSlider != null) verticalMouseSensSlider.value = PlayerPrefs.GetFloat("mouseXSensValue");
+
+                    break;
+                case "vertical":
+                    PlayerPrefs.SetFloat("mouseXSensValue", MathF.Round(float.Parse(verticalMouseSensInput.text)));
+                    PlayerPrefs.SetFloat("mouseYSensValue", MathF.Round(float.Parse(verticalMouseSensInput.text)));
+                    if (horizontalMouseSensSlider != null) horizontalMouseSensSlider.value = PlayerPrefs.GetFloat("mouseYSensValue");
+                    if (verticalMouseSensSlider != null) verticalMouseSensSlider.value = PlayerPrefs.GetFloat("mouseYSensValue");
+                    break;
+            }
+
+            
+
+            PlayerPrefs.Save();
+        }
+    }
+
+    public void toggleSeperateSens()
+    {
+        if (toggleConsoleFeedback) print(unifySensitivity.isOn.ToString());
+        PlayerPrefs.SetInt("toggleSeperateSens", Convert.ToInt32(unifySensitivity.isOn));
+        PlayerPrefs.Save();
     }
 }
