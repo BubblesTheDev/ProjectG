@@ -278,10 +278,10 @@ MonoBehaviour:
   Path: Assets/FMOD/FMOD Project/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638441216296710772
+  lastModified: 638441219268835040
   FileSizes:
   - Name: Desktop
-    Value: 2140
+    Value: 2192
   Exists: 1
 --- !u!114 &-3499223933945179742
 MonoBehaviour:
@@ -456,12 +456,13 @@ MonoBehaviour:
   - {fileID: -3418485771712902395}
   - {fileID: 7364376829277207888}
   - {fileID: 4569986281715581600}
+  - {fileID: 3243131357579966258}
   EditorParameters: []
   MasterBanks:
   - {fileID: 1362597027168795984}
   StringsBanks:
   - {fileID: -4324373439779850378}
-  cacheTime: 638441216299787684
+  cacheTime: 638441219273384256
   cacheVersion: 131609
 --- !u!114 &378993306651156320
 MonoBehaviour:
@@ -532,7 +533,7 @@ MonoBehaviour:
   Path: Assets/FMOD/FMOD Project/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638441216296700810
+  lastModified: 638441219268825061
   FileSizes:
   - Name: Desktop
     Value: 1486
@@ -557,6 +558,33 @@ MonoBehaviour:
   - Name: Desktop
     Value: 2505248
   Exists: 1
+--- !u!114 &3243131357579966258
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Gun Sounds/Shotgun Alt Fire
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Gun Sounds/Shotgun Alt Fire
+  Guid:
+    Data1: -1939906233
+    Data2: 1333849241
+    Data3: -1463344719
+    Data4: -260092655
+  Banks:
+  - {fileID: 5203455674802389160}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1000
 --- !u!114 &4569986281715581600
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -599,10 +627,10 @@ MonoBehaviour:
   Path: Assets/FMOD/FMOD Project/Build/Desktop/SFX.bank
   Name: SFX
   StudioPath: bank:/SFX
-  lastModified: 638441216299787684
+  lastModified: 638441219273384256
   FileSizes:
   - Name: Desktop
-    Value: 646432
+    Value: 731264
   Exists: 1
 --- !u!114 &6161357236806526596
 MonoBehaviour:
