@@ -966,13 +966,27 @@ MonoBehaviour:
       Data3: -1150068829
       Data4: 579732067
     Path: event:/SFX/Gun Sounds/Pistol Shot
+  <chargePistol>k__BackingField:
+    Guid:
+      Data1: 986441018
+      Data2: 1287545106
+      Data3: -1932799077
+      Data4: 594670293
+    Path: event:/SFX/Gun Sounds/Charge Pistol
   <chargePistolShot>k__BackingField:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: 1298386868
+      Data2: 1149654962
+      Data3: -902554459
+      Data4: 871122270
+    Path: event:/SFX/Gun Sounds/Charged Pistol Shot
+  <chargePistolExplode>k__BackingField:
+    Guid:
+      Data1: -10004578
+      Data2: 1274547090
+      Data3: -1587619649
+      Data4: 2049857463
+    Path: event:/SFX/Gun Sounds/Charged Pistol Hit
   <shotgunShotNoCock>k__BackingField:
     Guid:
       Data1: -503321063
@@ -987,6 +1001,13 @@ MonoBehaviour:
       Data3: 0
       Data4: 0
     Path: 
+  <altShotgunShot>k__BackingField:
+    Guid:
+      Data1: -1939906233
+      Data2: 1333849241
+      Data3: -1463344719
+      Data4: -260092655
+    Path: event:/SFX/Gun Sounds/Shotgun Alt Fire
   <enemyShot>k__BackingField:
     Guid:
       Data1: 539128367
