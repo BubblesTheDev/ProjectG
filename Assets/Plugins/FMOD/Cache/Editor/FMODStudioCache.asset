@@ -96,7 +96,7 @@ MonoBehaviour:
   Path: Assets/FMOD/FMOD Project/Build/Desktop/Music.bank
   Name: Music
   StudioPath: bank:/Music
-  lastModified: 638441178279661458
+  lastModified: 638440473215148133
   FileSizes:
   - Name: Desktop
     Value: 3647296
@@ -278,10 +278,10 @@ MonoBehaviour:
   Path: Assets/FMOD/FMOD Project/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638434430344675200
+  lastModified: 638441216296710772
   FileSizes:
   - Name: Desktop
-    Value: 2038
+    Value: 2140
   Exists: 1
 --- !u!114 &-3499223933945179742
 MonoBehaviour:
@@ -454,12 +454,14 @@ MonoBehaviour:
   - {fileID: -4537400039583293477}
   - {fileID: 378993306651156320}
   - {fileID: -3418485771712902395}
+  - {fileID: 7364376829277207888}
+  - {fileID: 4569986281715581600}
   EditorParameters: []
   MasterBanks:
   - {fileID: 1362597027168795984}
   StringsBanks:
   - {fileID: -4324373439779850378}
-  cacheTime: 638441178279721296
+  cacheTime: 638441216299787684
   cacheVersion: 131609
 --- !u!114 &378993306651156320
 MonoBehaviour:
@@ -530,7 +532,7 @@ MonoBehaviour:
   Path: Assets/FMOD/FMOD Project/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638423056524565639
+  lastModified: 638441216296700810
   FileSizes:
   - Name: Desktop
     Value: 1486
@@ -550,11 +552,38 @@ MonoBehaviour:
   Path: Assets/FMOD/FMOD Project/Build/Desktop/Ambience.bank
   Name: Ambience
   StudioPath: bank:/Ambience
-  lastModified: 638434430344645279
+  lastModified: 638434252873742092
   FileSizes:
   - Name: Desktop
     Value: 2505248
   Exists: 1
+--- !u!114 &4569986281715581600
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Gun Sounds/Charged Pistol Shot
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Gun Sounds/Charged Pistol Shot
+  Guid:
+    Data1: 1298386868
+    Data2: 1149654962
+    Data3: -902554459
+    Data4: 871122270
+  Banks:
+  - {fileID: 5203455674802389160}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1447
 --- !u!114 &5203455674802389160
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -570,10 +599,10 @@ MonoBehaviour:
   Path: Assets/FMOD/FMOD Project/Build/Desktop/SFX.bank
   Name: SFX
   StudioPath: bank:/SFX
-  lastModified: 638441178279721296
+  lastModified: 638441216299787684
   FileSizes:
   - Name: Desktop
-    Value: 612960
+    Value: 646432
   Exists: 1
 --- !u!114 &6161357236806526596
 MonoBehaviour:
@@ -629,6 +658,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 3399
+--- !u!114 &7364376829277207888
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Gun Sounds/Charged Pistol Hit
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Gun Sounds/Charged Pistol Hit
+  Guid:
+    Data1: -10004578
+    Data2: 1274547090
+    Data3: -1587619649
+    Data4: 2049857463
+  Banks:
+  - {fileID: 5203455674802389160}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 2081
 --- !u!114 &7557877786881056209
 MonoBehaviour:
   m_ObjectHideFlags: 0

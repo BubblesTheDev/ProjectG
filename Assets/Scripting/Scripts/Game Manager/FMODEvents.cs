@@ -19,6 +19,7 @@ public class FMODEvents : MonoBehaviour
     [field: SerializeField] public EventReference chargePistolExplode { get; private set; }
     [field: SerializeField] public EventReference shotgunShotNoCock { get; private set; }
     [field: SerializeField] public EventReference shotgunShotCock { get; private set; }
+    [field: SerializeField] public EventReference altShotgunShot { get; private set; }
     [field: SerializeField] public EventReference enemyShot { get; private set; }
 
     [field: Header("Gravity Switch")]
