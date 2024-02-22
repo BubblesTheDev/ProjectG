@@ -150,7 +150,8 @@ public class seekerAI : MonoBehaviour
         {
             if (slashAttackHitbox.bounds.Intersects(ref_playerCollider.bounds) && !hasHitWithSlash)
             {
-                StartCoroutine(ref_PlayerStats.takeDamage(slashDamage));
+                ref_PlayerStats.startTakingDMG(slashDamage);
+
                 hasHitWithSlash = true;
             }
 
