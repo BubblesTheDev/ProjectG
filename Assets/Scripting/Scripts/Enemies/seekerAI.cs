@@ -108,7 +108,7 @@ public class seekerAI : MonoBehaviour
 
             if (dashCollider.bounds.Intersects(ref_playerCollider.bounds) && !hasHitWithSlash)
             {
-                StartCoroutine(ref_PlayerStats.takeDamage(slashDamage));
+                ref_PlayerStats.startTakingDMG(slashDamage);
                 hasHitWithSlash = true;
                 yield return null;
             }
@@ -119,7 +119,6 @@ public class seekerAI : MonoBehaviour
         ref_NavMeshAgent.velocity *= 0;
         #endregion
 
-        print("finished dash");
         foreach (TrailRenderer trail in movementTrails)
         {
             trail.emitting = false;
