@@ -1183,11 +1183,11 @@ MonoBehaviour:
     Path: event:/SFX/Gun Sounds/Pistol Shot
   <chargePistolSFX>k__BackingField:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: 986441018
+      Data2: 1287545106
+      Data3: -1932799077
+      Data4: 594670293
+    Path: event:/SFX/Gun Sounds/Charge Pistol
   <chargePistolShot>k__BackingField:
     Guid:
       Data1: 1298386868
