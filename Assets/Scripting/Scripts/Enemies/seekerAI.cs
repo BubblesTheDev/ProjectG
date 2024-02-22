@@ -9,16 +9,16 @@ public class seekerAI : MonoBehaviour
 
     [Header("Debug Things")]
     [SerializeField] private seekerAIStates currentAIState;
-    [SerializeField] private bool attackMode;
     [SerializeField] private bool canUseSlash = true, canUseLeap = true, canUseDash = true;
     [SerializeField] private float slashAttackCooldown, leapAttackCooldown, dashMovmentCooldown, hitStunDuration;
 
     [Header("Dash Movement Stats")]
     [SerializeField] private float distanceToStartDash;
+    [SerializeField] private float timeBeforeDash;
+    [SerializeField] private int numDashes;
     [SerializeField] private float dashSpeed;
-    [SerializeField] private float numOfDashes;
+    [SerializeField] private float dashDuration;
     [SerializeField] private float timeBetweenDash;
-    [SerializeField] private LayerMask enviromentLayer;
     [SerializeField] private TrailRenderer[] movementTrails;
 
     [Header("Slash Attack Stats")]
@@ -54,14 +54,9 @@ public class seekerAI : MonoBehaviour
         ref_PlayerMovement = ref_PlayerObj.GetComponent<playerMovement>();
         ref_PlayerStats = ref_PlayerObj.GetComponent<playerHealth>();
         ref_playerCollider = ref_PlayerObj.GetComponent<Collider>();
-    }
+        ref_seekerAnimator = GetComponent<Animator>();
 
-    private void OnDrawGizmosSelected()
-    {
-        #region Dash Debug
-        #endregion
-
-
+        ref_PlayerMovement.onAction_Dash_Start.AddListener(delegate { StartCoroutine(action_Dash()); });
     }
 
     private void Update()
@@ -69,35 +64,65 @@ public class seekerAI : MonoBehaviour
         if (currentAIState == seekerAIStates.following)
         {
             ref_NavMeshAgent.SetDestination(ref_PlayerObj.transform.position);
-            //if (Mathf.Abs(ref_NavMeshAgent.velocity.magnitude) > 0) ref_seekerAnimator.Play("SeekerWalk");
-            //else ref_seekerAnimator.Play("SeekerIdle");
+            if (Mathf.Abs(ref_NavMeshAgent.velocity.magnitude) > 0) ref_seekerAnimator.Play("Run",0);
+            else ref_seekerAnimator.Play("Idle",0);
         }
-        if(Vector3.Distance(transform.position, new Vector3(ref_PlayerObj.transform.position.x, transform.position.y, ref_PlayerObj.transform.position.z)) < distanceToSlash)
+        if (Vector3.Distance(transform.position, new Vector3(ref_PlayerObj.transform.position.x, transform.position.y, ref_PlayerObj.transform.position.z)) < distanceToSlash)
         {
             StartCoroutine(action_Slash());
         }
-
-
-        /*if (Vector3.Distance(transform.position, new Vector3(ref_PlayerObj.transform.position.x, transform.position.y, ref_PlayerObj.transform.position.z)) < distanceToStartDash && canUseDash)
+        if (Vector3.Distance(transform.position, new Vector3(ref_PlayerObj.transform.position.x, transform.position.y, ref_PlayerObj.transform.position.z)) < distanceToStartDash) 
         {
             StartCoroutine(action_Dash());
-        }*/
+        }
 
 
     }
 
     IEnumerator action_Dash()
     {
+        if (!canUseDash) yield break;
         Vector3 playerPosition = ref_PlayerObj.transform.position;
         currentAIState = seekerAIStates.dashing;
         ref_NavMeshAgent.isStopped = true;
         ref_NavMeshAgent.velocity *= 0;
         canUseDash = false;
+        Vector3 dashDir = Vector3.zero;
 
-        
-     
+        foreach (TrailRenderer trail in movementTrails)
+        {
+            trail.emitting = true;
+            yield return null;
+        }
 
-       
+        ref_seekerAnimator.Play("RunToLeap", 0);
+
+        #region dash attack
+
+        //Play dash charge up sound
+        yield return new WaitForSeconds(timeBeforeDash);
+
+
+        ref_seekerAnimator.Play("Leap", 0);
+
+        //This causes the nav mesh to dash in a direction
+        dashDir = new Vector3(ref_PlayerObj.transform.position.x, transform.position.y, ref_PlayerObj.transform.position.z) - transform.position;
+        float time = 0;
+        while (time < dashDuration)
+        {
+            ref_NavMeshAgent.velocity = dashDir.normalized * dashSpeed;
+            time += Time.deltaTime;
+            yield return null;
+        }
+
+        ref_NavMeshAgent.velocity *= 0;
+        #endregion
+
+        foreach (TrailRenderer trail in movementTrails)
+        {
+            trail.emitting = false;
+            yield return null;
+        }
 
         currentAIState = seekerAIStates.following;
         ref_NavMeshAgent.isStopped = false;
@@ -107,20 +132,22 @@ public class seekerAI : MonoBehaviour
 
     IEnumerator action_Slash()
     {
+        if (!canUseSlash) yield break;
+
         currentAIState = seekerAIStates.slashing;
         ref_NavMeshAgent.isStopped = true;
         canUseSlash = false;
 
-        ref_seekerAnimator.Play("seekerSlash");
+        ref_seekerAnimator.Play("Attack",0);
 
 
         float temp = 0;
-        while (temp < slashTime)
+        while (temp < ref_seekerAnimator.GetCurrentAnimatorStateInfo(0).length)
         {
             if (slashAttackHitbox.bounds.Intersects(ref_playerCollider.bounds) && !hasHitWithSlash)
             {
-                hasHitWithSlash = true;
                 StartCoroutine(ref_PlayerStats.takeDamage(slashDamage));
+                hasHitWithSlash = true;
             }
 
             temp += Time.deltaTime;
@@ -132,6 +159,7 @@ public class seekerAI : MonoBehaviour
         currentAIState = seekerAIStates.following;
         yield return new WaitForSeconds(slashAttackCooldown);
         canUseSlash = true;
+        hasHitWithSlash = false;
     }
 
     IEnumerator action_Leap()
@@ -144,10 +172,10 @@ public class seekerAI : MonoBehaviour
         yield return new WaitForSeconds(ref_seekerAnimator.GetCurrentAnimatorClipInfo(0).Length);
 
         #region Line Up Leap
-        
+
         //Start lining up leap
         float time = 0;
-        while(time < time_lineUpLeap)
+        while (time < time_lineUpLeap)
         {
             transform.LookAt(new Vector3(ref_PlayerObj.transform.position.x, transform.position.y, ref_PlayerObj.transform.position.z), Vector3.up);
 
@@ -165,7 +193,11 @@ public class seekerAI : MonoBehaviour
 
     public void toggle_HitboxActive_Slash()
     {
-        hitboxActive_Slash = !hitboxActive_Slash;
+        hitboxActive_Slash = true;
+    }
+    public void toggle_HitboxDeactive_Slash()
+    {
+        hitboxActive_Slash = false;
     }
     public void toggle_HitboxActive_Leap()
     {
