@@ -31,14 +31,6 @@ public class seekerAI : MonoBehaviour
     [SerializeField] private Collider slashAttackHitbox;
     private bool hasHitWithSlash;
 
-    /*[Header("Leap Attack Stats")]
-    [SerializeField] private int leapDamage;
-    [SerializeField] private AnimationCurve leapCurve;
-    [SerializeField] private bool hitboxActive_Leap;
-    [SerializeField] private Collider leapAttackHitbox;
-    [SerializeField] private float time_lineUpLeap, time_leapReaction, time_calmDown;
-    [SerializeField] private bool playerIsVisable;*/
-
     #region Assignables
     private NavMeshAgent ref_NavMeshAgent;
     private GameObject ref_PlayerObj;
@@ -64,7 +56,7 @@ public class seekerAI : MonoBehaviour
     {
         if (currentAIState == seekerAIStates.following)
         {
-            ref_NavMeshAgent.SetDestination(ref_PlayerObj.transform.position);
+            ref_NavMeshAgent.SetDestination(new Vector3(ref_PlayerObj.transform.position.x, transform.position.y, ref_PlayerObj.transform.position.z));
             if (Mathf.Abs(ref_NavMeshAgent.velocity.magnitude) > 0) ref_seekerAnimator.Play("Run",0);
             else ref_seekerAnimator.Play("Idle",0);
         }
@@ -118,6 +110,7 @@ public class seekerAI : MonoBehaviour
             {
                 StartCoroutine(ref_PlayerStats.takeDamage(slashDamage));
                 hasHitWithSlash = true;
+                yield return null;
             }
 
             yield return null;
@@ -126,12 +119,14 @@ public class seekerAI : MonoBehaviour
         ref_NavMeshAgent.velocity *= 0;
         #endregion
 
+        print("finished dash");
         foreach (TrailRenderer trail in movementTrails)
         {
             trail.emitting = false;
             yield return null;
         }
         hasHitWithSlash = false;
+        ref_NavMeshAgent.isStopped = false;
 
         currentAIState = seekerAIStates.following;
         yield return new WaitForSeconds(dashMovmentCooldown);
@@ -172,34 +167,7 @@ public class seekerAI : MonoBehaviour
         hasHitWithSlash = false;
     }
 
-    /*IEnumerator action_Leap()
-    {
-        currentAIState = seekerAIStates.leaping;
-        ref_NavMeshAgent.isStopped = true;
-        canUseLeap = false;
-
-        ref_seekerAnimator.Play("leapStartPose");
-        yield return new WaitForSeconds(ref_seekerAnimator.GetCurrentAnimatorClipInfo(0).Length);
-
-        #region Line Up Leap
-
-        //Start lining up leap
-        float time = 0;
-        while (time < time_lineUpLeap)
-        {
-            transform.LookAt(new Vector3(ref_PlayerObj.transform.position.x, transform.position.y, ref_PlayerObj.transform.position.z), Vector3.up);
-
-
-
-            time += Time.deltaTime;
-            yield return null;
-        }
-        #endregion
-
-        //Launch at the player
-        #region launch at player
-        #endregion
-    }*/
+    
 
     public void toggle_HitboxActive_Slash()
     {
