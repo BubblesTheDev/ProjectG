@@ -11,12 +11,14 @@ public class IntroCutsceneParallax : MonoBehaviour
     [SerializeField] private AnimationCurve movementCurve;
     [SerializeField] private Vector2 startingImagePos;
     [SerializeField] private bool isEnabled;
+    public int w;
 
     // Start is called before the first frame update
     void Start()
     {
         isEnabled = false;
         startingImagePos = gameObject.GetComponent<RectTransform>().position;
+        w = Screen.width;
     }
 
     // Update is called once per frame
@@ -34,7 +36,7 @@ public class IntroCutsceneParallax : MonoBehaviour
         {
             timer += Time.deltaTime;
             float movement = movementCurve.Evaluate(timer / moveTime);
-            gameObject.GetComponent<RectTransform>().position = new Vector2(Mathf.Lerp(startingImagePos.x, startingImagePos.x + moveAmt, movement), startingImagePos.y);
+            gameObject.GetComponent<RectTransform>().position = new Vector2(Mathf.Lerp(startingImagePos.x, startingImagePos.x + (w / moveAmt), movement), startingImagePos.y);
             yield return null;
         }
     }

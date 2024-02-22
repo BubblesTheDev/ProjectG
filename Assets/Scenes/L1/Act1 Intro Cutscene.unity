@@ -211,7 +211,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 929d81c19ff181e40833833b3c733005, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveAmt: 0
+  moveAmt: 10000000
   moveTime: 15
   movementCurve:
     serializedVersion: 2
@@ -239,6 +239,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   startingImagePos: {x: 0, y: 0}
   isEnabled: 0
+  w: 0
 --- !u!1 &150665554
 GameObject:
   m_ObjectHideFlags: 0
@@ -327,7 +328,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 929d81c19ff181e40833833b3c733005, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveAmt: 45
+  moveAmt: 44.8
   moveTime: 15
   movementCurve:
     serializedVersion: 2
@@ -355,6 +356,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   startingImagePos: {x: 0, y: 0}
   isEnabled: 0
+  w: 0
 --- !u!1 &323202694
 GameObject:
   m_ObjectHideFlags: 0
@@ -443,7 +445,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 929d81c19ff181e40833833b3c733005, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveAmt: 360
+  moveAmt: 5.6
   moveTime: 15
   movementCurve:
     serializedVersion: 2
@@ -471,6 +473,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   startingImagePos: {x: 0, y: 0}
   isEnabled: 0
+  w: 0
 --- !u!1 &329358250
 GameObject:
   m_ObjectHideFlags: 0
@@ -559,7 +562,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 929d81c19ff181e40833833b3c733005, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveAmt: 180
+  moveAmt: 11.2
   moveTime: 15
   movementCurve:
     serializedVersion: 2
@@ -587,6 +590,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   startingImagePos: {x: 0, y: 0}
   isEnabled: 0
+  w: 0
 --- !u!1 &430879862
 GameObject:
   m_ObjectHideFlags: 0
@@ -730,7 +734,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 929d81c19ff181e40833833b3c733005, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveAmt: 90
+  moveAmt: 22.4
   moveTime: 15
   movementCurve:
     serializedVersion: 2
@@ -758,6 +762,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   startingImagePos: {x: 0, y: 0}
   isEnabled: 0
+  w: 0
 --- !u!1 &703018634
 GameObject:
   m_ObjectHideFlags: 0
@@ -773,7 +778,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &703018635
 RectTransform:
   m_ObjectHideFlags: 0
@@ -844,7 +849,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 929d81c19ff181e40833833b3c733005, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveAmt: 0
+  moveAmt: 100000
   moveTime: 15
   movementCurve:
     serializedVersion: 2
@@ -872,6 +877,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   startingImagePos: {x: 0, y: 0}
   isEnabled: 0
+  w: 0
 --- !u!114 &815023194
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1253,7 +1259,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 929d81c19ff181e40833833b3c733005, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveAmt: -680
+  moveAmt: -2.8
   moveTime: 15
   movementCurve:
     serializedVersion: 2
@@ -1281,6 +1287,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   startingImagePos: {x: 0, y: 0}
   isEnabled: 0
+  w: 0
 --- !u!1 &1534835159
 GameObject:
   m_ObjectHideFlags: 0
@@ -1539,7 +1546,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 929d81c19ff181e40833833b3c733005, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveAmt: 0
+  moveAmt: 100000
   moveTime: 15
   movementCurve:
     serializedVersion: 2
@@ -1567,6 +1574,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   startingImagePos: {x: 0, y: 0}
   isEnabled: 0
+  w: 0
 --- !u!114 &1939060797
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1759,7 +1767,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 929d81c19ff181e40833833b3c733005, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveAmt: 0
+  moveAmt: 100000
   moveTime: 15
   movementCurve:
     serializedVersion: 2
@@ -1787,6 +1795,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   startingImagePos: {x: 0, y: 0}
   isEnabled: 0
+  w: 0
 --- !u!114 &2127413146
 MonoBehaviour:
   m_ObjectHideFlags: 0
