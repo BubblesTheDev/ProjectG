@@ -172,7 +172,7 @@ public class seekerAI : MonoBehaviour
         hasHitWithSlash = false;
     }
 
-    IEnumerator action_Leap()
+    /*IEnumerator action_Leap()
     {
         currentAIState = seekerAIStates.leaping;
         ref_NavMeshAgent.isStopped = true;
@@ -199,7 +199,7 @@ public class seekerAI : MonoBehaviour
         //Launch at the player
         #region launch at player
         #endregion
-    }
+    }*/
 
     public void toggle_HitboxActive_Slash()
     {
@@ -208,10 +208,6 @@ public class seekerAI : MonoBehaviour
     public void toggle_HitboxDeactive_Slash()
     {
         hitboxActive_Slash = false;
-    }
-    public void toggle_HitboxActive_Leap()
-    {
-        hitboxActive_Leap = !hitboxActive_Leap;
     }
 }
 

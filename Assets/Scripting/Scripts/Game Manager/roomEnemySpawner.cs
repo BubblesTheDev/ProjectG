@@ -62,12 +62,14 @@ public class roomEnemySpawner : MonoBehaviour
     {
         //Play door close animation here
         doorClosed = true;
+        doorController.Play("CloseDoor");
     }
 
     private void openDoor()
     {
         //play open door animation here
         doorClosed = false;
+        doorController.Play("OpenDoor");
     }
 
     private void OnTriggerEnter(Collider other)
