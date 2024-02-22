@@ -19,6 +19,7 @@ public class seekerAI : MonoBehaviour
     [SerializeField] private float dashSpeed;
     [SerializeField] private float dashDuration;
     [SerializeField] private float timeBetweenDash;
+    [SerializeField] private Collider dashCollider;
     [SerializeField] private TrailRenderer[] movementTrails;
 
     [Header("Slash Attack Stats")]
@@ -30,13 +31,13 @@ public class seekerAI : MonoBehaviour
     [SerializeField] private Collider slashAttackHitbox;
     private bool hasHitWithSlash;
 
-    [Header("Leap Attack Stats")]
+    /*[Header("Leap Attack Stats")]
     [SerializeField] private int leapDamage;
     [SerializeField] private AnimationCurve leapCurve;
     [SerializeField] private bool hitboxActive_Leap;
     [SerializeField] private Collider leapAttackHitbox;
     [SerializeField] private float time_lineUpLeap, time_leapReaction, time_calmDown;
-    [SerializeField] private bool playerIsVisable;
+    [SerializeField] private bool playerIsVisable;*/
 
     #region Assignables
     private NavMeshAgent ref_NavMeshAgent;
@@ -67,7 +68,7 @@ public class seekerAI : MonoBehaviour
             if (Mathf.Abs(ref_NavMeshAgent.velocity.magnitude) > 0) ref_seekerAnimator.Play("Run",0);
             else ref_seekerAnimator.Play("Idle",0);
         }
-        if (Vector3.Distance(transform.position, new Vector3(ref_PlayerObj.transform.position.x, transform.position.y, ref_PlayerObj.transform.position.z)) < distanceToSlash)
+        if (Vector3.Distance(transform.position, new Vector3(ref_PlayerObj.transform.position.x, transform.position.y, ref_PlayerObj.transform.position.z)) < distanceToSlash && currentAIState == seekerAIStates.following)
         {
             StartCoroutine(action_Slash());
         }
@@ -112,6 +113,13 @@ public class seekerAI : MonoBehaviour
         {
             ref_NavMeshAgent.velocity = dashDir.normalized * dashSpeed;
             time += Time.deltaTime;
+
+            if (dashCollider.bounds.Intersects(ref_playerCollider.bounds) && !hasHitWithSlash)
+            {
+                StartCoroutine(ref_PlayerStats.takeDamage(slashDamage));
+                hasHitWithSlash = true;
+            }
+
             yield return null;
         }
 
@@ -123,11 +131,12 @@ public class seekerAI : MonoBehaviour
             trail.emitting = false;
             yield return null;
         }
+        hasHitWithSlash = false;
 
         currentAIState = seekerAIStates.following;
-        ref_NavMeshAgent.isStopped = false;
         yield return new WaitForSeconds(dashMovmentCooldown);
         canUseDash = true;
+
     }
 
     IEnumerator action_Slash()
@@ -137,6 +146,7 @@ public class seekerAI : MonoBehaviour
         currentAIState = seekerAIStates.slashing;
         ref_NavMeshAgent.isStopped = true;
         canUseSlash = false;
+        hasHitWithSlash = false;
 
         ref_seekerAnimator.Play("Attack",0);
 
