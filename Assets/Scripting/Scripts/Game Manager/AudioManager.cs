@@ -33,6 +33,13 @@ public class AudioManager : MonoBehaviour
     FMOD.Studio.EventInstance slidingSFX;
     FMOD.Studio.EventInstance chargePistol;
 
+    [SerializeField] private GameObject roomSpawnerContainer;
+
+    public List<GameObject> roomSpawners = new List<GameObject>();
+    [SerializeField] private int[] enemiesPerSpawner;
+    [SerializeField] private int enemies;
+    private GameObject[] g;
+
     public static AudioManager instance { get; private set; }
 
     private void Awake()
@@ -53,6 +60,21 @@ public class AudioManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
         DontDestroyOnLoad(GameObject.Find("AudioManager"));
         DontDestroyOnLoad(GameObject.Find("FMODEvents"));
+
+        roomSpawnerContainer = GameObject.Find("RoomSpawners");
+
+        foreach (Transform child in roomSpawnerContainer.transform)
+        {
+            roomSpawners.Add(child.gameObject);
+        }
+        g = roomSpawners.ToArray();
+        enemiesPerSpawner = new int[roomSpawners.Count];
+        for(int i = 0; i < roomSpawners.Count; i++)
+        {
+           enemiesPerSpawner[i] = g[i].GetComponent<roomEnemySpawner>().enemiesRemaining.Count;
+        }
+
+        enemies = 0;
     }
 
     private void Start()
@@ -68,10 +90,28 @@ public class AudioManager : MonoBehaviour
         ambienceBus.setVolume(ambienceVolume);
         sfxBus.setVolume(SFXVolume);
 
-       if (SceneManager.GetActiveScene().name == "L1")
+        SetEnemyCount();
+
+       if (SceneManager.GetActiveScene().name == "L1" && enemies > 0)
+        {
+            musicEventInstance.setParameterByName("Music", 3);
+        }
+        else if (SceneManager.GetActiveScene().name == "L1" && enemies <= 0)
         {
             musicEventInstance.setParameterByName("Music", 1);
-        } 
+        }
+
+    }
+
+    void SetEnemyCount()
+    {
+        int count = 0;
+        for (int i = 0; i < roomSpawners.Count; i++)
+       {
+            enemiesPerSpawner[i] = g[i].GetComponent<roomEnemySpawner>().enemiesRemaining.Count;
+            count += enemiesPerSpawner[i];
+        }
+        enemies = count;
     }
 
     public void PlaySFX(EventReference SFX, Vector3 worldPos)
