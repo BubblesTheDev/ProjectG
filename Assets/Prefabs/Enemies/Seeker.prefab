@@ -109,6 +109,7 @@ MonoBehaviour:
   dashSpeed: 50
   dashDuration: 0.35
   timeBetweenDash: 0.2
+  dashCollider: {fileID: 2268809885276217822}
   movementTrails:
   - {fileID: 6534727161619942564}
   - {fileID: 8475265495615722322}
@@ -121,19 +122,6 @@ MonoBehaviour:
   distanceToSlash: 2
   slashTime: 0.25
   slashAttackHitbox: {fileID: 1409969086754737271}
-  leapDamage: 3
-  leapCurve:
-    serializedVersion: 2
-    m_Curve: []
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  hitboxActive_Leap: 0
-  leapAttackHitbox: {fileID: 0}
-  time_lineUpLeap: 0
-  time_leapReaction: 0
-  time_calmDown: 0
-  playerIsVisable: 0
 --- !u!114 &8145486922283693822
 MonoBehaviour:
   m_ObjectHideFlags: 0
