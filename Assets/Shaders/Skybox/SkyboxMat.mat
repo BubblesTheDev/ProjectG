@@ -113,7 +113,7 @@ Material:
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _SrcBlendAlpha: 1
-    - _StarBlinkSpeed: 0.001
+    - _StarBlinkSpeed: 0
     - _StarDensity: 1200
     - _StarFade: 0.01
     - _Stars: 5
