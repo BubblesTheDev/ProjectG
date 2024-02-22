@@ -53,7 +53,7 @@ public class shotgunPower : weaponPowerBase
             else if (collider.gameObject.CompareTag("EnemyProjectile"))
             {
                 Vector3 tempForward = -collider.transform.forward;
-                Instantiate(parriedBullet, collider.transform.position, Quaternion.LookRotation(tempForward), GameObject.Find("BulletStorage").transform);
+                if(parriedBullet != null) Instantiate(parriedBullet, collider.transform.position, Quaternion.LookRotation(tempForward), GameObject.Find("BulletStorage").transform);
                 Destroy(collider.gameObject);
             }
             yield return null;
