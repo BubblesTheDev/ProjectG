@@ -11,6 +11,7 @@ public class playerMelee : MonoBehaviour
     [SerializeField] private Collider punchCollider;
     [SerializeField] private Animator punchAnimator;
     private bool canPunch = true;
+    private bool hasDamagedThisPunch;
 
     InteractionInputActions interactionInput;
     private weaponBase weapon;
@@ -24,7 +25,7 @@ public class playerMelee : MonoBehaviour
     private void Update()
     {
         if (interactionInput.Combat.Melee.WasPressedThisFrame() && weapon.weaponIsEquipped) StartCoroutine(punch());
-        
+
     }
 
     private void OnEnable()
@@ -40,9 +41,9 @@ public class playerMelee : MonoBehaviour
     private IEnumerator punch()
     {
         if (!canPunch) yield break;
-
+        hasDamagedThisPunch = false;
         canPunch = false;
-        punchAnimator.Play("Punch",1);
+        punchAnimator.Play("Punch", 1);
         punchCollider.enabled = true;
         yield return new WaitForSeconds(punchAnimator.GetCurrentAnimatorStateInfo(0).length);
         punchCollider.enabled = false;
@@ -51,10 +52,13 @@ public class playerMelee : MonoBehaviour
         canPunch = true;
 
     }
-
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
-        if (other.CompareTag("Enemy")) other.GetComponent<enemyStats>().takeDamage(damage);
+        if (other.CompareTag("Enemy") && !hasDamagedThisPunch)
+        {
+            hasDamagedThisPunch = true;
+            other.GetComponent<enemyStats>().takeDamage(damage);
+        }
+
     }
 }
-    

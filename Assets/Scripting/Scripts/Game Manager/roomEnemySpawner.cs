@@ -16,13 +16,14 @@ public class roomEnemySpawner : MonoBehaviour
 
     private void Update()
     {
-        if(playerInRoom && !spawnerActive && currentWaveIndex < waves.Count)
+        if (playerInRoom && !spawnerActive && currentWaveIndex < waves.Count)
         {
             if (waves[currentWaveIndex].noEnemiesRemaining && enemiesRemaining.Count <= 0 || !waves[currentWaveIndex].noEnemiesRemaining)
             {
                 StartCoroutine(spawnWave());
             }
-        } else if(currentWaveIndex == waves.Count && enemiesRemaining.Count <= 0 && doorClosed)
+        }
+        else if (currentWaveIndex == waves.Count && enemiesRemaining.Count <= 0 && doorClosed)
         {
             openDoor();
         }
@@ -45,9 +46,9 @@ public class roomEnemySpawner : MonoBehaviour
         for (int i = 0; i < waves[currentWaveIndex].enemies.Count; i++)
         {
             AudioManager.instance.PlaySFX(FMODEvents.instance.enemySpawn, this.transform.position);
-            GameObject temp = Instantiate(waves[currentWaveIndex].enemies[i].enemyToSpawn, 
-                waves[currentWaveIndex].enemies[i].spawnPoint.transform.position, 
-                waves[currentWaveIndex].enemies[i].spawnPoint.transform.rotation, 
+            GameObject temp = Instantiate(waves[currentWaveIndex].enemies[i].enemyToSpawn,
+                waves[currentWaveIndex].enemies[i].spawnPoint.transform.position,
+                waves[currentWaveIndex].enemies[i].spawnPoint.transform.rotation,
                 GameObject.Find("EnemyHolder").transform);
 
             enemiesRemaining.Add(temp);
@@ -62,19 +63,19 @@ public class roomEnemySpawner : MonoBehaviour
     {
         //Play door close animation here
         doorClosed = true;
-        doorController.Play("CloseDoor");
+        if (doorController != null) doorController.Play("CloseDoor");
     }
 
     private void openDoor()
     {
         //play open door animation here
         doorClosed = false;
-        doorController.Play("OpenDoor");
+        if (doorController != null) doorController.Play("OpenDoor");
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.CompareTag("Player")) if(!playerInRoom)
+        if (other.gameObject.CompareTag("Player")) if (!playerInRoom)
             {
                 playerInRoom = true;
                 closeDoor();
