@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1976838322563436363}
   - component: {fileID: 4226695675095401907}
   - component: {fileID: -8244104149547280742}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: ShotgunBullet
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -160,7 +160,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8506cb7e293260c40a5bdeaee4f1a069, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectileDamage: 0
+  projectileDamage: 0.3
   projectileSpeed: 0
   maxShotDistance: 0
   projectilePeirce: 0
@@ -169,7 +169,7 @@ MonoBehaviour:
   projectileDead: 0
   layersToIgnore:
     serializedVersion: 2
-    m_Bits: 32
+    m_Bits: 1056
 --- !u!54 &4226695675095401907
 Rigidbody:
   m_ObjectHideFlags: 0

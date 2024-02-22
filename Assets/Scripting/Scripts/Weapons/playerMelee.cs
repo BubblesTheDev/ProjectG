@@ -13,16 +13,17 @@ public class playerMelee : MonoBehaviour
     private bool canPunch = true;
 
     InteractionInputActions interactionInput;
-
+    private weaponBase weapon;
 
     private void Awake()
     {
         interactionInput = new InteractionInputActions();
+        weapon = GetComponent<weaponBase>();
     }
 
     private void Update()
     {
-        if (interactionInput.Combat.Melee.WasPressedThisFrame()) StartCoroutine(punch());
+        if (interactionInput.Combat.Melee.WasPressedThisFrame() && weapon.weaponIsEquipped) StartCoroutine(punch());
         
     }
 
@@ -41,7 +42,7 @@ public class playerMelee : MonoBehaviour
         if (!canPunch) yield break;
 
         canPunch = false;
-        punchAnimator.Play("Punch");
+        punchAnimator.Play("Punch",1);
         punchCollider.enabled = true;
         yield return new WaitForSeconds(punchAnimator.GetCurrentAnimatorStateInfo(0).length);
         punchCollider.enabled = false;
@@ -51,6 +52,9 @@ public class playerMelee : MonoBehaviour
 
     }
 
-    
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Enemy")) other.GetComponent<enemyStats>().takeDamage(damage);
+    }
 }
     

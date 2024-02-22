@@ -156,7 +156,7 @@ public class weaponBase : MonoBehaviour
             {
                 GameObject tempBullet = Instantiate(bulletPrefab, firePoint.transform.position, firePoint.transform.rotation * Quaternion.Euler(Random.Range(-multiPelletAngle, multiPelletAngle), Random.Range(-multiPelletAngle, multiPelletAngle), 0), GameObject.Find("Bullet Storage").transform);
 
-                tempBullet.GetComponent<playerProjectileBase>().loadStats(weaponDamage, projectileSpeed, maxShotDistance);
+                tempBullet.GetComponent<playerProjectileBase>().loadStats(weaponDamage/numOfPellets, projectileSpeed, maxShotDistance);
             }
         }
 
