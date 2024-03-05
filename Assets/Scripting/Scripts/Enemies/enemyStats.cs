@@ -26,10 +26,10 @@ public class enemyStats : MonoBehaviour
 
     private void Awake()
     {
-        ref_NavMeshAgent = GetComponent<NavMeshAgent>();
+        if(GetComponent<NavMeshAgent>()) ref_NavMeshAgent = GetComponent<NavMeshAgent>();
         temp_enemyCollider = GetComponent<Collider>();
         currentHP = maxHp;
-        ref_NavMeshAgent.speed = moveSpeed;
+        if(ref_NavMeshAgent != null) ref_NavMeshAgent.speed = moveSpeed;
     }
     private void Update()
     {
@@ -38,17 +38,21 @@ public class enemyStats : MonoBehaviour
 
     IEnumerator die()
     {
-        foreach (VisualEffect deathVFX in VFX_onDeath)
+        if(VFX_onDeath.Length > 0)
         {
-            if (deathVFX != null)
+            foreach (VisualEffect deathVFX in VFX_onDeath)
             {
-                deathVFX.transform.parent = null;
-                deathVFX.Play();
+                if (deathVFX != null)
+                {
+                    deathVFX.transform.parent = null;
+                    deathVFX.Play();
+                }
             }
         }
+        
         temp_enemyCollider.enabled = false;
-        ref_NavMeshAgent.isStopped = true;
-        enemyGFX.SetActive(false);
+        if(ref_NavMeshAgent != null) ref_NavMeshAgent.isStopped = true;
+        if(enemyGFX != null) enemyGFX.SetActive(false);
         enemyDeath?.Invoke();
         yield return new WaitForSeconds(timeToDie);
         Destroy(gameObject);
@@ -64,11 +68,14 @@ public class enemyStats : MonoBehaviour
 
     IEnumerator bloodVFX()
     {
-        foreach (VisualEffect dmgVFX in VFX_onHit)
+        if (VFX_onHit.Length > 0)
         {
-            if (dmgVFX != null)
+            foreach (VisualEffect dmgVFX in VFX_onHit)
             {
-                dmgVFX.Play();
+                if (dmgVFX != null)
+                {
+                    dmgVFX.Play();
+                }
             }
         }
         yield return null;
