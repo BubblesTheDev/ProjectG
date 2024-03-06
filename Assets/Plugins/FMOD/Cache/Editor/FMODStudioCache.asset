@@ -42,7 +42,11 @@ MonoBehaviour:
   Path: Assets/FMOD/FMOD Project/Build/Desktop/Ambience.bank
   Name: Ambience
   StudioPath: bank:/Ambience
+<<<<<<< Updated upstream
   lastModified: 638441182081991232
+=======
+  lastModified: 638434252873742092
+>>>>>>> Stashed changes
   FileSizes:
   - Name: Desktop
     Value: 2505248
@@ -170,7 +174,11 @@ MonoBehaviour:
   Path: Assets/FMOD/FMOD Project/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
+<<<<<<< Updated upstream
   lastModified: 638410951061069172
+=======
+  lastModified: 638453427376277088
+>>>>>>> Stashed changes
   FileSizes:
   - Name: Desktop
     Value: 1486
@@ -406,12 +414,17 @@ MonoBehaviour:
   - {fileID: 8691954268428915295}
   - {fileID: -7127787373194363123}
   - {fileID: 3125115192848416362}
+  - {fileID: 5781633490065919431}
   EditorParameters: []
   MasterBanks:
   - {fileID: -4731243001080236334}
   StringsBanks:
   - {fileID: 1115275150085453094}
+<<<<<<< Updated upstream
   cacheTime: 638441272706128966
+=======
+  cacheTime: 638453427377959821
+>>>>>>> Stashed changes
   cacheVersion: 131609
 --- !u!114 &1115275150085453094
 MonoBehaviour:
@@ -428,10 +441,14 @@ MonoBehaviour:
   Path: Assets/FMOD/FMOD Project/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
+<<<<<<< Updated upstream
   lastModified: 638441272706069070
+=======
+  lastModified: 638453427376287059
+>>>>>>> Stashed changes
   FileSizes:
   - Name: Desktop
-    Value: 2192
+    Value: 2244
   Exists: 1
 --- !u!114 &3103603883010833257
 MonoBehaviour:
@@ -580,10 +597,14 @@ MonoBehaviour:
   Path: Assets/FMOD/FMOD Project/Build/Desktop/Music.bank
   Name: Music
   StudioPath: bank:/Music
+<<<<<<< Updated upstream
   lastModified: 638441182082130862
+=======
+  lastModified: 638453427377959821
+>>>>>>> Stashed changes
   FileSizes:
   - Name: Desktop
-    Value: 3647296
+    Value: 3648288
   Exists: 1
 --- !u!114 &5221814677570993513
 MonoBehaviour:
@@ -627,11 +648,42 @@ MonoBehaviour:
   Path: Assets/FMOD/FMOD Project/Build/Desktop/SFX.bank
   Name: SFX
   StudioPath: bank:/SFX
+<<<<<<< Updated upstream
   lastModified: 638441272706128966
+=======
+  lastModified: 638441237916073015
+>>>>>>> Stashed changes
   FileSizes:
   - Name: Desktop
     Value: 731264
   Exists: 1
+--- !u!114 &5781633490065919431
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Music/TitleMusic
+  m_EditorClassIdentifier: 
+  Path: event:/Music/TitleMusic
+  Guid:
+    Data1: 1753589521
+    Data2: 1311544216
+    Data3: -728432488
+    Data4: 610409212
+  Banks:
+  - {fileID: 5045373082880059462}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 95522
 --- !u!114 &6608660691080119101
 MonoBehaviour:
   m_ObjectHideFlags: 0

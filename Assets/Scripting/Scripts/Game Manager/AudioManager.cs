@@ -57,9 +57,9 @@ public class AudioManager : MonoBehaviour
         ambienceBus = RuntimeManager.GetBus("bus:/Ambience");
         sfxBus = RuntimeManager.GetBus("bus:/SFX");
 
-        DontDestroyOnLoad(gameObject);
-        DontDestroyOnLoad(GameObject.Find("AudioManager"));
-        DontDestroyOnLoad(GameObject.Find("FMODEvents"));
+       // DontDestroyOnLoad(gameObject);
+       // DontDestroyOnLoad(GameObject.Find("AudioManager"));
+       // DontDestroyOnLoad(GameObject.Find("FMODEvents"));
 
         roomSpawnerContainer = GameObject.Find("RoomSpawners");
 
