@@ -34,6 +34,7 @@ public class pauseMenu : MonoBehaviour
     void pauseScene()
     {
         paused = true;
+        Time.timeScale = 0f;
         foreach (GameObject obj in objectsToEnable)
         {
             obj.SetActive(true);
@@ -48,6 +49,7 @@ public class pauseMenu : MonoBehaviour
     void unpauseScene()
     {
         paused = false;
+        Time.timeScale = 1f;
         foreach (GameObject obj in objectsToEnable)
         {
             obj.SetActive(false);
