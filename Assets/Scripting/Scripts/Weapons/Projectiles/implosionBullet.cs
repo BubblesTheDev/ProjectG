@@ -79,19 +79,31 @@ public class implosionBullet : MonoBehaviour
 
         isDead = true;
 
-        List<Collider> enemiesHit = Physics.OverlapSphere(transform.position, implosionRange, layersToHit).ToList();
+        List<Collider> enemiesHitEdge = Physics.OverlapSphere(transform.position, implosionRange / 3, layersToHit).ToList();
+        List<Collider> enemiesHitCenter = Physics.OverlapSphere(transform.position, implosionRange, layersToHit).ToList();
 
-        for (int i = 0; i < enemiesHit.Count-1; i++)
+
+        for (int i = 0; i < enemiesHitEdge.Count; i++)
         {
-            if (enemiesHit[i].CompareTag("Enemy"))
+            if (enemiesHitEdge[i].CompareTag("Enemy"))
             {
-                enemiesHit[i].GetComponent<enemyStats>().takeDamage(damage);
+                enemiesHitEdge[i].GetComponent<enemyStats>().takeDamage(damage/2);
             }
 
 
         }
 
-        
+        for (int i = 0; i < enemiesHitCenter.Count; i++)
+        {
+            if (enemiesHitCenter[i].CompareTag("Enemy"))
+            {
+                enemiesHitCenter[i].GetComponent<enemyStats>().takeDamage(damage / 2);
+            }
+
+
+        }
+
+
     }
 
     IEnumerator pullPlayer()

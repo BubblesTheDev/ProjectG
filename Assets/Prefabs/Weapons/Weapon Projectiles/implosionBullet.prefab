@@ -108,7 +108,7 @@ MonoBehaviour:
   collisionForwardOffset: 1
   collisionDistance: 1.5
   implosionRange: 6
-  damage: 1
+  damage: 2
   implosionForce: 450
   pullForce: 450
   maxDistance: 50
