@@ -16,10 +16,12 @@ public class enemyStats : MonoBehaviour
     [SerializeField] private VisualEffect[] VFX_onHit;
     [SerializeField] private VisualEffect[] VFX_onDeath;
     [SerializeField] private GameObject enemyGFX;
+    [SerializeField] private float staticToGive = 35f;
 
     [HideInInspector] public roomEnemySpawner spawner;
     private NavMeshAgent ref_NavMeshAgent;
     private Collider temp_enemyCollider;
+    private playerHealth playerStats;
 
     [HideInInspector] public UnityEvent enemyDamageTaken;
     [HideInInspector] public UnityEvent enemyDeath;
@@ -27,6 +29,7 @@ public class enemyStats : MonoBehaviour
     private void Awake()
     {
         if(GetComponent<NavMeshAgent>()) ref_NavMeshAgent = GetComponent<NavMeshAgent>();
+        playerStats = GameObject.Find("Player").GetComponent<playerHealth>();
         temp_enemyCollider = GetComponent<Collider>();
         currentHP = maxHp;
         if(ref_NavMeshAgent != null) ref_NavMeshAgent.speed = moveSpeed;
@@ -49,7 +52,9 @@ public class enemyStats : MonoBehaviour
                 }
             }
         }
-        
+
+        playerStats.currentStaticEnergy += staticToGive;
+
         temp_enemyCollider.enabled = false;
         if(ref_NavMeshAgent != null) ref_NavMeshAgent.isStopped = true;
         if(enemyGFX != null) enemyGFX.SetActive(false);
