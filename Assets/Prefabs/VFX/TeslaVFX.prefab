@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3459058159789752905}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Pos3
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -47,7 +47,7 @@ GameObject:
   - component: {fileID: 8228074577105882465}
   - component: {fileID: 3184639968688377334}
   - component: {fileID: 4250662538965568437}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: TeslaWall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -266,7 +266,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8634407278927384675}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Pos1
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -304,7 +304,7 @@ GameObject:
   - component: {fileID: 7800489428645923358}
   - component: {fileID: 7581563607753909087}
   - component: {fileID: 6423993720129047744}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: TeslaWall (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -523,7 +523,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4164582703762841141}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Pos2
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -554,7 +554,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 78871650495768892}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Pos2
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -585,7 +585,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4266929445920591803}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Pos1
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -616,7 +616,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7518994441490278910}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Pos3
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -647,7 +647,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5856853350040966602}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Pos3
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -678,7 +678,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 816841629443304036}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Pos2
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -709,7 +709,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4490669564110010078}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Pos2
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -747,7 +747,7 @@ GameObject:
   - component: {fileID: 3132908660909090639}
   - component: {fileID: 2801756224652008984}
   - component: {fileID: 6665975662192166924}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: TeslaWall (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -976,7 +976,7 @@ GameObject:
   - component: {fileID: 912210839684557696}
   - component: {fileID: 7974823344740551542}
   - component: {fileID: 3149504949645676621}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: TeslaWall (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1195,7 +1195,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1646048143220360585}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Pos4
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -1226,7 +1226,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 539212793347342285}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Pos4
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -1257,7 +1257,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1285525172337302252}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Pos3
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -1288,7 +1288,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5317462156432230087}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Pos1
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -1319,7 +1319,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2455008272842361737}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: TeslaVFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1354,7 +1354,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1636891047767630908}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Pos4
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -1385,7 +1385,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4184285566188625347}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Pos1
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -1416,7 +1416,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7419312072358560252}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Pos4
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}

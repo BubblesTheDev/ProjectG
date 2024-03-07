@@ -49,7 +49,9 @@ MonoBehaviour:
   waves: []
   spawnerActive: 0
   playerInRoom: 0
+  doorClosed: 0
   timeBetweenEnemySpawns: 0
+  doorController: {fileID: 0}
   enemiesRemaining: []
 --- !u!65 &5174117323088699570
 BoxCollider:

@@ -66,4 +66,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d329c73eba79e4d4380fa7b37f7cd9a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneIndexToLoadOnTrigger: 0
+  scenePathToLoadOnTrigger: 
