@@ -22,7 +22,7 @@ public class playerHealth : MonoBehaviour
     public int deathSceneIndex;
 
     private Rigidbody rb;
-    [SerializeField] private bool canTakeDamage;
+    public bool canTakeDamage;
 
     [HideInInspector] public UnityEvent tookDamage;
     [HideInInspector] public UnityEvent healedDamage;
