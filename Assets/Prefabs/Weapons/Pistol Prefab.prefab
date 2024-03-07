@@ -309,7 +309,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
-  punchCooldown: 0.25
+  punchCooldown: 0.1
   punchCollider: {fileID: 7327919502960791968}
   punchAnimator: {fileID: 8504102208842194695}
 --- !u!1 &7406085740952407801

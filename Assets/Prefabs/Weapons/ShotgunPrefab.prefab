@@ -136,7 +136,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39f9e858a4203a840a1c83a287f037cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponDamage: 0.5
+  weaponDamage: 2
   maxShotDistance: 8
   numOfPellets: 6
   fireRateInSeconds: 1
@@ -261,7 +261,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
-  punchCooldown: 0.25
+  punchCooldown: 0.1
   punchCollider: {fileID: 2653914007037860176}
   punchAnimator: {fileID: 5496655818548124092}
 --- !u!1001 &3051577033776160807
