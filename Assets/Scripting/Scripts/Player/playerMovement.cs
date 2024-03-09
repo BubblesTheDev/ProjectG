@@ -110,6 +110,7 @@ public class playerMovement : MonoBehaviour
     private GameObject directionalOrientation;
     private MovementInputActions current_PlayerInputActions;
     private CapsuleCollider playerCollider;
+    private playerHealth playerStats;
     #endregion
 
     #region control variables
@@ -168,6 +169,7 @@ public class playerMovement : MonoBehaviour
         current_PlayerInputActions = new MovementInputActions();
         rb = GetComponent<Rigidbody>();
         playerCollider = GetComponent<CapsuleCollider>();
+        playerStats = GetComponent<playerHealth>();
         colliderHeight_normal = playerCollider.height;
         groundCheck_HitInformation = new RaycastHit();
         colliderHeight_normal = playerCollider.height;
@@ -473,6 +475,7 @@ public class playerMovement : MonoBehaviour
         onAction_Dash_Start.Invoke();
 
         current_playerMovementAction = playerMovementAction.dashing;
+        playerStats.canTakeDamage = false;
         action_CanDash = false;
         dragAffected = false;
         canAffectMovement = false;
@@ -497,6 +500,7 @@ public class playerMovement : MonoBehaviour
             yield return null;
         }
         horizontal_playerVelocity -= tempDashDirectionalVector * dashVelocity;
+        playerStats.canTakeDamage = true;
 
         dragAffected = true;
         gravityAffected = true;

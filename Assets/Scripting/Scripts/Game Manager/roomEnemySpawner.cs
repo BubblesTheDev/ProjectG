@@ -5,14 +5,23 @@ using UnityEngine.VFX;
 
 public class roomEnemySpawner : MonoBehaviour
 {
-    [SerializeField] private int currentWaveIndex;
-    [SerializeField] private List<wave> waves = new List<wave>();
-    [SerializeField] bool spawnerActive = false, playerInRoom = false;
     public bool doorClosed = false;
+    [SerializeField] private bool spawnerActive = false; 
+    [SerializeField] private bool playerInRoom = false;
+    [SerializeField] private int currentWaveIndex;
     [SerializeField] private float timeBetweenEnemySpawns;
-    [SerializeField] private Animator doorController;
+    [SerializeField] private List<wave> waves = new List<wave>();
     public List<GameObject> enemiesRemaining = new List<GameObject>();
 
+    [SerializeField] private Animator doorController;
+    [SerializeField] private int hpToHeal = 2;
+
+    private playerHealth playerStats;
+
+    private void Awake()
+    {
+        playerStats = GameObject.Find("Player").GetComponent<playerHealth>();
+    }
 
     private void Update()
     {
@@ -26,6 +35,8 @@ public class roomEnemySpawner : MonoBehaviour
         else if (currentWaveIndex == waves.Count && enemiesRemaining.Count <= 0 && doorClosed)
         {
             openDoor();
+            playerStats.currentHP += hpToHeal;
+            playerStats.healedDamage.Invoke();
         }
 
 
