@@ -175,7 +175,7 @@ MonoBehaviour:
   Path: Assets/FMOD/FMOD Project/Build/Desktop/Music.bank
   Name: Music
   StudioPath: bank:/Music
-  lastModified: 638453786485878627
+  lastModified: 638455423443408717
   FileSizes:
   - Name: Desktop
     Value: 3648288
@@ -222,10 +222,10 @@ MonoBehaviour:
   Path: Assets/FMOD/FMOD Project/Build/Desktop/SFX.bank
   Name: SFX
   StudioPath: bank:/SFX
-  lastModified: 638442412334915646
+  lastModified: 638455423446661005
   FileSizes:
   - Name: Desktop
-    Value: 731264
+    Value: 822976
   Exists: 1
 --- !u!114 &-7148832511123337456
 MonoBehaviour:
@@ -242,10 +242,10 @@ MonoBehaviour:
   Path: Assets/FMOD/FMOD Project/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638453786485618632
+  lastModified: 638455423441280157
   FileSizes:
   - Name: Desktop
-    Value: 2244
+    Value: 2288
   Exists: 1
 --- !u!114 &-6389387620995255649
 MonoBehaviour:
@@ -262,7 +262,7 @@ MonoBehaviour:
   Path: Assets/FMOD/FMOD Project/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638412812002829822
+  lastModified: 638455423441160177
   FileSizes:
   - Name: Desktop
     Value: 1486
@@ -525,13 +525,41 @@ MonoBehaviour:
   - {fileID: -5952139064571874660}
   - {fileID: -7555956090752255087}
   - {fileID: -362393674418116186}
+  - {fileID: 2751072969692035}
   EditorParameters: []
   MasterBanks:
   - {fileID: -6389387620995255649}
   StringsBanks:
   - {fileID: -7148832511123337456}
-  cacheTime: 638453786485878627
+  cacheTime: 638455423446661005
   cacheVersion: 131609
+--- !u!114 &2751072969692035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Death Jingle
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Death Jingle
+  Guid:
+    Data1: -664604313
+    Data2: 1247168376
+    Data3: 2022771601
+    Data4: -753564240
+  Banks:
+  - {fileID: -7503202818560931819}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 5500
 --- !u!114 &624725227577418352
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -655,7 +683,7 @@ MonoBehaviour:
   Path: Assets/FMOD/FMOD Project/Build/Desktop/Ambience.bank
   Name: Ambience
   StudioPath: bank:/Ambience
-  lastModified: 638435520470599303
+  lastModified: 638434252873742092
   FileSizes:
   - Name: Desktop
     Value: 2505248
