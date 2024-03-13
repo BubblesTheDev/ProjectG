@@ -44,7 +44,7 @@ public class enemyStats : MonoBehaviour
     IEnumerator die()
     {
         isDead = true;
-        spawner.enemiesRemaining.Remove(gameObject);
+        if(spawner != null) spawner.enemiesRemaining.Remove(gameObject);
 
 
         if(VFX_onDeath.Length > 0)
