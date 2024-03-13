@@ -75,6 +75,8 @@ public class AudioManager : MonoBehaviour
         }
 
         enemies = 0;
+
+        getSettings();
     }
 
     private void Start()
@@ -101,6 +103,14 @@ public class AudioManager : MonoBehaviour
             musicEventInstance.setParameterByName("Music", 1);
         }
 
+    }
+
+    void getSettings()
+    {
+        if (PlayerPrefs.HasKey("MasterVolumeValue")) masterVolume = PlayerPrefs.GetFloat("MasterVolumeValue");
+        if (PlayerPrefs.HasKey("SFXVolumeValue")) SFXVolume = PlayerPrefs.GetFloat("SFXVolumeValue");
+        if (PlayerPrefs.HasKey("MusicVolumeValue")) musicVolume = PlayerPrefs.GetFloat("MusicVolumeValue");
+        if (PlayerPrefs.HasKey("AmbienceVolumeValue")) ambienceVolume = PlayerPrefs.GetFloat("AmbienceVolumeValue");
     }
 
     void SetEnemyCount()

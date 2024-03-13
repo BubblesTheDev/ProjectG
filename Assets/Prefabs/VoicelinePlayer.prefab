@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9085957968468798927}
   - component: {fileID: 5080762434601866706}
+  - component: {fileID: 8193482286726366058}
   m_Layer: 0
   m_Name: VoicelinePlayer
   m_TagString: Untagged
@@ -47,3 +48,24 @@ MonoBehaviour:
   subtitleBox: {fileID: 0}
   speakerPosition: {fileID: 0}
   voiceLines: []
+--- !u!65 &8193482286726366058
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4444819705915883015}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 128
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
