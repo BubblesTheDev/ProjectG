@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.VFX;
 
@@ -10,7 +11,10 @@ public class roomEnemySpawner : MonoBehaviour
     [SerializeField] private bool playerInRoom = false;
     [SerializeField] private int currentWaveIndex;
     [SerializeField] private float timeBetweenEnemySpawns;
-    [SerializeField] private List<wave> waves = new List<wave>();
+    [SerializeField] private GameObject enemiesRemainingCounter;
+    
+    [Space, SerializeField] private List<wave> waves = new List<wave>();
+
     [HideInInspector] public List<GameObject> enemiesRemaining = new List<GameObject>();
 
     [SerializeField] private Animator doorController;
@@ -30,6 +34,7 @@ public class roomEnemySpawner : MonoBehaviour
             if (waves[currentWaveIndex].noEnemiesRemaining && enemiesRemaining.Count <= 0 || !waves[currentWaveIndex].noEnemiesRemaining)
             {
                 StartCoroutine(spawnWave());
+                if(enemiesRemainingCounter != null) enemiesRemainingCounter.SetActive(true);
             }
         }
         else if (currentWaveIndex == waves.Count && enemiesRemaining.Count <= 0 && doorClosed)
@@ -37,6 +42,12 @@ public class roomEnemySpawner : MonoBehaviour
             openDoor();
             playerStats.currentHP += hpToHeal;
             playerStats.healedDamage.Invoke();
+            if (enemiesRemainingCounter != null) enemiesRemainingCounter.SetActive(false);
+        }
+
+        if(playerInRoom && enemiesRemaining.Count > 0 && enemiesRemainingCounter != null)
+        {
+            enemiesRemainingCounter.GetComponent<TextMeshPro>().text = "HOSTILES NUM: " + enemiesRemaining.Count.ToString();
         }
     }
 
@@ -81,6 +92,17 @@ public class roomEnemySpawner : MonoBehaviour
                 playerInRoom = true;
                 closeDoor();
             }
+
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            playerInRoom = false;
+            if (enemiesRemainingCounter != null) enemiesRemainingCounter.SetActive(false);
+        }
+
 
     }
 }
