@@ -18,11 +18,14 @@ public class AudioManager : MonoBehaviour
     public float ambienceVolume = 1;
     [Range(0, 1)]
     public float SFXVolume = 1;
+    [Range(0, 1)]
+    public float voiceVolume = 1;
 
     private Bus masterBus;
     private Bus musicBus;
     private Bus ambienceBus;
     private Bus sfxBus;
+    private Bus voiceBus;
 
     private List<EventInstance> eventInstances;
 
@@ -56,10 +59,11 @@ public class AudioManager : MonoBehaviour
         musicBus = RuntimeManager.GetBus("bus:/Music");
         ambienceBus = RuntimeManager.GetBus("bus:/Ambience");
         sfxBus = RuntimeManager.GetBus("bus:/SFX");
+        voiceBus = RuntimeManager.GetBus("bus:/Voice");
 
-       // DontDestroyOnLoad(gameObject);
-       // DontDestroyOnLoad(GameObject.Find("AudioManager"));
-       // DontDestroyOnLoad(GameObject.Find("FMODEvents"));
+        // DontDestroyOnLoad(gameObject);
+        // DontDestroyOnLoad(GameObject.Find("AudioManager"));
+        // DontDestroyOnLoad(GameObject.Find("FMODEvents"));
 
         roomSpawnerContainer = GameObject.Find("RoomSpawners");
 
