@@ -23,6 +23,7 @@ public class enemyStats : MonoBehaviour
     private NavMeshAgent ref_NavMeshAgent;
     private Collider temp_enemyCollider;
     private playerHealth playerStats;
+    private bool isDead = false;
 
     [HideInInspector] public UnityEvent enemyDamageTaken;
     [HideInInspector] public UnityEvent enemyDeath;
@@ -37,11 +38,12 @@ public class enemyStats : MonoBehaviour
     }
     private void Update()
     {
-        if (currentHP <= 0) StartCoroutine(die());
+        if (currentHP <= 0 && !isDead) StartCoroutine(die());
     }
 
     IEnumerator die()
     {
+        isDead = true;
         if(VFX_onDeath.Length > 0)
         {
             foreach (VisualEffect deathVFX in VFX_onDeath)
