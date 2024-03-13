@@ -15,12 +15,11 @@ public class basicRangedAI : MonoBehaviour
     [SerializeField] private List<GameObject> firePoints;
     [SerializeField] private GameObject enemyBullet;
     [SerializeField] private Animator currentAnimator;
-    [SerializeField] private float closeRangeDistance, midRangeDistance, longRangeDistance;
+    [SerializeField] private float closeRangeDistance, midRangeDistance;
     [SerializeField] private float damage;
 
     [Header("Movement Brain")]
     [SerializeField] private float maxMoveDistance;
-    [SerializeField, Range(0.01f,1f)] private float percentToMoveCloserToMid = 0.3f;
     [SerializeField] private float minOrbitTime = 0.5f, MaxOrbitTime = 1.5f;
     private float currentMaxOrbitTime;
 
@@ -29,12 +28,6 @@ public class basicRangedAI : MonoBehaviour
     [SerializeField] private float fireRateShortRange;
     [SerializeField] private float numShotsShortRange;
     [SerializeField] private float bulletSpeedShortRange;
-
-    [Header("Long Range Shooting")]
-    [SerializeField] private float fireCooldownLongRange;
-    [SerializeField] private float fireRateLongRange;
-    [SerializeField] private float numShotsLongRange;
-    [SerializeField] private float bulletSpeedLongRange;
 
 
 
@@ -61,12 +54,7 @@ public class basicRangedAI : MonoBehaviour
 
     private void Update()
     {
-        if (canShoot)
-        {
-            if (Vector3.Distance(transform.position, ref_PlayerRB.transform.position) < midRangeDistance) StartCoroutine(closeRangeShot());
-            else if (Vector3.Distance(transform.position, ref_PlayerRB.transform.position) > ((longRangeDistance - midRangeDistance) * percentToMoveCloserToMid) + midRangeDistance) StartCoroutine(longRangeShot());
-        }
-
+        if (canShoot && Vector3.Distance(transform.position, ref_PlayerRB.transform.position) < midRangeDistance) StartCoroutine(closeRangeShot());
     }
 
     private void FixedUpdate()
@@ -105,8 +93,7 @@ public class basicRangedAI : MonoBehaviour
             orbitTime += Time.deltaTime;
         }
         //This moves the enemy closer to the player into their sweetspot range, if they are closer to the player than their long range distance
-        else if (Vector3.Distance(verticalScaledPos, transform.position) > midRangeDistance
-             && Vector3.Distance(verticalScaledPos,transform.position) < ((longRangeDistance - midRangeDistance) * percentToMoveCloserToMid) + midRangeDistance)
+        else if (Vector3.Distance(verticalScaledPos, transform.position) > midRangeDistance)
         {
             ref_NavMeshAgent.SetDestination(transform.position + (verticalScaledPos - transform.position).normalized * maxMoveDistance);
         }
@@ -133,36 +120,11 @@ public class basicRangedAI : MonoBehaviour
         yield return new WaitForSeconds(fireCooldownShortRange);
         canShoot = true;
     }
-    private IEnumerator longRangeShot()
-    {
-        canShoot = false;
-        ref_rangedAnimator.SetLayerWeight(3, 1);
-        ref_rangedAnimator.Play("CerbStandingAttack", 3);
-
-        for (int i = 0; i < numShotsLongRange; i++)
-        {
-            for (int j = 0; j < firePoints.Count; j++)
-            {
-                GameObject temp = Instantiate(enemyBullet, firePoints[j].transform.position, Quaternion.LookRotation((ref_PlayerObj.transform.position - firePoints[j].transform.position).normalized), GameObject.Find("Bullet Storage").transform);
-                temp.GetComponent<Rigidbody>().velocity = temp.transform.forward * bulletSpeedShortRange;
-            }
-            yield return new WaitForSeconds(fireRateLongRange);
-        }
-        ref_rangedAnimator.SetLayerWeight(3, 0);
-
-
-        yield return new WaitForSeconds(fireCooldownShortRange);
-        canShoot = true;
-    }
+    
 
     #if UNITY_EDITOR
         private void OnDrawGizmosSelected()
         {
-
-            Handles.color = Color.blue;
-            Handles.DrawWireDisc(transform.position, transform.up, longRangeDistance);
-            Handles.color = Color.yellow;
-            Handles.DrawWireDisc(transform.position, transform.up, ((longRangeDistance-midRangeDistance)*percentToMoveCloserToMid) + midRangeDistance);
             Handles.color = Color.green;
             Handles.DrawWireDisc(transform.position, transform.up, midRangeDistance);
             Handles.color = Color.red;
