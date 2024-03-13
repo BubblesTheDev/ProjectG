@@ -10771,6 +10771,7 @@ MonoBehaviour:
   musicVolume: 1
   ambienceVolume: 1
   SFXVolume: 1
+  voiceVolume: 1
   roomSpawnerContainer: {fileID: 0}
   roomSpawners: []
   enemiesPerSpawner: 
