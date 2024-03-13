@@ -223,20 +223,14 @@ MonoBehaviour:
   currentAnimator: {fileID: 3243603865783762513}
   closeRangeDistance: 6
   midRangeDistance: 10
-  longRangeDistance: 22
   damage: 1
   maxMoveDistance: 3
-  percentToMoveCloserToMid: 0.3
   minOrbitTime: 0.5
   MaxOrbitTime: 1.5
   fireCooldownShortRange: 3
   fireRateShortRange: 0.1
   numShotsShortRange: 1
   bulletSpeedShortRange: 30
-  fireCooldownLongRange: 2
-  fireRateLongRange: 1
-  numShotsLongRange: 1
-  bulletSpeedLongRange: 60
 --- !u!114 &4123826904883642579
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -259,6 +253,8 @@ MonoBehaviour:
   VFX_onDeath:
   - {fileID: 8187683716919063902}
   enemyGFX: {fileID: 8117849378134326929}
+  staticToGive: 35
+  type: 2
   spawner: {fileID: 0}
   enemyDamageTaken:
     m_PersistentCalls:

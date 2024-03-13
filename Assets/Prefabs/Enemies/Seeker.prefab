@@ -142,6 +142,8 @@ MonoBehaviour:
   VFX_onHit: []
   VFX_onDeath: []
   enemyGFX: {fileID: 2721025538112821731}
+  staticToGive: 35
+  type: 3
   spawner: {fileID: 0}
   enemyDamageTaken:
     m_PersistentCalls:

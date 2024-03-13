@@ -17,6 +17,7 @@ public class enemyStats : MonoBehaviour
     [SerializeField] private VisualEffect[] VFX_onDeath;
     [SerializeField] private GameObject enemyGFX;
     [SerializeField] private float staticToGive = 35f;
+    [SerializeField] private enemyType type;
 
     [HideInInspector] public roomEnemySpawner spawner;
     private NavMeshAgent ref_NavMeshAgent;
@@ -68,7 +69,22 @@ public class enemyStats : MonoBehaviour
         enemyDamageTaken?.Invoke();
         currentHP -= damageToTake;
         StartCoroutine(bloodVFX());
-        AudioManager.instance.PlaySFX(FMODEvents.instance.bruiserHit, this.transform.position);
+
+        switch (type)
+        {
+            case enemyType.herc:
+                AudioManager.instance.PlaySFX(FMODEvents.instance.bruiserHit, transform.position);
+                break;
+            case enemyType.cerb:
+                AudioManager.instance.PlaySFX(FMODEvents.instance.bruiserHit, transform.position);
+                break;
+            case enemyType.seeker:
+                AudioManager.instance.PlaySFX(FMODEvents.instance.bruiserHit, transform.position);
+                break;
+            case enemyType.turret:
+                break;
+        }
+
     }
 
     IEnumerator bloodVFX()
@@ -86,4 +102,13 @@ public class enemyStats : MonoBehaviour
         yield return null;
     }
 
+}
+
+enum enemyType
+{
+    none, 
+    herc,
+    cerb,
+    seeker,
+    turret
 }
