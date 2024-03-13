@@ -11,7 +11,7 @@ public class roomEnemySpawner : MonoBehaviour
     [SerializeField] private int currentWaveIndex;
     [SerializeField] private float timeBetweenEnemySpawns;
     [SerializeField] private List<wave> waves = new List<wave>();
-    public List<GameObject> enemiesRemaining = new List<GameObject>();
+    [HideInInspector] public List<GameObject> enemiesRemaining = new List<GameObject>();
 
     [SerializeField] private Animator doorController;
     [SerializeField] private int hpToHeal = 2;
@@ -40,14 +40,7 @@ public class roomEnemySpawner : MonoBehaviour
         }
 
 
-    }
 
-    private void FixedUpdate()
-    {
-        foreach (GameObject enemy in enemiesRemaining)
-        {
-            if (enemy == null) enemiesRemaining.Remove(enemy);
-        }
     }
 
     private IEnumerator spawnWave()
