@@ -9,13 +9,14 @@ public class HealParticles : MonoBehaviour
     [SerializeField] private playerHealth stats;
     [SerializeField] private Volume healPPR;
     [SerializeField] private float vignetteShowTime;
-
+    [SerializeField] private ParticleSystem healingParticles;
 
     // Start is called before the first frame update
     void Start()
     {
         stats = GameObject.Find("Player").GetComponent<playerHealth>();
         stats.healedDamage.AddListener(VignetteSequence);
+        healingParticles = GameObject.Find("Healparticles").GetComponent<ParticleSystem>();
     }
 
     // Update is called once per frame
@@ -47,6 +48,7 @@ public class HealParticles : MonoBehaviour
     void VignetteSequence()
     {
         StartCoroutine(HealVignette());
+        healingParticles.Play();
     }
 
     private IEnumerator HealVignette()
