@@ -21,6 +21,8 @@ public class shotgunPower : weaponPowerBase
     [SerializeField] private float airMultiplier;
     private GameObject cameraHolder;
 
+    private float cooldown;
+
     #region References
     private playerMovement ref_PlayerMovement;
     #endregion
@@ -72,8 +74,20 @@ public class shotgunPower : weaponPowerBase
             ref_PlayerMovement.vertical_playerVelocity += new Vector3(0, tempDir.y, 0);
             
         }
-        yield return new WaitForSeconds(powerCooldown);
+        
+        while(cooldown < powerCooldown)
+        {
+            cooldown += Time.deltaTime;
+            if (weaponPowerIcon != null)
+            {
+                weaponPowerIcon.fillAmount = cooldown /powerCooldown;
+            }
+            yield return null;
+        }
+
+        weaponPowerIcon.fillAmount = 1;
         canUsePower = true;
+        cooldown = 0;
     }
 
     IEnumerator EnableShockwave()

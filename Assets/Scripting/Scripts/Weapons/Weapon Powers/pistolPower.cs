@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.VFX;
 
@@ -88,8 +89,11 @@ public class pistolPower : weaponPowerBase
         {
             timer += Time.deltaTime;
             blackhole.transform.localScale = new Vector3(timer / powerCooldown, timer / powerCooldown, timer / powerCooldown);
+            if (weaponPowerIcon != null) weaponPowerIcon.fillAmount = timer /powerCooldown;
+
             yield return null;
         }
+        weaponPowerIcon.fillAmount = 1;
         timer = 0;
         canUsePower = true;
         blackhole.transform.localScale = Vector3.one;
