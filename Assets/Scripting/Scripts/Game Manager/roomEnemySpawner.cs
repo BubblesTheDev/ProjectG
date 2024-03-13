@@ -38,9 +38,6 @@ public class roomEnemySpawner : MonoBehaviour
             playerStats.currentHP += hpToHeal;
             playerStats.healedDamage.Invoke();
         }
-
-
-
     }
 
     private IEnumerator spawnWave()
