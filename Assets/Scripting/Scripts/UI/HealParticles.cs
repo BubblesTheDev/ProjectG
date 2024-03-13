@@ -12,7 +12,7 @@ public class HealParticles : MonoBehaviour
     [SerializeField] private ParticleSystem healingParticles;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         stats = GameObject.Find("Player").GetComponent<playerHealth>();
         stats.healedDamage.AddListener(VignetteSequence);
