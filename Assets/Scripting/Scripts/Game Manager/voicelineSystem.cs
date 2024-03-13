@@ -40,10 +40,13 @@ public class voicelineSystem : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!started && voiceLineIndex < voiceLines.Count)
+        if (other.CompareTag("Player"))
         {
-            started = true;
-            subtitleBox.SetActive(true);
+            if (!started && voiceLineIndex < voiceLines.Count)
+            {
+                started = true;
+                subtitleBox.SetActive(true);
+            }
         }
     }
 }
