@@ -21,7 +21,7 @@ public class roomEnemySpawner : MonoBehaviour
     [SerializeField] private int hpToHeal = 2;
 
     private playerHealth playerStats;
-
+    private bool hasBeatCombat;
     private void Awake()
     {
         playerStats = GameObject.Find("Player").GetComponent<playerHealth>();
@@ -40,14 +40,20 @@ public class roomEnemySpawner : MonoBehaviour
         else if (currentWaveIndex == waves.Count && enemiesRemaining.Count <= 0 && doorClosed)
         {
             openDoor();
-            playerStats.currentHP += hpToHeal;
-            playerStats.healedDamage.Invoke();
+            if(!hasBeatCombat)
+            {
+                playerStats.currentHP += hpToHeal;
+                playerStats.healedDamage.Invoke();
+
+                hasBeatCombat = true;
+            }
             if (enemiesRemainingCounter != null) enemiesRemainingCounter.SetActive(false);
+
         }
 
-        if(playerInRoom && enemiesRemaining.Count > 0 && enemiesRemainingCounter != null)
+        if (playerInRoom && enemiesRemaining.Count > 0 && enemiesRemainingCounter != null)
         {
-            enemiesRemainingCounter.GetComponent<TextMeshPro>().text = "HOSTILES NUM: " + enemiesRemaining.Count.ToString();
+            enemiesRemainingCounter.GetComponent<TextMeshProUGUI>().text = "HOSTILES NUM: " + enemiesRemaining.Count.ToString();
         }
     }
 
@@ -100,7 +106,7 @@ public class roomEnemySpawner : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             playerInRoom = false;
-            if (enemiesRemainingCounter != null) enemiesRemainingCounter.SetActive(false);
+            //if (enemiesRemainingCounter != null) enemiesRemainingCounter.SetActive(false);
         }
 
 

@@ -46,6 +46,7 @@ public class playerHealth : MonoBehaviour
         {
             StartCoroutine(playerDeath());
         }
+        if(currentHP > maxHp) currentHP = maxHp;
     }
 
     private void regenHP()
