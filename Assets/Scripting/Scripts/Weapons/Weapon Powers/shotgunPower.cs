@@ -22,6 +22,7 @@ public class shotgunPower : weaponPowerBase
     private GameObject cameraHolder;
 
     private float cooldown;
+    private weaponBase weapon;
 
     #region References
     private playerMovement ref_PlayerMovement;
@@ -33,12 +34,23 @@ public class shotgunPower : weaponPowerBase
         cameraHolder = GameObject.Find("CameraHolder");
         shockwaveMat.SetFloat("_Size", 0);
         shockwave.SetActive(false);
+        if (GetComponent<weaponBase>()) weapon = GetComponent<weaponBase>();
+    }
+
+    private void Update()
+    {
+        if (weaponPowerIcon != null && weapon.weaponIsEquipped)
+        {
+            weaponPowerIcon.value = cooldown / powerCooldown;
+        } 
+
     }
 
     public override IEnumerator usePower()
     {
         if (!canUsePower) yield break;
         canUsePower = false;
+        cooldown = 0;
 
         //Place particle stuff here
         StartCoroutine(EnableShockwave());
@@ -78,16 +90,11 @@ public class shotgunPower : weaponPowerBase
         while(cooldown < powerCooldown)
         {
             cooldown += Time.deltaTime;
-            if (weaponPowerIcon != null)
-            {
-                weaponPowerIcon.fillAmount = cooldown /powerCooldown;
-            }
             yield return null;
         }
 
-        weaponPowerIcon.fillAmount = 1;
+        if (weaponPowerIcon != null && weapon.weaponIsEquipped) weaponPowerIcon.value = 1;
         canUsePower = true;
-        cooldown = 0;
     }
 
     IEnumerator EnableShockwave()

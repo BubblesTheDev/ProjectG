@@ -11,7 +11,7 @@ public class weaponPowerBase : MonoBehaviour
     public int numCharges = 1;
     public int currentCharges = 1;
     public weaponType weaponPowerIsFor;
-    public Image weaponPowerIcon;
+    public Slider weaponPowerIcon;
 
     public virtual IEnumerator usePower()
     {
