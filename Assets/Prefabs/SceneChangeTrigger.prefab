@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7857575410269285287}
   - component: {fileID: 432240674037600179}
   - component: {fileID: 7601550326109914084}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: SceneChangeTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
