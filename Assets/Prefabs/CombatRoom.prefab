@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1994721678646991057}
   - component: {fileID: 5226342836859320679}
   - component: {fileID: 5174117323088699570}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: CombatRoom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -45,14 +45,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9d10be9bb7c33b47b33f930a56857a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentWaveIndex: 0
-  waves: []
+  doorClosed: 0
   spawnerActive: 0
   playerInRoom: 0
-  doorClosed: 0
+  currentWaveIndex: 0
   timeBetweenEnemySpawns: 0
-  doorController: {fileID: 0}
+  enemiesRemainingCounter: {fileID: 0}
+  waves: []
   enemiesRemaining: []
+  doorController: {fileID: 0}
+  hpToHeal: 2
 --- !u!65 &5174117323088699570
 BoxCollider:
   m_ObjectHideFlags: 0
