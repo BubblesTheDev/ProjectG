@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.VFX;
 
@@ -24,6 +25,7 @@ public class pistolPower : weaponPowerBase
 
     private Vector3 startingPos;
     InteractionInputActions inputActions;
+    private weaponBase weapon;
 
     private void OnEnable()
     {
@@ -40,18 +42,20 @@ public class pistolPower : weaponPowerBase
         inputActions = new InteractionInputActions();
         firePoint = GetComponent<weaponBase>().firePoint;
         startingPos = shakingObj.transform.localPosition;
+        if (GetComponent<weaponBase>()) weapon = GetComponent<weaponBase>();
     }
 
     private void FixedUpdate()
     {
         chargeShake();
+        if (weaponPowerIcon != null && weapon.weaponIsEquipped) weaponPowerIcon.value = timer / powerCooldown;
     }
 
     public override IEnumerator usePower()
     {
         AudioManager.instance.PlaychargePistolSFX();
         if (!canUsePower) yield break;
-        if(mostRecentBullet != null) mostRecentBullet.GetComponent<implosionBullet>().canPull = false;
+        if (mostRecentBullet != null) mostRecentBullet.GetComponent<implosionBullet>().canPull = false;
         canUsePower = false;
 
         while (inputActions.Combat.Fire2.IsPressed())
@@ -70,6 +74,8 @@ public class pistolPower : weaponPowerBase
 
     private IEnumerator fireSpecialBullet(float chargeTime)
     {
+        timer = 0;
+
         AudioManager.instance.StopchargePistolSFX();
         AudioManager.instance.PlaySFX(FMODEvents.instance.chargePistolShot, this.transform.position);
         blackholeParticles.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
@@ -84,13 +90,16 @@ public class pistolPower : weaponPowerBase
         //increase the projectile velocity based on charge percent
         currentChargeTime = 0;
 
-        while(timer < powerCooldown)
+        while (timer < powerCooldown)
         {
             timer += Time.deltaTime;
             blackhole.transform.localScale = new Vector3(timer / powerCooldown, timer / powerCooldown, timer / powerCooldown);
+
             yield return null;
         }
-        timer = 0;
+
+        if (weaponPowerIcon != null && weapon.weaponIsEquipped) weaponPowerIcon.value = 1;
+
         canUsePower = true;
         blackhole.transform.localScale = Vector3.one;
         blackholeParticles.Play();
@@ -98,8 +107,8 @@ public class pistolPower : weaponPowerBase
 
 
     void chargeShake()
-    {    
+    {
         float chargePercent = currentChargeTime / maxChargeTime;
-        if(currentChargeTime > 0.001f) shakingObj.transform.localPosition = startingPos + (Random.insideUnitSphere * shakingIntensity * chargePercent);
+        if (currentChargeTime > 0.001f) shakingObj.transform.localPosition = startingPos + (Random.insideUnitSphere * shakingIntensity * chargePercent);
     }
 }

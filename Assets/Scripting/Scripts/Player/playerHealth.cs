@@ -46,11 +46,12 @@ public class playerHealth : MonoBehaviour
         {
             StartCoroutine(playerDeath());
         }
+        if(currentHP > maxHp) currentHP = maxHp;
     }
 
     private void regenHP()
     {
-        if (currentStaticEnergy >= maxStaticEnergy && currentHP != maxHp)
+        if (currentStaticEnergy >= maxStaticEnergy && currentHP < maxHp)
         {
             currentHP++;
             currentStaticEnergy = 0;
@@ -59,13 +60,14 @@ public class playerHealth : MonoBehaviour
 
         if (rb.velocity.magnitude > 0 || rb.velocity.magnitude < 0)
         {
-            if (currentHP < 5)
+            if (currentHP < maxHp)
             {
                 float movementStaticIncrease = Mathf.Sqrt(Mathf.Pow(rb.velocity.magnitude, 2));
                 currentStaticEnergy += staticEnergyRate * (1 + (movementStaticIncrease / movementMulti)) * Time.deltaTime;
-                if (currentStaticEnergy >= maxStaticEnergy) currentStaticEnergy = maxStaticEnergy;
             }
         }
+        if (currentHP == maxHp && currentStaticEnergy > 0) currentStaticEnergy = 0f; 
+
     }
 
     public IEnumerator playerDeath()

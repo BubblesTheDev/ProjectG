@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class weaponPowerBase : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class weaponPowerBase : MonoBehaviour
     public int numCharges = 1;
     public int currentCharges = 1;
     public weaponType weaponPowerIsFor;
+    public Slider weaponPowerIcon;
 
     public virtual IEnumerator usePower()
     {

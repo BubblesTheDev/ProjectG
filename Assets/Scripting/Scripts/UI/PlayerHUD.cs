@@ -13,6 +13,7 @@ public class PlayerHUD : MonoBehaviour
     [SerializeField] private Slider staticMeter;
     [SerializeField] private Slider gravSwitch;
     [SerializeField] private Slider staminaBar;
+    [SerializeField] private Slider weaponCD;
 
 
     [Space,Header("Health UI Variables")]
@@ -64,6 +65,13 @@ public class PlayerHUD : MonoBehaviour
     {
         constantStats();
         handleInventtory();
+        /* if weapon is pistol
+         * set weaponCD.maxValue to pistol power cooldown
+         * set weaponCD.value to pistol power current cooldown count
+         * else if weapon is shotgun
+         * set weaponCD.maxValue to shotgun power cooldown
+         * set weaponCD.value to shotgun power current cooldown count
+         */
     }
 
 
@@ -78,6 +86,7 @@ public class PlayerHUD : MonoBehaviour
         staminaBar.maxValue = movementStats.numberOf_MaximumDashCharges;
         gravSwitch.maxValue = movementStats.timeInSeconds_GravityFlipDuration;
         gravSwitch.value = movementStats.timeInSeconds_GravityFlipDuration;
+
     }
 
     void startDecreasingHP()
