@@ -26,6 +26,7 @@ public class PlayerHUD : MonoBehaviour
     [Space, Header("Gravswitch UI Variables")]
     [SerializeField] private float arrowGlowTime;
     [SerializeField] private Color arrowColor = new Color(0, 228, 255);
+    [SerializeField] private Color arrowCDColor;
     [SerializeField] private Image gravSlider;
 
     private playerHealth healthStats;
@@ -130,7 +131,7 @@ public class PlayerHUD : MonoBehaviour
         yield return new WaitForSeconds(movementStats.timeInSeconds_ToFlip + arrowGlowTime);
         if (movementStats.overchargedGravityFlip) 
         { 
-            gravSlider.color = Color.red;
+            gravSlider.color = arrowCDColor;
             yield return new WaitForSeconds(movementStats.timeInSeconds_ToFullyRechargeGravity);
             gravSlider.color = arrowColor;
         }
