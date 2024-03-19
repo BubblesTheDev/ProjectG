@@ -27,14 +27,18 @@ public class pauseMenu : MonoBehaviour
 
     private void Update()
     {
-        if (interactionInput.Settings.PauseGame.WasPerformedThisFrame() && paused == false) pauseScene();
-        if (interactionInput.Settings.PauseGame.WasPerformedThisFrame() && paused == true) unpauseScene();
+        if (interactionInput.Settings.PauseGame.WasPerformedThisFrame())
+        {
+            if (paused == false) pauseScene();
+            else if (paused == true) unpauseScene();
+        }
     }
 
-    void pauseScene()
+    public void pauseScene()
     {
         paused = true;
         Time.timeScale = 0f;
+        Cursor.lockState = CursorLockMode.Confined;
         foreach (GameObject obj in objectsToEnable)
         {
             obj.SetActive(true);
@@ -42,14 +46,15 @@ public class pauseMenu : MonoBehaviour
 
         foreach (GameObject item in objectsToDisable)
         {
-            item.SetActive(false);  
+            item.SetActive(false);
         }
     }
 
-    void unpauseScene()
+    public void unpauseScene()
     {
         paused = false;
         Time.timeScale = 1f;
+        Cursor.lockState = CursorLockMode.Locked;
         foreach (GameObject obj in objectsToEnable)
         {
             obj.SetActive(false);

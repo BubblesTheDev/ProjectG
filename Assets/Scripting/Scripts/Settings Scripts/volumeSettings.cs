@@ -11,6 +11,7 @@ public class volumeSettings : MonoBehaviour
     [SerializeField] private Slider SFXVolumeSlider;
     [SerializeField] private Slider MusicVolumeSlider;
     [SerializeField] private Slider AmbienceVolumeSlider;
+    [SerializeField] private Slider VoiceVolumeSlider;
 
     private void Awake()
     {
@@ -24,6 +25,7 @@ public class volumeSettings : MonoBehaviour
         if (SFXVolumeSlider != null) SFXVolumeSlider.onValueChanged.AddListener(delegate { changeVolumeSetting(volumeType.sfx); });
         if (MusicVolumeSlider != null) MusicVolumeSlider.onValueChanged.AddListener(delegate { changeVolumeSetting(volumeType.music); });
         if (AmbienceVolumeSlider != null) AmbienceVolumeSlider.onValueChanged.AddListener(delegate { changeVolumeSetting(volumeType.ambience); });
+        if (VoiceVolumeSlider != null) VoiceVolumeSlider.onValueChanged.AddListener(delegate { changeVolumeSetting(volumeType.voice); });
     }
 
     void setupSettings()
@@ -32,6 +34,7 @@ public class volumeSettings : MonoBehaviour
         if (PlayerPrefs.HasKey("SFXVolumeValue") && SFXVolumeSlider != null) SFXVolumeSlider.value = PlayerPrefs.GetFloat("SFXVolumeValue");
         if (PlayerPrefs.HasKey("MusicVolumeValue") && MusicVolumeSlider != null) MusicVolumeSlider.value = PlayerPrefs.GetFloat("MusicVolumeValue");
         if (PlayerPrefs.HasKey("AmbienceVolumeValue") && AmbienceVolumeSlider != null) AmbienceVolumeSlider.value = PlayerPrefs.GetFloat("AmbienceVolumeValue");
+        if (PlayerPrefs.HasKey("VoiceVolumeValue") && VoiceVolumeSlider != null) VoiceVolumeSlider.value = PlayerPrefs.GetFloat("VoiceVolumeValue");
     }
 
     private void changeVolumeSetting(volumeType type)
@@ -54,6 +57,10 @@ public class volumeSettings : MonoBehaviour
                 AudioManager.instance.ambienceVolume = AmbienceVolumeSlider.value;
                 PlayerPrefs.SetFloat("AmbienceVolumeValue", AmbienceVolumeSlider.value);
                 break;
+            case volumeType.voice:
+                AudioManager.instance.voiceVolume = VoiceVolumeSlider.value;
+                PlayerPrefs.SetFloat("VoiceVolumeValue", VoiceVolumeSlider.value);
+                break;
         }
     }
 
@@ -66,5 +73,6 @@ enum volumeType
     master,
     sfx,
     music,
-    ambience
+    ambience,
+    voice
 }

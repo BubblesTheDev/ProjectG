@@ -95,6 +95,7 @@ public class AudioManager : MonoBehaviour
         musicBus.setVolume(musicVolume);
         ambienceBus.setVolume(ambienceVolume);
         sfxBus.setVolume(SFXVolume);
+        voiceBus.setVolume(voiceVolume);
 
         SetEnemyCount();
 
@@ -115,6 +116,7 @@ public class AudioManager : MonoBehaviour
         if (PlayerPrefs.HasKey("SFXVolumeValue")) SFXVolume = PlayerPrefs.GetFloat("SFXVolumeValue");
         if (PlayerPrefs.HasKey("MusicVolumeValue")) musicVolume = PlayerPrefs.GetFloat("MusicVolumeValue");
         if (PlayerPrefs.HasKey("AmbienceVolumeValue")) ambienceVolume = PlayerPrefs.GetFloat("AmbienceVolumeValue");
+        if (PlayerPrefs.HasKey("VoiceVolumeValue")) voiceVolume = PlayerPrefs.GetFloat("VoiceVolumeValue");
     }
 
     void SetEnemyCount()
