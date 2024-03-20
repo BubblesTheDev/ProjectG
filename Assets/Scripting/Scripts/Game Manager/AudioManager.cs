@@ -185,7 +185,13 @@ public class AudioManager : MonoBehaviour
         switch (voiceLineIndex)
         {
             case 0:
-
+                instance.PlaySFX(FMODEvents.instance.checkpointVoice1, this.transform.position);
+                break;
+            case 1:
+                instance.PlaySFX(FMODEvents.instance.checkpointVoice2, this.transform.position);
+                break;
+            case 2:
+                instance.PlaySFX(FMODEvents.instance.checkpointVoice3, this.transform.position);
                 break;
         }
     }
