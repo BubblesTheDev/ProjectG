@@ -179,7 +179,7 @@ MonoBehaviour:
   firePoint: {fileID: 3258622124802021664}
   bulletTracerPrefab: {fileID: 7176724630542866113, guid: b514a865ce17b7a468adbe032d6285ae,
     type: 3}
-  trailSpeed: 150
+  trailSpeed: 400
   projectorPrefab: {fileID: 3375351817147502523, guid: 2c05afc0d37a8504883b54e9b4b5e0c0,
     type: 3}
   timeToFade: 3
@@ -217,6 +217,7 @@ MonoBehaviour:
   numCharges: 1
   currentCharges: 1
   weaponPowerIsFor: 1
+  weaponPowerIcon: {fileID: 0}
   boundsPosition: {fileID: 0}
   halfHitboxSize: {x: 1, y: 3, z: 1}
   damage: 1
