@@ -18,9 +18,7 @@ public class voicelineSystem : MonoBehaviour
     {
         isPlaying = true;
         subtitleBox.GetComponent<TextMeshPro>().text = voiceLines[voiceLineIndex].subTitleText;
-        EventReference tempReference = RuntimeManager.PathToEventReference(voiceLines[voiceLineIndex].audioKey);
-        if (speakerPosition != null) RuntimeManager.PlayOneShot(tempReference, speakerPosition.transform.position);
-        else RuntimeManager.PlayOneShot(tempReference);
+        AudioManager.instance.playVoiceline(voiceLines[voiceLineIndex].audioClipIndex);
         yield return new WaitForSeconds(voiceLines[voiceLineIndex].clipLength);
         voiceLineIndex++;
         isPlaying = false;
