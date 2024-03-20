@@ -180,6 +180,16 @@ public class AudioManager : MonoBehaviour
         chargePistol.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
     }
 
+    public void playVoiceline(int voiceLineIndex)
+    {
+        switch (voiceLineIndex)
+        {
+            case 0:
+
+                break;
+        }
+    }
+
     private void CleanUp()
     {
         //stop and release any created instances
