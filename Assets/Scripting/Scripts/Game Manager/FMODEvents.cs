@@ -28,6 +28,8 @@ public class FMODEvents : MonoBehaviour
     [field: Header("Enemy SFX")]
     [field: SerializeField] public EventReference enemySpawn { get; private set; }
     [field: SerializeField] public EventReference bruiserHit { get; private set; }
+    [field: SerializeField] public EventReference turretCharge { get; private set; }
+    [field: SerializeField] public EventReference turretShoot { get; private set; }
 
     [field: Header("Player SFX")]
     [field: SerializeField] public EventReference jumpSFX { get; private set; }
