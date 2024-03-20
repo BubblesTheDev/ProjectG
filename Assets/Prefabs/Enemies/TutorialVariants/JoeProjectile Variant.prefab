@@ -13,6 +13,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: JoeProjectile Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 3191494505589844887, guid: 934116d06ecd0ed45ad7f0e5cccd08dc,
+        type: 3}
+      propertyPath: m_TagString
+      value: EnemyProjectile
+      objectReference: {fileID: 0}
     - target: {fileID: 5717528015786245482, guid: 934116d06ecd0ed45ad7f0e5cccd08dc,
         type: 3}
       propertyPath: m_LocalPosition.x
