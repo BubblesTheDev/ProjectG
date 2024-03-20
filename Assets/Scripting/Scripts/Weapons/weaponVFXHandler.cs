@@ -43,18 +43,9 @@ public class weaponVFXHandler : MonoBehaviour
 
     public IEnumerator spawnBulletHole(RaycastHit bulletHoleInfo)
     {
-        GameObject tempBullethole = Instantiate(projectorPrefab, bulletHoleInfo.point, Quaternion.Euler(bulletHoleInfo.normal), GameObject.Find("VFX Holder").transform);
-        tempBullethole.GetComponent<VisualEffect>().SetVector3("BulletHoleAngle", new Vector3(bulletHoleInfo.normal.x * 90, bulletHoleInfo.normal.y * 90, bulletHoleInfo.normal.z * 90));
+        GameObject tempBullethole = Instantiate(projectorPrefab, bulletHoleInfo.point, Quaternion.LookRotation(bulletHoleInfo.normal), GameObject.Find("VFX Holder").transform);
+        tempBullethole.GetComponent<VisualEffect>().SetVector3("BulletHoleAngle", bulletHoleInfo.normal);
 
-
-        /*        float currentTime = 0;
-                while (currentTime < timeToFade)
-                {
-                    tempBullethole.GetComponent<DecalProjector>().fadeFactor = currentTime;
-                    currentTime += Time.deltaTime / timeToFade;
-
-                    yield return null;
-                }*/
         yield return null;
         Destroy(tempBullethole, timeToFade);
     }
