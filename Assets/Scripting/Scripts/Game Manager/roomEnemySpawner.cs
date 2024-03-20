@@ -10,6 +10,7 @@ public class roomEnemySpawner : MonoBehaviour
     [SerializeField] private bool spawnerActive = false; 
     public bool playerInRoom = false;
     [SerializeField] private int currentWaveIndex;
+    [SerializeField] private float timeToSlow = 1f;
     [SerializeField] private float timeBetweenEnemySpawns;
     [SerializeField] private GameObject enemiesRemainingCounter;
     
@@ -22,6 +23,7 @@ public class roomEnemySpawner : MonoBehaviour
 
     private playerHealth playerStats;
     private bool hasBeatCombat;
+    private bool isSlowed;
     private void Awake()
     {
         playerStats = GameObject.Find("Player").GetComponent<playerHealth>();
@@ -44,7 +46,7 @@ public class roomEnemySpawner : MonoBehaviour
             {
                 playerStats.currentHP += hpToHeal;
                 playerStats.healedDamage.Invoke();
-
+                if(!isSlowed) StartCoroutine(slowTime());
                 hasBeatCombat = true;
             }
             if (enemiesRemainingCounter != null) enemiesRemainingCounter.SetActive(false);
@@ -75,6 +77,20 @@ public class roomEnemySpawner : MonoBehaviour
         }
         spawnerActive = false;
         currentWaveIndex++;
+    }
+
+    private IEnumerator slowTime()
+    {
+        isSlowed = true;
+        Time.timeScale = .1f;
+        yield return new WaitForSeconds(.25f);
+        float timer = 0;
+        while( timer < timeToSlow && Time.timeScale != 1)
+        {
+            Time.timeScale += .005f * timeToSlow;
+            if (Time.timeScale > 1) Time.timeScale = 1;
+            yield return null;
+        }
     }
 
     private void closeDoor()
