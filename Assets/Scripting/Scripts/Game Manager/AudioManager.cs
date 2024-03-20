@@ -180,6 +180,22 @@ public class AudioManager : MonoBehaviour
         chargePistol.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
     }
 
+    public void playVoiceline(int voiceLineIndex)
+    {
+        switch (voiceLineIndex)
+        {
+            case 0:
+                instance.PlaySFX(FMODEvents.instance.checkpointVoice1, this.transform.position);
+                break;
+            case 1:
+                instance.PlaySFX(FMODEvents.instance.checkpointVoice2, this.transform.position);
+                break;
+            case 2:
+                instance.PlaySFX(FMODEvents.instance.checkpointVoice3, this.transform.position);
+                break;
+        }
+    }
+
     private void CleanUp()
     {
         //stop and release any created instances

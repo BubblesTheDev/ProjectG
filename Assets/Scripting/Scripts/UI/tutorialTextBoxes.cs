@@ -15,7 +15,7 @@ public class tutorialTextBoxes : MonoBehaviour
             if (tutorialTextObj != null)
             {
                 tutorialTextObj.SetActive(true);
-                tutorialTextObj.GetComponent<TextMeshPro>().text = tutorialText;
+                tutorialTextObj.GetComponent<TextMeshProUGUI>().text = tutorialText;
             }
         }
     }
@@ -27,7 +27,7 @@ public class tutorialTextBoxes : MonoBehaviour
             if (tutorialTextObj != null)
             {
                 tutorialTextObj.SetActive(false);
-                tutorialTextObj.GetComponent<TextMeshPro>().text = null;
+                tutorialTextObj.GetComponent<TextMeshProUGUI>().text = null;
             }
         }
 
