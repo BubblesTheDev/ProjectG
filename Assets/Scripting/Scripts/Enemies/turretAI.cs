@@ -59,11 +59,13 @@ public class turretAI : MonoBehaviour
         canShoot = false;
         yield return new WaitForSeconds(spoolUpTime);
         //Play spool up sound here
+        AudioManager.instance.PlaySFX(FMODEvents.instance.turretCharge, this.transform.position);
 
 
         for (int i = 1; i < attacksPerBurst+1; i++)
         {
             //play fire sound here
+            AudioManager.instance.PlaySFX(FMODEvents.instance.turretShoot, this.transform.position);
             int muzzleFlashIndex = i % muzzleFlashes.Count;
             muzzleFlashes[muzzleFlashIndex].Play();
 
