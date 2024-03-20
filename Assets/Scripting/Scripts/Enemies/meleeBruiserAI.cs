@@ -19,7 +19,7 @@ public class meleeBruiserAI : MonoBehaviour
     [SerializeField] private Collider punchHitbox;
     [SerializeField] private float walkingAnimThreshold;
     private bool hasHitPlayerThisAttack = false;
-
+    private Vector3 playerPosOffset;
 
     #region Assignables
     private NavMeshAgent ref_NavMeshAgent;
@@ -43,11 +43,15 @@ public class meleeBruiserAI : MonoBehaviour
 
     private void Update()
     {
-        ref_NavMeshAgent.SetDestination(new Vector3(ref_PlayerObj.transform.position.x, transform.position.y, ref_PlayerObj.transform.position.z));
+        playerPosOffset = new Vector3(ref_PlayerObj.transform.position.x, transform.position.y, ref_PlayerObj.transform.position.z);
+
+        ref_NavMeshAgent.SetDestination(playerPosOffset);
 
         if (ref_NavMeshAgent.velocity.magnitude > walkingAnimThreshold) ref_meleeAnimator.Play("HercRunning", 0);
         else ref_meleeAnimator.Play("HercIdle", 0);
-        if (Vector3.Distance(ref_PlayerObj.transform.position, transform.position) < distanceToPunchPlayer && canPunch)
+
+
+        if (Vector3.Distance(playerPosOffset, transform.position) < distanceToPunchPlayer && canPunch)
         {
             StartCoroutine(attackPlayer());
         }
@@ -66,6 +70,7 @@ public class meleeBruiserAI : MonoBehaviour
     IEnumerator attackPlayer()
     {
         canPunch = false;
+        transform.LookAt(playerPosOffset);
         ref_meleeAnimator.SetLayerWeight(1, 1);
         ref_meleeAnimator.Play("HercPunch",1);
         
