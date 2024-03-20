@@ -13,11 +13,11 @@ public class voicelineSystem : MonoBehaviour
     [SerializeField] private List<voiceLine> voiceLines;
     private bool isPlaying;
     private bool started;
-    private int voiceLineIndex;
+    private int voiceLineIndex = 0;
     IEnumerator playVoiceline()
     {
         isPlaying = true;
-        subtitleBox.GetComponent<TextMeshPro>().text = voiceLines[voiceLineIndex].subTitleText;
+        subtitleBox.GetComponent<TextMeshProUGUI>().text = voiceLines[voiceLineIndex].subTitleText;
         AudioManager.instance.playVoiceline(voiceLines[voiceLineIndex].audioClipIndex);
         yield return new WaitForSeconds(voiceLines[voiceLineIndex].clipLength);
         voiceLineIndex++;
