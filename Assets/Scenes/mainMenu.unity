@@ -1394,6 +1394,27 @@ MonoBehaviour:
       Data3: 567003780
       Data4: 1686740701
     Path: event:/SFX/Player Movement/Ground Slam
+  <checkpointVoice1>k__BackingField:
+    Guid:
+      Data1: -2143884834
+      Data2: 1197249068
+      Data3: 1798085821
+      Data4: 10976281
+    Path: event:/Voice/Checkpoints/Voice 1
+  <checkpointVoice2>k__BackingField:
+    Guid:
+      Data1: 1778655612
+      Data2: 1201189920
+      Data3: 2015897776
+      Data4: 316763039
+    Path: event:/Voice/Checkpoints/Voice 2
+  <checkpointVoice3>k__BackingField:
+    Guid:
+      Data1: -1199845348
+      Data2: 1274183170
+      Data3: -576906862
+      Data4: 444926132
+    Path: event:/Voice/Checkpoints/Voice 3
 --- !u!1 &173207266
 GameObject:
   m_ObjectHideFlags: 0
@@ -12196,6 +12217,7 @@ MonoBehaviour:
   SFXVolumeSlider: {fileID: 173207268}
   MusicVolumeSlider: {fileID: 1673913427}
   AmbienceVolumeSlider: {fileID: 2089360597}
+  VoiceVolumeSlider: {fileID: 0}
 --- !u!1 &1525654017
 GameObject:
   m_ObjectHideFlags: 0
