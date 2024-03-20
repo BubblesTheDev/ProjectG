@@ -125,6 +125,10 @@ public class mouseControlSettings : MonoBehaviour
 
             PlayerPrefs.Save();
         }
+
+        if (cameraControlScript != null) cameraControlScript.mouseSensitivityHorizontal = PlayerPrefs.GetFloat("mouseXSensValue");
+        if (cameraControlScript != null) cameraControlScript.mouseSensitivityVertical = PlayerPrefs.GetFloat("mouseYSensValue");
+
     }
 
     public void changeFOVSlider()
@@ -179,6 +183,9 @@ public class mouseControlSettings : MonoBehaviour
 
             PlayerPrefs.Save();
         }
+
+        if (cameraControlScript != null) cameraControlScript.mouseSensitivityHorizontal = PlayerPrefs.GetFloat("mouseXSensValue");
+        if (cameraControlScript != null) cameraControlScript.mouseSensitivityVertical = PlayerPrefs.GetFloat("mouseYSensValue");
     }
 
     public void toggleSeperateSens()
