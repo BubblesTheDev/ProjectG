@@ -54,7 +54,7 @@ public class voicelineSystem : MonoBehaviour
 [System.Serializable]
 public struct voiceLine
 {
-    public string audioKey;
+    public int audioClipIndex;
     public float clipLength;
     [TextArea(3,5)] public string subTitleText;
 }
