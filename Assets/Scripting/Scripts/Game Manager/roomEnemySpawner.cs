@@ -8,7 +8,7 @@ public class roomEnemySpawner : MonoBehaviour
 {
     public bool doorClosed = false;
     [SerializeField] private bool spawnerActive = false; 
-    [SerializeField] private bool playerInRoom = false;
+    public bool playerInRoom = false;
     [SerializeField] private int currentWaveIndex;
     [SerializeField] private float timeBetweenEnemySpawns;
     [SerializeField] private GameObject enemiesRemainingCounter;
