@@ -37,6 +37,8 @@ public class PlayerHUD : MonoBehaviour
     [SerializeField] private Image weaponIconHolder;
     [SerializeField] private Sprite[] weaponIcons;
 
+    private bool switching;
+
     private void Awake()
     {
         healthStats = GameObject.Find("Player").GetComponent<playerHealth>();
@@ -118,6 +120,11 @@ public class PlayerHUD : MonoBehaviour
         staminaBar.value = movementStats.current_NumberOfDashCharges;
         staticMeter.value = healthStats.currentStaticEnergy;
         gravSwitch.value = movementStats.timeInSeconds_CurrentGravityFlipDuration;
+        if (!switching)
+        {
+            if (movementStats.overchargedGravityFlip) gravSlider.color = arrowCDColor;
+            else if (!movementStats.overchargedGravityFlip) gravSlider.color = arrowColor;
+        }
     }
 
     private void flipGrav()
@@ -127,18 +134,10 @@ public class PlayerHUD : MonoBehaviour
 
     IEnumerator switchGravity()
     {
+        switching = true;
         gravSlider.color = Color.white;
         yield return new WaitForSeconds(movementStats.timeInSeconds_ToFlip + arrowGlowTime);
-        if (movementStats.overchargedGravityFlip) 
-        { 
-            gravSlider.color = arrowCDColor;
-            yield return new WaitForSeconds(movementStats.timeInSeconds_ToFullyRechargeGravity);
-            gravSlider.color = arrowColor;
-        }
-        else
-        {
-            gravSlider.color = arrowColor;
-        }
+        switching = false;
     }
 
     private IEnumerator ShakeHUD()
