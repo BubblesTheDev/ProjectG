@@ -3002,7 +3002,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tutorialTextObj: {fileID: 0}
-  tutorialText: 
+  tutorialText: While in the air, press Left Control to groundslam
 --- !u!1 &84744318
 GameObject:
   m_ObjectHideFlags: 0
@@ -5339,6 +5339,27 @@ MonoBehaviour:
       Data3: 567003780
       Data4: 1686740701
     Path: event:/SFX/Player Movement/Ground Slam
+  <checkpointVoice1>k__BackingField:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  <checkpointVoice2>k__BackingField:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  <checkpointVoice3>k__BackingField:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
 --- !u!43 &187986092
 Mesh:
   m_ObjectHideFlags: 0
@@ -18974,7 +18995,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tutorialTextObj: {fileID: 0}
-  tutorialText: 
+  tutorialText: Destroying enemies partially refills the Static Meter, speeding repair
+    time. Clearing a room provides a larger refill
 --- !u!1 &447111995
 GameObject:
   m_ObjectHideFlags: 0
@@ -19094,7 +19116,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tutorialTextObj: {fileID: 0}
-  tutorialText: 
+  tutorialText: When Singularity is fired and has not collided, Press Right Mouse
+    Button again to grapple towards it
 --- !u!1 &447622476
 GameObject:
   m_ObjectHideFlags: 0
@@ -20397,7 +20420,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tutorialTextObj: {fileID: 0}
-  tutorialText: 
+  tutorialText: Press Left Click on mouse to fire. Press 2 to swtich weapons
 --- !u!1 &478674258
 GameObject:
   m_ObjectHideFlags: 0
@@ -22071,7 +22094,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tutorialTextObj: {fileID: 0}
-  tutorialText: 
+  tutorialText: Press Left Shift to Dash. Dashing while holding WAS or D Dashes in
+    movement direction. Three maximum dashes may be performed before needing to recharge
 --- !u!114 &518884531 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 384218062846490207, guid: 3cf6a054c4d6208439755b59f33599f0,
@@ -22886,7 +22910,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tutorialTextObj: {fileID: 0}
-  tutorialText: 
+  tutorialText: With Shotgun selected, Press Right Mouse Button while next a projectile
+    to destroy it. Reboot Sequence Complete
 --- !u!43 &552061532
 Mesh:
   m_ObjectHideFlags: 0
@@ -29461,6 +29486,38 @@ Transform:
   - {fileID: 737308117}
   m_Father: {fileID: 968433420}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &703682125
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 703682126}
+  m_Layer: 0
+  m_Name: CeilingNavmesh
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &703682126
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 703682125}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -9.85971, y: 82.39378, z: -42.391342}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 928583256}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &706336189
 GameObject:
   m_ObjectHideFlags: 0
@@ -33701,7 +33758,7 @@ PrefabInstance:
     - target: {fileID: 5226342836859320679, guid: 05b89a48139f5d34b9dced4c57bc4e24,
         type: 3}
       propertyPath: waves.Array.data[0].enemies.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5226342836859320679, guid: 05b89a48139f5d34b9dced4c57bc4e24,
         type: 3}
@@ -33720,6 +33777,11 @@ PrefabInstance:
       objectReference: {fileID: 2104843838}
     - target: {fileID: 5226342836859320679, guid: 05b89a48139f5d34b9dced4c57bc4e24,
         type: 3}
+      propertyPath: waves.Array.data[0].enemies.Array.data[3].spawnPoint
+      value: 
+      objectReference: {fileID: 2040140856}
+    - target: {fileID: 5226342836859320679, guid: 05b89a48139f5d34b9dced4c57bc4e24,
+        type: 3}
       propertyPath: waves.Array.data[0].enemies.Array.data[0].enemyToSpawn
       value: 
       objectReference: {fileID: 8391156598496819575, guid: ccabb5a8b0f628e46817ad372e918db4,
@@ -33735,6 +33797,12 @@ PrefabInstance:
       propertyPath: waves.Array.data[0].enemies.Array.data[2].enemyToSpawn
       value: 
       objectReference: {fileID: 8391156598496819575, guid: ccabb5a8b0f628e46817ad372e918db4,
+        type: 3}
+    - target: {fileID: 5226342836859320679, guid: 05b89a48139f5d34b9dced4c57bc4e24,
+        type: 3}
+      propertyPath: waves.Array.data[0].enemies.Array.data[3].enemyToSpawn
+      value: 
+      objectReference: {fileID: 2967884245390203395, guid: 3a9c50c74e85488429c4b1c70f0023bc,
         type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -34971,6 +35039,143 @@ MonoBehaviour:
   m_SelectedFaces: 
   m_SelectedEdges: []
   m_SelectedVertices: 
+--- !u!1 &928583255
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 928583256}
+  - component: {fileID: 928583260}
+  - component: {fileID: 928583259}
+  - component: {fileID: 928583258}
+  - component: {fileID: 928583257}
+  m_Layer: 0
+  m_Name: Cube
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &928583256
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 928583255}
+  serializedVersion: 2
+  m_LocalRotation: {x: 1, y: 0, z: 0, w: 0}
+  m_LocalPosition: {x: 0, y: 7.6062164, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 703682126}
+  m_LocalEulerAnglesHint: {x: 180, y: 0, z: 0}
+--- !u!114 &928583257
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 928583255}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AgentTypeID: 0
+  m_CollectObjects: 1
+  m_Size: {x: 47, y: 5, z: 18}
+  m_Center: {x: 3.5, y: -0.5, z: 0}
+  m_LayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_UseGeometry: 0
+  m_DefaultArea: 0
+  m_GenerateLinks: 0
+  m_IgnoreNavMeshAgent: 1
+  m_IgnoreNavMeshObstacle: 1
+  m_OverrideTileSize: 0
+  m_TileSize: 256
+  m_OverrideVoxelSize: 0
+  m_VoxelSize: 0.16666667
+  m_MinRegionArea: 2
+  m_NavMeshData: {fileID: 23800000, guid: dc925ca7693cd104d8079637276e7e40, type: 2}
+  m_BuildHeightMesh: 0
+--- !u!65 &928583258
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 928583255}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 0
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &928583259
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 928583255}
+  m_Enabled: 0
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &928583260
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 928583255}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!114 &930581739 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5001280072355026464, guid: 3cf6a054c4d6208439755b59f33599f0,
@@ -35102,7 +35307,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tutorialTextObj: {fileID: 0}
-  tutorialText: 
+  tutorialText: Shoot at Vents to break them
 --- !u!1 &939169490
 GameObject:
   m_ObjectHideFlags: 0
@@ -36022,6 +36227,7 @@ Transform:
   - {fileID: 1063189216}
   - {fileID: 1554553541}
   - {fileID: 510556829}
+  - {fileID: 1486563079}
   m_Father: {fileID: 1135343695}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!43 &971388486
@@ -37732,7 +37938,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tutorialTextObj: {fileID: 0}
-  tutorialText: 
+  tutorialText: 'STAGE 2 OF REBOOT: Press V to Melee'
 --- !u!1 &1027746304
 GameObject:
   m_ObjectHideFlags: 0
@@ -38785,7 +38991,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tutorialTextObj: {fileID: 0}
-  tutorialText: 
+  tutorialText: While on the ground, press Left Control to Slide. Sliding while holding
+    WAS or D to slide in currrent movement direction
 --- !u!43 &1069030502
 Mesh:
   m_ObjectHideFlags: 0
@@ -44876,7 +45083,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tutorialTextObj: {fileID: 0}
-  tutorialText: 
+  tutorialText: Passing through hazards and getting hit by enemies inflict damage.
+    Over time spent moving, damage is repaired. The blue Static Meter displays repair
+    progress
 --- !u!1 &1315712188
 GameObject:
   m_ObjectHideFlags: 0
@@ -45296,6 +45505,7 @@ Transform:
   - {fileID: 1735863213}
   - {fileID: 1314993889}
   - {fileID: 442904749}
+  - {fileID: 1722700907}
   m_Father: {fileID: 764991491}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1350017637
@@ -45695,6 +45905,7 @@ Transform:
   - {fileID: 1216474668}
   - {fileID: 2114536478}
   - {fileID: 2104843839}
+  - {fileID: 2040140857}
   m_Father: {fileID: 764991491}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1410080880
@@ -47483,6 +47694,120 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1001 &1486563078
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 969841738}
+    m_Modifications:
+    - target: {fileID: 1697226063949648689, guid: 6a488df31cab1d8419d2ef7c83f2e0fa,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 128.71265
+      objectReference: {fileID: 0}
+    - target: {fileID: 1697226063949648689, guid: 6a488df31cab1d8419d2ef7c83f2e0fa,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -83.07483
+      objectReference: {fileID: 0}
+    - target: {fileID: 1697226063949648689, guid: 6a488df31cab1d8419d2ef7c83f2e0fa,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 103.54639
+      objectReference: {fileID: 0}
+    - target: {fileID: 1697226063949648689, guid: 6a488df31cab1d8419d2ef7c83f2e0fa,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1697226063949648689, guid: 6a488df31cab1d8419d2ef7c83f2e0fa,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1697226063949648689, guid: 6a488df31cab1d8419d2ef7c83f2e0fa,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1697226063949648689, guid: 6a488df31cab1d8419d2ef7c83f2e0fa,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1697226063949648689, guid: 6a488df31cab1d8419d2ef7c83f2e0fa,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1697226063949648689, guid: 6a488df31cab1d8419d2ef7c83f2e0fa,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1697226063949648689, guid: 6a488df31cab1d8419d2ef7c83f2e0fa,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4827786705666755238, guid: 6a488df31cab1d8419d2ef7c83f2e0fa,
+        type: 3}
+      propertyPath: m_Name
+      value: TutorialTextBox
+      objectReference: {fileID: 0}
+    - target: {fileID: 4827786705666755238, guid: 6a488df31cab1d8419d2ef7c83f2e0fa,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5742264208407008579, guid: 6a488df31cab1d8419d2ef7c83f2e0fa,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 9.993935
+      objectReference: {fileID: 0}
+    - target: {fileID: 5742264208407008579, guid: 6a488df31cab1d8419d2ef7c83f2e0fa,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 2.1087027
+      objectReference: {fileID: 0}
+    - target: {fileID: 5742264208407008579, guid: 6a488df31cab1d8419d2ef7c83f2e0fa,
+        type: 3}
+      propertyPath: m_Size.z
+      value: 10.020866
+      objectReference: {fileID: 0}
+    - target: {fileID: 5742264208407008579, guid: 6a488df31cab1d8419d2ef7c83f2e0fa,
+        type: 3}
+      propertyPath: m_Center.x
+      value: 0.2921791
+      objectReference: {fileID: 0}
+    - target: {fileID: 5742264208407008579, guid: 6a488df31cab1d8419d2ef7c83f2e0fa,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 0.55435133
+      objectReference: {fileID: 0}
+    - target: {fileID: 5742264208407008579, guid: 6a488df31cab1d8419d2ef7c83f2e0fa,
+        type: 3}
+      propertyPath: m_Center.z
+      value: -0.040355682
+      objectReference: {fileID: 0}
+    - target: {fileID: 6553596424285861691, guid: 6a488df31cab1d8419d2ef7c83f2e0fa,
+        type: 3}
+      propertyPath: tutorialText
+      value: Stage 1 of Reboot Process Complete
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6a488df31cab1d8419d2ef7c83f2e0fa, type: 3}
+--- !u!4 &1486563079 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1697226063949648689, guid: 6a488df31cab1d8419d2ef7c83f2e0fa,
+    type: 3}
+  m_PrefabInstance: {fileID: 1486563078}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1490888131 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5194938782564245752, guid: 5dc3068fb5bdd0d4db3ef1bf8b202f20,
@@ -48953,7 +49278,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tutorialTextObj: {fileID: 0}
-  tutorialText: 
+  tutorialText: While grounded, press R to change your gravity direction
 --- !u!43 &1554766682
 Mesh:
   m_ObjectHideFlags: 0
@@ -50276,7 +50601,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tutorialTextObj: {fileID: 0}
-  tutorialText: 
+  tutorialText: When Singularity Grappel is complete, sliding afterwards maintains
+    acceleration
 --- !u!1 &1621022847
 GameObject:
   m_ObjectHideFlags: 0
@@ -53054,6 +53380,120 @@ MonoBehaviour:
   m_SelectedFaces: 
   m_SelectedEdges: []
   m_SelectedVertices: 
+--- !u!1001 &1722700906
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1348894321}
+    m_Modifications:
+    - target: {fileID: 1697226063949648689, guid: 6a488df31cab1d8419d2ef7c83f2e0fa,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2729.4011
+      objectReference: {fileID: 0}
+    - target: {fileID: 1697226063949648689, guid: 6a488df31cab1d8419d2ef7c83f2e0fa,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1309.729
+      objectReference: {fileID: 0}
+    - target: {fileID: 1697226063949648689, guid: 6a488df31cab1d8419d2ef7c83f2e0fa,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 521.17615
+      objectReference: {fileID: 0}
+    - target: {fileID: 1697226063949648689, guid: 6a488df31cab1d8419d2ef7c83f2e0fa,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1697226063949648689, guid: 6a488df31cab1d8419d2ef7c83f2e0fa,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1697226063949648689, guid: 6a488df31cab1d8419d2ef7c83f2e0fa,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1697226063949648689, guid: 6a488df31cab1d8419d2ef7c83f2e0fa,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1697226063949648689, guid: 6a488df31cab1d8419d2ef7c83f2e0fa,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1697226063949648689, guid: 6a488df31cab1d8419d2ef7c83f2e0fa,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1697226063949648689, guid: 6a488df31cab1d8419d2ef7c83f2e0fa,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4827786705666755238, guid: 6a488df31cab1d8419d2ef7c83f2e0fa,
+        type: 3}
+      propertyPath: m_Name
+      value: TutorialTextBox
+      objectReference: {fileID: 0}
+    - target: {fileID: 4827786705666755238, guid: 6a488df31cab1d8419d2ef7c83f2e0fa,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5742264208407008579, guid: 6a488df31cab1d8419d2ef7c83f2e0fa,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 19
+      objectReference: {fileID: 0}
+    - target: {fileID: 5742264208407008579, guid: 6a488df31cab1d8419d2ef7c83f2e0fa,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 6.3538513
+      objectReference: {fileID: 0}
+    - target: {fileID: 5742264208407008579, guid: 6a488df31cab1d8419d2ef7c83f2e0fa,
+        type: 3}
+      propertyPath: m_Size.z
+      value: 29.598248
+      objectReference: {fileID: 0}
+    - target: {fileID: 5742264208407008579, guid: 6a488df31cab1d8419d2ef7c83f2e0fa,
+        type: 3}
+      propertyPath: m_Center.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5742264208407008579, guid: 6a488df31cab1d8419d2ef7c83f2e0fa,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 2.4101105
+      objectReference: {fileID: 0}
+    - target: {fileID: 5742264208407008579, guid: 6a488df31cab1d8419d2ef7c83f2e0fa,
+        type: 3}
+      propertyPath: m_Center.z
+      value: 0.70087624
+      objectReference: {fileID: 0}
+    - target: {fileID: 6553596424285861691, guid: 6a488df31cab1d8419d2ef7c83f2e0fa,
+        type: 3}
+      propertyPath: tutorialText
+      value: Stage 2 of Reboot Process Complete
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6a488df31cab1d8419d2ef7c83f2e0fa, type: 3}
+--- !u!4 &1722700907 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1697226063949648689, guid: 6a488df31cab1d8419d2ef7c83f2e0fa,
+    type: 3}
+  m_PrefabInstance: {fileID: 1722700906}
+  m_PrefabAsset: {fileID: 0}
 --- !u!43 &1727318306
 Mesh:
   m_ObjectHideFlags: 0
@@ -53668,7 +54108,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tutorialTextObj: {fileID: 0}
-  tutorialText: 
+  tutorialText: While grounded, press R to change your gravity direction
 --- !u!1 &1743464422
 GameObject:
   m_ObjectHideFlags: 0
@@ -55020,17 +55460,17 @@ PrefabInstance:
     - target: {fileID: 3940328436556613325, guid: 6b65dbe96f5987646b8f6ce979096315,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 13
+      value: -7
       objectReference: {fileID: 0}
     - target: {fileID: 3940328436556613325, guid: 6b65dbe96f5987646b8f6ce979096315,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 140
+      value: 75
       objectReference: {fileID: 0}
     - target: {fileID: 3940328436556613325, guid: 6b65dbe96f5987646b8f6ce979096315,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -111
+      value: -45
       objectReference: {fileID: 0}
     - target: {fileID: 3940328436556613325, guid: 6b65dbe96f5987646b8f6ce979096315,
         type: 3}
@@ -56574,7 +57014,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tutorialTextObj: {fileID: 0}
-  tutorialText: 
+  tutorialText: Press Spacebar once to Jump. Press again while Jumping to Double
+    Jump
 --- !u!1 &1783493268
 GameObject:
   m_ObjectHideFlags: 0
@@ -59003,7 +59444,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tutorialTextObj: {fileID: 0}
-  tutorialText: 
+  tutorialText: 'REBOOTING: Press W,A,S, and D to move. Move Mouse to lookaround'
 --- !u!43 &1915982729
 Mesh:
   m_ObjectHideFlags: 0
@@ -61803,6 +62244,37 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1 &2040140856
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2040140857}
+  m_Layer: 0
+  m_Name: VampireFred (3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2040140857
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2040140856}
+  serializedVersion: 2
+  m_LocalRotation: {x: 1, y: 0, z: 0, w: 0}
+  m_LocalPosition: {x: 37.51245, y: 1131.9136, z: -3243.546}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1380921560}
+  m_LocalEulerAnglesHint: {x: 180, y: 0, z: 0}
 --- !u!1 &2050075775
 GameObject:
   m_ObjectHideFlags: 0
@@ -64000,7 +64472,7 @@ Transform:
   m_GameObject: {fileID: 2095419865}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2709.092, y: -1279.479, z: 497.74988}
+  m_LocalPosition: {x: 2708.592, y: -1279.479, z: 497.99988}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -64090,7 +64562,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tutorialTextObj: {fileID: 0}
-  tutorialText: 
+  tutorialText: 'FINAL STAGE OF REBOOT: Press Right Mouse Button with the Revolver
+    selected to shoot Singularity. When Singularity collides, it explodes in an area,
+    dealing damage'
 --- !u!43 &2102954103
 Mesh:
   m_ObjectHideFlags: 0
@@ -65030,3 +65504,4 @@ SceneRoots:
   - {fileID: 764991491}
   - {fileID: 1884990}
   - {fileID: 2090201551}
+  - {fileID: 703682126}
