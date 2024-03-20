@@ -242,10 +242,10 @@ MonoBehaviour:
   Path: Assets/FMOD/FMOD Project/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638459538832868890
+  lastModified: 638465394999070558
   FileSizes:
   - Name: Desktop
-    Value: 2360
+    Value: 2492
   Exists: 1
 --- !u!114 &-6389387620995255649
 MonoBehaviour:
@@ -498,10 +498,10 @@ MonoBehaviour:
   Path: Assets/FMOD/FMOD Project/Build/Desktop/Voice.bank
   Name: Voice
   StudioPath: bank:/Voice
-  lastModified: 638459538833255839
+  lastModified: 638465394999120426
   FileSizes:
   - Name: Desktop
-    Value: 494
+    Value: 477792
   Exists: 1
 --- !u!114 &11400000
 MonoBehaviour:
@@ -547,12 +547,15 @@ MonoBehaviour:
   - {fileID: -7555956090752255087}
   - {fileID: -362393674418116186}
   - {fileID: 2751072969692035}
+  - {fileID: 3609598010792850431}
+  - {fileID: 7812447347099153136}
+  - {fileID: 7518887900754879327}
   EditorParameters: []
   MasterBanks:
   - {fileID: -6389387620995255649}
   StringsBanks:
   - {fileID: -7148832511123337456}
-  cacheTime: 638459538833255839
+  cacheTime: 638465394999120426
   cacheVersion: 131609
 --- !u!114 &2751072969692035
 MonoBehaviour:
@@ -736,6 +739,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 509
+--- !u!114 &3609598010792850431
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Voice/Checkpoints/Voice 3
+  m_EditorClassIdentifier: 
+  Path: event:/Voice/Checkpoints/Voice 3
+  Guid:
+    Data1: -1199845348
+    Data2: 1274183170
+    Data3: -576906862
+    Data4: 444926132
+  Banks:
+  - {fileID: -290904467233718151}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 15899
 --- !u!114 &4651601041845645092
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -844,3 +874,57 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 500
+--- !u!114 &7518887900754879327
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Voice/Checkpoints/Voice 1
+  m_EditorClassIdentifier: 
+  Path: event:/Voice/Checkpoints/Voice 1
+  Guid:
+    Data1: -2143884834
+    Data2: 1197249068
+    Data3: 1798085821
+    Data4: 10976281
+  Banks:
+  - {fileID: -290904467233718151}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 14057
+--- !u!114 &7812447347099153136
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Voice/Checkpoints/Voice 2
+  m_EditorClassIdentifier: 
+  Path: event:/Voice/Checkpoints/Voice 2
+  Guid:
+    Data1: 1778655612
+    Data2: 1201189920
+    Data3: 2015897776
+    Data4: 316763039
+  Banks:
+  - {fileID: -290904467233718151}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 15942
