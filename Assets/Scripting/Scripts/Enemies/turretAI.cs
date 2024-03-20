@@ -19,6 +19,7 @@ public class turretAI : MonoBehaviour
 
 
     [Space, Header("Assignables")]
+    [SerializeField] private roomEnemySpawner brain;
     [SerializeField] private List<GameObject> firePoints;
     [SerializeField] private List<ParticleSystem> muzzleFlashes;
     [SerializeField] private GameObject bulletPrefab;
@@ -37,12 +38,14 @@ public class turretAI : MonoBehaviour
 
     private void Update()
     {
-        if (canShoot) StartCoroutine(fireGun());
+        if (brain != null) 
+            if (brain.playerInRoom) 
+                if (canShoot) StartCoroutine(fireGun());
     }
 
     private void FixedUpdate()
     {
-        smoothAim();
+        if (brain != null) if (brain.playerInRoom) smoothAim();
     }
 
     void smoothAim()
