@@ -18,9 +18,7 @@ public class voicelineSystem : MonoBehaviour
     {
         isPlaying = true;
         subtitleBox.GetComponent<TextMeshPro>().text = voiceLines[voiceLineIndex].subTitleText;
-        EventReference tempReference = RuntimeManager.PathToEventReference(voiceLines[voiceLineIndex].audioKey);
-        if (speakerPosition != null) RuntimeManager.PlayOneShot(tempReference, speakerPosition.transform.position);
-        else RuntimeManager.PlayOneShot(tempReference);
+        AudioManager.instance.playVoiceline(voiceLines[voiceLineIndex].audioClipIndex);
         yield return new WaitForSeconds(voiceLines[voiceLineIndex].clipLength);
         voiceLineIndex++;
         isPlaying = false;
@@ -54,7 +52,7 @@ public class voicelineSystem : MonoBehaviour
 [System.Serializable]
 public struct voiceLine
 {
-    public string audioKey;
+    public int audioClipIndex;
     public float clipLength;
     [TextArea(3,5)] public string subTitleText;
 }
