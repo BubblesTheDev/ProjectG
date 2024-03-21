@@ -42,11 +42,17 @@ public class killBox : MonoBehaviour
         }
 
         //Resets the player gravity flip
-        GameObject.Find("CameraHolder").transform.eulerAngles += new Vector3(0, 0, 180);
-        playerObj.transform.localEulerAngles += new Vector3(0, 0, 180);
-        if (movement.current_PlayerRotationState == playerRotationState.nonFlipped) movement.current_PlayerRotationState = playerRotationState.flipped;
-        else movement.current_PlayerRotationState = playerRotationState.nonFlipped;
 
+        if (movement.current_PlayerRotationState == playerRotationState.nonFlipped)
+        {
+            movement.current_PlayerRotationState = playerRotationState.flipped;
+        }
+        else
+        {
+            GameObject.Find("CameraHolder").transform.eulerAngles += new Vector3(0, 0, 180);
+            playerObj.transform.localEulerAngles += new Vector3(0, 0, 180);
+            movement.current_PlayerRotationState = playerRotationState.nonFlipped;
+        }
 
         //This will deal 2 damage to the player but wont kill them
         if (health.currentHP > 2 ) StartCoroutine(health.takeDamage(2));
