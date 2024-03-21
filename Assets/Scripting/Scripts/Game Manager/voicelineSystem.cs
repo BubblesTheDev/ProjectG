@@ -13,6 +13,7 @@ public class voicelineSystem : MonoBehaviour
     [SerializeField] private List<voiceLine> voiceLines;
     private bool isPlaying;
     private bool started;
+    private bool finished;
     private int voiceLineIndex = 0;
     IEnumerator playVoiceline()
     {
@@ -30,9 +31,10 @@ public class voicelineSystem : MonoBehaviour
         if (voiceLineIndex < voiceLines.Count && started && !isPlaying) 
         {
             StartCoroutine(playVoiceline());
-        } else if(voiceLineIndex >= voiceLines.Count)
+        } else if(voiceLineIndex >= voiceLines.Count && !finished)
         {
             subtitleBox.SetActive(false);
+            finished = true;
         }
     }
 
