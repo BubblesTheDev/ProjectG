@@ -69,7 +69,7 @@ public class basicRangedAI : MonoBehaviour
         Vector3 verticalScaledPos = new Vector3(ref_PlayerObj.transform.position.x, transform.position.y, ref_PlayerObj.transform.position.z);
 
         //Rotate to face the player
-        transform.LookAt(new Vector3(ref_PlayerObj.transform.position.x, transform.position.y, ref_PlayerObj.transform.position.z), transform.up);
+        transform.LookAt(new Vector3(ref_PlayerObj.transform.position.x, transform.position.y, ref_PlayerObj.transform.position.z), Vector3.up);
 
         //Moves them away from the player if too close
         if (Vector3.Distance(verticalScaledPos, transform.position) < closeRangeDistance)
