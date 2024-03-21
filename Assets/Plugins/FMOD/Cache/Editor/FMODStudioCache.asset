@@ -249,10 +249,10 @@ MonoBehaviour:
   Path: Assets/FMOD/FMOD Project/Build/Desktop/SFX.bank
   Name: SFX
   StudioPath: bank:/SFX
-  lastModified: 638465612678965235
+  lastModified: 638465640997701343
   FileSizes:
   - Name: Desktop
-    Value: 843392
+    Value: 860032
   Exists: 1
 --- !u!114 &-7148832511123337456
 MonoBehaviour:
@@ -269,10 +269,10 @@ MonoBehaviour:
   Path: Assets/FMOD/FMOD Project/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638465612678576276
+  lastModified: 638465640280138116
   FileSizes:
   - Name: Desktop
-    Value: 2608
+    Value: 2652
   Exists: 1
 --- !u!114 &-6389387620995255649
 MonoBehaviour:
@@ -289,7 +289,7 @@ MonoBehaviour:
   Path: Assets/FMOD/FMOD Project/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638465612678566306
+  lastModified: 638465640280128392
   FileSizes:
   - Name: Desktop
     Value: 1632
@@ -606,12 +606,13 @@ MonoBehaviour:
   - {fileID: -8820127107141559326}
   - {fileID: -987398146638654287}
   - {fileID: 7406739198023154282}
+  - {fileID: 5251475824646769275}
   EditorParameters: []
   MasterBanks:
   - {fileID: -6389387620995255649}
   StringsBanks:
   - {fileID: -7148832511123337456}
-  cacheTime: 638465612678965235
+  cacheTime: 638465640997701343
   cacheVersion: 131609
 --- !u!114 &2751072969692035
 MonoBehaviour:
@@ -822,6 +823,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 15899
+--- !u!114 &5251475824646769275
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Gun Sounds/Enemy Gun Sound/CerberusShoot
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Gun Sounds/Enemy Gun Sound/CerberusShoot
+  Guid:
+    Data1: 1793321758
+    Data2: 1239889091
+    Data3: -488457082
+    Data4: 86664935
+  Banks:
+  - {fileID: -7503202818560931819}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1274
 --- !u!114 &5422712293436734061
 MonoBehaviour:
   m_ObjectHideFlags: 0
