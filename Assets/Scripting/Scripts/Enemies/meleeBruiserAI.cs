@@ -70,7 +70,7 @@ public class meleeBruiserAI : MonoBehaviour
     IEnumerator attackPlayer()
     {
         canPunch = false;
-        transform.LookAt(playerPosOffset);
+        transform.LookAt(playerPosOffset, transform.up);
         ref_meleeAnimator.SetLayerWeight(1, 1);
         ref_meleeAnimator.Play("HercPunch",1);
         
