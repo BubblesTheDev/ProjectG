@@ -112,11 +112,13 @@ public class basicRangedAI : MonoBehaviour
 
             GameObject temp = Instantiate(enemyBullet, firePoints[firePointIndex].transform.position, Quaternion.LookRotation(leadingDir.normalized), GameObject.Find("Bullet Storage").transform);
             temp.GetComponent<Rigidbody>().velocity = temp.transform.forward * bulletSpeedShortRange;
+            AudioManager.instance.PlaySFX(FMODEvents.instance.cerberusShoot, this.transform.position);
 
             yield return new WaitForSeconds(fireRateShortRange);
         }
         ref_rangedAnimator.SetLayerWeight(2, 0);
 
+       // AudioManager.instance.PlaySFX(FMODEvents.instance.cerberusShoot, this.transform.position);
         yield return new WaitForSeconds(fireCooldownShortRange);
         canShoot = true;
     }
