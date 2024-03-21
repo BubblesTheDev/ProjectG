@@ -55,7 +55,7 @@ public class roomEnemySpawner : MonoBehaviour
 
         if (playerInRoom && enemiesRemaining.Count > 0 && enemiesRemainingCounter != null)
         {
-            enemiesRemainingCounter.GetComponent<TextMeshProUGUI>().text = "HOSTILES NUM: " + enemiesRemaining.Count.ToString();
+            enemiesRemainingCounter.GetComponent<TextMeshProUGUI>().text = "HOSTILES DETECTED: " + enemiesRemaining.Count.ToString();
         }
     }
 
