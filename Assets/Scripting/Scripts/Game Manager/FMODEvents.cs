@@ -31,6 +31,9 @@ public class FMODEvents : MonoBehaviour
     [field: SerializeField] public EventReference turretCharge { get; private set; }
     [field: SerializeField] public EventReference turretShoot { get; private set; }
     [field: SerializeField] public EventReference cerberusShoot { get; private set; }
+    [field: SerializeField] public EventReference seekerDash { get; private set; }
+    [field: SerializeField] public EventReference seekerDashStart { get; private set; }
+    [field: SerializeField] public EventReference seekerSlash { get; private set; }
 
     [field: Header("Player SFX")]
     [field: SerializeField] public EventReference jumpSFX { get; private set; }
