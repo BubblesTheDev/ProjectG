@@ -202,7 +202,7 @@ MonoBehaviour:
   Path: Assets/FMOD/FMOD Project/Build/Desktop/Music.bank
   Name: Music
   StudioPath: bank:/Music
-  lastModified: 638459665094382641
+  lastModified: 638465599457766050
   FileSizes:
   - Name: Desktop
     Value: 3648288
@@ -249,10 +249,10 @@ MonoBehaviour:
   Path: Assets/FMOD/FMOD Project/Build/Desktop/SFX.bank
   Name: SFX
   StudioPath: bank:/SFX
-  lastModified: 638465972920959936
+  lastModified: 638465880621701794
   FileSizes:
   - Name: Desktop
-    Value: 860032
+    Value: 907456
   Exists: 1
 --- !u!114 &-7148832511123337456
 MonoBehaviour:
@@ -269,10 +269,10 @@ MonoBehaviour:
   Path: Assets/FMOD/FMOD Project/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638465972920879931
+  lastModified: 638465880621651897
   FileSizes:
   - Name: Desktop
-    Value: 2652
+    Value: 2808
   Exists: 1
 --- !u!114 &-6389387620995255649
 MonoBehaviour:
@@ -289,7 +289,7 @@ MonoBehaviour:
   Path: Assets/FMOD/FMOD Project/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638465972920869942
+  lastModified: 638465880621651897
   FileSizes:
   - Name: Desktop
     Value: 1632
@@ -552,7 +552,7 @@ MonoBehaviour:
   Path: Assets/FMOD/FMOD Project/Build/Desktop/Voice.bank
   Name: Voice
   StudioPath: bank:/Voice
-  lastModified: 638465924861134870
+  lastModified: 638465599464034970
   FileSizes:
   - Name: Desktop
     Value: 477792
@@ -607,12 +607,15 @@ MonoBehaviour:
   - {fileID: -987398146638654287}
   - {fileID: 7406739198023154282}
   - {fileID: 5251475824646769275}
+  - {fileID: 4847628560771083102}
+  - {fileID: 7028155161584957542}
+  - {fileID: 6296203442591240087}
   EditorParameters: []
   MasterBanks:
   - {fileID: -6389387620995255649}
   StringsBanks:
   - {fileID: -7148832511123337456}
-  cacheTime: 638465972920959936
+  cacheTime: 638465880621701794
   cacheVersion: 131609
 --- !u!114 &2751072969692035
 MonoBehaviour:
@@ -764,7 +767,7 @@ MonoBehaviour:
   Path: Assets/FMOD/FMOD Project/Build/Desktop/Ambience.bank
   Name: Ambience
   StudioPath: bank:/Ambience
-  lastModified: 638459665094112634
+  lastModified: 638465599454943592
   FileSizes:
   - Name: Desktop
     Value: 2505248
@@ -823,6 +826,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 15899
+--- !u!114 &4847628560771083102
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Enemy Sound FX/Seeker/Seeker Slash
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Enemy Sound FX/Seeker/Seeker Slash
+  Guid:
+    Data1: 1373525824
+    Data2: 1074399326
+    Data3: 271494844
+    Data4: -1767074056
+  Banks:
+  - {fileID: -7503202818560931819}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1000
 --- !u!114 &5251475824646769275
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -904,6 +934,60 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 2149
+--- !u!114 &6296203442591240087
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Enemy Sound FX/Seeker/Seeker Dash Start
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Enemy Sound FX/Seeker/Seeker Dash Start
+  Guid:
+    Data1: 767095799
+    Data2: 1176098543
+    Data3: -1958405729
+    Data4: 1990339027
+  Banks:
+  - {fileID: -7503202818560931819}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1000
+--- !u!114 &7028155161584957542
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Enemy Sound FX/Seeker/Seeker Dash
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Enemy Sound FX/Seeker/Seeker Dash
+  Guid:
+    Data1: 1928463593
+    Data2: 1181052641
+    Data3: -2011994437
+    Data4: 289928841
+  Banks:
+  - {fileID: -7503202818560931819}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1350
 --- !u!114 &7396579085000355997
 MonoBehaviour:
   m_ObjectHideFlags: 0
