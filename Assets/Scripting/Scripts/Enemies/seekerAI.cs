@@ -81,6 +81,7 @@ public class seekerAI : MonoBehaviour
         ref_NavMeshAgent.velocity *= 0;
         canUseDash = false;
         Vector3 dashDir = Vector3.zero;
+        AudioManager.instance.PlaySFX(FMODEvents.instance.seekerDash, this.transform.position);
 
         foreach (TrailRenderer trail in movementTrails)
         {
@@ -141,6 +142,7 @@ public class seekerAI : MonoBehaviour
         ref_NavMeshAgent.isStopped = true;
         canUseSlash = false;
         hasHitWithSlash = false;
+        AudioManager.instance.PlaySFX(FMODEvents.instance.seekerSlash, this.transform.position);
 
         ref_seekerAnimator.Play("Attack",0);
 

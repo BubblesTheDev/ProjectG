@@ -288,7 +288,7 @@ public class playerJuice : MonoBehaviour
 
     void RunningSFX()
     {
-        if (playerMoveScript.horizontal_playerVelocity.magnitude > 5)
+        if (playerMoveScript.horizontal_playerVelocity.magnitude > 5 && playerMoveScript.grounded && playerMoveScript.current_playerMovementAction == playerMovementAction.moving)
         {
             AudioManager.instance.PlaySFX(FMODEvents.instance.runSFX, transform.position);
         }
