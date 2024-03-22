@@ -39,6 +39,7 @@ public class pauseMenu : MonoBehaviour
         paused = true;
         Time.timeScale = 0f;
         Cursor.lockState = CursorLockMode.Confined;
+        Cursor.visible = true;
         foreach (GameObject obj in objectsToEnable)
         {
             obj.SetActive(true);
@@ -55,6 +56,7 @@ public class pauseMenu : MonoBehaviour
         paused = false;
         Time.timeScale = 1f;
         Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
         foreach (GameObject obj in objectsToEnable)
         {
             obj.SetActive(false);
