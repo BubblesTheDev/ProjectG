@@ -10,7 +10,7 @@ public class roomEnemySpawner : MonoBehaviour
     [SerializeField] private bool spawnerActive = false; 
     public bool playerInRoom = false;
     [SerializeField] private int currentWaveIndex;
-    [SerializeField] private float timeToSlow = 1f;
+    [SerializeField] private float timeToSlow;
     [SerializeField] private float timeBetweenEnemySpawns;
     [SerializeField] private GameObject enemiesRemainingCounter;
     
