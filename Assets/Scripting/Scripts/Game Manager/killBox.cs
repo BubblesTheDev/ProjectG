@@ -13,6 +13,7 @@ public class killBox : MonoBehaviour
     private playerHealth health;
     private GameObject playerObj;
     private playerMovement movement;
+    private bool respawningPlayer = false;
 
     private void Awake()
     {
@@ -24,11 +25,16 @@ public class killBox : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        StartCoroutine(resetPos());
+        if (other.CompareTag("Player") && !respawningPlayer)
+        {
+            StartCoroutine(resetPos());
+
+        }
     }
 
     IEnumerator resetPos()
     {
+        respawningPlayer = true;
         float time = 0;
         if(fadeToBlackImg != null || timeToFade == 0) 
         {
@@ -45,11 +51,7 @@ public class killBox : MonoBehaviour
 
         //Resets the player gravity flip
 
-        if (movement.current_PlayerRotationState == playerRotationState.nonFlipped)
-        {
-            movement.current_PlayerRotationState = playerRotationState.flipped;
-        }
-        else
+        if (movement.current_PlayerRotationState == playerRotationState.flipped)
         {
             GameObject.Find("CameraHolder").transform.eulerAngles += new Vector3(0, 0, 180);
             playerObj.transform.localEulerAngles += new Vector3(0, 0, 180);
@@ -80,5 +82,7 @@ public class killBox : MonoBehaviour
                 yield return null;
             }
         }
+        respawningPlayer = false;
+
     }
 }
