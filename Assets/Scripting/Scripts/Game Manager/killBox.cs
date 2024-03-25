@@ -41,6 +41,8 @@ public class killBox : MonoBehaviour
             }
         }
 
+        movement.vertical_playerVelocity *= 0f;
+
         //Resets the player gravity flip
 
         if (movement.current_PlayerRotationState == playerRotationState.nonFlipped)

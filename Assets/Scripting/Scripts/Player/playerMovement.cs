@@ -586,7 +586,7 @@ public class playerMovement : MonoBehaviour
     }
     private IEnumerator action_Flip()
     {
-        if (!grounded) yield break;
+        //if (!grounded) yield break;
         
         if (!action_CanFlip 
             || current_playerMovementAction == playerMovementAction.jumping
