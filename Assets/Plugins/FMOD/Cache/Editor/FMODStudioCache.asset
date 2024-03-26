@@ -104,7 +104,7 @@ MonoBehaviour:
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
-  MaxDistance: 20
+  MaxDistance: 100
   Length: 221
 --- !u!114 &-8746819550047680939
 MonoBehaviour:
@@ -202,7 +202,7 @@ MonoBehaviour:
   Path: Assets/FMOD/FMOD Project/Build/Desktop/Music.bank
   Name: Music
   StudioPath: bank:/Music
-  lastModified: 638459538833158142
+  lastModified: 638470615527854643
   FileSizes:
   - Name: Desktop
     Value: 3648288
@@ -249,7 +249,7 @@ MonoBehaviour:
   Path: Assets/FMOD/FMOD Project/Build/Desktop/SFX.bank
   Name: SFX
   StudioPath: bank:/SFX
-  lastModified: 638470561081201099
+  lastModified: 638470645870769455
   FileSizes:
   - Name: Desktop
     Value: 907456
@@ -269,7 +269,7 @@ MonoBehaviour:
   Path: Assets/FMOD/FMOD Project/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638470561081131283
+  lastModified: 638470615527365884
   FileSizes:
   - Name: Desktop
     Value: 2808
@@ -289,7 +289,7 @@ MonoBehaviour:
   Path: Assets/FMOD/FMOD Project/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638470561081131283
+  lastModified: 638470615527355912
   FileSizes:
   - Name: Desktop
     Value: 1632
@@ -454,7 +454,7 @@ MonoBehaviour:
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
-  MaxDistance: 20
+  MaxDistance: 100
   Length: 1177
 --- !u!114 &-573305352336981459
 MonoBehaviour:
@@ -552,7 +552,7 @@ MonoBehaviour:
   Path: Assets/FMOD/FMOD Project/Build/Desktop/Voice.bank
   Name: Voice
   StudioPath: bank:/Voice
-  lastModified: 638465394999120426
+  lastModified: 638470615529412547
   FileSizes:
   - Name: Desktop
     Value: 477792
@@ -615,7 +615,7 @@ MonoBehaviour:
   - {fileID: -6389387620995255649}
   StringsBanks:
   - {fileID: -7148832511123337456}
-  cacheTime: 638470561081201099
+  cacheTime: 638470645870769455
   cacheVersion: 131609
 --- !u!114 &2751072969692035
 MonoBehaviour:
@@ -767,7 +767,7 @@ MonoBehaviour:
   Path: Assets/FMOD/FMOD Project/Build/Desktop/Ambience.bank
   Name: Ambience
   StudioPath: bank:/Ambience
-  lastModified: 638459538832838974
+  lastModified: 638470615527306043
   FileSizes:
   - Name: Desktop
     Value: 2505248
