@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class Act1EndTranAct2 : MonoBehaviour
 {
-    public int SceneBuildIndex;
+    public int SceneBuildIndex = 3;
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player")) {
