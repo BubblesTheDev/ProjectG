@@ -20,6 +20,7 @@ public class meleeBruiserAI : MonoBehaviour
     [SerializeField] private float walkingAnimThreshold;
     private bool hasHitPlayerThisAttack = false;
     private Vector3 playerPosOffset;
+    private bool isPunching;
 
     #region Assignables
     private NavMeshAgent ref_NavMeshAgent;
@@ -70,7 +71,8 @@ public class meleeBruiserAI : MonoBehaviour
     IEnumerator attackPlayer()
     {
         canPunch = false;
-        transform.LookAt(playerPosOffset);
+        isPunching = true;
+        transform.LookAt(playerPosOffset, transform.up);
         ref_meleeAnimator.SetLayerWeight(1, 1);
         ref_meleeAnimator.Play("HercPunch",1);
         
@@ -95,6 +97,8 @@ public class meleeBruiserAI : MonoBehaviour
         yield return new WaitForSeconds(punchAttackCooldown);
         canPunch = true;
         hasHitPlayerThisAttack = false;
+        isPunching = false;
+
     }
 
     void hitstunStart()
@@ -117,7 +121,7 @@ public class meleeBruiserAI : MonoBehaviour
         }
         ref_NavMeshAgent.isStopped = false;
         ref_meleeAnimator.SetLayerWeight(2, 0);
-
+        if(!isPunching) canPunch = true;
     }
 
 

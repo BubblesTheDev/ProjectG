@@ -49,6 +49,7 @@ MonoBehaviour:
   spawnerActive: 0
   playerInRoom: 0
   currentWaveIndex: 0
+  timeToSlow: 1
   timeBetweenEnemySpawns: 0
   enemiesRemainingCounter: {fileID: 0}
   waves: []

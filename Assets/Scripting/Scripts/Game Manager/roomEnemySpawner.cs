@@ -10,7 +10,7 @@ public class roomEnemySpawner : MonoBehaviour
     [SerializeField] private bool spawnerActive = false; 
     public bool playerInRoom = false;
     [SerializeField] private int currentWaveIndex;
-    [SerializeField] private float timeToSlow = 1f;
+    [SerializeField] private float timeToSlow;
     [SerializeField] private float timeBetweenEnemySpawns;
     [SerializeField] private GameObject enemiesRemainingCounter;
     
@@ -27,6 +27,8 @@ public class roomEnemySpawner : MonoBehaviour
     private void Awake()
     {
         playerStats = GameObject.Find("Player").GetComponent<playerHealth>();
+        if (GameObject.Find("EnemyRemainingCounter")) enemiesRemainingCounter = GameObject.Find("EnemyRemainingCounter");
+        else Debug.LogWarning("There is no Text mesh pro text game object in the scene named 'EnemyRemainingCounter', please add one before playing again");
     }
 
     private void Update()
@@ -55,7 +57,7 @@ public class roomEnemySpawner : MonoBehaviour
 
         if (playerInRoom && enemiesRemaining.Count > 0 && enemiesRemainingCounter != null)
         {
-            enemiesRemainingCounter.GetComponent<TextMeshProUGUI>().text = "HOSTILES NUM: " + enemiesRemaining.Count.ToString();
+            enemiesRemainingCounter.GetComponent<TextMeshProUGUI>().text = "HOSTILES DETECTED: " + enemiesRemaining.Count.ToString();
         }
     }
 

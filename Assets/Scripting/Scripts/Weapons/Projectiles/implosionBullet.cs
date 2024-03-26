@@ -79,13 +79,14 @@ public class implosionBullet : MonoBehaviour
 
         isDead = true;
 
-        List<Collider> enemiesHitEdge = Physics.OverlapSphere(transform.position, implosionRange / 3, layersToHit).ToList();
-        List<Collider> enemiesHitCenter = Physics.OverlapSphere(transform.position, implosionRange, layersToHit).ToList();
-
+        List<Collider> enemiesHitEdge = Physics.OverlapSphere(transform.position, implosionRange, layersToHit).ToList();
+        List<Collider> enemiesHitCenter = Physics.OverlapSphere(transform.position, implosionRange / 4, layersToHit).ToList();
 
         for (int i = 0; i < enemiesHitEdge.Count; i++)
         {
-            if (enemiesHitEdge[i].CompareTag("Enemy"))
+            RaycastHit hit;
+            Vector3 direction = enemiesHitEdge[i].transform.position - transform.position;
+            if (enemiesHitEdge[i].CompareTag("Enemy") && Physics.Raycast(transform.position, direction.normalized, out hit) && hit.transform.CompareTag("Enemy"))
             {
                 enemiesHitEdge[i].GetComponent<enemyStats>().takeDamage(damage/2);
             }
@@ -95,7 +96,10 @@ public class implosionBullet : MonoBehaviour
 
         for (int i = 0; i < enemiesHitCenter.Count; i++)
         {
-            if (enemiesHitCenter[i].CompareTag("Enemy"))
+            RaycastHit hit;
+            Vector3 direction = enemiesHitCenter[i].transform.position - transform.position;
+
+            if (enemiesHitCenter[i].CompareTag("Enemy") && Physics.Raycast(transform.position, direction.normalized, out hit) && hit.transform.CompareTag("Enemy"))
             {
                 enemiesHitCenter[i].GetComponent<enemyStats>().takeDamage(damage / 2);
             }

@@ -18,6 +18,11 @@ PrefabInstance:
       propertyPath: damage
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8700155664684492951, guid: e47cc27d09beab64b8eb1e9382b503a2,
+        type: 3}
+      propertyPath: punchHitbox
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 9082888490704417442, guid: e47cc27d09beab64b8eb1e9382b503a2,
         type: 3}
       propertyPath: m_LocalPosition.x

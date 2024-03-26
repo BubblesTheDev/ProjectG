@@ -120,6 +120,8 @@ public class PlayerHUD : MonoBehaviour
         staminaBar.value = movementStats.current_NumberOfDashCharges;
         staticMeter.value = healthStats.currentStaticEnergy;
         gravSwitch.value = movementStats.timeInSeconds_CurrentGravityFlipDuration;
+        healthBar.value = healthStats.currentHP;
+
         if (!switching)
         {
             if (movementStats.overchargedGravityFlip) gravSlider.color = arrowCDColor;
