@@ -249,7 +249,7 @@ MonoBehaviour:
   Path: Assets/FMOD/FMOD Project/Build/Desktop/SFX.bank
   Name: SFX
   StudioPath: bank:/SFX
-  lastModified: 638466529261749981
+  lastModified: 638469919490834068
   FileSizes:
   - Name: Desktop
     Value: 907456
@@ -615,7 +615,7 @@ MonoBehaviour:
   - {fileID: -6389387620995255649}
   StringsBanks:
   - {fileID: -7148832511123337456}
-  cacheTime: 638466529261749981
+  cacheTime: 638469919490834068
   cacheVersion: 131609
 --- !u!114 &2751072969692035
 MonoBehaviour:
