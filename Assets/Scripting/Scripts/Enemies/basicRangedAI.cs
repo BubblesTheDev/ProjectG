@@ -29,6 +29,9 @@ public class basicRangedAI : MonoBehaviour
     [SerializeField] private float numShotsShortRange;
     [SerializeField] private float bulletSpeedShortRange;
 
+    [Space, Header("Graphics")]
+    [SerializeField] private ParticleSystem muzzleFlash;
+
 
 
     #region Assignables
@@ -109,6 +112,7 @@ public class basicRangedAI : MonoBehaviour
             int firePointIndex = Random.Range(0, firePoints.Count);
             Vector3 leadingDir = (ref_PlayerObj.transform.position + ref_PlayerRB.velocity * Time.deltaTime) - firePoints[firePointIndex].transform.position;
             ref_rangedAnimator.Play("CerbAttack", 2);
+            if(muzzleFlash != null) muzzleFlash.Play();
 
             GameObject temp = Instantiate(enemyBullet, firePoints[firePointIndex].transform.position, Quaternion.LookRotation(leadingDir.normalized), GameObject.Find("Bullet Storage").transform);
             temp.GetComponent<Rigidbody>().velocity = temp.transform.forward * bulletSpeedShortRange;
@@ -122,19 +126,5 @@ public class basicRangedAI : MonoBehaviour
         yield return new WaitForSeconds(fireCooldownShortRange);
         canShoot = true;
     }
-    
-
-    #if UNITY_EDITOR
-        private void OnDrawGizmosSelected()
-        {
-            Handles.color = Color.green;
-            Handles.DrawWireDisc(transform.position, transform.up, midRangeDistance);
-            Handles.color = Color.red;
-            Handles.DrawWireDisc(transform.position, transform.up, closeRangeDistance);
-
-            Gizmos.color = Color.white;
-            if(ref_PlayerObj != null && ref_PlayerRB != null) Gizmos.DrawWireSphere((ref_PlayerObj.transform.position + ref_PlayerRB.velocity * Time.deltaTime), 1);
-    }
-#endif
 
 }
