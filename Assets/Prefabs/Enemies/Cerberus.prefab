@@ -229,9 +229,9 @@ MonoBehaviour:
   maxMoveDistance: 3
   minOrbitTime: 0.5
   MaxOrbitTime: 1.5
-  fireCooldownShortRange: 3
+  fireCooldownShortRange: 1
   fireRateShortRange: 0.1
-  numShotsShortRange: 1
+  numShotsShortRange: 3
   bulletSpeedShortRange: 30
   muzzleFlash: {fileID: 8203638870886073739}
 --- !u!114 &4123826904883642579
