@@ -374,6 +374,9 @@ MonoBehaviour:
   - {fileID: 5686081743664511724}
   - {fileID: 5828554586214359220}
   currentWeapon: {fileID: 5686081743664511724}
+  weaponSwapNums:
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &6753570429466557061
 GameObject:
   m_ObjectHideFlags: 0

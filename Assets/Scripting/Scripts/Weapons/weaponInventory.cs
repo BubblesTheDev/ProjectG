@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class weaponInventory : MonoBehaviour
@@ -8,6 +9,8 @@ public class weaponInventory : MonoBehaviour
     public int currentWeaponIndex { private set; get; }
     [SerializeField] private GameObject currentWeapon;
 
+    [SerializeField] private TextMeshProUGUI[] weaponSwapNums;
+    public TextMeshProUGUI currentWeaponNumUI;
 
     InteractionInputActions interactionInput;
 
@@ -20,6 +23,12 @@ public class weaponInventory : MonoBehaviour
         interactionInput.Combat.WeaponSlot3.performed += takeOutWeapon3 => takeOutWeapon(2);
         interactionInput.Combat.WeaponSlot4.performed += takeOutWeapon4 => takeOutWeapon(3);
         interactionInput.Combat.WeaponSlot5.performed += takeOutWeapon5 => takeOutWeapon(4);
+        for (int i = 0; i < weaponSwapNums.Length; i++)
+        {
+            weaponSwapNums[i].color = new Color32(255, 255, 255, 30);
+        }
+        weaponSwapNums[currentWeaponIndex].color = Color.white;
+
     }
 
     private void OnEnable()
@@ -65,15 +74,21 @@ public class weaponInventory : MonoBehaviour
 
         //Play dequip animation
 
-
+        for(int i = 0; i < weaponSwapNums.Length; i++)
+        {
+            weaponSwapNums[i].color = new Color32(255, 255, 255, 30);
+        }
         foreach (GameObject weapon in weapons)
         {
             weapon.GetComponent<weaponBase>().weaponIsEquipped = false;
         }
 
+        currentWeaponNumUI = weaponSwapNums[weaponIndex];
         currentWeapon = weapons[weaponIndex];
+        weaponSwapNums[weaponIndex].color = Color.white;
         currentWeapon.GetComponent<weaponBase>().weaponIsEquipped = true;
 
         //Play animation for equipping weapon
     }
+
 }
