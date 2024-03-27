@@ -53,7 +53,7 @@ MonoBehaviour:
   waves: []
   enemiesRemaining: []
   enemiesRemainingCounter: {fileID: 0}
-  timeToSlowTime: 0.3
+  timeToSlowTime: 1
   doorController: {fileID: 0}
   hpToHeal: 2
 --- !u!65 &5174117323088699570
