@@ -223,7 +223,7 @@ MonoBehaviour:
     type: 3}
   currentAnimator: {fileID: 3243603865783762513}
   closeRangeDistance: 6
-  midRangeDistance: 10
+  midRangeDistance: 20
   damage: 1
   maxMoveDistance: 3
   minOrbitTime: 0.5
