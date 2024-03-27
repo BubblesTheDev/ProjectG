@@ -11,7 +11,12 @@ PrefabInstance:
     - target: {fileID: 2889751884073604708, guid: 4046dae819e329d429d5edddab639859,
         type: 3}
       propertyPath: m_Name
-      value: Cerberus Variant
+      value: Reverse Cerb
+      objectReference: {fileID: 0}
+    - target: {fileID: 4660804150345737709, guid: 4046dae819e329d429d5edddab639859,
+        type: 3}
+      propertyPath: midRangeDistance
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 7574805889209413413, guid: 4046dae819e329d429d5edddab639859,
         type: 3}
