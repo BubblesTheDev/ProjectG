@@ -6,17 +6,18 @@ using UnityEngine.VFX;
 
 public class roomEnemySpawner : MonoBehaviour
 {
+    [Header("Door Variables")]
     public bool doorClosed = false;
     [SerializeField] private bool spawnerActive = false; 
     public bool playerInRoom = false;
     [SerializeField] private int currentWaveIndex;
-    [SerializeField] private float timeToSlow;
     [SerializeField] private float timeBetweenEnemySpawns;
-    [SerializeField] private GameObject enemiesRemainingCounter;
-    
     [Space, SerializeField] private List<wave> waves = new List<wave>();
-
     [HideInInspector] public List<GameObject> enemiesRemaining = new List<GameObject>();
+
+    [Space, Header("Room Graphics")]
+    [SerializeField] private GameObject enemiesRemainingCounter;
+    [SerializeField] private float timeToSlowTime;
 
     [SerializeField] private Animator doorController;
     [SerializeField] private int hpToHeal = 2;
@@ -87,9 +88,9 @@ public class roomEnemySpawner : MonoBehaviour
         Time.timeScale = .1f;
         yield return new WaitForSeconds(.25f);
         float timer = 0;
-        while( timer < timeToSlow && Time.timeScale != 1)
+        while( timer < timeToSlowTime && Time.timeScale != 1)
         {
-            Time.timeScale += .005f * timeToSlow;
+            Time.timeScale += .005f * timeToSlowTime;
             if (Time.timeScale > 1) Time.timeScale = 1;
             yield return null;
         }
