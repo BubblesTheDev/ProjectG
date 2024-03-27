@@ -27,23 +27,29 @@ public class NewBehaviourScript : MonoBehaviour
     void Start()
     {
         CurrentImage = 0;
-         timerIsRunning = true;
+        timerIsRunning = true;
         timerRemaining = timer;
     }
 
     // Update is called once per frame
     void Update()
     {
+        timerRemaining -= Time.deltaTime;
+        if (timerRemaining <= 0) timerRemaining = 0;
         Cursor.visible = false;
         deltaTime += (Time.unscaledDeltaTime - deltaTime) * .1f;
-        if (Input.GetKeyDown(KeyCode.Space)) {
+        if (Input.GetKeyDown(KeyCode.Space) && timerRemaining <= 0) {
             CurrentImage++;
-            if (CurrentImage >= imageArray.Length)
-            {
-                Cursor.lockState = CursorLockMode.None;
-                Cursor.visible = true;
-                SceneManager.LoadScene(SceneBuildIndex, LoadSceneMode.Single);
+            timerRemaining = timer;
+            if (CurrentImage >= imageArray.Length) {
+                    Cursor.lockState = CursorLockMode.None;
+                    Cursor.visible = true;
+                    SceneManager.LoadScene(SceneBuildIndex, LoadSceneMode.Single);
             }
         }
+    }
+    public void resetTimer()
+    {
+        timerRemaining = 0;
     }
 }
