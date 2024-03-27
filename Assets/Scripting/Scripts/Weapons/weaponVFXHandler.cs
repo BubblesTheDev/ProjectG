@@ -60,7 +60,7 @@ public class weaponVFXHandler : MonoBehaviour
 
     public void playFireAnimation(float fireCooldown)
     {
-        weaponAnimator.SetFloat("AnimSpeed", 1 / fireCooldown);
+        //weaponAnimator.SetFloat("AnimSpeed", 1 / fireCooldown);
         weaponAnimator.Play(weaponFireAnimName,-1, 0f);
     }
 }
