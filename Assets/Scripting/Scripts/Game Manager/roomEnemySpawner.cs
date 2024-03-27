@@ -85,7 +85,7 @@ public class roomEnemySpawner : MonoBehaviour
     {
         isSlowed = true;
         Time.timeScale = .1f;
-        yield return new WaitForSeconds(.25f);
+        yield return new WaitForSeconds(.07f);
         float timer = 0;
         while( timer < timeToSlowTime && Time.timeScale != 1)
         {
