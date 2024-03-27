@@ -28,8 +28,7 @@ public class roomEnemySpawner : MonoBehaviour
     private void Awake()
     {
         playerStats = GameObject.Find("Player").GetComponent<playerHealth>();
-        if (GameObject.Find("EnemyRemainingCounter")) enemiesRemainingCounter = GameObject.Find("EnemyRemainingCounter");
-        else Debug.LogWarning("There is no Text mesh pro text game object in the scene named 'EnemyRemainingCounter', please add one before playing again");
+        
     }
 
     private void Update()
