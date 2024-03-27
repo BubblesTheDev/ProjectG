@@ -38,7 +38,10 @@ public class NewBehaviourScript : MonoBehaviour
         deltaTime += (Time.unscaledDeltaTime - deltaTime) * .1f;
         if (Input.GetKeyDown(KeyCode.Space)) {
             CurrentImage++;
-            if (CurrentImage >= imageArray.Length) {
+            if (CurrentImage >= imageArray.Length)
+            {
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
                 SceneManager.LoadScene(SceneBuildIndex, LoadSceneMode.Single);
             }
         }
