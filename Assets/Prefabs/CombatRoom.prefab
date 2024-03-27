@@ -49,11 +49,11 @@ MonoBehaviour:
   spawnerActive: 0
   playerInRoom: 0
   currentWaveIndex: 0
-  timeToSlow: 1
   timeBetweenEnemySpawns: 0
-  enemiesRemainingCounter: {fileID: 0}
   waves: []
   enemiesRemaining: []
+  enemiesRemainingCounter: {fileID: 0}
+  timeToSlowTime: 0.3
   doorController: {fileID: 0}
   hpToHeal: 2
 --- !u!65 &5174117323088699570
