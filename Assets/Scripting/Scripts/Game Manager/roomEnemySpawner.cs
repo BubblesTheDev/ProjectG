@@ -70,7 +70,7 @@ public class roomEnemySpawner : MonoBehaviour
             AudioManager.instance.PlaySFX(FMODEvents.instance.enemySpawn, this.transform.position);
             GameObject temp = Instantiate(waves[currentWaveIndex].enemies[i].enemyToSpawn,
                 waves[currentWaveIndex].enemies[i].spawnPoint.transform.position,
-                waves[currentWaveIndex].enemies[i].spawnPoint.transform.rotation,
+                waves[currentWaveIndex].enemies[i].enemyToSpawn.transform.rotation,
                 GameObject.Find("EnemyHolder").transform);
 
             enemiesRemaining.Add(temp);
