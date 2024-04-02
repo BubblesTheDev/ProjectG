@@ -120,7 +120,7 @@ public class implosionBullet : MonoBehaviour
         canPull = false;
 
         float overFlowTime = 0;
-        while (Vector3.Distance(player.transform.position, transform.position) > stoppingDistance)
+        while (Vector3.Distance(player.transform.position, transform.position) > stoppingDistance || overFlowTime < overFlowMaxTime)
         {
             Vector3 tempDirVector = (transform.position - player.transform.position).normalized;
             
@@ -136,7 +136,7 @@ public class implosionBullet : MonoBehaviour
             gravityChain.SetPosition(1, orientation.transform.position + (-Vector3.up * 0.5f));
 
             overFlowTime += Time.deltaTime;
-            if(overFlowTime > overFlowMaxTime || Vector3.Distance(player.transform.position, transform.position) <= stoppingDistance) yield break;
+            if(overFlowTime > overFlowMaxTime || Vector3.Distance(player.transform.position, transform.position) <= stoppingDistance) break;
             yield return null;
         }
 

@@ -113,7 +113,7 @@ MonoBehaviour:
   pullForce: 450
   maxDistance: 50
   stoppingDistance: 2
-  overFlowMaxTime: 3
+  overFlowMaxTime: 0.5
   isPulling: 0
   canPull: 1
   bulletEffect: {fileID: 4750438056778782744}
