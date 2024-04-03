@@ -16,6 +16,7 @@ public class turretAI : MonoBehaviour
     [SerializeField] private float LowerLimit;
     [SerializeField] private float spoolUpTime;
     [SerializeField] private float rotSpeed;
+    [SerializeField] private float minDistance;
 
 
     [Space, Header("Assignables")]
@@ -52,7 +53,7 @@ public class turretAI : MonoBehaviour
     {
         targetPos = Vector3.SmoothDamp(targetPos, playerObj.transform.position, ref smoothAimVel, rotSpeed, Mathf.Infinity, Time.deltaTime);
 
-        targetPos.y = Mathf.Clamp(targetPos.y, transform.position.y + LowerLimit, transform.position.y+ upperLimit);
+        targetPos.y = Mathf.Clamp(targetPos.y, transform.position.y + LowerLimit, transform.position.y + upperLimit);
         if(barrelBase != null) barrelBase.transform.LookAt(new Vector3(targetPos.x, barrelBase.transform.position.y, targetPos.z), transform.up);
         if (barrels != null) barrels.transform.LookAt(targetPos, transform.up);
     }
@@ -60,9 +61,9 @@ public class turretAI : MonoBehaviour
     IEnumerator fireGun()
     {
         canShoot = false;
-        yield return new WaitForSeconds(spoolUpTime);
         //Play spool up sound here
         AudioManager.instance.PlaySFX(FMODEvents.instance.turretCharge, this.transform.position);
+        yield return new WaitForSeconds(spoolUpTime);
 
 
         for (int i = 1; i < attacksPerBurst+1; i++)
