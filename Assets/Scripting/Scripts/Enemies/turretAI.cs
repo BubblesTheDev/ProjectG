@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.TextCore.LowLevel;
 
@@ -51,10 +52,20 @@ public class turretAI : MonoBehaviour
 
     void smoothAim()
     {
-        targetPos = Vector3.SmoothDamp(targetPos, playerObj.transform.position, ref smoothAimVel, rotSpeed, Mathf.Infinity, Time.deltaTime);
+        //this keeps the target a minimum distance away from the turret so it cant aim into itself when the player goes under it
+        if (Vector3.Distance(transform.position, targetPos) < minDistance)
+        {
+            targetPos = Vector3.SmoothDamp(targetPos, 
+                transform.position + Vector3.Scale((playerObj.transform.position - transform.position), new Vector3(1, 0, 1)).normalized * minDistance, 
+                ref smoothAimVel, rotSpeed, Mathf.Infinity, Time.deltaTime);
+        }
+        else targetPos = Vector3.SmoothDamp(targetPos, playerObj.transform.position, ref smoothAimVel, rotSpeed, Mathf.Infinity, Time.deltaTime);
 
         targetPos.y = Mathf.Clamp(targetPos.y, transform.position.y + LowerLimit, transform.position.y + upperLimit);
-        if(barrelBase != null) barrelBase.transform.LookAt(new Vector3(targetPos.x, barrelBase.transform.position.y, targetPos.z), transform.up);
+
+
+
+        if (barrelBase != null) barrelBase.transform.LookAt(new Vector3(targetPos.x, barrelBase.transform.position.y, targetPos.z), transform.up);
         if (barrels != null) barrels.transform.LookAt(targetPos, transform.up);
     }
 
@@ -86,5 +97,6 @@ public class turretAI : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.DrawWireSphere(targetPos, 1f);
+        Gizmos.DrawWireSphere(transform.position, minDistance);
     }
 }

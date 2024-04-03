@@ -27,7 +27,7 @@ public class roomEnemySpawner : MonoBehaviour
     private bool isSlowed;
     private void Awake()
     {
-        playerStats = GameObject.Find("Player").GetComponent<playerHealth>();
+        if (GameObject.Find("Player")) playerStats = GameObject.Find("Player").GetComponent<playerHealth>();
         
     }
 
