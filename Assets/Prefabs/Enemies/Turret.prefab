@@ -302,6 +302,7 @@ MonoBehaviour:
   LowerLimit: 0
   spoolUpTime: 0.75
   rotSpeed: 0.5
+  minDistance: 5
   brain: {fileID: 0}
   firePoints:
   - {fileID: 3871278751839507077}

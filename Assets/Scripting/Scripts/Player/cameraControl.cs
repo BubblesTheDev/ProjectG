@@ -24,13 +24,13 @@ public class cameraControl : MonoBehaviour
     public float maxAngle;
     public float minAngle;
 
-    public float mouseX;
-    public float mouseY;
-    float xRot;
-    float yRot;
+    [HideInInspector] public float mouseX;
+    [HideInInspector] public float mouseY;
+    private float xRot;
+    private float yRot;
+    [SerializeField] private float startingYRot;
 
     private playerMovement playerMovementScript;
-    private bool gravityIsFlipped;
 
     private void Awake()
     {
@@ -40,6 +40,11 @@ public class cameraControl : MonoBehaviour
         playerMovementScript = GetComponent<playerMovement>();
 
         layersToIgnoreForAimingDir = ~layersToIgnoreForAimingDir;
+    }
+
+    private void Start()
+    {
+        startingYRot = Orientation.transform.localEulerAngles.y;
     }
 
     private void OnEnable()
@@ -57,16 +62,16 @@ public class cameraControl : MonoBehaviour
         if (playerMovementScript.canAffectRotation)
         {
             calculateRotation();
-            Orientation.transform.localEulerAngles = new Vector3(0, xRot, 0);
+            Orientation.transform.localEulerAngles = new Vector3(0, xRot + startingYRot, 0);
             if (playerMovementScript.current_PlayerRotationState == playerRotationState.nonFlipped)
             {
                 CameraObj.transform.localEulerAngles = new Vector3(yRot, 0, 0);
-                Orientation.transform.localEulerAngles = new Vector3(0, xRot, 0);
+                Orientation.transform.localEulerAngles = new Vector3(0, xRot + startingYRot, 0);
             }
             else
             {
                 CameraObj.transform.localEulerAngles = new Vector3(yRot, 0, 180);
-                Orientation.transform.localEulerAngles = new Vector3(0, xRot, 0);
+                Orientation.transform.localEulerAngles = new Vector3(0, xRot + startingYRot, 0);
             }
         }
         Physics.Raycast(CameraObj.transform.position, CameraObj.transform.forward, out lookingDir, Mathf.Infinity, layersToIgnoreForAimingDir);

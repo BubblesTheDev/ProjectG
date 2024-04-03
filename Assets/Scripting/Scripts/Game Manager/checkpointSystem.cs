@@ -15,17 +15,19 @@ public class checkpointSystem : MonoBehaviour
     public float timeToWait = 2f;
     public float timeToFadeOut = .25f;
     private GameObject playerObj;
+    private GameObject orientationObj;
     
 
     private void Awake()
     {
-        playerObj = GameObject.Find("Player");
+        if(GameObject.Find("Player")) playerObj = GameObject.Find("Player");
+        if(GameObject.Find("Orientation")) orientationObj = GameObject.Find("Orientation");
         if(playerObj != null)
         {
             if (checkPointSpawnPositions.Count > 0 && PlayerPrefs.GetInt("checkpointIndex") <= checkPointSpawnPositions.Count)
             {
                 playerObj.transform.position = checkPointSpawnPositions[PlayerPrefs.GetInt("checkpointIndex")].transform.position;
-                playerObj.transform.rotation = checkPointSpawnPositions[PlayerPrefs.GetInt("checkpointIndex")].transform.rotation;
+                orientationObj.transform.rotation = checkPointSpawnPositions[PlayerPrefs.GetInt("checkpointIndex")].transform.rotation;
             }
         } 
     }
