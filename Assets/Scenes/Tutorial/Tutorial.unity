@@ -2320,6 +2320,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SceneChangeTrigger
       objectReference: {fileID: 0}
+    - target: {fileID: 7601550326109914084, guid: d3af64978601fb140808552cad222bd7,
+        type: 3}
+      propertyPath: scenePathToLoadOnTrigger
+      value: Assets/Scenes/L1/L1.unity
+      objectReference: {fileID: 0}
     - target: {fileID: 7857575410269285287, guid: d3af64978601fb140808552cad222bd7,
         type: 3}
       propertyPath: m_LocalPosition.x

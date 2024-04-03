@@ -931,7 +931,7 @@ MonoBehaviour:
   - {fileID: 1227754399}
   CurrentImage: 0
   timer: 5
-  timerRemaining: 5
+  timerRemaining: 1
   timerIsRunning: 0
   timerText: 
   SceneBuildIndex: 0
