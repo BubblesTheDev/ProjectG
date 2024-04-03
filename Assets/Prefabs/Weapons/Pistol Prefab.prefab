@@ -191,7 +191,7 @@ MonoBehaviour:
   weaponIsEquipped: 1
   layersToIgnore:
     serializedVersion: 2
-    m_Bits: 692
+    m_Bits: 1716
   canFire: 1
   currentWeaponPower: {fileID: 0}
   firePoint: {fileID: 7406085740952407801}
@@ -263,6 +263,7 @@ MonoBehaviour:
   numCharges: 1
   currentCharges: 1
   weaponPowerIsFor: 0
+  weaponPowerIcon: {fileID: 0}
   maxChargeTime: 1.5
   chargeScaleMulti: 4
   chargeScaleVel: 2
