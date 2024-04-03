@@ -16,7 +16,6 @@ public class HealParticles : MonoBehaviour
     {
         stats = GameObject.Find("Player").GetComponent<playerHealth>();
         stats.healedDamage.AddListener(VignetteSequence);
-        healingParticles = GameObject.Find("Healparticles").GetComponent<ParticleSystem>();
     }
 
     // Update is called once per frame
@@ -47,8 +46,10 @@ public class HealParticles : MonoBehaviour
 
     void VignetteSequence()
     {
-        StartCoroutine(HealVignette());
+        // healingParticles.transform.parent.position = stats.gameObject.transform.position;
         healingParticles.Play();
+        StartCoroutine(HealVignette());
+        
     }
 
     private IEnumerator HealVignette()
