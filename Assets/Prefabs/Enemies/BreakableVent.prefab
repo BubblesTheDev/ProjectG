@@ -135,13 +135,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95f35784ec3acb740a010b137781f90e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentHP: 1
-  maxHp: 1
+  currentHP: 0.0001
+  maxHp: 0.0001
   moveSpeed: 0
-  timeToDie: 0.1
+  timeToDie: 0.01
   VFX_onHit: []
   VFX_onDeath: []
   enemyGFX: {fileID: 0}
+  staticToGive: 35
+  type: 0
   spawner: {fileID: 0}
   enemyDamageTaken:
     m_PersistentCalls:

@@ -191,7 +191,7 @@ MonoBehaviour:
   weaponIsEquipped: 1
   layersToIgnore:
     serializedVersion: 2
-    m_Bits: 692
+    m_Bits: 1716
   canFire: 1
   currentWeaponPower: {fileID: 0}
   firePoint: {fileID: 7406085740952407801}
@@ -224,7 +224,7 @@ MonoBehaviour:
   firePoint: {fileID: 7406085740952407801}
   bulletTracerPrefab: {fileID: 7176724630542866113, guid: b514a865ce17b7a468adbe032d6285ae,
     type: 3}
-  trailSpeed: 150
+  trailSpeed: 400
   projectorPrefab: {fileID: 3375351817147502523, guid: 2c05afc0d37a8504883b54e9b4b5e0c0,
     type: 3}
   timeToFade: 3
@@ -263,6 +263,7 @@ MonoBehaviour:
   numCharges: 1
   currentCharges: 1
   weaponPowerIsFor: 0
+  weaponPowerIcon: {fileID: 0}
   maxChargeTime: 1.5
   chargeScaleMulti: 4
   chargeScaleVel: 2

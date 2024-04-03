@@ -138,14 +138,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponDamage: 2
   maxShotDistance: 8
-  numOfPellets: 6
+  numOfPellets: 12
   fireRateInSeconds: 1
-  multiPelletAngle: 7
+  multiPelletAngle: 15
   projectileSpeed: 2000
   weaponIsEquipped: 0
   layersToIgnore:
     serializedVersion: 2
-    m_Bits: 692
+    m_Bits: 1716
   canFire: 1
   currentWeaponPower: {fileID: 0}
   firePoint: {fileID: 3258622124802021664}
