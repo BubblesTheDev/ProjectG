@@ -111,7 +111,7 @@ public class roomEnemySpawner : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Player")) if (!playerInRoom)
+        if (other.gameObject.CompareTag("Player")) if (!playerInRoom && !hasBeatCombat)
             {
                 playerInRoom = true;
                 closeDoor();
