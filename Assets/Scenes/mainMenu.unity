@@ -13336,6 +13336,7 @@ GameObject:
   - component: {fileID: 1513723004}
   - component: {fileID: 1513723005}
   - component: {fileID: 1513723006}
+  - component: {fileID: 1513723008}
   m_Layer: 0
   m_Name: Game Manager
   m_TagString: Untagged
@@ -13445,6 +13446,18 @@ MonoBehaviour:
   MusicVolumeSlider: {fileID: 1673913427}
   AmbienceVolumeSlider: {fileID: 2089360597}
   VoiceVolumeSlider: {fileID: 0}
+--- !u!114 &1513723008
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1513723000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e8906cc255aa2d46a01e36187c3b277, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1525654017
 GameObject:
   m_ObjectHideFlags: 0
