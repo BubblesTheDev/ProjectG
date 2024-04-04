@@ -59,9 +59,9 @@ public class turretAI : MonoBehaviour
                 transform.position + Vector3.Scale((playerObj.transform.position - transform.position), new Vector3(1, 0, 1)).normalized * minDistance, 
                 ref smoothAimVel, rotSpeed, Mathf.Infinity, Time.deltaTime);
         }
-        else targetPos = Vector3.SmoothDamp(targetPos, playerObj.transform.position, ref smoothAimVel, rotSpeed, Mathf.Infinity, Time.deltaTime);
+        else if(Vector3.Distance(transform.position, targetPos) > minDistance) targetPos = Vector3.SmoothDamp(targetPos, playerObj.transform.position, ref smoothAimVel, rotSpeed, Mathf.Infinity, Time.deltaTime);
 
-        targetPos.y = Mathf.Clamp(targetPos.y, transform.position.y + (transform.up.y * LowerLimit), transform.position.y + (transform.up.y * upperLimit));
+        targetPos.y = Mathf.Clamp(targetPos.y, transform.position.y + LowerLimit, transform.position.y + upperLimit);
 
 
 
@@ -94,13 +94,13 @@ public class turretAI : MonoBehaviour
         canShoot = true;
     }
 
-   /* private void OnDrawGizmosSelected()
+    private void OnDrawGizmosSelected()
     {
        Gizmos.DrawWireSphere(targetPos, 1f);
         Gizmos.DrawWireSphere(transform.position, minDistance);
         Gizmos.color = Color.blue;
-        Handles.DrawWireDisc(transform.position + (transform.up) * upperLimit, transform.up, 15f);
+      //  Handles.DrawWireDisc(transform.position + (transform.up) * upperLimit, transform.up, 15f);
         Gizmos.color = Color.yellow;
-        Handles.DrawWireDisc(transform.position + (transform.up) * LowerLimit, transform.up, 15f);
-    } */
+        //Handles.DrawWireDisc(transform.position + (transform.up) * LowerLimit, transform.up, 15f);
+    } 
 }
