@@ -65,8 +65,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5679445671702460748, guid: cac1ab524c569874288c6c514647084d,
         type: 3}
+      propertyPath: damage
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5679445671702460748, guid: cac1ab524c569874288c6c514647084d,
+        type: 3}
+      propertyPath: canPunch
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5679445671702460748, guid: cac1ab524c569874288c6c514647084d,
+        type: 3}
       propertyPath: punchHitbox
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5679445671702460748, guid: cac1ab524c569874288c6c514647084d,
+        type: 3}
+      propertyPath: punchAttackCooldown
+      value: 100000000
       objectReference: {fileID: 0}
     - target: {fileID: 5904141661952035236, guid: cac1ab524c569874288c6c514647084d,
         type: 3}
