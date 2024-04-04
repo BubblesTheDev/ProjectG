@@ -49845,7 +49845,7 @@ MonoBehaviour:
   gravSwitch: {fileID: 2006264082}
   staminaBar: {fileID: 2006264084}
   weaponCD: {fileID: 2006264083}
-  shakeStrength: 45
+  shakeStrength: 20
   screenshakeAnimationCurve:
     serializedVersion: 2
     m_Curve:
@@ -73633,6 +73633,21 @@ PrefabInstance:
       propertyPath: weaponPowerIcon
       value: 
       objectReference: {fileID: 2006264083}
+    - target: {fileID: 1958392227459366164, guid: 6b65dbe96f5987646b8f6ce979096315,
+        type: 3}
+      propertyPath: halfHitboxSize.x
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1958392227459366164, guid: 6b65dbe96f5987646b8f6ce979096315,
+        type: 3}
+      propertyPath: halfHitboxSize.y
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1958392227459366164, guid: 6b65dbe96f5987646b8f6ce979096315,
+        type: 3}
+      propertyPath: halfHitboxSize.z
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1968118723125137677, guid: 6b65dbe96f5987646b8f6ce979096315,
         type: 3}
       propertyPath: m_IsActive
@@ -73682,6 +73697,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3637884394836839491, guid: 6b65dbe96f5987646b8f6ce979096315,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 2.27
       objectReference: {fileID: 0}
     - target: {fileID: 3695018213172275617, guid: 6b65dbe96f5987646b8f6ce979096315,
         type: 3}
@@ -74027,6 +74047,21 @@ PrefabInstance:
     - target: {fileID: 4609364726978990740, guid: 6b65dbe96f5987646b8f6ce979096315,
         type: 3}
       propertyPath: EmissionModule.rateOverTime.minScalar
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4614656447893462449, guid: 6b65dbe96f5987646b8f6ce979096315,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4614656447893462449, guid: 6b65dbe96f5987646b8f6ce979096315,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4614656447893462449, guid: 6b65dbe96f5987646b8f6ce979096315,
+        type: 3}
+      propertyPath: m_Size.z
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4626743052782714670, guid: 6b65dbe96f5987646b8f6ce979096315,
@@ -80823,13 +80858,13 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 7a6628950752dce4baee9c952899c74b,
+      objectReference: {fileID: 21300000, guid: f2a9a4ac8afcae84781e3553d62cba4e,
         type: 3}
     - target: {fileID: 5908351087255752413, guid: 3cf6a054c4d6208439755b59f33599f0,
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 7a6628950752dce4baee9c952899c74b,
+      objectReference: {fileID: 21300000, guid: 2d258a48e82bd2f40bdf91710a7f67a3,
         type: 3}
     - target: {fileID: 5988870361968630400, guid: 3cf6a054c4d6208439755b59f33599f0,
         type: 3}
@@ -80887,7 +80922,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 7a6628950752dce4baee9c952899c74b,
+      objectReference: {fileID: 21300000, guid: f2a9a4ac8afcae84781e3553d62cba4e,
         type: 3}
     - target: {fileID: 6797980806859700741, guid: 3cf6a054c4d6208439755b59f33599f0,
         type: 3}

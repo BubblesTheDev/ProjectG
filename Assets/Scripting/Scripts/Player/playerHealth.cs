@@ -86,7 +86,7 @@ public class playerHealth : MonoBehaviour
         if (canTakeDamage)
         {
             canTakeDamage = false;
-            currentHP--;
+            currentHP -= damage;
             //Play health dmg sound
             //frame stutter
             tookDamage.Invoke();
