@@ -13,6 +13,31 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fred Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 7459053122155387007, guid: e47cc27d09beab64b8eb1e9382b503a2,
+        type: 3}
+      propertyPath: m_Speed
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7459053122155387007, guid: e47cc27d09beab64b8eb1e9382b503a2,
+        type: 3}
+      propertyPath: m_Acceleration
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7459053122155387007, guid: e47cc27d09beab64b8eb1e9382b503a2,
+        type: 3}
+      propertyPath: m_AngularSpeed
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8661113562209175802, guid: e47cc27d09beab64b8eb1e9382b503a2,
+        type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8661113562209175802, guid: e47cc27d09beab64b8eb1e9382b503a2,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 3e2f092ed46690e4a8cce43061450f47, type: 2}
     - target: {fileID: 8700155664684492951, guid: e47cc27d09beab64b8eb1e9382b503a2,
         type: 3}
       propertyPath: damage

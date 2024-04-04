@@ -29,7 +29,7 @@ public class playerHealth : MonoBehaviour
 
     private void Awake()
     {
-        currentHP = maxHp;
+        // currentHP = maxHp;
         rb = GetComponent<Rigidbody>();
         deathSceneIndex = SceneManager.GetActiveScene().buildIndex;
         canTakeDamage = true;

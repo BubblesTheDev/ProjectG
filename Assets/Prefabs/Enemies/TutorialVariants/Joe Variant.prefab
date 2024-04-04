@@ -8,15 +8,65 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 228884686898533277, guid: 4046dae819e329d429d5edddab639859,
+        type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 228884686898533277, guid: 4046dae819e329d429d5edddab639859,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: c37a4d16ff8a302409e8e1cada2e938f, type: 2}
+    - target: {fileID: 228884686898533277, guid: 4046dae819e329d429d5edddab639859,
+        type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: 3e2f092ed46690e4a8cce43061450f47, type: 2}
+    - target: {fileID: 228884686898533277, guid: 4046dae819e329d429d5edddab639859,
+        type: 3}
+      propertyPath: m_Materials.Array.data[3]
+      value: 
+      objectReference: {fileID: 2100000, guid: 3e2f092ed46690e4a8cce43061450f47, type: 2}
+    - target: {fileID: 877022850167072534, guid: 4046dae819e329d429d5edddab639859,
+        type: 3}
+      propertyPath: m_Avatar
+      value: 
+      objectReference: {fileID: 9000000, guid: d3a71c7b305df894982412a1ad277df7, type: 3}
+    - target: {fileID: 1199750444209235446, guid: 4046dae819e329d429d5edddab639859,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2889751884073604708, guid: 4046dae819e329d429d5edddab639859,
         type: 3}
       propertyPath: m_Name
       value: Joe Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 4619834471265541093, guid: 4046dae819e329d429d5edddab639859,
+        type: 3}
+      propertyPath: m_Speed
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4619834471265541093, guid: 4046dae819e329d429d5edddab639859,
+        type: 3}
+      propertyPath: m_Acceleration
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4619834471265541093, guid: 4046dae819e329d429d5edddab639859,
+        type: 3}
+      propertyPath: m_AngularSpeed
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4660804150345737709, guid: 4046dae819e329d429d5edddab639859,
         type: 3}
       propertyPath: damage
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4660804150345737709, guid: 4046dae819e329d429d5edddab639859,
+        type: 3}
+      propertyPath: canShoot
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4660804150345737709, guid: 4046dae819e329d429d5edddab639859,
         type: 3}
@@ -26,8 +76,43 @@ PrefabInstance:
         type: 3}
     - target: {fileID: 4660804150345737709, guid: 4046dae819e329d429d5edddab639859,
         type: 3}
+      propertyPath: MaxOrbitTime
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4660804150345737709, guid: 4046dae819e329d429d5edddab639859,
+        type: 3}
+      propertyPath: minOrbitTime
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4660804150345737709, guid: 4046dae819e329d429d5edddab639859,
+        type: 3}
+      propertyPath: maxMoveDistance
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4660804150345737709, guid: 4046dae819e329d429d5edddab639859,
+        type: 3}
+      propertyPath: numShotsShortRange
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4660804150345737709, guid: 4046dae819e329d429d5edddab639859,
+        type: 3}
       propertyPath: bulletSpeedShortRange
-      value: 30
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 4660804150345737709, guid: 4046dae819e329d429d5edddab639859,
+        type: 3}
+      propertyPath: fireCooldownShortRange
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5872750928369969110, guid: 4046dae819e329d429d5edddab639859,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6069323159576859079, guid: 4046dae819e329d429d5edddab639859,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7574805889209413413, guid: 4046dae819e329d429d5edddab639859,
         type: 3}

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1762863786014269206}
   - component: {fileID: 6234854205907857517}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Trail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -158,10 +158,10 @@ GameObject:
   - component: {fileID: 6828686038293203034}
   - component: {fileID: 6392744909035030655}
   - component: {fileID: 2192702818513809431}
-  - component: {fileID: 8641289034237694885}
-  m_Layer: 0
-  m_Name: Trail Bullet
-  m_TagString: EnemyProjectile
+  - component: {fileID: 8153669360424350491}
+  m_Layer: 7
+  m_Name: Parried Bullet
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -210,7 +210,7 @@ MeshRenderer:
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 99423e835c2409d4bbc83aa4b155163c, type: 2}
+  - {fileID: 2100000, guid: 85bf95d0924853040b47522b4b56d1a7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -280,7 +280,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &8641289034237694885
+--- !u!114 &8153669360424350491
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -289,8 +289,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 3191494505589844887}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd013ecf7dc28c34ea15355a00769863, type: 3}
+  m_Script: {fileID: 11500000, guid: a9e8d2ed0e4246e42833b8d11b211a91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
   distanceToKill: 500
+  speed: 30

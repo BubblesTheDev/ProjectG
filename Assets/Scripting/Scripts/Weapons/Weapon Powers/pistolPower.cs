@@ -43,6 +43,7 @@ public class pistolPower : weaponPowerBase
         firePoint = GetComponent<weaponBase>().firePoint;
         startingPos = shakingObj.transform.localPosition;
         if (GetComponent<weaponBase>()) weapon = GetComponent<weaponBase>();
+        weaponPowerIcon.value = 1;
     }
 
     private void FixedUpdate()

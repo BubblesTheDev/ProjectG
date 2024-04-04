@@ -63,12 +63,17 @@ public class shotgunPower : weaponPowerBase
         //Deals damage to the enemies and parries projectiles
         foreach (Collider collider in tempObjs)
         {
-            if (collider.gameObject.CompareTag("Enemy")) collider.gameObject.GetComponent<enemyStats>().takeDamage(damage);
-            else if (collider.gameObject.CompareTag("EnemyProjectile"))
+            if(collider != null)
             {
-                Vector3 tempForward = -collider.transform.forward;
-                if(parriedBullet != null) Instantiate(parriedBullet, collider.transform.position, Quaternion.LookRotation(tempForward), GameObject.Find("BulletStorage").transform);
-                Destroy(collider.gameObject);
+                if (collider.gameObject.CompareTag("Enemy")) collider.gameObject.GetComponent<enemyStats>().takeDamage(damage);
+                else if (collider.gameObject.CompareTag("EnemyProjectile"))
+                {
+                    Vector3 tempForward = -collider.transform.forward;
+                    Debug.Log("original speed = " + collider.transform.forward + ", deflected speed = " + tempForward);
+                    if (parriedBullet != null) Instantiate(parriedBullet, collider.transform.position, Quaternion.LookRotation(tempForward), GameObject.Find("Bullet Storage").transform);
+                    Destroy(collider.gameObject);
+                }
+
             }
             yield return null;
         }

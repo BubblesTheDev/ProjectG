@@ -219,7 +219,7 @@ MonoBehaviour:
   weaponPowerIsFor: 1
   weaponPowerIcon: {fileID: 0}
   boundsPosition: {fileID: 0}
-  halfHitboxSize: {x: 1, y: 3, z: 1}
+  halfHitboxSize: {x: 8, y: 8, z: 6}
   damage: 1
   parriedBullet: {fileID: 0}
   shockwave: {fileID: 1882099142560272876}
@@ -247,8 +247,8 @@ BoxCollider:
   m_ProvidesContacts: 1
   m_Enabled: 0
   serializedVersion: 3
-  m_Size: {x: 2.5, y: 2, z: 2}
-  m_Center: {x: 0, y: -0.51, z: 1.18}
+  m_Size: {x: 15, y: 15, z: 12.7}
+  m_Center: {x: 0.085339546, y: -0.13006306, z: 1.89}
 --- !u!114 &1589596585613438921
 MonoBehaviour:
   m_ObjectHideFlags: 0
