@@ -231,7 +231,7 @@ MonoBehaviour:
   MaxOrbitTime: 1.5
   fireCooldownShortRange: 1
   fireRateShortRange: 0.1
-  numShotsShortRange: 3
+  numShotsShortRange: 1
   bulletSpeedShortRange: 30
   muzzleFlash: {fileID: 8203638870886073739}
 --- !u!114 &4123826904883642579
@@ -1578,6 +1578,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.size
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: -52877408952233891, guid: d3a71c7b305df894982412a1ad277df7,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 3e2f092ed46690e4a8cce43061450f47, type: 2}
     - target: {fileID: 335711567404524965, guid: d3a71c7b305df894982412a1ad277df7,
         type: 3}
       propertyPath: m_Layer

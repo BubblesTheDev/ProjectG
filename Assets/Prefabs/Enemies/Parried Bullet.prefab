@@ -105,7 +105,7 @@ TrailRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 0.9622642, g: 0.5936746, b: 0.077162705, a: 1}
+      key0: {r: 0.3358679, g: 0.07843139, b: 0.9607843, a: 1}
       key1: {r: 1, g: 1, b: 1, a: 0}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
@@ -292,6 +292,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9e8d2ed0e4246e42833b8d11b211a91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 1
+  damage: 2
   distanceToKill: 500
-  speed: 30
+  speed: 80

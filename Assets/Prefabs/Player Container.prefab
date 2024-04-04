@@ -332,6 +332,11 @@ PrefabInstance:
       propertyPath: InitialModule.startColor.maxColor.r
       value: 0.3915094
       objectReference: {fileID: 0}
+    - target: {fileID: 2908289740210675211, guid: 8b3a404e10ca4084ab016a932dfd9ae8,
+        type: 3}
+      propertyPath: m_Cameras.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3528174368033587916, guid: 8b3a404e10ca4084ab016a932dfd9ae8,
         type: 3}
       propertyPath: m_SortingOrder
@@ -387,6 +392,21 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: cd7d6c66730ddb34caacebef74e8c4f7, type: 2}
+    - target: {fileID: 8509294847510331048, guid: 8b3a404e10ca4084ab016a932dfd9ae8,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.462
+      objectReference: {fileID: 0}
+    - target: {fileID: 8509294847510331048, guid: 8b3a404e10ca4084ab016a932dfd9ae8,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.19
+      objectReference: {fileID: 0}
+    - target: {fileID: 8509294847510331048, guid: 8b3a404e10ca4084ab016a932dfd9ae8,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.335
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

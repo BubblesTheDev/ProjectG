@@ -26,11 +26,13 @@ public class shotgunPower : weaponPowerBase
 
     #region References
     private playerMovement ref_PlayerMovement;
+    private GameObject playerOrientation;
     #endregion
 
     private void Awake()
     {
         ref_PlayerMovement = GameObject.Find("Player").GetComponent<playerMovement>();
+        playerOrientation = GameObject.Find("Orientation");
         cameraHolder = GameObject.Find("CameraHolder");
         shockwaveMat.SetFloat("_Size", 0);
         shockwave.SetActive(false);
@@ -42,7 +44,8 @@ public class shotgunPower : weaponPowerBase
         if (weaponPowerIcon != null && weapon.weaponIsEquipped)
         {
             weaponPowerIcon.value = cooldown / powerCooldown;
-        } 
+        }
+        //OnDrawGizmos();
 
     }
 
@@ -58,8 +61,7 @@ public class shotgunPower : weaponPowerBase
         shockwaveParticles.Play();
 
         //Collects all the enemies and projectiles in the bounds
-        Collider[] tempObjs = Physics.OverlapBox(boundsPosition.transform.position, halfHitboxSize, transform.rotation);
-
+        Collider[] tempObjs = Physics.OverlapBox(boundsPosition.transform.position, halfHitboxSize, gameObject.transform.rotation);
         //Deals damage to the enemies and parries projectiles
         foreach (Collider collider in tempObjs)
         {
@@ -68,8 +70,7 @@ public class shotgunPower : weaponPowerBase
                 if (collider.gameObject.CompareTag("Enemy")) collider.gameObject.GetComponent<enemyStats>().takeDamage(damage);
                 else if (collider.gameObject.CompareTag("EnemyProjectile"))
                 {
-                    Vector3 tempForward = -collider.transform.forward;
-                    Debug.Log("original speed = " + collider.transform.forward + ", deflected speed = " + tempForward);
+                    Vector3 tempForward = playerOrientation.transform.forward;
                     if (parriedBullet != null) Instantiate(parriedBullet, collider.transform.position, Quaternion.LookRotation(tempForward), GameObject.Find("Bullet Storage").transform);
                     Destroy(collider.gameObject);
                 }
@@ -79,7 +80,7 @@ public class shotgunPower : weaponPowerBase
         }
 
         //Does the shockwave movement
-        if(ref_PlayerMovement != null) 
+        if (ref_PlayerMovement != null) 
         {
             Vector3 tempDir = -cameraHolder.transform.forward;
             tempDir.Normalize();
@@ -109,4 +110,12 @@ public class shotgunPower : weaponPowerBase
         shockwaveMat.SetFloat("_Size", 0);
         shockwave.SetActive(false);
     }
+
+/*    void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireCube(boundsPosition.transform.position, transform.gameObject.GetComponent<BoxCollider>().size);
+
+    }*/
+
 }
