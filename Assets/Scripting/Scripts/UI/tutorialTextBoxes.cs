@@ -7,6 +7,7 @@ public class tutorialTextBoxes : MonoBehaviour
 {
     [SerializeField] private GameObject tutorialTextObj;
     [SerializeField, TextArea(3, 5)] private string tutorialText;
+    [SerializeField] private int tutorialTextSize;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -16,6 +17,7 @@ public class tutorialTextBoxes : MonoBehaviour
             {
                 tutorialTextObj.SetActive(true);
                 tutorialTextObj.GetComponent<TextMeshProUGUI>().text = tutorialText;
+                tutorialTextObj.GetComponent<TextMeshProUGUI>().fontSize = tutorialTextSize;
             }
         }
     }

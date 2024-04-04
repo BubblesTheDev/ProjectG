@@ -2490,7 +2490,7 @@ PrefabInstance:
     - target: {fileID: 7601550326109914084, guid: d3af64978601fb140808552cad222bd7,
         type: 3}
       propertyPath: scenePathToLoadOnTrigger
-      value: Assets/Scenes/L1/L1.unity
+      value: Assets/Scenes/L1/Act1 Intro Cutscene.unity
       objectReference: {fileID: 0}
     - target: {fileID: 7857575410269285287, guid: d3af64978601fb140808552cad222bd7,
         type: 3}
@@ -3596,8 +3596,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 36, y: 12.274515, z: 23}
-  m_Center: {x: 2.5, y: 4.6372576, z: -11}
+  m_Size: {x: 36, y: 22.637753, z: 28.451756}
+  m_Center: {x: 2.5, y: -0.5443611, z: -8.274122}
 --- !u!23 &79683962
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3661,7 +3661,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tutorialTextObj: {fileID: 1244947298}
-  tutorialText: While in the air, press Left Control to groundslam
+  tutorialText: While in the air, press LControl to perform a ground slam.
+  tutorialTextSize: 32
 --- !u!1001 &80403212
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24734,6 +24735,128 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 394308828}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &396867500
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 396867501}
+  - component: {fileID: 396867505}
+  - component: {fileID: 396867504}
+  - component: {fileID: 396867503}
+  - component: {fileID: 396867502}
+  m_Layer: 2
+  m_Name: Dashing (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &396867501
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 396867500}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 71.03, y: -82.21213, z: 121.496216}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 969841738}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &396867502
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 396867500}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9480e49da9bc07b46a6f5be747ffaa4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tutorialTextObj: {fileID: 1244947298}
+  tutorialText: Combine your dashes (LShift) with a double jump to get across large
+    gaps.
+  tutorialTextSize: 32
+--- !u!65 &396867503
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 396867500}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 13.612728, y: 8.274515, z: 9}
+  m_Center: {x: -14.693636, y: 2.6372576, z: -18}
+--- !u!23 &396867504
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 396867500}
+  m_Enabled: 0
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &396867505
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 396867500}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &403217817
 GameObject:
   m_ObjectHideFlags: 0
@@ -26568,6 +26691,7 @@ MonoBehaviour:
   tutorialTextObj: {fileID: 1244947298}
   tutorialText: Destroying enemies partially refills the Static Meter, speeding repair
     time. Clearing a room provides a larger refill
+  tutorialTextSize: 0
 --- !u!1001 &443274792
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -26783,6 +26907,7 @@ MonoBehaviour:
   tutorialTextObj: {fileID: 1244947298}
   tutorialText: When Singularity is fired and has not collided, Press Right Mouse
     Button again to grapple towards it
+  tutorialTextSize: 0
 --- !u!1 &447622476
 GameObject:
   m_ObjectHideFlags: 0
@@ -28075,6 +28200,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tutorialTextObj: {fileID: 1244947298}
   tutorialText: Press Left Click on mouse to fire. Press 2 to swtich weapons
+  tutorialTextSize: 0
 --- !u!1 &478674258
 GameObject:
   m_ObjectHideFlags: 0
@@ -30035,8 +30161,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 46, y: 8.274515, z: 9}
-  m_Center: {x: 1.5, y: 2.6372576, z: -18}
+  m_Size: {x: 13.612728, y: 2.0851793, z: 9}
+  m_Center: {x: -14.693636, y: -0.45741034, z: -18}
 --- !u!23 &510556831
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -30100,8 +30226,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tutorialTextObj: {fileID: 1244947298}
-  tutorialText: Press Left Shift to Dash. Dashing while holding WAS or D Dashes in
-    movement direction. Three maximum dashes may be performed before needing to recharge
+  tutorialText: Press LShift to Dash. Hold a direction to dash in that direction.
+    Dashing costs stamina.
+  tutorialTextSize: 32
 --- !u!114 &518884531 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 384218062846490207, guid: 3cf6a054c4d6208439755b59f33599f0,
@@ -30784,6 +30911,7 @@ MonoBehaviour:
   tutorialTextObj: {fileID: 1244947298}
   tutorialText: With Shotgun selected, Press Right Mouse Button while next a projectile
     to destroy it. Reboot Sequence Complete
+  tutorialTextSize: 0
 --- !u!43 &560872882
 Mesh:
   m_ObjectHideFlags: 0
@@ -31409,8 +31537,8 @@ Transform:
   m_GameObject: {fileID: 575680250}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 96.99634, y: -173.76941, z: 100.196045}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 96.99634, y: -173.7694, z: 108.5216}
+  m_LocalScale: {x: 1, y: 1, z: 1.5947}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1107387999}
@@ -49147,6 +49275,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tutorialTextObj: {fileID: 1244947298}
   tutorialText: Shoot at Vents to break them
+  tutorialTextSize: 0
 --- !u!1001 &938362208
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -50109,10 +50238,13 @@ Transform:
   m_Children:
   - {fileID: 1905137830}
   - {fileID: 1776865767}
+  - {fileID: 997519811}
   - {fileID: 79683960}
   - {fileID: 1063189216}
   - {fileID: 1554553541}
+  - {fileID: 1172992342}
   - {fileID: 510556829}
+  - {fileID: 396867501}
   - {fileID: 1486563079}
   m_Father: {fileID: 1135343695}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -50762,6 +50894,127 @@ Transform:
   - {fileID: 332026764}
   m_Father: {fileID: 794465957}
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+--- !u!1 &997519810
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 997519811}
+  - component: {fileID: 997519815}
+  - component: {fileID: 997519814}
+  - component: {fileID: 997519813}
+  - component: {fileID: 997519812}
+  m_Layer: 2
+  m_Name: DoubleJump
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &997519811
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 997519810}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 29.489502, y: -88.82483, z: 40.84}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 969841738}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &997519812
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 997519810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9480e49da9bc07b46a6f5be747ffaa4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tutorialTextObj: {fileID: 1244947298}
+  tutorialText: Press again while in the air to perform a double jump.
+  tutorialTextSize: 32
+--- !u!65 &997519813
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 997519810}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 36, y: 20.996185, z: 11.786416}
+  m_Center: {x: 2.5, y: 8.998093, z: -16.606792}
+--- !u!23 &997519814
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 997519810}
+  m_Enabled: 0
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &997519815
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 997519810}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1001 &999259735
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -51824,8 +52077,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 28.41368, y: 7, z: 12}
-  m_Center: {x: -0.70683956, y: 3, z: 5.5}
+  m_Size: {x: 28.41368, y: 7, z: 24.899107}
+  m_Center: {x: -0.70683956, y: 3, z: 11.9495535}
 --- !u!23 &1027598181
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -51889,7 +52142,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tutorialTextObj: {fileID: 1244947298}
-  tutorialText: 'STAGE 2 OF REBOOT: Press V to Melee'
+  tutorialText: 'rebooting stage 2...
+
+    Press V to Melee.'
+  tutorialTextSize: 0
 --- !u!43 &1027703909
 Mesh:
   m_ObjectHideFlags: 0
@@ -53463,8 +53719,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tutorialTextObj: {fileID: 1244947298}
-  tutorialText: While on the ground, press Left Control to Slide. Sliding while holding
-    WAS or D to slide in currrent movement direction
+  tutorialText: While on the ground, press LControl to slide.
+  tutorialTextSize: 32
 --- !u!43 &1063471677
 Mesh:
   m_ObjectHideFlags: 0
@@ -55583,6 +55839,127 @@ Transform:
   - {fileID: 510393052}
   m_Father: {fileID: 564385952}
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+--- !u!1 &1172992341
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1172992342}
+  - component: {fileID: 1172992346}
+  - component: {fileID: 1172992345}
+  - component: {fileID: 1172992344}
+  - component: {fileID: 1172992343}
+  m_Layer: 2
+  m_Name: UnGravityswitch
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1172992342
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1172992341}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 29.489502, y: -85.77, z: 112.17}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 969841738}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1172992343
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1172992341}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9480e49da9bc07b46a6f5be747ffaa4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tutorialTextObj: {fileID: 1244947298}
+  tutorialText: Press R again to switch back.
+  tutorialTextSize: 32
+--- !u!65 &1172992344
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1172992341}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 7, y: 3.6121397, z: 14}
+  m_Center: {x: 2, y: 8.968445, z: -10.5}
+--- !u!23 &1172992345
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1172992341}
+  m_Enabled: 0
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &1172992346
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1172992341}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1173405915
 GameObject:
   m_ObjectHideFlags: 0
@@ -60620,6 +60997,7 @@ MonoBehaviour:
   tutorialText: Passing through hazards and getting hit by enemies inflict damage.
     Over time spent moving, damage is repaired. The blue Static Meter displays repair
     progress
+  tutorialTextSize: 0
 --- !u!1 &1315712188
 GameObject:
   m_ObjectHideFlags: 0
@@ -64831,7 +65209,7 @@ PrefabInstance:
     - target: {fileID: 6553596424285861691, guid: 6a488df31cab1d8419d2ef7c83f2e0fa,
         type: 3}
       propertyPath: tutorialText
-      value: Stage 1 of Reboot Process Complete
+      value: Stage 1 of reboot process complete.
       objectReference: {fileID: 0}
     - target: {fileID: 6553596424285861691, guid: 6a488df31cab1d8419d2ef7c83f2e0fa,
         type: 3}
@@ -67056,7 +67434,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tutorialTextObj: {fileID: 1244947298}
-  tutorialText: While grounded, press R to change your gravity direction
+  tutorialText: Press R to switch your gravity direction.
+  tutorialTextSize: 32
 --- !u!1 &1559701515
 GameObject:
   m_ObjectHideFlags: 0
@@ -68779,6 +69158,7 @@ MonoBehaviour:
   tutorialTextObj: {fileID: 1244947298}
   tutorialText: When Singularity Grappel is complete, sliding afterwards maintains
     acceleration
+  tutorialTextSize: 0
 --- !u!1 &1621022847
 GameObject:
   m_ObjectHideFlags: 0
@@ -72629,6 +73009,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tutorialTextObj: {fileID: 1244947298}
   tutorialText: While grounded, press R to change your gravity direction
+  tutorialTextSize: 0
 --- !u!1 &1743464422
 GameObject:
   m_ObjectHideFlags: 0
@@ -74017,7 +74398,7 @@ PrefabInstance:
     - target: {fileID: 4308313251276258500, guid: 6b65dbe96f5987646b8f6ce979096315,
         type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4609364726978990740, guid: 6b65dbe96f5987646b8f6ce979096315,
         type: 3}
@@ -75534,7 +75915,7 @@ GameObject:
   - component: {fileID: 1776865768}
   - component: {fileID: 1776865771}
   m_Layer: 2
-  m_Name: Jump+DoubleJump
+  m_Name: Jump
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -75549,7 +75930,7 @@ Transform:
   m_GameObject: {fileID: 1776865766}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 29.489502, y: -88.82483, z: 33.746216}
+  m_LocalPosition: {x: 29.489502, y: -88.82483, z: 29.93}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -75574,8 +75955,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 36, y: 12.274515, z: 23}
-  m_Center: {x: 2.5, y: 4.6372576, z: -11}
+  m_Size: {x: 36, y: 12.274515, z: 8.71665}
+  m_Center: {x: 2.5, y: 4.6372576, z: -18.141674}
 --- !u!23 &1776865769
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -75639,8 +76020,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tutorialTextObj: {fileID: 1244947298}
-  tutorialText: Press Spacebar once to Jump. Press again while Jumping to Double
-    Jump
+  tutorialText: '
+
+    Press Spacebar to jump.'
+  tutorialTextSize: 32
 --- !u!43 &1776951752
 Mesh:
   m_ObjectHideFlags: 0
@@ -77072,7 +77455,7 @@ Transform:
   m_GameObject: {fileID: 1842622305}
   serializedVersion: 2
   m_LocalRotation: {x: -0.70710707, y: -0, z: -0, w: 0.70710653}
-  m_LocalPosition: {x: -2691.9634, y: 1304.7954, z: -522.4751}
+  m_LocalPosition: {x: -2691.9634, y: 1304.8, z: -525.13}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -78727,7 +79110,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tutorialTextObj: {fileID: 1244947298}
-  tutorialText: 'REBOOTING: Press W,A,S, and D to move. Move Mouse to lookaround'
+  tutorialText: 'initializing reboot...
+
+    Move with WASD.'
+  tutorialTextSize: 32
 --- !u!1 &1927904725
 GameObject:
   m_ObjectHideFlags: 0
@@ -79401,6 +79787,31 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 570281196610181006, guid: 18c222711ae4d124ea2d4bcd031c8200,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 968433423}
+    - target: {fileID: 570281196610181006, guid: 18c222711ae4d124ea2d4bcd031c8200,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 968433427}
+    - target: {fileID: 570281196610181006, guid: 18c222711ae4d124ea2d4bcd031c8200,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: unpauseScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 570281196610181006, guid: 18c222711ae4d124ea2d4bcd031c8200,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: loadSceneFromName
+      objectReference: {fileID: 0}
+    - target: {fileID: 570281196610181006, guid: 18c222711ae4d124ea2d4bcd031c8200,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_StringArgument
+      value: Assets/Scenes/Tutorial/Tutorial.unity
+      objectReference: {fileID: 0}
     - target: {fileID: 791966469754065880, guid: 18c222711ae4d124ea2d4bcd031c8200,
         type: 3}
       propertyPath: m_IsActive
@@ -79526,6 +79937,26 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2238736898374440044, guid: 18c222711ae4d124ea2d4bcd031c8200,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 968433423}
+    - target: {fileID: 2238736898374440044, guid: 18c222711ae4d124ea2d4bcd031c8200,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 968433427}
+    - target: {fileID: 2238736898374440044, guid: 18c222711ae4d124ea2d4bcd031c8200,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: unpauseScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 2238736898374440044, guid: 18c222711ae4d124ea2d4bcd031c8200,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: loadSceneFromIndex
+      objectReference: {fileID: 0}
     - target: {fileID: 2402628749891794229, guid: 18c222711ae4d124ea2d4bcd031c8200,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -79611,6 +80042,31 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5687786935176596674, guid: 18c222711ae4d124ea2d4bcd031c8200,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5687786935176596674, guid: 18c222711ae4d124ea2d4bcd031c8200,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 968433423}
+    - target: {fileID: 5687786935176596674, guid: 18c222711ae4d124ea2d4bcd031c8200,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: unpauseScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 5687786935176596674, guid: 18c222711ae4d124ea2d4bcd031c8200,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: pauseMenu, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5687786935176596674, guid: 18c222711ae4d124ea2d4bcd031c8200,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: pauseMenu.unpauseScene
+      objectReference: {fileID: 0}
     - target: {fileID: 6516682027491480698, guid: 18c222711ae4d124ea2d4bcd031c8200,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -79640,6 +80096,41 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchorMin.x
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7475242940099705523, guid: 18c222711ae4d124ea2d4bcd031c8200,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 968433428}
+    - target: {fileID: 7475242940099705523, guid: 18c222711ae4d124ea2d4bcd031c8200,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 968433423}
+    - target: {fileID: 7475242940099705523, guid: 18c222711ae4d124ea2d4bcd031c8200,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 968433427}
+    - target: {fileID: 7475242940099705523, guid: 18c222711ae4d124ea2d4bcd031c8200,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: resetCheckpoint
+      objectReference: {fileID: 0}
+    - target: {fileID: 7475242940099705523, guid: 18c222711ae4d124ea2d4bcd031c8200,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: unpauseScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 7475242940099705523, guid: 18c222711ae4d124ea2d4bcd031c8200,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: loadSceneFromName
+      objectReference: {fileID: 0}
+    - target: {fileID: 7475242940099705523, guid: 18c222711ae4d124ea2d4bcd031c8200,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_StringArgument
+      value: Assets/Scenes/Tutorial/Tutorial.unity
       objectReference: {fileID: 0}
     - target: {fileID: 8165943133835859232, guid: 18c222711ae4d124ea2d4bcd031c8200,
         type: 3}
@@ -84735,6 +85226,7 @@ MonoBehaviour:
   tutorialText: 'FINAL STAGE OF REBOOT: Press Right Mouse Button with the Revolver
     selected to shoot Singularity. When Singularity collides, it explodes in an area,
     dealing damage'
+  tutorialTextSize: 0
 --- !u!43 &2096913586
 Mesh:
   m_ObjectHideFlags: 0
