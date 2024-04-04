@@ -1,6 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor;
+//using UnityEditor;
 using UnityEngine;
 using UnityEngine.TextCore.LowLevel;
 
@@ -94,13 +94,13 @@ public class turretAI : MonoBehaviour
         canShoot = true;
     }
 
-    private void OnDrawGizmosSelected()
+   /* private void OnDrawGizmosSelected()
     {
-        Gizmos.DrawWireSphere(targetPos, 1f);
+       Gizmos.DrawWireSphere(targetPos, 1f);
         Gizmos.DrawWireSphere(transform.position, minDistance);
         Gizmos.color = Color.blue;
         Handles.DrawWireDisc(transform.position + (transform.up) * upperLimit, transform.up, 15f);
         Gizmos.color = Color.yellow;
         Handles.DrawWireDisc(transform.position + (transform.up) * LowerLimit, transform.up, 15f);
-    }
+    } */
 }
