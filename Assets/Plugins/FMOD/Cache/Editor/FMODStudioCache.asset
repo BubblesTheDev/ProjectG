@@ -530,13 +530,44 @@ MonoBehaviour:
   - {fileID: 864248155092032278}
   - {fileID: -2321790037442310491}
   - {fileID: 1098407043873176951}
+  - {fileID: 4173235379788271173}
+  - {fileID: 1854478602704228675}
+  - {fileID: 380789299883059863}
+  - {fileID: 4481174465434659724}
   EditorParameters: []
   MasterBanks:
   - {fileID: 4883315120985568252}
   StringsBanks:
   - {fileID: 3843432265056097603}
-  cacheTime: 638480564739158319
+  cacheTime: 638481962502058395
   cacheVersion: 131609
+--- !u!114 &380789299883059863
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Voice/Cutscenes/Introduction/Cutscene 1
+  m_EditorClassIdentifier: 
+  Path: event:/Voice/Cutscenes/Introduction/Cutscene 1
+  Guid:
+    Data1: 1342895852
+    Data2: 1230569938
+    Data3: -918795895
+    Data4: 319997101
+  Banks:
+  - {fileID: 5353744429915709391}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 20427
 --- !u!114 &534173237965124997
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -665,6 +696,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 100
   Length: 221
+--- !u!114 &1854478602704228675
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Voice/Cutscenes/Introduction/Cutscene 4
+  m_EditorClassIdentifier: 
+  Path: event:/Voice/Cutscenes/Introduction/Cutscene 4
+  Guid:
+    Data1: 1748972461
+    Data2: 1325830697
+    Data3: -1631393605
+    Data4: 1420724760
+  Banks:
+  - {fileID: 5353744429915709391}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 23336
 --- !u!114 &2168155667829160280
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -761,10 +819,10 @@ MonoBehaviour:
   Path: Assets/FMOD/FMOD Project/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638480564738698286
+  lastModified: 638481962501935826
   FileSizes:
   - Name: Desktop
-    Value: 2808
+    Value: 2992
   Exists: 1
 --- !u!114 &3890302438635225771
 MonoBehaviour:
@@ -820,6 +878,60 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 2081
+--- !u!114 &4173235379788271173
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Voice/Cutscenes/Introduction/Cutscene 2
+  m_EditorClassIdentifier: 
+  Path: event:/Voice/Cutscenes/Introduction/Cutscene 2
+  Guid:
+    Data1: -289960902
+    Data2: 1170145378
+    Data3: -2085881699
+    Data4: -1943915741
+  Banks:
+  - {fileID: 5353744429915709391}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 34048
+--- !u!114 &4481174465434659724
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Voice/Cutscenes/Introduction/Cutscene 3
+  m_EditorClassIdentifier: 
+  Path: event:/Voice/Cutscenes/Introduction/Cutscene 3
+  Guid:
+    Data1: 1382901496
+    Data2: 1118103609
+    Data3: -1640978283
+    Data4: -1467592035
+  Banks:
+  - {fileID: 5353744429915709391}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 30187
 --- !u!114 &4792414614558086289
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -936,10 +1048,10 @@ MonoBehaviour:
   Path: Assets/FMOD/FMOD Project/Build/Desktop/Voice.bank
   Name: Voice
   StudioPath: bank:/Voice
-  lastModified: 638480564739158319
+  lastModified: 638481962502058395
   FileSizes:
   - Name: Desktop
-    Value: 477792
+    Value: 1692320
   Exists: 1
 --- !u!114 &5688237650512554211
 MonoBehaviour:
