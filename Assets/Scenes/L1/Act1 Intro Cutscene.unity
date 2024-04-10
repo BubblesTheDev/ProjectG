@@ -815,11 +815,11 @@ MonoBehaviour:
   CollisionTag: 
   EventReference:
     Guid:
-      Data1: 1342895852
-      Data2: 1230569938
-      Data3: -918795895
-      Data4: 319997101
-    Path: event:/Voice/Cutscenes/Introduction/Cutscene 1
+      Data1: -289960902
+      Data2: 1170145378
+      Data3: -2085881699
+      Data4: -1943915741
+    Path: event:/Voice/Cutscenes/Introduction/Cutscene 2
   Event: 
   PlayEvent: 11
   StopEvent: 12
@@ -1107,9 +1107,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1303228262}
   - component: {fileID: 1303228261}
-  - component: {fileID: 1303228260}
   - component: {fileID: 1303228263}
   - component: {fileID: 1303228264}
+  - component: {fileID: 1303228265}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1117,14 +1117,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &1303228260
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1303228259}
-  m_Enabled: 1
 --- !u!20 &1303228261
 Camera:
   m_ObjectHideFlags: 0
@@ -1247,6 +1239,19 @@ MonoBehaviour:
     mipBias: 0
     varianceClampScale: 0.9
     contrastAdaptiveSharpening: 0
+--- !u!114 &1303228265
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1303228259}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attenuationObject: {fileID: 0}
 --- !u!1 &1340049067
 GameObject:
   m_ObjectHideFlags: 0
@@ -1479,6 +1484,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1534835160}
+  - component: {fileID: 1534835161}
   m_Layer: 5
   m_Name: intro_1
   m_TagString: Untagged
@@ -1511,6 +1517,37 @@ RectTransform:
   m_AnchoredPosition: {x: 160, y: 0}
   m_SizeDelta: {x: 3000, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1534835161
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1534835159}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 1342895852
+      Data2: 1230569938
+      Data3: -918795895
+      Data4: 319997101
+    Path: event:/Voice/Cutscenes/Introduction/Cutscene 1
+  Event: 
+  PlayEvent: 1
+  StopEvent: 12
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  AllowNonRigidbodyDoppler: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &1579705792
 GameObject:
   m_ObjectHideFlags: 0
@@ -1520,6 +1557,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1579705793}
+  - component: {fileID: 1579705794}
   m_Layer: 5
   m_Name: intro_3
   m_TagString: Untagged
@@ -1547,6 +1585,37 @@ RectTransform:
   m_AnchoredPosition: {x: 160, y: 0}
   m_SizeDelta: {x: 3000, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1579705794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1579705792}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 1382901496
+      Data2: 1118103609
+      Data3: -1640978283
+      Data4: -1467592035
+    Path: event:/Voice/Cutscenes/Introduction/Cutscene 3
+  Event: 
+  PlayEvent: 1
+  StopEvent: 12
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  AllowNonRigidbodyDoppler: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &1635266472
 GameObject:
   m_ObjectHideFlags: 0
@@ -1872,6 +1941,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2111608530}
+  - component: {fileID: 2111608531}
   m_Layer: 5
   m_Name: intro_4
   m_TagString: Untagged
@@ -1899,6 +1969,37 @@ RectTransform:
   m_AnchoredPosition: {x: 160, y: 0}
   m_SizeDelta: {x: 3000, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2111608531
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2111608529}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 1748972461
+      Data2: 1325830697
+      Data3: -1631393605
+      Data4: 1420724760
+    Path: event:/Voice/Cutscenes/Introduction/Cutscene 4
+  Event: 
+  PlayEvent: 1
+  StopEvent: 12
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  AllowNonRigidbodyDoppler: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &2127413143
 GameObject:
   m_ObjectHideFlags: 0
