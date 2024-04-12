@@ -6,11 +6,11 @@ using UnityEngine.UI;
 public class IntroCutsceneParallax : MonoBehaviour
 {
 
-    [SerializeField] private float moveAmt;
-    [SerializeField] private float moveTime;
+    [SerializeField] private float moveAmt, moveTime, sizeChange;
     [SerializeField] private AnimationCurve movementCurve;
     [SerializeField] private Vector2 startingImagePos;
-    [SerializeField] private bool isEnabled;
+    [SerializeField] private Vector3 startingSize;
+    [SerializeField] private bool isEnabled, isVertical;
     public int w;
 
     // Start is called before the first frame update
@@ -18,6 +18,7 @@ public class IntroCutsceneParallax : MonoBehaviour
     {
         isEnabled = false;
         startingImagePos = gameObject.GetComponent<RectTransform>().position;
+        startingSize = gameObject.GetComponent<RectTransform>().localScale;
         w = Screen.width;
     }
 
@@ -36,7 +37,9 @@ public class IntroCutsceneParallax : MonoBehaviour
         {
             timer += Time.deltaTime;
             float movement = movementCurve.Evaluate(timer / moveTime);
-            gameObject.GetComponent<RectTransform>().position = new Vector2(Mathf.Lerp(startingImagePos.x, startingImagePos.x + (w / moveAmt), movement), startingImagePos.y);
+            if(!isVertical) gameObject.GetComponent<RectTransform>().position = new Vector2(Mathf.Lerp(startingImagePos.x, startingImagePos.x + (w / moveAmt), movement), startingImagePos.y);
+            else gameObject.GetComponent<RectTransform>().position = new Vector2(startingImagePos.x, Mathf.Lerp(startingImagePos.y, startingImagePos.y + (w / moveAmt), movement));
+            if (sizeChange > 0) gameObject.GetComponent<RectTransform>().localScale = Vector3.Lerp(startingSize, new Vector3(startingSize.x + (sizeChange), startingSize.y + (sizeChange), startingSize.z + (sizeChange)), movement);
             yield return null;
         }
     }
