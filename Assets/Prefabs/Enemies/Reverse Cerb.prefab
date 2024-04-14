@@ -16,7 +16,7 @@ PrefabInstance:
     - target: {fileID: 4660804150345737709, guid: 4046dae819e329d429d5edddab639859,
         type: 3}
       propertyPath: midRangeDistance
-      value: 20
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 7574805889209413413, guid: 4046dae819e329d429d5edddab639859,
         type: 3}
