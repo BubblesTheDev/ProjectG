@@ -13,6 +13,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Reverse Cerb
       objectReference: {fileID: 0}
+    - target: {fileID: 4123826904883642579, guid: 4046dae819e329d429d5edddab639859,
+        type: 3}
+      propertyPath: timeToDie
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 4660804150345737709, guid: 4046dae819e329d429d5edddab639859,
         type: 3}
       propertyPath: midRangeDistance

@@ -89,7 +89,7 @@ public class roomEnemySpawner : MonoBehaviour
         float timer = 0;
         while( timer < timeToSlowTime && Time.timeScale != 1)
         {
-            Time.timeScale += .005f * timeToSlowTime;
+            Time.timeScale += Time.unscaledDeltaTime; 
             if (Time.timeScale > 1) Time.timeScale = 1;
             yield return null;
         }

@@ -77,7 +77,7 @@ MonoBehaviour:
   currentHP: 2
   maxHp: 2
   moveSpeed: 17
-  timeToDie: 1
+  timeToDie: 0.1
   VFX_onHit:
   - {fileID: 150786714540562983}
   VFX_onDeath:
