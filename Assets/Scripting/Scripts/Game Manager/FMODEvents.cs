@@ -41,6 +41,7 @@ public class FMODEvents : MonoBehaviour
     [field: SerializeField] public EventReference slideSFX { get; private set; }
     [field: SerializeField] public EventReference runSFX { get; private set; }
     [field: SerializeField] public EventReference groundSlamSFX { get; private set; }
+    [field: SerializeField] public EventReference deathJingle { get; private set; }
 
     [field: Header("Voices")]
     [field: SerializeField] public EventReference checkpointVoice1 { get; private set; }

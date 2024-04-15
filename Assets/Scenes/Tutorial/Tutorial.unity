@@ -7054,18 +7054,18 @@ MonoBehaviour:
     Path: event:/SFX/Enemy Sound FX/Enemy Hit
   <turretCharge>k__BackingField:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: 112903888
+      Data2: 1256043858
+      Data3: 1938954397
+      Data4: 1609838027
+    Path: event:/SFX/Gun Sounds/Enemy Gun Sound/Turret/Turret Charging
   <turretShoot>k__BackingField:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: 1477663674
+      Data2: 1142735024
+      Data3: 1563186093
+      Data4: 452553798
+    Path: event:/SFX/Gun Sounds/Enemy Gun Sound/Turret/Turret Shooting
   <cerberusShoot>k__BackingField:
     Guid:
       Data1: 1793321758
