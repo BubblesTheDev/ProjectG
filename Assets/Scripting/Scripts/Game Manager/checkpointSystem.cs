@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class checkpointSystem : MonoBehaviour
@@ -16,7 +17,8 @@ public class checkpointSystem : MonoBehaviour
     public float timeToFadeOut = .25f;
     private GameObject playerObj;
     private GameObject orientationObj;
-    
+
+    private bool debugEnabled;
 
     private void Awake()
     {
@@ -30,6 +32,11 @@ public class checkpointSystem : MonoBehaviour
                 orientationObj.transform.rotation = checkPointSpawnPositions[PlayerPrefs.GetInt("checkpointIndex")].transform.rotation;
             }
         } 
+    }
+
+    void Update()
+    {
+        debugOptions();
     }
 
     public IEnumerator getCheckpoint()
@@ -78,5 +85,44 @@ public class checkpointSystem : MonoBehaviour
     {
         checkPointIndex = 0;
         PlayerPrefs.SetInt("checkpointIndex", checkPointIndex);
+    }
+
+    void debugOptions()
+    {
+        if (Input.GetKeyDown(KeyCode.KeypadEnter))
+        {
+            Time.timeScale = 0;
+            debugEnabled = true;
+            print("Entering Checkpoint Debug");
+        }
+        else if (Input.GetKeyUp(KeyCode.KeypadEnter))
+        {
+            Time.timeScale = 1;
+            debugEnabled = false;
+            print("Exiting Checkpoint Debug");
+
+            updateCheckpoint(checkPointIndex);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
+
+        if (debugEnabled)
+        {
+            if(Input.GetKeyDown(KeyCode.KeypadPlus))
+            {
+                checkPointIndex++;
+                print("You are moving to checkpoint index " + checkPointIndex);
+                if (checkPointIndex == checkPointSpawnPositions.Count) checkPointIndex = 0;
+
+                orientationObj.transform.position = checkPointSpawnPositions[checkPointIndex].transform.position;
+            }
+            else if (Input.GetKeyDown(KeyCode.KeypadMinus))
+            {
+                checkPointIndex--;
+                print("You are moving to checkpoint index " + checkPointIndex);
+                if (checkPointIndex < 0) checkPointIndex = checkPointSpawnPositions.Count;
+
+                orientationObj.transform.position = checkPointSpawnPositions[checkPointIndex].transform.position;
+            }
+        }
     }
 }
