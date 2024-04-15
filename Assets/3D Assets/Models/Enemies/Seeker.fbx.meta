@@ -33,7 +33,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: InnerHead
-    second: {fileID: 2100000, guid: 7ac11dde89c68104a879f0a6e5c3a17a, type: 2}
+    second: {fileID: 2100000, guid: 50eb9695793002d40b59eb0153f62b0f, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
