@@ -123,6 +123,307 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &15875256
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 15875257}
+  - component: {fileID: 15875258}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &15875257
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 15875256}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 369064502}
+  m_Father: {fileID: 1515977857}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &15875258
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 15875256}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a09445adfbbb6f46ac2bacf2160be34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  masterVolume: 1
+  musicVolume: 1
+  ambienceVolume: 1
+  SFXVolume: 1
+  voiceVolume: 1
+  roomSpawnerContainer: {fileID: 0}
+  roomSpawners: []
+  enemiesPerSpawner: 
+  enemies: 0
+--- !u!1 &369064501
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 369064502}
+  - component: {fileID: 369064503}
+  m_Layer: 0
+  m_Name: FMODEvents
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &369064502
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 369064501}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 15875257}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &369064503
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 369064501}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4097604b9ede52041aab4dc2998146fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <battleMusic>k__BackingField:
+    Guid:
+      Data1: -78251982
+      Data2: 1083087641
+      Data3: -1943385688
+      Data4: -152275262
+    Path: event:/Music/All Music
+  <titleMusic>k__BackingField:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  <ambience>k__BackingField:
+    Guid:
+      Data1: -811502381
+      Data2: 1270080454
+      Data3: 1150117001
+      Data4: -355763186
+    Path: event:/Ambience/ambience
+  <pistolShot>k__BackingField:
+    Guid:
+      Data1: -574071897
+      Data2: 1179578397
+      Data3: -1150068829
+      Data4: 579732067
+    Path: event:/SFX/Gun Sounds/Pistol Shot
+  <chargePistolSFX>k__BackingField:
+    Guid:
+      Data1: 986441018
+      Data2: 1287545106
+      Data3: -1932799077
+      Data4: 594670293
+    Path: event:/SFX/Gun Sounds/Charge Pistol
+  <chargePistolShot>k__BackingField:
+    Guid:
+      Data1: 1298386868
+      Data2: 1149654962
+      Data3: -902554459
+      Data4: 871122270
+    Path: event:/SFX/Gun Sounds/Charged Pistol Shot
+  <chargePistolExplode>k__BackingField:
+    Guid:
+      Data1: -10004578
+      Data2: 1274547090
+      Data3: -1587619649
+      Data4: 2049857463
+    Path: event:/SFX/Gun Sounds/Charged Pistol Hit
+  <shotgunShotNoCock>k__BackingField:
+    Guid:
+      Data1: -503321063
+      Data2: 1082164412
+      Data3: -12904
+      Data4: -1269078503
+    Path: event:/SFX/Gun Sounds/Shotgun Shot (No Cocking)
+  <shotgunShotCock>k__BackingField:
+    Guid:
+      Data1: 1074811739
+      Data2: 1129934216
+      Data3: 1136135100
+      Data4: 247813690
+    Path: event:/SFX/Gun Sounds/Shotgun Shot (With Cocking)
+  <altShotgunShot>k__BackingField:
+    Guid:
+      Data1: -1939906233
+      Data2: 1333849241
+      Data3: -1463344719
+      Data4: -260092655
+    Path: event:/SFX/Gun Sounds/Shotgun Alt Fire
+  <enemyShot>k__BackingField:
+    Guid:
+      Data1: 539128367
+      Data2: 1168579498
+      Data3: 514425242
+      Data4: 380053724
+    Path: event:/SFX/Gun Sounds/Enemy Gun Sound/Enemy Gun Sound
+  <gravitySwitch>k__BackingField:
+    Guid:
+      Data1: -60893937
+      Data2: 1134104818
+      Data3: -1301918803
+      Data4: 971747040
+    Path: event:/SFX/Gravity Switch/Game Ready/Gravity Switch 2
+  <enemySpawn>k__BackingField:
+    Guid:
+      Data1: 1202879218
+      Data2: 1103647499
+      Data3: 627866271
+      Data4: -1358632427
+    Path: event:/SFX/Enemy Respawn/Enemy Spawn
+  <bruiserHit>k__BackingField:
+    Guid:
+      Data1: -1043548677
+      Data2: 1116360480
+      Data3: -1033206359
+      Data4: -395226062
+    Path: event:/SFX/Enemy Sound FX/Enemy Hit
+  <turretCharge>k__BackingField:
+    Guid:
+      Data1: 112903888
+      Data2: 1256043858
+      Data3: 1938954397
+      Data4: 1609838027
+    Path: event:/SFX/Gun Sounds/Enemy Gun Sound/Turret/Turret Charging
+  <turretShoot>k__BackingField:
+    Guid:
+      Data1: 1477663674
+      Data2: 1142735024
+      Data3: 1563186093
+      Data4: 452553798
+    Path: event:/SFX/Gun Sounds/Enemy Gun Sound/Turret/Turret Shooting
+  <cerberusShoot>k__BackingField:
+    Guid:
+      Data1: 1793321758
+      Data2: 1239889091
+      Data3: -488457082
+      Data4: 86664935
+    Path: event:/SFX/Gun Sounds/Enemy Gun Sound/CerberusShoot
+  <seekerDash>k__BackingField:
+    Guid:
+      Data1: 1928463593
+      Data2: 1181052641
+      Data3: -2011994437
+      Data4: 289928841
+    Path: event:/SFX/Enemy Sound FX/Seeker/Seeker Dash
+  <seekerSlash>k__BackingField:
+    Guid:
+      Data1: 1373525824
+      Data2: 1074399326
+      Data3: 271494844
+      Data4: -1767074056
+    Path: event:/SFX/Enemy Sound FX/Seeker/Seeker Slash
+  <jumpSFX>k__BackingField:
+    Guid:
+      Data1: -171374389
+      Data2: 1256537327
+      Data3: -583741272
+      Data4: 99735812
+    Path: event:/SFX/Player Movement/Jump Sound
+  <dashSFX>k__BackingField:
+    Guid:
+      Data1: 438259432
+      Data2: 1184730574
+      Data3: -431571327
+      Data4: 863848330
+    Path: event:/SFX/Player Movement/Dash
+  <regenSFX>k__BackingField:
+    Guid:
+      Data1: -1903588572
+      Data2: 1272489897
+      Data3: -541396804
+      Data4: -1150250774
+    Path: event:/SFX/Regen
+  <slideSFX>k__BackingField:
+    Guid:
+      Data1: 183932647
+      Data2: 1314470019
+      Data3: 1168790170
+      Data4: -835152268
+    Path: event:/SFX/Sliding SFX
+  <runSFX>k__BackingField:
+    Guid:
+      Data1: -861133359
+      Data2: 1266428314
+      Data3: 1492272020
+      Data4: 536496857
+    Path: event:/SFX/Player Movement/Regular Walk
+  <groundSlamSFX>k__BackingField:
+    Guid:
+      Data1: -173427178
+      Data2: 1294063777
+      Data3: 567003780
+      Data4: 1686740701
+    Path: event:/SFX/Player Movement/Ground Slam
+  <deathJingle>k__BackingField:
+    Guid:
+      Data1: -664604313
+      Data2: 1247168376
+      Data3: 2022771601
+      Data4: -753564240
+    Path: event:/SFX/Death Jingle
+  <checkpointVoice1>k__BackingField:
+    Guid:
+      Data1: -2143884834
+      Data2: 1197249068
+      Data3: 1798085821
+      Data4: 10976281
+    Path: event:/Voice/Checkpoints/Voice 1
+  <checkpointVoice2>k__BackingField:
+    Guid:
+      Data1: 1778655612
+      Data2: 1201189920
+      Data3: 2015897776
+      Data4: 316763039
+    Path: event:/Voice/Checkpoints/Voice 2
+  <checkpointVoice3>k__BackingField:
+    Guid:
+      Data1: -1199845348
+      Data2: 1274183170
+      Data3: -576906862
+      Data4: 444926132
+    Path: event:/Voice/Checkpoints/Voice 3
 --- !u!1 &1339412318
 GameObject:
   m_ObjectHideFlags: 0
@@ -656,7 +957,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 15875257}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1515977858
