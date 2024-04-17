@@ -58,6 +58,7 @@ public class basicRangedAI : MonoBehaviour
     private void Update()
     {
         if (canShoot && Vector3.Distance(transform.position, ref_PlayerRB.transform.position) < midRangeDistance) StartCoroutine(closeRangeShot());
+        if (canShoot && Vector3.Distance(transform.position, ref_PlayerRB.transform.position) > midRangeDistance) StartCoroutine(longRangehot());
     }
 
     private void FixedUpdate()
@@ -115,7 +116,7 @@ public class basicRangedAI : MonoBehaviour
             if(muzzleFlash != null) muzzleFlash.Play();
 
             GameObject temp = Instantiate(enemyBullet, firePoints[firePointIndex].transform.position, Quaternion.LookRotation(leadingDir.normalized), GameObject.Find("Bullet Storage").transform);
-            temp.GetComponent<Rigidbody>().velocity = temp.transform.forward * bulletSpeedShortRange;
+            temp.GetComponent<Rigidbody>().velocity = temp.transform.forward * 45f;
             AudioManager.instance.PlaySFX(FMODEvents.instance.cerberusShoot, this.transform.position);
 
             yield return new WaitForSeconds(fireRateShortRange);
@@ -127,4 +128,28 @@ public class basicRangedAI : MonoBehaviour
         canShoot = true;
     }
 
+    private IEnumerator longRangehot()
+    {
+        canShoot = false;
+        ref_rangedAnimator.SetLayerWeight(2, 1);
+        for (int i = 0; i < 3; i++)
+        {
+            //Calculates the position to aim at
+            int firePointIndex = Random.Range(0, firePoints.Count);
+            Vector3 leadingDir = (ref_PlayerObj.transform.position + ref_PlayerRB.velocity * Time.deltaTime) - firePoints[firePointIndex].transform.position;
+            ref_rangedAnimator.Play("CerbAttack", 2);
+            if (muzzleFlash != null) muzzleFlash.Play();
+
+            GameObject temp = Instantiate(enemyBullet, firePoints[firePointIndex].transform.position, Quaternion.LookRotation(leadingDir.normalized), GameObject.Find("Bullet Storage").transform);
+            temp.GetComponent<Rigidbody>().velocity = temp.transform.forward * bulletSpeedShortRange;
+            AudioManager.instance.PlaySFX(FMODEvents.instance.cerberusShoot, this.transform.position);
+
+            yield return new WaitForSeconds(.33f);
+        }
+        ref_rangedAnimator.SetLayerWeight(2, 0);
+
+        // AudioManager.instance.PlaySFX(FMODEvents.instance.cerberusShoot, this.transform.position);
+        yield return new WaitForSeconds(2f);
+        canShoot = true;
+    }
 }
