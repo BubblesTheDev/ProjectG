@@ -83,7 +83,7 @@ public class meleeBruiserAI : MonoBehaviour
             if(punchHitbox.bounds.Intersects(ref_playerCollider.bounds) && !hasHitPlayerThisAttack) 
             {
                 hasHitPlayerThisAttack = true;
-                StartCoroutine(ref_PlayerStats.takeDamage(damage));
+                ref_PlayerStats.startTakingDMG(damage);
             }
 
             temp += Time.deltaTime;
