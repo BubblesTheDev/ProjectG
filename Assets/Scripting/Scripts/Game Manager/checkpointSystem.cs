@@ -119,7 +119,7 @@ public class checkpointSystem : MonoBehaviour
             {
                 checkPointIndex--;
                 print("You are moving to checkpoint index " + checkPointIndex);
-                if (checkPointIndex < 0) checkPointIndex = checkPointSpawnPositions.Count;
+                if (checkPointIndex < 0) checkPointIndex = checkPointSpawnPositions.Count-1;
 
                 orientationObj.transform.position = checkPointSpawnPositions[checkPointIndex].transform.position;
             }

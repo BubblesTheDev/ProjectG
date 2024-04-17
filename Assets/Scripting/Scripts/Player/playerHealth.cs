@@ -31,7 +31,6 @@ public class playerHealth : MonoBehaviour
     {
         // currentHP = maxHp;
         rb = GetComponent<Rigidbody>();
-        deathSceneIndex = SceneManager.GetActiveScene().buildIndex;
         canTakeDamage = true;
     }
 
@@ -74,6 +73,7 @@ public class playerHealth : MonoBehaviour
     {
         yield return null;
         SceneManager.LoadScene(deathSceneIndex);
+        Cursor.visible = true;
     }
 
     public void startTakingDMG(int damage)
