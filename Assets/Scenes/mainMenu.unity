@@ -447,7 +447,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 5db4aa8a9f72daa40a1728446be26cdb, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d7c5441e24354c04997116ad7551af20, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1504,6 +1504,13 @@ MonoBehaviour:
       Data3: 567003780
       Data4: 1686740701
     Path: event:/SFX/Player Movement/Ground Slam
+  <deathJingle>k__BackingField:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
   <checkpointVoice1>k__BackingField:
     Guid:
       Data1: -2143884834
