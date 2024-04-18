@@ -45,7 +45,7 @@ public class shotgunPower : weaponPowerBase
         {
             weaponPowerIcon.value = cooldown / powerCooldown;
         }
-        //OnDrawGizmos();
+        // OnDrawGizmos();
 
     }
 
@@ -114,7 +114,7 @@ public class shotgunPower : weaponPowerBase
 /*    void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireCube(boundsPosition.transform.position, transform.gameObject.GetComponent<BoxCollider>().size);
+        Gizmos.DrawWireCube(boundsPosition.transform.position, halfHitboxSize * 2);
 
     }*/
 
