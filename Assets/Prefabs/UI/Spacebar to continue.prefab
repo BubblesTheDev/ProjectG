@@ -66,10 +66,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Press Spacebar to Continue
+  m_text: Press [Spacebar] to continue
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: a68462df29dcc5a47bb394ddaef04a7b, type: 2}
-  m_sharedMaterial: {fileID: -4334064483861592443, guid: a68462df29dcc5a47bb394ddaef04a7b,
+  m_fontAsset: {fileID: 11400000, guid: 683bd6dbd4bb7d94c94eebc9bb014697, type: 2}
+  m_sharedMaterial: {fileID: -257681115732858609, guid: 683bd6dbd4bb7d94c94eebc9bb014697,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -130,7 +130,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: -13.770782, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
