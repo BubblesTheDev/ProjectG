@@ -867,7 +867,7 @@ MonoBehaviour:
   timerRemaining: 1
   timerIsRunning: 0
   timerText: 
-  SceneBuildIndex: 3
+  SceneBuildIndex: 4
 --- !u!4 &430879864
 Transform:
   m_ObjectHideFlags: 0
